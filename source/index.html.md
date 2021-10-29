@@ -2847,8 +2847,8 @@ curl "https://api.hbdm.com/linear-swap-ex/market/depth?contract_code=BTC-USDT&ty
 | ch     | true | string | 数据所属的 channel，格式： market.period         |                |
 | status | true | string | 请求处理结果                                  | "ok" , "error" |
 | \<tick\> |  true    |   object     |               |                |
-| asks   | true | array | 卖盘,[price(挂单价), vol(此价格挂单张数)], 按price升序 |                |
-| bids   | true | array | 买盘,[price(挂单价), vol(此价格挂单张数)], 按price降序 |                |
+| asks   | false | array | 卖盘,[price(挂单价), vol(此价格挂单张数)], 按price升序 |                |
+| bids   | false | array | 买盘,[price(挂单价), vol(此价格挂单张数)], 按price降序 |                |
 | ch     | true | string | 数据所属的 channel，格式： market.period         |                |
 | id     | true | long | 消息id        |                |
 | mrid   | true | long | 订单ID                                    |                |
@@ -2924,8 +2924,8 @@ curl "https://api.hbdm.com/linear-swap-ex/market/depth?contract_code=BTC-USDT&ty
 | \<ticks\> |true  |  object array |           |                |
 | contract_code  | true | string  | 合约代码  | "BTC-USDT","ETH-USDT"...   |
 | mrid   | true | long | 撮合ID，唯一标识  |                |
-| ask   | true | array | [卖1价,卖1量(张)] |                |
-| bid   | true | array | [买1价,买1量(张)] |                |
+| ask   | false | array | [卖1价,卖1量(张)] |                |
+| bid   | false | array | [买1价,买1量(张)] |                |
 | ts   | true | long | 系统检测orderbook时间点，单位：毫秒   |                |
 | \</ticks\>            |      |        |               |                |
 | ts     | true | long | 响应生成时间点，单位：毫秒                            |                |
@@ -13015,8 +13015,8 @@ ts | true | long | 数据进入行情服务器时间戳，单位：毫秒 | |
 \<tick\>   |               |    |      |            | 
 mrid  | true| long | 订单ID | 
 id  | true| long | tick ID | 
-asks | true | object |卖盘,[price(挂单价), vol(此价格挂单张数)], 按price升序 | | 
-bids | true| object | 买盘,[price(挂单价), vol(此价格挂单张数)], 按price降序 | | 
+asks | false | object |卖盘,[price(挂单价), vol(此价格挂单张数)], 按price升序 | | 
+bids | false| object | 买盘,[price(挂单价), vol(此价格挂单张数)], 按price降序 | | 
 ts | true | long | 深度生成时间戳，每100MS生成一次，单位：毫秒 | |
 version | true | long | 版本号 | |
 ch | true |  string | 数据所属的 channel，格式： market.period | | 
@@ -13299,8 +13299,8 @@ bid  |  true  |  array  |   [买1价,买1量(张)]	  |
 | ch | true |  string | 数据所属的 channel，格式： market.$contract_code.bbo | |
 | mrid  | true| string | 订单ID | |
 | id  | true| long | tick ID | |
-| ask | true | array |卖一盘,[price(挂单价), vol(此价格挂单张数)] | |
-| bid | true| array | 买一盘,[price(挂单价), vol(此价格挂单张数)] | |
+| ask | false | array |卖一盘,[price(挂单价), vol(此价格挂单张数)] | |
+| bid | false| array | 买一盘,[price(挂单价), vol(此价格挂单张数)] | |
 | version | true| long | 版本号 | |
 | ts | true | long | 响应生成时间点，单位：毫秒（指数据生成时间）| |
 | \<\tick\> | | |  | |
