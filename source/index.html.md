@@ -2876,7 +2876,7 @@ curl "https://api.hbdm.com/market/depth?symbol=BTC_CQ&type=step5"
 }
 ```
 
-###  Returning Parameter  
+###  Returning Parameter 
 
 |   Parameter Name   |   Mandatory   |   Data Type   |   Desc                                                       |   Value Range   |
 | ------------------ | ------------- | ------------- | ------------------------------------------------------------ | --------------- |
