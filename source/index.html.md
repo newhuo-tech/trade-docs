@@ -2879,7 +2879,7 @@ curl "https://api.hbdm.com/linear-swap-ex/market/depth?contract_code=BTC-USDT&ty
 |step15、step13|10|
 
 
-## 【通用】获取市场最优挂单
+## 【通用】获取市场最优挂单 
 
  - GET `/linear-swap-ex/market/bbo`
 
