@@ -2991,7 +2991,7 @@ sub_transfer_master | true | int | 从子账号划转到母账号的权限："1"
 
 ## 获取行情深度数据
 
-###  示例
+###  示例 
 
 - GET `/market/depth` 
 
