@@ -4733,14 +4733,14 @@ curl <span class="s2">"https://api.hbdm.com/swap-ex/market/depth?contract_code=B
 </tr>
 <tr>
 <td>asks</td>
-<td>true</td>
+<td>false</td>
 <td>object</td>
 <td>卖盘,[price(挂单价), vol(此价格挂单张数)], 按price升序</td>
 <td></td>
 </tr>
 <tr>
 <td>bids</td>
-<td>true</td>
+<td>false</td>
 <td>object</td>
 <td>买盘,[price(挂单价), vol(此价格挂单张数)], 按price降序</td>
 <td></td>
@@ -4931,14 +4931,14 @@ curl <span class="s2">"https://api.hbdm.com/swap-ex/market/depth?contract_code=B
 </tr>
 <tr>
 <td>ask</td>
-<td>true</td>
+<td>false</td>
 <td>array</td>
 <td>[卖1价,卖1量(张)]</td>
 <td></td>
 </tr>
 <tr>
 <td>bid</td>
-<td>true</td>
+<td>false</td>
 <td>array</td>
 <td>[买1价,买1量(张)]</td>
 <td></td>
@@ -21663,14 +21663,14 @@ curl <span class="s2">"https://api.hbdm.com/index/market/history/swap_basis?cont
 </tr>
 <tr>
 <td>asks</td>
-<td>true</td>
+<td>false</td>
 <td>object</td>
 <td>卖盘,[price(挂单价), vol(此价格挂单张数)], 按price升序</td>
 <td></td>
 </tr>
 <tr>
 <td>bids</td>
-<td>true</td>
+<td>false</td>
 <td>object</td>
 <td>买盘,[price(挂单价), vol(此价格挂单张数)], 按price降序</td>
 <td></td>
@@ -22296,14 +22296,14 @@ curl <span class="s2">"https://api.hbdm.com/index/market/history/swap_basis?cont
 </tr>
 <tr>
 <td>ask</td>
-<td>true</td>
+<td>false</td>
 <td>array</td>
 <td>卖一盘,[price(挂单价), vol(此价格挂单张数)]</td>
 <td></td>
 </tr>
 <tr>
 <td>bid</td>
-<td>true</td>
+<td>false</td>
 <td>array</td>
 <td>买一盘,[price(挂单价), vol(此价格挂单张数)]</td>
 <td></td>
@@ -27846,10 +27846,10 @@ curl <span class="s2">"https://api.hbdm.com/index/market/history/swap_basis?cont
         //如果是英文环境
         lang_btn.innerHTML = '中文';
         btn_spot.innerHTML = 'Spot';
-        btn_dm.innerHTML = 'Futures';
+        btn_dm.innerHTML = 'Coin-M Futures';
         // btn_swap.innerHTML = 'SWAP API';
-        btn_coin_margined_swap.innerHTML = 'Coin Margined Swap';
-        btn_usdt_swap.innerHTML = 'USDT Margined Swap';
+        btn_coin_margined_swap.innerHTML = 'Coin-M Swaps';
+        btn_usdt_swap.innerHTML = 'USDT-M Swaps';
       //  btn_option.innerHTML = 'Option';
         lang_btn.href = url.replace('en/', 'cn/');
         btn_spot.href = btn_spot.href.replace('cn/', 'en/');
