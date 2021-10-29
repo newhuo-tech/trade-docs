@@ -2479,8 +2479,8 @@ curl "https://api.hbdm.com/swap-ex/market/depth?contract_code=BTC-USD&type=step5
 | \<tick\>    |               |    |      |            | 
 | mrid  | true| string | Order ID| 
 | id  | true| string | tick ID | 
-| asks | true | object |Sell,[price(Ask price), vol(Ask orders (cont.) )], price in ascending sequence | | 
-| bids | true| object | Buy,[price(Bid price), vol(Bid orders(Cont.))], Price in descending sequence | | 
+| asks | false | object |Sell,[price(Ask price), vol(Ask orders (cont.) )], price in ascending sequence | | 
+| bids | false| object | Buy,[price(Bid price), vol(Bid orders(Cont.))], Price in descending sequence | | 
 | ts | true | long | Time of Respond Generation, Unit: Millisecond  | |
 | version | true | long | version ID  | |
 | ch | true |  string | Data channel, Format： market.period | | 
@@ -2528,8 +2528,8 @@ curl "https://api.hbdm.com/swap-ex/market/depth?contract_code=BTC-USD&type=step5
 | \<ticks\> |true  |  object array |           |                |
 | contract_code  | true | string  | contract code  | "BTC-USD","ETH-USD"...   |
 | mrid   | true | long | Match ID, unique identification  |                |
-| ask   | true | array | [Ask 1 price, Ask 1 qty (cont)] |                |
-| bid   | true | array | [Bid 1 price, Bid 1 qty (cont)] |                |
+| ask   | false | array | [Ask 1 price, Ask 1 qty (cont)] |                |
+| bid   | false | array | [Bid 1 price, Bid 1 qty (cont)] |                |
 | ts   | true | long | The system detects the orderbook time point, unit: milliseconds   |                |
 | \</ticks\>            |      |        |               |                |
 | ts     | true | long | Time of Respond Generation, Unit: Millisecond                            |                |
@@ -8659,8 +8659,8 @@ ch | true |  string | Data channel, Format： market.period | |
  \<tick\>    |               |    |      |            | 
 mrid  | true| long | Order ID| 
 id  | true| long | tick ID | 
-asks | true | object |Sell,[price(Ask price), vol(Ask orders (cont.) )], price in ascending sequence | | 
-bids | true| object | Buy,[price(Bid price), vol(Bid orders(Cont.))], Price in descending sequence | | 
+asks | false | object |Sell,[price(Ask price), vol(Ask orders (cont.) )], price in ascending sequence | | 
+bids | false| object | Buy,[price(Bid price), vol(Bid orders(Cont.))], Price in descending sequence | | 
 ts | true | long | Timestamp for depth generation; generated once every 100ms, unit: millisecond   | |
 version | true | long | version ID  | |
 ch | true |  string | Data channel, Format： market.period | | 
@@ -8934,8 +8934,8 @@ bid  | true| array | Buy,[price(Bid price), vol(Bid orders(Cont.))] | |
 | ch | true |  string | Data channel, Format： market.$contract_code.bbo | |
 | mrid  | true| string | Order ID | |
 | id  | true| long | tick ID | |
-| ask | true | array | Best Ask Quotation,[price(Ask price), vol(Ask order (cont.) )] | |
-| bid | true| array | Best Bid Quotation,[price(Bid price), vol(Bid order(Cont.))] | |
+| ask | false | array | Best Ask Quotation,[price(Ask price), vol(Ask order (cont.) )] | |
+| bid | false| array | Best Bid Quotation,[price(Bid price), vol(Bid order(Cont.))] | |
 | version | true| long | version ID. | |
 | ts | true | long |  Time of Respond Generation, Unit: Millisecond  | |
 | \<\tick\> | | |  | |
