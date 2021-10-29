@@ -2973,7 +2973,7 @@ ts  |  true  |  long  |  最新成交时间 |   |
 
 ## 批量获取最近的交易记录
 
-###  示例
+###  示例 
 
 - GET `/swap-ex/market/history/trade`
 
