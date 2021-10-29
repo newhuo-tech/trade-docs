@@ -2886,8 +2886,8 @@ curl "https://api.hbdm.com/market/depth?symbol=BTC_CQ&type=step5"
 | \<tick\>    |               |    |      |            | 
 | mrid  | true| long | Order ID| 
 | id  | true| long | tick ID | 
-| asks | true | array |Sell,[price(Ask price), vol(Ask orders (cont.) )], price in ascending sequence | | 
-| bids | true| array | Buy,[price(Bid price), vol(Bid orders(Cont.))], Price in descending sequence | | 
+| asks | false | array |Sell,[price(Ask price), vol(Ask orders (cont.) )], price in ascending sequence | | 
+| bids | false| array | Buy,[price(Bid price), vol(Bid orders(Cont.))], Price in descending sequence | | 
 | ts | true | long | Time of Respond Generation, Unit: Millisecond  | |
 | version | true | long | version ID  | |
 | ch | true |  string | Data channel, Format： market.period | | 
@@ -2938,8 +2938,8 @@ curl "https://api.hbdm.com/market/depth?symbol=BTC_CQ&type=step5"
 | \<ticks\> |true  |  object array |           |                |
 | symbol  | true | string  | symbol  | "BTC","ETH"...   |
 | mrid   | true | long | Match ID, unique identification  |                |
-| ask   | true | array | [Ask 1 price, Ask 1 qty (cont)] |                |
-| bid   | true | array | [Bid 1 price, Bid 1 qty (cont)] |                |
+| ask   | false | array | [Ask 1 price, Ask 1 qty (cont)] |                |
+| bid   | false | array | [Bid 1 price, Bid 1 qty (cont)] |                |
 | ts   | true | long | The system detects the orderbook time point, unit: milliseconds   |                |
 | \</ticks\>            |      |        |               |                |
 | ts     | true | long | Time of Respond Generation, Unit: Millisecond                            |                |
@@ -8882,8 +8882,8 @@ ch | true |  string | Data channel, Format： market.period | |
  \<tick\>    |               |    |      |            | 
 mrid  | true| long | Order ID| 
 id  | true| ling | tick ID | 
-asks | true | object |Sell,[price(Ask price), vol(Ask orders (cont.) )], price in ascending sequence | | 
-bids | true| object | Buy,[price(Bid price), vol(Bid orders(Cont.))], Price in descending sequence | | 
+asks | false | object |Sell,[price(Ask price), vol(Ask orders (cont.) )], price in ascending sequence | | 
+bids | false| object | Buy,[price(Bid price), vol(Bid orders(Cont.))], Price in descending sequence | | 
 ts | true | long | Timestamp for depth generation; generated once every 100ms, unit: millisecond   | |
 version | true | long | version ID  | |
 ch | true |  string | Data channel, Format： market.period | | 
@@ -9063,8 +9063,8 @@ ch | true |  string | Data channel, Format：`market.$symbol.bbo`  | |
  \<tick\>    |               |    |      |            | 
 mrid  | true| long | Order ID| 
 id  | true| long | tick ID | 
-ask | true | object |Best Ask Quotation,[price(Ask price), vol(Ask order (cont.) )] | | 
-bid | true| object | Best Bid Quotation,[price(Bid price), vol(Bid order(Cont.))]| | 
+ask | false | object |Best Ask Quotation,[price(Ask price), vol(Ask order (cont.) )] | | 
+bid | false| object | Best Bid Quotation,[price(Bid price), vol(Bid order(Cont.))]| | 
 ts | true | long | Time of Respond Generation, Unit: Millisecond  | |
 version | true | long | version ID.  | |
 ch | true |  string | Data channel, Format： `market.$symbol.bbo` | | 
