@@ -2811,9 +2811,9 @@ ts  |  true  |  long  |    响应生成时间点，单位：毫秒  |    |
   low    |     true          | string   |  最低价    |            
   high    |     true          | string   |  最高价    |            
   amount    |     true          | string   |  成交量(币), 即 sum(每一笔成交量(张) * 单张合约面值/该笔成交价) （最近24（当前时间-24小时）小时成交量币）。 值是买卖双边之和 |            
-ask | true | object |卖盘,[price(挂单价), vol(此价格挂单张数)], 按price升序 | | 
-bid| true| object | 买盘,[price(挂单价), vol(此价格挂单张数)], 按price降序 | | 
-ts  |  true  |  long  |    时间戳  |    | 
+  ask | false | object |卖盘,[price(挂单价), vol(此价格挂单张数)], 按price升序 | | 
+  bid| false| object | 买盘,[price(挂单价), vol(此价格挂单张数)], 按price降序 | | 
+  ts  |  true  |  long  |    时间戳  |    | 
   \</tick\>    |               |     |      | 
 
 
@@ -2891,8 +2891,8 @@ ts  |  true  |  long  |    时间戳  |    |
 | contract_code   | true | string  | 合约代码 | "BTC-USD" ...  |
 | id   | true | long | K线id |                |
 | amount   | true | string | 成交量(币) （最近24（当前时间-24小时）小时成交量币）。 值是买卖双边之和 |                |
-| ask   | true | array | [卖1价,卖1量(张)] |                |
-| bid   | true | array | [买1价,买1量(张)] |                |
+| ask   | false | array | [卖1价,卖1量(张)] |                |
+| bid   | false | array | [买1价,买1量(张)] |                |
 | open     | true | string | 开盘价     |                |
 | close     | true | string | 收盘价,当K线为最晚的一根时，是最新成交价       |                |
 | count     | true | decimal | 成交笔数 （最近24（当前时间-24小时）小时成交笔数）。 值是买卖双边之和      |                |
@@ -8784,8 +8784,8 @@ ts | true | long | 进入行情服务器系统时间点，单位：毫秒 | |
  \<tick\>    |               |    |      |            | 
 mrid  | true| long | 订单ID | 
 id  | true| long | tick ID | 
-asks | true | object |卖盘,[price(挂单价), vol(此价格挂单张数)], 按price升序 | | 
-bids | true| object | 买盘,[price(挂单价), vol(此价格挂单张数)], 按price降序 | | 
+asks | false | object |卖盘,[price(挂单价), vol(此价格挂单张数)], 按price升序 | | 
+bids | false| object | 买盘,[price(挂单价), vol(此价格挂单张数)], 按price降序 | | 
 ts | true | long | 系统检测orderbook时间点，单位：毫秒 | |
 version | true | long | 版本号 | |
 ch | true |  string | 数据所属的 channel，格式： market.$contract_code.depth.size_${size}.high_freq | | 
@@ -8888,8 +8888,8 @@ low  |  true  |  decimal  |    最低价  |
 amount  |  true  |  decimal  |    成交量(币), 即 sum(每一笔成交量(张) * 单张合约面值/该笔成交价)。 值是买卖双边之和 |   
 vol  |  true  |  decimal  |   成交量（张）。 值是买卖双边之和  |     
 count  |  true  |  decimal  |   成交笔数。 值是买卖双边之和 |     
-ask  |  true  |  array  |   [卖1价,卖1量(张)]  |   
-bid  |  true  |  array  |   [买1价,买1量(张)]  |   
+ask  |  false  |  array  |   [卖1价,卖1量(张)]  |   
+bid  |  false  |  array  |   [买1价,买1量(张)]  |   
  \</tick\>    |               |    |      |  
  
 #### 备注
