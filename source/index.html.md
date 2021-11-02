@@ -4780,7 +4780,7 @@ If the order price is greater than the highest buy price in the market, the orde
 | --------------- | --------- | ------------------------------------------- |
 | status          | string  | status                      |
 | \<data\>        | object  |                              |
-| order-id        | integer   | The order id                                |
+| order-id        | long      | The order id                                |
 | client-order-id | string    | The client order id (if available)          |
 | err-code        | string    | The error code (only for rejected order)    |
 | err-msg         | string    | The error message (only for rejected order) |
@@ -4966,11 +4966,11 @@ This endpoint returns all open orders which have not been filled completely.
 | ------------------ | --------- | ------------------------------------------------------------ |
 | status             | string  | status  |
 | \<data\>           | object  |     |
-| id                 | integer   | Order id                                                     |
+| id                 | long      | Order id                                                     |
 | client-order-id    | string    | Client order id, can be returned from all open orders (if specified). |
 | symbol             | string    | The trading symbol to trade, e.g. btcusdt, bccbtc            |
 | price              | string    | The limit price of limit order                               |
-| created-at         | int       | The timestamp in milliseconds when the order was created     |
+| created-at         | long      | The timestamp in milliseconds when the order was created     |
 | type               | string    | All possible order type (refer to introduction in this section) |
 | filled-amount      | string    | The amount which has been filled                             |
 | filled-cash-amount | string    | The filled total in quote currency                           |
