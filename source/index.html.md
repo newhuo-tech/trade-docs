@@ -4817,7 +4817,7 @@ API Key 权限：交易<br>
 | --------------- | -------- | ------------------------------------ |
 | status          | string  | 状态                             |
 | \<data\>        | object  |                              |
-| order-id        | integer  | 订单编号                             |
+| order-id        | long    | 订单编号                             |
 | client-order-id | string   | 用户自编订单号（如有）               |
 | err-code        | string   | 订单被拒错误码（仅对被拒订单有效）   |
 | err-msg         | string   | 订单被拒错误信息（仅对被拒订单有效） |
@@ -5085,11 +5085,11 @@ API Key 权限：读取<br>
 | ------------------ | -------- | ------------------------------------------------------ |
 | status             | string  | 状态  |
 | \<data\>           | object  |     |
-| id                 | integer  | 订单id，无大小顺序，可作为下一次翻页查询请求的from字段 |
+| id                 | long     | 订单id，无大小顺序，可作为下一次翻页查询请求的from字段 |
 | client-order-id    | string   | 用户自编订单号（所有open订单可返回client-order-id）    |
 | symbol             | string   | 交易对, 例如btcusdt, ethbtc                            |
 | price              | string   | limit order的交易价格                                  |
-| created-at         | int      | 订单创建的调整为新加坡时间的时间戳，单位毫秒           |
+| created-at         | long     | 订单创建的调整为新加坡时间的时间戳，单位毫秒           |
 | type               | string   | 订单类型                                               |
 | filled-amount      | string   | 订单中已成交部分的数量                                 |
 | filled-cash-amount | string   | 订单中已成交部分的总价格                               |
