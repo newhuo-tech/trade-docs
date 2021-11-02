@@ -4774,7 +4774,7 @@ If the order price is greater than the highest buy price in the market, the orde
 }
 ```
 
-### Response Content
+### Response Content 
 
 | Field           | Data Type | Description                                 |
 | --------------- | --------- | ------------------------------------------- |
