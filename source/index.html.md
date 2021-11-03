@@ -5046,7 +5046,7 @@ API Key 权限：读取<br>
 
 | 参数名称   | 数据类型 | 是否必需                                         | 默认值 | 描述                                                         |
 | ---------- | -------- | ------------------------------------------------ | ------ | ------------------------------------------------------------ |
-| account-id | string   | true                                             | NA     | 账户 ID，取值参考 `GET /v1/account/accounts`。现货交易使用‘spot’账户的 account-id；逐仓杠杆交易，请使用 ‘margin’ 账户的 account-id；全仓杠杆交易，请使用 ‘super-margin’ 账户的 account-id；c2c杠杆交易，请使用borrow账户的account-id |
+| account-id | string   | false                                            | NA     | 账户 ID，取值参考 `GET /v1/account/accounts`。现货交易使用‘spot’账户的 account-id；逐仓杠杆交易，请使用 ‘margin’ 账户的 account-id；全仓杠杆交易，请使用 ‘super-margin’ 账户的 account-id；c2c杠杆交易，请使用borrow账户的account-id |
 | symbol     | string   | false                                            | NA     | 交易对,即btcusdt, ethbtc...（取值参考`GET /v1/common/symbols`） |
 | side       | string   | false                                            | NA     | 指定只返回某一个方向的订单，可能的值有: buy, sell. 默认两个方向都返回。 |
 | types      | string | false |        |查询的订单类型组合，使用逗号分割|
