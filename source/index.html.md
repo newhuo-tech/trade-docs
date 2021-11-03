@@ -4928,7 +4928,7 @@ This endpoint returns all open orders which have not been filled completely.
 
 | Parameter  | Data Type | Required                                                     | Default | Description                                | Value Range                                                  |
 | ---------- | --------- | ------------------------------------------------------------ | ------- | ------------------------------------------ | ------------------------------------------------------------ |
-| account-id | string    | true                                                         | NA      | The account id used for this trade         | Refer to `GET /v1/account/accounts`                          |
+| account-id | string    | false                                                        | NA      | The account id used for this trade         | Refer to `GET /v1/account/accounts`                          |
 | symbol     | string    | false                                                        | NA      | The trading symbol to trade                | Refer to `GET /v1/common/symbols`                            |
 | side       | string    | false                                                        | NA      | Filter on the direction of the trade       | buy, sell                                                    |
 | from       | string    | false                                                        | NA      | start order ID the searching to begin with |                                                              |
