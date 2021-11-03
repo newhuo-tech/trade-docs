@@ -4924,7 +4924,7 @@ This endpoint returns all open orders which have not been filled completely.
 }
 ```
 
-### Request Parameters 
+### Request Parameters
 
 | Parameter  | Data Type | Required                                                     | Default | Description                                | Value Range                                                  |
 | ---------- | --------- | ------------------------------------------------------------ | ------- | ------------------------------------------ | ------------------------------------------------------------ |
