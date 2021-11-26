@@ -5594,7 +5594,7 @@ API Key 权限：读取<br>
 
 | 参数名称   | 是否必须 | 类型   | 描述                                                         | 默认值         | 取值范围                                               |
 | ---------- | -------- | ------ | ------------------------------------------------------------ | -------------- | ------------------------------------------------------ |
-| symbol     | false    | string | 交易对                                                       | all            | btcusdt, ethbtc...（取值参考`GET /v1/common/symbols`） |
+| symbol     | false    | string | 交易对                                                       |             | btcusdt, ethbtc...（取值参考`GET /v1/common/symbols`） |
 | start-time | false    | long   | 查询起始时间（含）   | 48小时前的时刻 | UTC time in millisecond     |
 | end-time   | false    | long   | 查询结束时间（含）     | 查询时刻       | UTC time in millisecond      |
 | direct     | false    | string | 订单查询方向（注：仅在检索出的总条目数量超出size字段限定时起作用；如果检索出的总条目数量在size 字段限定内，direct 字段不起作用。） | next           | prev 向前, next 向后                                   |
