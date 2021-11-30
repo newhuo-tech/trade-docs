@@ -5928,8 +5928,8 @@ API Key 权限：读取
 | cancel-disabled                                              | 交易对暂停，无法撤单                                         |
 | order-invalid-price                                          | 下单价格非法（如市价单不能有价格，或限价单价格超过市场价10%） |
 | order-accountbalance-error                                   | 账户余额不足                                                 |
-| order-limitorder-price-min-error                             | 卖出价格不能低于指定价格                                     |
-| order-limitorder-price-max-error                             | 买入价格不能高于指定价格                                     |
+| order-limitorder-price-min-error                             | 卖出价格不能低于指定价格（限价卖出不能低于市场价90%）                                     |
+| order-limitorder-price-max-error                             | 买入价格不能高于指定价格（限价买入不能高于市场价110%）                                    |
 | order-limitorder-amount-min-error                            | 下单数量不能低于指定数量                                     |
 | order-limitorder-amount-max-error                            | 下单数量不能高于指定数量                                     |
 | order-etp-nav-price-min-error                                | 下单价格不能低于净值的指定比率                               |
@@ -5984,8 +5984,8 @@ A： 可使用 Rest API `GET /v1/common/symbols` 获取相关币对信息， 下
 - order-value-min-error: 下单金额小于最小交易额  
 - order-orderprice-precision-error : 限价单价格精度错误  
 - order-orderamount-precision-error : 下单数量精度错误  
-- order-limitorder-price-max-error : 限价单价格高于限价阈值  
-- order-limitorder-price-min-error : 限价单价格低于限价阈值  
+- order-limitorder-price-max-error : 限价单价格高于限价阈值（限价买入不能高于市场价110%） 
+- order-limitorder-price-min-error : 限价单价格低于限价阈值（限价卖出不能低于市场价90%）  
 - order-limitorder-amount-max-error : 限价单数量高于限价阈值  
 - order-limitorder-amount-min-error : 限价单数量低于限价阈值  
 
