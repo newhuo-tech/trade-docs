@@ -30,8 +30,10 @@ table th {
 
 | Release Time <br>(UTC +8) | API  | New / Update    | Description     |
 | ------------------------ | ---------------------- | --------------- | ------------------------------------- |
-| 2021.8.19 | `accounts.update#${mode}` | 优化 | Add "Serial Number of Account Change" parameter："seqNum" |
-| 2021.8.19 | `GET /v1/account/accounts/{account-id}/balance` | 优化 | Add "Serial Number of Account Change" parameter："seq-num" |
+| 2021.11.30 | `Query withdrawal order by client order id` | Add | Add "Query withdrawal order by client order id" |
+| 2021.11.30 | `/v1/dw/withdraw/api/create` | update | Add Request Parameters "client-order-id" |
+| 2021.8.19 | `accounts.update#${mode}` | Update | Add "Serial Number of Account Change" parameter："seqNum" |
+| 2021.8.19 | `GET /v1/account/accounts/{account-id}/balance` | Update | Add "Serial Number of Account Change" parameter："seq-num" |
 | 2021.8.12 | `market.$symbol.ticker` | Add | Add Market Ticker data |
 | 2021.8.12 | `market.$symbol.mbp.$levels` | Update | Add 400 depth data|
 | 2021.7.23 | `GET /v1/account/history` | Update | Detailed in detail the type of change in the account flow interface, that is, "Transact-Types" increases classification, such as Note 3. |
@@ -3366,6 +3368,10 @@ Parent user creates a withdraw request from spot account to an external address 
 | fee       | string    | true     | NA      | The fee to pay with this withdraw                            |
 | chain     | string    | false    | NA      | Refer to`GET /v2/reference/currencies`.Set as "usdt" to withdraw USDT to OMNI, set as "trc20usdt" to withdraw USDT to TRX |
 | addr-tag  | string    | false    | NA      | A tag specified for this address                             |
+| client-order-id	     |  string   | false  | NA  | client order id |          |
+
+### Note
+ - If the client-order-id(the id of withdrawal order) is not empty, idempotent verification will be performed. For the withdrawal request with the same client-order-id, the previously submitted successful withdrawal order id will be directly returned
 
 > The above command returns JSON structured like this:
 
@@ -3384,6 +3390,79 @@ Parent user creates a withdraw request from spot account to an external address 
 | data  | integer   | Transfer id |
 
 <aside class="notice">All new transfer id will be incremental to the previous ids. This allows search by transfer id sequences</aside>
+
+
+## Query withdrawal order by client order id
+
+API Key Permission: Read<br>
+
+### HTTP Request
+
+- GET `/internal/common/ams-dw/query/client-order-id`
+
+### Request Parameters
+
+| Parameter | Required | Data Type   | Description  | Value Range     |
+| -------- | -------- | ------ | ------------------------------------------------------------ | ------------------------------------------------------------ |
+| clientOrderId	 | true    | string | client order id (max 32 char)      |                                    |
+
+### Note
+- query the information of withdrawal order, which submitted by api interface. (it will return the information of withdrawal order which submitted with client order id. in the other it will return the null that withdrawal order submitted without with client order id)
+
+> Response:
+
+```json
+
+ {
+    "status": "ok",
+    "data": {
+        "id": 101123262,
+        "client-order-id": "1113",
+        "type": "withdraw",
+        "sub-type": "FAST",
+        "currency": "usdt",
+        "chain": "usdt",
+        "tx-hash": "",
+        "amount": 1.200000000000000000,
+        "from-addr-tag": "",
+        "address": "1PL24EbWrNNrnMKw1cxAHPsebUz7DdhWTx",
+        "address-tag": "",
+        "fee": 0E-18,
+        "state": "confirmed",
+        "created-at": 1637758163686,
+        "updated-at": 1637758251559
+    }
+}
+```
+
+### 响应数据
+
+| Parameter | Required | Data Type | Description    | Value Range |
+| -------- | -------- | -------- | ------- | -------- |
+| status  >     | true    | stirng     | status code  |          |
+| \<data\   >     | false    | long     |   |          |
+| address     | true    | string     | address |          |
+| client-order-id	     | true    | string     | client order id |          |
+| address-tag     | true    | string     | address tag	 |          |
+| amount     | true    | decimal     | amount |          |
+| blockchain-confirm     | false    | int     | the number of blockchain confirmations  |          |
+| chain     | false    | string     | chain |          |
+| created-at     | true    | long     | created at |          |
+| currency     | true    | string     | currency	 |          |
+| error-code     | true    | string     | error code |          |
+| error-msg     | true    | string     | error msg |          |
+| fee     | true    | decimal     | fee	 |          |
+| from-addr-tag     | true    | string     | from address tag  |          |
+| from-address     | false    | string     | from address |          |
+| id     | true    | long     | ID |          |
+| request-id     | true    | string	     | request id  |          |
+| state     | true    | string     | state |          |
+| tx-hash     | true    | string     | transmit hash |          |
+| type     | true    | string	     | type |          |
+| updated-at    | true    | long     | updated at |          |
+| user-id     | false    | long     | user id |          |
+| wallet-confirm     | false    | int     | the number of wallet confirmations |          |
+| \</data\>     | false    | long     |   |          |
 
 ## Cancel a Withdraw Request
 
