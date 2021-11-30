@@ -14660,11 +14660,11 @@ Response:</p>
 </tr>
 <tr>
 <td>order-limitorder-price-min-error</td>
-<td>卖出价格不能低于指定价格</td>
+<td>卖出价格不能低于指定价格（限价卖出不能低于市场价90%）</td>
 </tr>
 <tr>
 <td>order-limitorder-price-max-error</td>
-<td>买入价格不能高于指定价格</td>
+<td>买入价格不能高于指定价格（限价买入不能高于市场价110%）</td>
 </tr>
 <tr>
 <td>order-limitorder-amount-min-error</td>
@@ -14838,8 +14838,8 @@ Response:</p>
 <li>order-value-min-error: 下单金额小于最小交易额<br></li>
 <li>order-orderprice-precision-error : 限价单价格精度错误<br></li>
 <li>order-orderamount-precision-error : 下单数量精度错误<br></li>
-<li>order-limitorder-price-max-error : 限价单价格高于限价阈值<br></li>
-<li>order-limitorder-price-min-error : 限价单价格低于限价阈值<br></li>
+<li>order-limitorder-price-max-error : 限价单价格高于限价阈值（限价买入不能高于市场价110%） </li>
+<li>order-limitorder-price-min-error : 限价单价格低于限价阈值（限价卖出不能低于市场价90%）<br></li>
 <li>order-limitorder-amount-max-error : 限价单数量高于限价阈值<br></li>
 <li>order-limitorder-amount-min-error : 限价单数量低于限价阈值<br></li>
 </ul>
