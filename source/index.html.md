@@ -5564,7 +5564,7 @@ The orders created via API will no longer be queryable after being cancelled for
 
 | Parameter  | Required | Data Type | Description                                                  | Default Value         | Value Range                                                  |
 | ---------- | -------- | --------- | ------------------------------------------------------------ | --------------------- | ------------------------------------------------------------ |
-| symbol     | false    | string    | The trading symbol to trade                                  | all                   | All supported trading symbol, e.g. btcusdt, bccbtc.Refer to `GET /v1/common/symbols` |
+| symbol     | false    | string    | The trading symbol to trade                                  |                       | All supported trading symbol, e.g. btcusdt, bccbtc.Refer to `GET /v1/common/symbols` |
 | start-time | false    | long      | Start time (included)                                        | The time 48 hours ago | UTC time in millisecond                                      |
 | end-time   | false    | long      | End time (included)                                          | The query time        | UTC time in millisecond                                      |
 | direct     | false    | string    | Direction of the query. (Note: If the total number of items in the search result is within the limitation defined in "size", this field does not take effect.) | next                  | prev, next                                                   |
