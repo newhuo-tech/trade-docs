@@ -26,6 +26,8 @@ table th {
 
 | 生效时间<br>(UTC +8) | 接口     | 变化      | 摘要         |
 | ---------- | --------- | --------- | --------------- |
+| 2021.11.30 | `/v1/dw/withdraw/api/create` | 优化 | 新增请求参数"client-order-id" |
+| 2021.11.30 | `/internal/common/ams-dw/query/client-order-id` | 新增 | 通过clientOrderId查询提币订单 |
 | 2021.8.19 | `accounts.update#${mode}` | 优化 | 增加“账户变更的序号”参数“seqNum” |
 | 2021.8.19 | `GET /v1/account/accounts/{account-id}/balance` | 优化 | 增加“账户变更的序号”参数“seq-num” |
 | 2021.8.12 | `market.$symbol.ticker` | 新增 | 增加聚合行情（Ticker）数据 |
@@ -3394,6 +3396,10 @@ API Key 权限：提币<br>
 | fee      | true     | string | 转账手续费                                                   |                                                              |
 | chain    | false    | string | 取值参考`GET /v2/reference/currencies`,例如提USDT至OMNI时须设置此参数为"usdt"，提USDT至TRX时须设置此参数为"trc20usdt"，其他币种提币无须设置此参数 |                                                              |
 | addr-tag | false    | string | 虚拟币共享地址tag，适用于xrp，xem，bts，steem，eos，xmr      | 格式, "123"类的整数字符串                                    |
+| client-order-id	 | false    | string | 客户端提币订单ID（最长32位的字符串）      |                                    |
+
+### 备注
+- client-order-id（客户端提币订单ID）如果不为空，就会做幂等校验，相同client-order-id的提币请求，后发起的会直接返回前面提交成功的提币订单ID
 
 > Response:
 
@@ -3409,6 +3415,79 @@ API Key 权限：提币<br>
 | 参数名称 | 是否必须 | 数据类型 | 描述    | 取值范围 |
 | -------- | -------- | -------- | ------- | -------- |
 | data     | false    | long     | 提币 ID |          |
+
+
+## 通过clientOrderId查询提币订单
+
+API Key 权限：读取<br>
+
+### HTTP 请求
+
+- POST `/internal/common/ams-dw/query/client-order-id`
+
+### 请求参数
+
+| 参数名称 | 是否必须 | 类型   | 描述                                                         | 取值范围                                                     |
+| -------- | -------- | ------ | ------------------------------------------------------------ | ------------------------------------------------------------ |
+| clientOrderId	 | true    | string | 客户端提币订单ID（最长32位的字符串）      |                                    |
+
+### 备注
+- 用于查询api提币订单（api提币订单下单时使用了client-order-id，返回对应提币订单数据对象，如果api提币订单下单时没有传入client-order-id，返回空）
+
+> Response:
+
+```json
+
+ {
+    "status": "ok",
+    "data": {
+        "id": 101123262,
+        "client-order-id": "1113",
+        "type": "withdraw",
+        "sub-type": "FAST",
+        "currency": "usdt",
+        "chain": "usdt",
+        "tx-hash": "",
+        "amount": 1.200000000000000000,
+        "from-addr-tag": "",
+        "address": "1PL24EbWrNNrnMKw1cxAHPsebUz7DdhWTx",
+        "address-tag": "",
+        "fee": 0E-18,
+        "state": "confirmed",
+        "created-at": 1637758163686,
+        "updated-at": 1637758251559
+    }
+}
+```
+
+### 响应数据
+
+| 参数名称 | 是否必须 | 数据类型 | 描述    | 取值范围 |
+| -------- | -------- | -------- | ------- | -------- |
+| status  >     | true    | stirng     | 请求返回结果  |          |
+| \<data\   >     | false    | long     |   |          |
+| address     | true    | string     | 地址 |          |
+| client-order-id	     | true    | string     | 客户端提币订单ID |          |
+| address-tag     | true    | string     | 地址tag	 |          |
+| amount     | true    | decimal     | 数量 |          |
+| blockchain-confirm     | false    | int     | 区块链确认次数 |          |
+| chain     | false    | string     | 区块链 |          |
+| created-at     | true    | long     | 创建时间 |          |
+| currency     | true    | string     | 币种	 |          |
+| error-code     | true    | string     | 错误码 |          |
+| error-msg     | true    | string     | 错误信息 |          |
+| fee     | true    | decimal     | 手续费	 |          |
+| from-addr-tag     | true    | string     | 出款地址tag |          |
+| from-address     | false    | string     | 出款地址 |          |
+| id     | true    | long     | ID |          |
+| request-id     | true    | string	     | 唯一标识ID  |          |
+| state     | true    | string     | 状态 |          |
+| tx-hash     | true    | string     | 交易哈希 |          |
+| type     | true    | string	     | 类型 |          |
+| updated-at    | true    | long     | 更新时间 |          |
+| user-id     | false    | long     | 用户id |          |
+| wallet-confirm     | false    | int     | 钱包确认次数 |          |
+| \</data\>     | false    | long     |   |          |
 
 
 ## 取消提币
