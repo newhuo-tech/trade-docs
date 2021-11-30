@@ -482,6 +482,9 @@
                     <a href="#create-a-withdraw-request" class="toc-h2 toc-link" data-title="Create a Withdraw Request">Create a Withdraw Request</a>
                   </li>
                   <li>
+                    <a href="#query-withdrawal-order-by-client-order-id" class="toc-h2 toc-link" data-title="Query withdrawal order by client order id">Query withdrawal order by client order id</a>
+                  </li>
+                  <li>
                     <a href="#cancel-a-withdraw-request" class="toc-h2 toc-link" data-title="Cancel a Withdraw Request">Cancel a Withdraw Request</a>
                   </li>
                   <li>
@@ -845,15 +848,27 @@ table th {
 </tr>
 </thead><tbody>
 <tr>
+<td>2021.11.30</td>
+<td><code>Query withdrawal order by client order id</code></td>
+<td>Add</td>
+<td>Add &quot;Query withdrawal order by client order id&quot;</td>
+</tr>
+<tr>
+<td>2021.11.30</td>
+<td><code>/v1/dw/withdraw/api/create</code></td>
+<td>update</td>
+<td>Add Request Parameters &quot;client-order-id&quot;</td>
+</tr>
+<tr>
 <td>2021.8.19</td>
 <td><code>accounts.update#${mode}</code></td>
-<td>优化</td>
+<td>Update</td>
 <td>Add &quot;Serial Number of Account Change&quot; parameter：&quot;seqNum&quot;</td>
 </tr>
 <tr>
 <td>2021.8.19</td>
 <td><code>GET /v1/account/accounts/{account-id}/balance</code></td>
-<td>优化</td>
+<td>Update</td>
 <td>Add &quot;Serial Number of Account Change&quot; parameter：&quot;seq-num&quot;</td>
 </tr>
 <tr>
@@ -8187,7 +8202,18 @@ Rate Limit (NEW): 20times/2s</p>
 <td>NA</td>
 <td>A tag specified for this address</td>
 </tr>
+<tr>
+<td>client-order-id</td>
+<td>string</td>
+<td>false</td>
+<td>NA</td>
+<td>client order id</td>
+</tr>
 </tbody></table>
+<h3 id='note'>Note</h3>
+<ul>
+<li>If the client-order-id(the id of withdrawal order) is not empty, idempotent verification will be performed. For the withdrawal request with the same client-order-id, the previously submitted successful withdrawal order id will be directly returned</li>
+</ul>
 
 <blockquote>
 <p>The above command returns JSON structured like this:</p>
@@ -8213,18 +8239,250 @@ Rate Limit (NEW): 20times/2s</p>
 </tbody></table>
 
 <aside class="notice">All new transfer id will be incremental to the previous ids. This allows search by transfer id sequences</aside>
+<h2 id='query-withdrawal-order-by-client-order-id'>Query withdrawal order by client order id</h2>
+<p>API Key Permission: Read<br></p>
+<h3 id='http-request-29'>HTTP Request</h3>
+<ul>
+<li>GET <code>/internal/common/ams-dw/query/client-order-id</code></li>
+</ul>
+<h3 id='request-parameters-25'>Request Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Required</th>
+<th>Data Type</th>
+<th>Description</th>
+<th>Value Range</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>clientOrderId</td>
+<td>true</td>
+<td>string</td>
+<td>client order id (max 32 char)</td>
+<td></td>
+</tr>
+</tbody></table>
+<h3 id='note-2'>Note</h3>
+<ul>
+<li>query the information of withdrawal order, which submitted by api interface. (it will return the information of withdrawal order which submitted with client order id. in the other it will return the null that withdrawal order submitted without with client order id)</li>
+</ul>
+
+<blockquote>
+<p>Response:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="w">
+ </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ok"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">101123262</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"client-order-id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1113"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"withdraw"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"sub-type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"FAST"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"usdt"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"chain"</span><span class="p">:</span><span class="w"> </span><span class="s2">"usdt"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"tx-hash"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"amount"</span><span class="p">:</span><span class="w"> </span><span class="mf">1.200000000000000000</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"from-addr-tag"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1PL24EbWrNNrnMKw1cxAHPsebUz7DdhWTx"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"address-tag"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"fee"</span><span class="p">:</span><span class="w"> </span><span class="mi">0E-18</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"state"</span><span class="p">:</span><span class="w"> </span><span class="s2">"confirmed"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"created-at"</span><span class="p">:</span><span class="w"> </span><span class="mi">1637758163686</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"updated-at"</span><span class="p">:</span><span class="w"> </span><span class="mi">1637758251559</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre><h3 id='2213f4c32f'>响应数据</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Required</th>
+<th>Data Type</th>
+<th>Description</th>
+<th>Value Range</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>status  &gt;</td>
+<td>true</td>
+<td>stirng</td>
+<td>status code</td>
+<td></td>
+</tr>
+<tr>
+<td>&lt;data\   &gt;</td>
+<td>false</td>
+<td>long</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>address</td>
+<td>true</td>
+<td>string</td>
+<td>address</td>
+<td></td>
+</tr>
+<tr>
+<td>client-order-id</td>
+<td>true</td>
+<td>string</td>
+<td>client order id</td>
+<td></td>
+</tr>
+<tr>
+<td>address-tag</td>
+<td>true</td>
+<td>string</td>
+<td>address tag</td>
+<td></td>
+</tr>
+<tr>
+<td>amount</td>
+<td>true</td>
+<td>decimal</td>
+<td>amount</td>
+<td></td>
+</tr>
+<tr>
+<td>blockchain-confirm</td>
+<td>false</td>
+<td>int</td>
+<td>the number of blockchain confirmations</td>
+<td></td>
+</tr>
+<tr>
+<td>chain</td>
+<td>false</td>
+<td>string</td>
+<td>chain</td>
+<td></td>
+</tr>
+<tr>
+<td>created-at</td>
+<td>true</td>
+<td>long</td>
+<td>created at</td>
+<td></td>
+</tr>
+<tr>
+<td>currency</td>
+<td>true</td>
+<td>string</td>
+<td>currency</td>
+<td></td>
+</tr>
+<tr>
+<td>error-code</td>
+<td>true</td>
+<td>string</td>
+<td>error code</td>
+<td></td>
+</tr>
+<tr>
+<td>error-msg</td>
+<td>true</td>
+<td>string</td>
+<td>error msg</td>
+<td></td>
+</tr>
+<tr>
+<td>fee</td>
+<td>true</td>
+<td>decimal</td>
+<td>fee</td>
+<td></td>
+</tr>
+<tr>
+<td>from-addr-tag</td>
+<td>true</td>
+<td>string</td>
+<td>from address tag</td>
+<td></td>
+</tr>
+<tr>
+<td>from-address</td>
+<td>false</td>
+<td>string</td>
+<td>from address</td>
+<td></td>
+</tr>
+<tr>
+<td>id</td>
+<td>true</td>
+<td>long</td>
+<td>ID</td>
+<td></td>
+</tr>
+<tr>
+<td>request-id</td>
+<td>true</td>
+<td>string</td>
+<td>request id</td>
+<td></td>
+</tr>
+<tr>
+<td>state</td>
+<td>true</td>
+<td>string</td>
+<td>state</td>
+<td></td>
+</tr>
+<tr>
+<td>tx-hash</td>
+<td>true</td>
+<td>string</td>
+<td>transmit hash</td>
+<td></td>
+</tr>
+<tr>
+<td>type</td>
+<td>true</td>
+<td>string</td>
+<td>type</td>
+<td></td>
+</tr>
+<tr>
+<td>updated-at</td>
+<td>true</td>
+<td>long</td>
+<td>updated at</td>
+<td></td>
+</tr>
+<tr>
+<td>user-id</td>
+<td>false</td>
+<td>long</td>
+<td>user id</td>
+<td></td>
+</tr>
+<tr>
+<td>wallet-confirm</td>
+<td>false</td>
+<td>int</td>
+<td>the number of wallet confirmations</td>
+<td></td>
+</tr>
+<tr>
+<td>&lt;/data&gt;</td>
+<td>false</td>
+<td>long</td>
+<td></td>
+<td></td>
+</tr>
+</tbody></table>
 <h2 id='cancel-a-withdraw-request'>Cancel a Withdraw Request</h2>
 <p>API Key Permission：Withdraw<br>
 Rate Limit (NEW): 20times/2s</p>
 
 <p>Parent user cancels a previously created withdrawal request by its transfer id.</p>
-<h3 id='http-request-29'>HTTP Request</h3>
+<h3 id='http-request-30'>HTTP Request</h3>
 <ul>
 <li>POST <code>/v1/dw/withdraw-virtual/{withdraw-id}/cancel</code></li>
 </ul>
 
 <p>&#39;withdraw-id&#39;: the id returned when previously created a withdraw request</p>
-<h3 id='request-parameters-25'>Request Parameters</h3>
+<h3 id='request-parameters-26'>Request Parameters</h3>
 <aside class="notice">No parameter is needed for this endpoint</aside>
 
 <blockquote>
@@ -8254,11 +8512,11 @@ Rate Limit (NEW): 20times/2s</p>
 Rate Limit (NEW): 20times/2s</p>
 
 <p>Parent user and sub user search for all existed withdraws and deposits and return their latest status.</p>
-<h3 id='http-request-30'>HTTP Request</h3>
+<h3 id='http-request-31'>HTTP Request</h3>
 <ul>
 <li>GET <code>/v1/query/deposit-withdraw</code></li>
 </ul>
-<h3 id='request-parameters-26'>Request Parameters</h3>
+<h3 id='request-parameters-27'>Request Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -8635,11 +8893,11 @@ Rate Limit (NEW): 20times/2s</p>
 <p>This interface is to set the deduction fee for parent and sub user (HT or point ).</p>
 
 <p>API Key Permission：Trade</p>
-<h3 id='http-request-31'>HTTP Request</h3>
+<h3 id='http-request-32'>HTTP Request</h3>
 <ul>
 <li>POST <code>/v2/sub-user/deduct-mode</code></li>
 </ul>
-<h3 id='request-parameters-27'>Request Parameters</h3>
+<h3 id='request-parameters-28'>Request Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -8767,11 +9025,11 @@ Rate Limit (NEW): 20times/2s</p>
 <p>This  endpoint is used by the parent user to query their own API key information, and the parent user to query their sub user&#39;s API key information.</p>
 
 <p>API Key Permission：Read</p>
-<h3 id='http-request-32'>HTTP Request</h3>
+<h3 id='http-request-33'>HTTP Request</h3>
 <ul>
 <li>GET <code>/v2/user/api-key</code></li>
 </ul>
-<h3 id='request-parameters-28'>Request Parameters</h3>
+<h3 id='request-parameters-29'>Request Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -8929,11 +9187,11 @@ Rate Limit (NEW): 20times/2s</p>
 <p>This  endpoint allow users to view the user ID of the account easily. </p>
 
 <p>API Key Permission：Read</p>
-<h3 id='http-request-33'>HTTP Request</h3>
+<h3 id='http-request-34'>HTTP Request</h3>
 <ul>
 <li>GET <code>/v2/user/uid</code></li>
 </ul>
-<h3 id='request-parameters-29'>Request Parameters</h3>
+<h3 id='request-parameters-30'>Request Parameters</h3>
 <p>No parameters are needed for this endpoint.</p>
 
 <blockquote>
@@ -8979,7 +9237,7 @@ Rate Limit (NEW): 20times/2s</p>
 <p>This endpoint is used by the parent user to create sub users, up to 50 at a time</p>
 
 <p>API Key Permission：Trade</p>
-<h3 id='http-request-34'>HTTP Request</h3>
+<h3 id='http-request-35'>HTTP Request</h3>
 <ul>
 <li>POST <code>/v2/sub-user/creation</code></li>
 </ul>
@@ -8999,7 +9257,7 @@ Rate Limit (NEW): 20times/2s</p>
         </span><span class="p">}</span><span class="w">
     </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre><h3 id='request-parameters-30'>Request Parameters</h3>
+</span></code></pre><h3 id='request-parameters-31'>Request Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -9141,7 +9399,7 @@ Rate Limit (NEW): 20times/2s</p>
 <p>Via this endpoint parent user is able to query a full list of sub user&#39;s UID as well as their status.</p>
 
 <p>API Key Permission: Read</p>
-<h3 id='http-request-35'>HTTP Request</h3>
+<h3 id='http-request-36'>HTTP Request</h3>
 <ul>
 <li>GET <code>/v2/sub-user/user-list</code></li>
 </ul>
@@ -9247,11 +9505,11 @@ Rate Limit (NEW): 20times/2s</p>
 Rate Limit (NEW): 20times/2s</p>
 
 <p>This endpoint allows parent user to lock or unlock a specific sub user.</p>
-<h3 id='http-request-36'>HTTP Request</h3>
+<h3 id='http-request-37'>HTTP Request</h3>
 <ul>
 <li>POST <code>/v2/sub-user/management</code></li>
 </ul>
-<h3 id='request-parameters-31'>Request Parameters</h3>
+<h3 id='request-parameters-32'>Request Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -9332,7 +9590,7 @@ Rate Limit (NEW): 20times/2s</p>
 <p>Via this endpoint, parent user is able to query sub user&#39;s status by specifying a UID.</p>
 
 <p>API Key Permission: Read</p>
-<h3 id='http-request-37'>HTTP Request</h3>
+<h3 id='http-request-38'>HTTP Request</h3>
 <ul>
 <li>GET <code>/v2/sub-user/user-state</code></li>
 </ul>
@@ -9425,11 +9683,11 @@ Rate Limit (NEW): 20times/2s</p>
 
 <p>Parent user is able to set tradable market for a batch of sub users through this endpoint.
 By default, sub user’s trading permission in spot market is activated.</p>
-<h3 id='http-request-38'>HTTP Request</h3>
+<h3 id='http-request-39'>HTTP Request</h3>
 <ul>
 <li>POST <code>/v2/sub-user/tradable-market</code></li>
 </ul>
-<h3 id='request-parameters-32'>Request Parameters</h3>
+<h3 id='request-parameters-33'>Request Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -9575,11 +9833,11 @@ By default, sub user’s trading permission in spot market is activated.</p>
 
 <p>Parent user is able to set asset transfer permission for a batch of sub users.
 By default, the asset transfer from sub user’s spot account to parent user’s spot account is allowed.</p>
-<h3 id='http-request-39'>HTTP Request</h3>
+<h3 id='http-request-40'>HTTP Request</h3>
 <ul>
 <li>POST <code>/v2/sub-user/transferability</code></li>
 </ul>
-<h3 id='request-parameters-33'>Request Parameters</h3>
+<h3 id='request-parameters-34'>Request Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -9724,7 +9982,7 @@ By default, the asset transfer from sub user’s spot account to parent user’s
 <p>Via this endpoint parent user is able to query account list of sub user by specifying a UID.</p>
 
 <p>API Key Permission: Read</p>
-<h3 id='http-request-40'>HTTP Request</h3>
+<h3 id='http-request-41'>HTTP Request</h3>
 <ul>
 <li>GET <code>/v2/sub-user/account-list</code></li>
 </ul>
@@ -9907,11 +10165,11 @@ By default, the asset transfer from sub user’s spot account to parent user’s
 <p>This endpoint is used by the parent user to create the API key of the sub user</p>
 
 <p>API Key Permission：Trade</p>
-<h3 id='http-request-41'>HTTP Request</h3>
+<h3 id='http-request-42'>HTTP Request</h3>
 <ul>
 <li>POST <code>/v2/sub-user/api-key-generation</code></li>
 </ul>
-<h3 id='request-parameters-34'>Request Parameters</h3>
+<h3 id='request-parameters-35'>Request Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -10055,11 +10313,11 @@ By default, the asset transfer from sub user’s spot account to parent user’s
 <p>This endpoint is used by the parent user to modify the API key of the sub user</p>
 
 <p>API Key Permission：Trade</p>
-<h3 id='http-request-42'>HTTP Request</h3>
+<h3 id='http-request-43'>HTTP Request</h3>
 <ul>
 <li>POST <code>/v2/sub-user/api-key-modification</code></li>
 </ul>
-<h3 id='request-parameters-35'>Request Parameters</h3>
+<h3 id='request-parameters-36'>Request Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -10188,11 +10446,11 @@ By default, the asset transfer from sub user’s spot account to parent user’s
 <p>This endpoint is used by the parent user to delete the API key of the sub user.</p>
 
 <p>API Key Permission：Trade</p>
-<h3 id='http-request-43'>HTTP Request</h3>
+<h3 id='http-request-44'>HTTP Request</h3>
 <ul>
 <li>POST <code>/v2/sub-user/api-key-deletion</code></li>
 </ul>
-<h3 id='request-parameters-36'>Request Parameters</h3>
+<h3 id='request-parameters-37'>Request Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -10258,11 +10516,11 @@ By default, the asset transfer from sub user’s spot account to parent user’s
 Rate Limit (NEW): 2times/2s</p>
 
 <p>This endpoint allows user to transfer asset between parent and sub account.</p>
-<h3 id='http-request-44'>HTTP Request</h3>
+<h3 id='http-request-45'>HTTP Request</h3>
 <ul>
 <li>POST <code>/v1/subuser/transfer</code></li>
 </ul>
-<h3 id='request-parameters-37'>Request Parameters</h3>
+<h3 id='request-parameters-38'>Request Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -10336,11 +10594,11 @@ Rate Limit (NEW): 2times/2s</p>
 <p>API Key Permission：Read</p>
 
 <aside class="notice"> The endpoint does not support deposit address querying for currency "IOTA" at this moment </aside>
-<h3 id='http-request-45'>HTTP Request</h3>
+<h3 id='http-request-46'>HTTP Request</h3>
 <ul>
 <li>GET <code>/v2/sub-user/deposit-address</code></li>
 </ul>
-<h3 id='request-parameters-38'>Request Parameters</h3>
+<h3 id='request-parameters-39'>Request Parameters</h3>
 <table><thead>
 <tr>
 <th>Field Name</th>
@@ -10448,11 +10706,11 @@ Rate Limit (NEW): 2times/2s</p>
 <p>API Key Permission：Read</p>
 
 <p>Parent user could query sub user&#39;s deposit history via this endpoint.</p>
-<h3 id='http-request-46'>HTTP Request</h3>
+<h3 id='http-request-47'>HTTP Request</h3>
 <ul>
 <li>GET <code>/v2/sub-user/query-deposit</code></li>
 </ul>
-<h3 id='request-parameters-39'>Request Parameters</h3>
+<h3 id='request-parameters-40'>Request Parameters</h3>
 <table><thead>
 <tr>
 <th>Field Name</th>
@@ -10674,11 +10932,11 @@ Only when the number of items within the query window (between &quot;startTime&q
 Rate Limit (NEW): 2times/2s</p>
 
 <p>This endpoint returns the aggregated balance from all the sub-users.</p>
-<h3 id='http-request-47'>HTTP Request</h3>
+<h3 id='http-request-48'>HTTP Request</h3>
 <ul>
 <li>GET <code>/v1/subuser/aggregate-balance</code></li>
 </ul>
-<h3 id='request-parameters-40'>Request Parameters</h3>
+<h3 id='request-parameters-41'>Request Parameters</h3>
 <aside class="notice">No parameter is needed for this endpoint</aside>
 <h3 id='response-content-43'>Response Content</h3>
 <blockquote>
@@ -10750,13 +11008,13 @@ Rate Limit (NEW): 2times/2s</p>
 Rate Limit (NEW): 20times/2s</p>
 
 <p>This endpoint returns the balance of a sub-user specified by sub-uid.</p>
-<h3 id='http-request-48'>HTTP Request</h3>
+<h3 id='http-request-49'>HTTP Request</h3>
 <ul>
 <li>GET <code>/v1/account/accounts/{sub-uid}</code></li>
 </ul>
 
 <p>&#39;sub-uid&#39;: The specified sub user id to get balance for.</p>
-<h3 id='request-parameters-41'>Request Parameters</h3>
+<h3 id='request-parameters-42'>Request Parameters</h3>
 <table><thead>
 <tr>
 <th>Field Name</th>
@@ -10992,7 +11250,7 @@ Rate Limit (NEW): 20times/2s</p>
 Rate Limit (NEW): 100times/2s</p>
 
 <p>This endpoint places a new order and sends to the exchange to be matched.</p>
-<h3 id='http-request-49'>HTTP Request</h3>
+<h3 id='http-request-50'>HTTP Request</h3>
 <ul>
 <li>POST <code>/v1/order/orders/place</code></li>
 </ul>
@@ -11005,7 +11263,7 @@ Rate Limit (NEW): 100times/2s</p>
   </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"buy-limit"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"client-order-id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"a0001"</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre><h3 id='request-parameters-42'>Request Parameters</h3>
+</span></code></pre><h3 id='request-parameters-43'>Request Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -11118,7 +11376,7 @@ Rate Limit (NEW): 100times/2s</p>
 Rate Limit (NEW): 50times/2s</p>
 
 <p>A batch contains at most 10 orders.</p>
-<h3 id='http-request-50'>HTTP Request</h3>
+<h3 id='http-request-51'>HTTP Request</h3>
 <ul>
 <li>POST <code>/v1/order/batch-orders</code></li>
 </ul>
@@ -11141,7 +11399,7 @@ Rate Limit (NEW): 50times/2s</p>
         </span><span class="s2">"source"</span><span class="p">:</span><span class="w"> </span><span class="s2">"spot-api"</span><span class="p">,</span><span class="s2">"client-order-id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"23456"</span><span class="w">
     </span><span class="p">}</span><span class="w">
 </span><span class="p">]</span><span class="w">
-</span></code></pre><h3 id='request-parameters-43'>Request Parameters</h3>
+</span></code></pre><h3 id='request-parameters-44'>Request Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -11298,13 +11556,13 @@ Rate Limit (NEW): 100times/2s</p>
 <p>This endpoint submits a request to cancel an order.</p>
 
 <aside class="warning">The actual result of the cancellation request needs to be checked by order status or match result endpoints after submitting the request.</aside>
-<h3 id='http-request-51'>HTTP Request</h3>
+<h3 id='http-request-52'>HTTP Request</h3>
 <ul>
 <li>POST <code>/v1/order/orders/{order-id}/submitcancel</code></li>
 </ul>
 
 <p>&#39;order-id&#39;: the previously returned order id when order was created</p>
-<h3 id='request-parameters-44'>Request Parameters</h3>
+<h3 id='request-parameters-45'>Request Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -11401,14 +11659,14 @@ Rate Limit (NEW): 100times/2s</p>
 <aside class="notice">It is suggested to use /v1/order/orders/{order-id}/submitcancel to cancel a single order, which is faster and more stable</aside>
 
 <aside class="warning">This only submits the cancel request, the actual result of the canel request needs to be checked by order status or match result endpoints</aside>
-<h3 id='http-request-52'>HTTP Request</h3>
+<h3 id='http-request-53'>HTTP Request</h3>
 <ul>
 <li>POST <code>/v1/order/orders/submitCancelClientOrder</code></li>
 </ul>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
   </span><span class="s2">"client-order-id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"a0001"</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre><h3 id='request-parameters-45'>Request Parameters</h3>
+</span></code></pre><h3 id='request-parameters-46'>Request Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -11497,7 +11755,7 @@ Rate Limit (NEW): 100times/2s</p>
 Rate Limit (NEW): 50times/2s</p>
 
 <p>This endpoint returns all open orders which have not been filled completely.</p>
-<h3 id='http-request-53'>HTTP Request</h3>
+<h3 id='http-request-54'>HTTP Request</h3>
 <ul>
 <li>GET <code>/v1/order/openOrders</code></li>
 </ul>
@@ -11510,7 +11768,7 @@ Rate Limit (NEW): 50times/2s</p>
    </span><span class="s2">"symbol"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ethusdt"</span><span class="p">,</span><span class="w">
    </span><span class="s2">"side"</span><span class="p">:</span><span class="w"> </span><span class="s2">"buy"</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre><h3 id='request-parameters-46'>Request Parameters</h3>
+</span></code></pre><h3 id='request-parameters-47'>Request Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -11691,7 +11949,7 @@ Rate Limit (NEW): 50times/2s</p>
 
 <p>This endpoint only submit the cancellation request, the actual cancellation result will need to be confirmed by other endpoints 
 like order status, matchresult, etc.</p>
-<h3 id='http-request-54'>HTTP Request</h3>
+<h3 id='http-request-55'>HTTP Request</h3>
 <ul>
 <li>POST <code>/v1/order/orders/batchCancelOpenOrders</code></li>
 </ul>
@@ -11814,7 +12072,7 @@ Rate Limit (NEW): 50times/2s</p>
 
 <p>This endpoint submit cancellation for multiple orders at once with given ids. It is suggested to use order-ids instead of 
 client-order-ids, so that the cancellation is faster, more accurate and more stable. </p>
-<h3 id='http-request-55'>HTTP Request</h3>
+<h3 id='http-request-56'>HTTP Request</h3>
 <ul>
 <li>POST <code>/v1/order/orders/batchcancel</code></li>
 </ul>
@@ -11823,7 +12081,7 @@ client-order-ids, so that the cancellation is faster, more accurate and more sta
          </span><span class="s2">"12345"</span><span class="p">,</span><span class="w"> </span><span class="s2">"123456"</span><span class="w">
     </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre><h3 id='request-parameters-47'>Request Parameters</h3>
+</span></code></pre><h3 id='request-parameters-48'>Request Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -11980,7 +12238,7 @@ client-order-ids, so that the cancellation is faster, more accurate and more sta
 
 <p>The Dead man’s switch  protects the user’s assets when the connection to the exchange is lost due to network or system errors. <br>
 Turn on/off the Dead man’s switch. If the Dead man’s switch is turned on and the API call isn’t sent twice within the set time, the platform will cancel all of your orders on the spot market（a maximum cancellation of 500 orders）.</p>
-<h3 id='http-request-56'>HTTP Request</h3>
+<h3 id='http-request-57'>HTTP Request</h3>
 <ul>
 <li>POST <code>/v2/algo-orders/cancel-all-after</code></li>
 </ul>
@@ -11991,7 +12249,7 @@ Turn on/off the Dead man’s switch. If the Dead man’s switch is turned on and
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
   </span><span class="s2">"timeout"</span><span class="p">:</span><span class="w"> </span><span class="s2">"10"</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre><h3 id='request-parameters-48'>Request Parameters</h3>
+</span></code></pre><h3 id='request-parameters-49'>Request Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -12098,11 +12356,11 @@ Response:</p>
 Rate Limit (NEW): 50times/2s</p>
 
 <p>This endpoint returns the detail of a specific order. If an order is created via API, then it&#39;s no longer queryable after being cancelled for 2 hours.</p>
-<h3 id='http-request-57'>HTTP Request</h3>
+<h3 id='http-request-58'>HTTP Request</h3>
 <ul>
 <li>GET <code>/v1/order/orders/{order-id}</code></li>
 </ul>
-<h3 id='request-parameters-49'>Request Parameters</h3>
+<h3 id='request-parameters-50'>Request Parameters</h3>
 <table><thead>
 <tr>
 <th><strong>Name</strong></th>
@@ -12256,11 +12514,11 @@ Rate Limit (NEW): 50times/2s</p>
 Rate Limit (NEW):50times/2s</p>
 
 <p>This endpoint returns the detail of one order by specified client order id (within 8 hours). The order created via API will no longer be queryable after being cancelled for more than 2 hours. It is suggested to cancel orders via <code>GET /v1/order/orders/{order-id}</code>, which is faster and more stable.</p>
-<h3 id='http-request-58'>HTTP Request</h3>
+<h3 id='http-request-59'>HTTP Request</h3>
 <ul>
 <li>GET <code>/v1/order/orders/getClientOrder</code></li>
 </ul>
-<h3 id='request-parameters-50'>Request Parameters</h3>
+<h3 id='request-parameters-51'>Request Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -12426,11 +12684,11 @@ Rate Limit (NEW):50times/2s</p>
 Rate Limit (NEW): 50times/2s</p>
 
 <p>This endpoint returns the match result of an order.</p>
-<h3 id='http-request-59'>HTTP Request</h3>
+<h3 id='http-request-60'>HTTP Request</h3>
 <ul>
 <li>GET <code>/v1/order/orders/{order-id}/matchresults</code></li>
 </ul>
-<h3 id='request-parameters-51'>Request Parameters</h3>
+<h3 id='request-parameters-52'>Request Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -12600,7 +12858,7 @@ Rate Limit (NEW): 50times/2s</p>
 </ul>
 
 <p>Huobi Global suggests API users to search historical orders based on &quot;time&quot; filter instead of &quot;date&quot;. In the near future, Huobi Global would remove &quot;start-date&quot;/&quot;end-date&quot; fields from the endpoint, through another notification.</p>
-<h3 id='http-request-60'>HTTP Request</h3>
+<h3 id='http-request-61'>HTTP Request</h3>
 <ul>
 <li>GET <code>/v1/order/orders</code></li>
 </ul>
@@ -12617,7 +12875,7 @@ Rate Limit (NEW): 50times/2s</p>
    </span><span class="s2">"symbol"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ethusdt"</span><span class="p">,</span><span class="w">
    </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"buy-limit"</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre><h3 id='request-parameters-52'>Request Parameters</h3>
+</span></code></pre><h3 id='request-parameters-53'>Request Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -12869,7 +13127,7 @@ Rate Limit (NEW): 20times/2s</p>
 
 <p>This endpoint returns orders based on a specific searching criteria.
 The orders created via API will no longer be queryable after being cancelled for more than 2 hours. </p>
-<h3 id='http-request-61'>HTTP Request</h3>
+<h3 id='http-request-62'>HTTP Request</h3>
 <ul>
 <li>GET <code>/v1/order/history</code></li>
 </ul>
@@ -12886,7 +13144,7 @@ The orders created via API will no longer be queryable after being cancelled for
 }
 </code></p>
 </blockquote>
-<h3 id='request-parameters-53'>Request Parameters</h3>
+<h3 id='request-parameters-54'>Request Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -13100,11 +13358,11 @@ The orders created via API will no longer be queryable after being cancelled for
 Rate Limit (NEW): 20times/2s</p>
 
 <p>This endpoint returns the match results of past and current filled, or partially filled orders based on specific search criteria.</p>
-<h3 id='http-request-62'>HTTP Request</h3>
+<h3 id='http-request-63'>HTTP Request</h3>
 <ul>
 <li>GET <code>/v1/order/matchresults</code></li>
 </ul>
-<h3 id='request-parameters-54'>Request Parameters</h3>
+<h3 id='request-parameters-55'>Request Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -13335,9 +13593,9 @@ Rate Limit (NEW): 20times/2s</p>
 <p>This endpoint returns the current transaction fee rate applied to the user.</p>
 
 <p>API Key Permission：Read</p>
-<h3 id='http-request-63'>HTTP Request</h3>
+<h3 id='http-request-64'>HTTP Request</h3>
 <p><code>GET /v2/reference/transact-fee-rate</code></p>
-<h3 id='request-parameters-55'>Request Parameters</h3>
+<h3 id='request-parameters-56'>Request Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -14815,7 +15073,7 @@ The conditional order before triggering, as well as the conditional order failed
 <p>Available Accounts: Main and Sub-Accounts</p>
 
 <p>While repaying the loan, loan interest will be paid first if there is no appointed transactId. Otherwise, currency will not be authenticated.</p>
-<h3 id='http-request-64'>HTTP Request</h3>
+<h3 id='http-request-65'>HTTP Request</h3>
 <ul>
 <li>POST <code>/v2/account/repayment</code></li>
 </ul>
@@ -14829,7 +15087,7 @@ The conditional order before triggering, as well as the conditional order failed
     </span><span class="s2">"amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.00800334"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"transactId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"437"</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre><h3 id='request-parameters-56'>Request Parameters</h3>
+</span></code></pre><h3 id='request-parameters-57'>Request Parameters</h3>
 <table><thead>
 <tr>
 <th><strong>Field</strong></th>
@@ -14922,7 +15180,7 @@ The conditional order before triggering, as well as the conditional order failed
 <td></td>
 </tr>
 </tbody></table>
-<h3 id='note'>Note:</h3>
+<h3 id='note-3'>Note:</h3>
 <ul>
 <li>Returning &quot;repayId&quot; doesn’t mean the repayment is 100% successful. Please check the transaction record to confirm the repayment status. </li>
 </ul>
@@ -14931,7 +15189,7 @@ The conditional order before triggering, as well as the conditional order failed
 Rate Limit (NEW): 2times/2s</p>
 
 <p>This endpoint transfers specific asset from spot trading account to isolated margin account.</p>
-<h3 id='http-request-65'>HTTP Request</h3>
+<h3 id='http-request-66'>HTTP Request</h3>
 <ul>
 <li>POST <code>/v1/dw/transfer-in/margin</code></li>
 </ul>
@@ -14944,7 +15202,7 @@ Rate Limit (NEW): 2times/2s</p>
     </span><span class="s2">"currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"eth"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1.0"</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre><h3 id='request-parameters-57'>Request Parameters</h3>
+</span></code></pre><h3 id='request-parameters-58'>Request Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -15006,7 +15264,7 @@ Rate Limit (NEW): 2times/2s</p>
 Rate Limit (NEW): 2times/2s</p>
 
 <p>This endpoint transfers specific asset from isolated margin account to spot trading account.</p>
-<h3 id='http-request-66'>HTTP Request</h3>
+<h3 id='http-request-67'>HTTP Request</h3>
 <ul>
 <li>POST <code>/v1/dw/transfer-out/margin</code></li>
 </ul>
@@ -15015,7 +15273,7 @@ Rate Limit (NEW): 2times/2s</p>
     </span><span class="s2">"currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"eth"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1.0"</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre><h3 id='request-parameters-58'>Request Parameters</h3>
+</span></code></pre><h3 id='request-parameters-59'>Request Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -15077,11 +15335,11 @@ Rate Limit (NEW): 2times/2s</p>
 Rate Limit (NEW): 20times/2s</p>
 
 <p>The endpoint returns loan interest rates and quota applied on the user.</p>
-<h3 id='http-request-67'>HTTP Request</h3>
+<h3 id='http-request-68'>HTTP Request</h3>
 <ul>
 <li>GET <code>/v1/margin/loan-info</code></li>
 </ul>
-<h3 id='request-parameters-59'>Request Parameters</h3>
+<h3 id='request-parameters-60'>Request Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -15203,7 +15461,7 @@ Rate Limit (NEW): 20times/2s</p>
 Rate Limit (NEW): 2times/2s</p>
 
 <p>This endpoint places an order to apply a margin loan.</p>
-<h3 id='http-request-68'>HTTP Request</h3>
+<h3 id='http-request-69'>HTTP Request</h3>
 <ul>
 <li>POST <code>/v1/margin/orders</code></li>
 </ul>
@@ -15216,7 +15474,7 @@ Rate Limit (NEW): 2times/2s</p>
   </span><span class="s2">"currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"eth"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1.0"</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre><h3 id='request-parameters-60'>Request Parameters</h3>
+</span></code></pre><h3 id='request-parameters-61'>Request Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -15280,13 +15538,13 @@ Rate Limit (NEW): 2times/2s</p>
 Rate Limit (NEW): 2times/2s</p>
 
 <p>This endpoint repays margin loan with your asset in your margin account.</p>
-<h3 id='http-request-69'>HTTP Request</h3>
+<h3 id='http-request-70'>HTTP Request</h3>
 <ul>
 <li>POST <code>/v1/margin/orders/{order-id}/repay</code></li>
 </ul>
 
 <p>&#39;order-id&#39;: the previously returned order id when loan order was created</p>
-<h3 id='request-parameters-61'>Request Parameters</h3>
+<h3 id='request-parameters-62'>Request Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -15339,11 +15597,11 @@ Rate Limit (NEW): 2times/2s</p>
 Rate Limit (NEW): 100times/2s</p>
 
 <p>This endpoint returns margin orders based on a specific searching criteria.</p>
-<h3 id='http-request-70'>HTTP Request</h3>
+<h3 id='http-request-71'>HTTP Request</h3>
 <ul>
 <li>GET <code>/v1/margin/loan-orders</code></li>
 </ul>
-<h3 id='request-parameters-62'>Request Parameters</h3>
+<h3 id='request-parameters-63'>Request Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -15585,11 +15843,11 @@ Rate Limit (NEW): 100times/2s</p>
 Rate Limit (NEW): 100times/2s</p>
 
 <p>This endpoint returns the balance of the margin loan account.</p>
-<h3 id='http-request-71'>HTTP Request</h3>
+<h3 id='http-request-72'>HTTP Request</h3>
 <ul>
 <li>GET <code>/v1/margin/accounts/balance</code></li>
 </ul>
-<h3 id='request-parameters-63'>Request Parameters</h3>
+<h3 id='request-parameters-64'>Request Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -15741,7 +15999,7 @@ Rate Limit (NEW): 100times/2s</p>
 <p>API Key Permission：Trade</p>
 
 <p>This endpoint transfers specific asset from spot trading account to cross margin account.</p>
-<h3 id='http-request-72'>HTTP Request</h3>
+<h3 id='http-request-73'>HTTP Request</h3>
 <ul>
 <li>POST <code>/v1/cross-margin/transfer-in</code></li>
 </ul>
@@ -15753,7 +16011,7 @@ Rate Limit (NEW): 100times/2s</p>
   </span><span class="s2">"currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"eth"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1.0"</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre><h3 id='request-parameters-64'>Request Parameters</h3>
+</span></code></pre><h3 id='request-parameters-65'>Request Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -15808,7 +16066,7 @@ Rate Limit (NEW): 100times/2s</p>
 <p>Rate Limit (NEW): 10times/s</p>
 
 <p>This endpoint transfers specific asset from cross margin account to spot trading account.</p>
-<h3 id='http-request-73'>HTTP Request</h3>
+<h3 id='http-request-74'>HTTP Request</h3>
 <ul>
 <li>POST <code>/v1/cross-margin/transfer-out</code></li>
 </ul>
@@ -15820,7 +16078,7 @@ Rate Limit (NEW): 100times/2s</p>
   </span><span class="s2">"currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"eth"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1.0"</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre><h3 id='request-parameters-65'>Request Parameters</h3>
+</span></code></pre><h3 id='request-parameters-66'>Request Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -15873,11 +16131,11 @@ Rate Limit (NEW): 100times/2s</p>
 <p>API Key Permission: Read</p>
 
 <p>This endpoint returns loan interest rates and loan quota applied on the user.</p>
-<h3 id='http-request-74'>HTTP Request</h3>
+<h3 id='http-request-75'>HTTP Request</h3>
 <ul>
 <li>GET <code>/v1/cross-margin/loan-info</code></li>
 </ul>
-<h3 id='request-parameters-66'>Request Parameters</h3>
+<h3 id='request-parameters-67'>Request Parameters</h3>
 <p>Null</p>
 
 <blockquote>
@@ -16008,7 +16266,7 @@ Rate Limit (NEW): 100times/2s</p>
 <p>API Key Permission：Trade</p>
 
 <p>This endpoint places an order to apply for a margin loan.</p>
-<h3 id='http-request-75'>HTTP Request</h3>
+<h3 id='http-request-76'>HTTP Request</h3>
 <ul>
 <li>POST <code>/v1/cross-margin/orders</code></li>
 </ul>
@@ -16020,7 +16278,7 @@ Rate Limit (NEW): 100times/2s</p>
   </span><span class="s2">"currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"eth"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1.0"</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre><h3 id='request-parameters-67'>Request Parameters</h3>
+</span></code></pre><h3 id='request-parameters-68'>Request Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -16078,7 +16336,7 @@ Rate Limit (NEW): 100times/2s</p>
 <p>API Key Permission：Trade</p>
 
 <p>This endpoint repays margin loan with you asset in your margin account.</p>
-<h3 id='http-request-76'>HTTP Request</h3>
+<h3 id='http-request-77'>HTTP Request</h3>
 <ul>
 <li>POST <code>/v1/cross-margin/orders/{order-id}/repay</code></li>
 </ul>
@@ -16091,7 +16349,7 @@ Rate Limit (NEW): 100times/2s</p>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
   </span><span class="s2">"amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1.0"</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre><h3 id='request-parameters-68'>Request Parameters</h3>
+</span></code></pre><h3 id='request-parameters-69'>Request Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -16149,11 +16407,11 @@ Rate Limit (NEW): 100times/2s</p>
 <p>API Key Permission：Read</p>
 
 <p>This endpoint returns margin orders based on a specific searching criteria.</p>
-<h3 id='http-request-77'>HTTP Request</h3>
+<h3 id='http-request-78'>HTTP Request</h3>
 <ul>
 <li>GET <code>/v1/cross-margin/loan-orders</code></li>
 </ul>
-<h3 id='request-parameters-69'>Request Parameters</h3>
+<h3 id='request-parameters-70'>Request Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -16346,11 +16604,11 @@ Rate Limit (NEW): 100times/2s</p>
 <p>API Key Permission：Read</p>
 
 <p>This endpoint returns the balance of the margin loan account.</p>
-<h3 id='http-request-78'>HTTP Request</h3>
+<h3 id='http-request-79'>HTTP Request</h3>
 <ul>
 <li>GET <code>/v1/cross-margin/accounts/balance</code></li>
 </ul>
-<h3 id='request-parameters-70'>Request Parameters</h3>
+<h3 id='request-parameters-71'>Request Parameters</h3>
 <table><thead>
 <tr>
 <th>Field Name</th>
@@ -16504,11 +16762,11 @@ Rate Limit (NEW): 100times/2s</p>
 <p>Available Accounts: Main and Sub-Accounts</p>
 
 <p>Sort by &quot;repayTime&quot; </p>
-<h3 id='http-request-79'>HTTP Request</h3>
+<h3 id='http-request-80'>HTTP Request</h3>
 <ul>
 <li>GET <code>/v2/account/repayment</code></li>
 </ul>
-<h3 id='request-parameters-71'>Request Parameters</h3>
+<h3 id='request-parameters-72'>Request Parameters</h3>
 <table><thead>
 <tr>
 <th>Field</th>
@@ -17056,7 +17314,7 @@ or
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
   </span><span class="s2">"sub"</span><span class="p">:</span><span class="w"> </span><span class="s2">"market.btcusdt.ticker"</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre><h3 id='request-parameters-72'>Request Parameters</h3>
+</span></code></pre><h3 id='request-parameters-73'>Request Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -19493,11 +19751,11 @@ The topic disseminates the current static value of individual accounts first, at
 <aside class="notice">All endpoints in this section require authentication</aside>
 <h2 id='get-exchange-rate'>Get Exchange Rate</h2>
 <p>API Key Permission：Read</p>
-<h3 id='http-request-80'>HTTP Request</h3>
+<h3 id='http-request-81'>HTTP Request</h3>
 <ul>
 <li>GET <code>/v1/stable-coin/quote</code></li>
 </ul>
-<h3 id='request-parameters-73'>Request Parameters</h3>
+<h3 id='request-parameters-74'>Request Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -19575,11 +19833,11 @@ The topic disseminates the current static value of individual accounts first, at
 </tbody></table>
 <h2 id='exchange-stable-coin'>Exchange Stable Coin</h2>
 <p>API Key Permission：Trade</p>
-<h3 id='http-request-81'>HTTP Request</h3>
+<h3 id='http-request-82'>HTTP Request</h3>
 <ul>
 <li>POST <code>/v1/stable-coin/exchange</code></li>
 </ul>
-<h3 id='request-parameters-74'>Request Parameters</h3>
+<h3 id='request-parameters-75'>Request Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -19936,7 +20194,7 @@ Below is the error code and the description returned by ETF APIs
 <p>ETP (Exchange Tradable Products) APIs provide ETP related functionality, such as creation, redemption, query.</p>
 <h2 id='get-reference-data-of-etp'>Get reference data of ETP</h2>
 <p>Client can use this endpoint to query ETP&#39;s reference data</p>
-<h3 id='http-request-82'>HTTP Request</h3>
+<h3 id='http-request-83'>HTTP Request</h3>
 <ul>
 <li>GET <code>/v2/etp/reference</code></li>
 </ul>
@@ -20102,7 +20360,7 @@ Below is the error code and the description returned by ETF APIs
 <td></td>
 </tr>
 </tbody></table>
-<h2 id='etp-creation'>ETP Creation</h2><h3 id='http-request-83'>HTTP Request</h3>
+<h2 id='etp-creation'>ETP Creation</h2><h3 id='http-request-84'>HTTP Request</h3>
 <ul>
 <li>POST <code>/v2/etp/creation</code></li>
 </ul>
@@ -20186,7 +20444,7 @@ Rate Limit: 2times/sec<br></p>
 
 <p>Note:<br>
 The receipt of transactId doesn’t implicate the success of creation. User should query creation history to confirm the transaction status post creation.<br></p>
-<h2 id='etp-redemption'>ETP Redemption</h2><h3 id='http-request-84'>HTTP Request</h3>
+<h2 id='etp-redemption'>ETP Redemption</h2><h3 id='http-request-85'>HTTP Request</h3>
 <ul>
 <li>POST <code>/v2/etp/redemption</code></li>
 </ul>
@@ -20271,7 +20529,7 @@ Rate Limit: 2times/sec<br></p>
 <p>Note:<br>
 The receipt of transactId doesn’t implicate the success of redemption. User should query redemption history to confirm the transaction status post
 redemption.<br></p>
-<h2 id='get-etp-creation-amp-redemption-history'>Get ETP Creation &amp; Redemption History</h2><h3 id='http-request-85'>HTTP Request</h3>
+<h2 id='get-etp-creation-amp-redemption-history'>Get ETP Creation &amp; Redemption History</h2><h3 id='http-request-86'>HTTP Request</h3>
 <ul>
 <li>GET <code>/v2/etp/transactions</code></li>
 </ul>
@@ -20505,7 +20763,7 @@ The query window is circled by startTime and endTime. The maximum window size is
 
 <p>Note:<br>
 If user querying occurs just after the transaction, transactAmount、transactValue、transactPrice might be updated as blank.<br></p>
-<h2 id='get-specific-etp-creation-or-redemption-record'>Get Specific ETP Creation or Redemption Record</h2><h3 id='http-request-86'>HTTP Request</h3>
+<h2 id='get-specific-etp-creation-or-redemption-record'>Get Specific ETP Creation or Redemption Record</h2><h3 id='http-request-87'>HTTP Request</h3>
 <ul>
 <li>GET <code>/v2/etp/transaction</code></li>
 </ul>
@@ -20680,7 +20938,7 @@ Rate Limit: 2times/sec<br></p>
 
 <p>Note:<br>
 If user querying occurs just after the transaction, transactAmount、transactValue、transactPrice might be updated as blank.<br></p>
-<h2 id='get-position-rebalance-history'>Get Position Rebalance History</h2><h3 id='http-request-87'>HTTP Request</h3>
+<h2 id='get-position-rebalance-history'>Get Position Rebalance History</h2><h3 id='http-request-88'>HTTP Request</h3>
 <ul>
 <li>GET <code>/v2/etp/rebalance</code></li>
 </ul>
@@ -20825,7 +21083,7 @@ The query window is circled by startTime and endTime. The maximum window size is
 <td>First record ID in next page (only valid if exceeded page size)</td>
 </tr>
 </tbody></table>
-<h2 id='submit-cancel-for-an-etp-order'>Submit Cancel for an ETP Order</h2><h3 id='http-request-88'>HTTP Request</h3>
+<h2 id='submit-cancel-for-an-etp-order'>Submit Cancel for an ETP Order</h2><h3 id='http-request-89'>HTTP Request</h3>
 <ul>
 <li>POST <code>/v2/etp/{transactId}/cancel</code></li>
 </ul>
@@ -20878,7 +21136,7 @@ Rate Limit (NEW): 1 time /s<br></p>
 <td>Error message (if any)</td>
 </tr>
 </tbody></table>
-<h2 id='batch-cancellation-for-etp-orders'>Batch Cancellation for ETP Orders</h2><h3 id='http-request-89'>HTTP Request</h3>
+<h2 id='batch-cancellation-for-etp-orders'>Batch Cancellation for ETP Orders</h2><h3 id='http-request-90'>HTTP Request</h3>
 <ul>
 <li>POST <code>/v2/etp/batch-cancel</code></li>
 </ul>
@@ -20997,7 +21255,7 @@ Rate Limit (NEW): 1 time /5s<br></p>
 <td></td>
 </tr>
 </tbody></table>
-<h2 id='get-holding-limit-of-leveraged-etp'>Get Holding Limit of Leveraged ETP</h2><h3 id='http-request-90'>HTTP Request</h3>
+<h2 id='get-holding-limit-of-leveraged-etp'>Get Holding Limit of Leveraged ETP</h2><h3 id='http-request-91'>HTTP Request</h3>
 <ul>
 <li>GET <code>/v2/etp/limit</code></li>
 </ul>
