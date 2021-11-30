@@ -13785,11 +13785,11 @@ Rate Limit (NEW): 20times/2s</p>
 </tr>
 <tr>
 <td>order-limitorder-price-min-error</td>
-<td>Sell price cannot be lower than specific price</td>
+<td>Sell price cannot be lower than specific price(limit price to sell cannot be lower than 90% of the market price)</td>
 </tr>
 <tr>
 <td>order-limitorder-price-max-error</td>
-<td>Buy price cannot be higher than specific price</td>
+<td>Buy price cannot be higher than specific price(limit price to buy cannot be higher than 110% of the market price)</td>
 </tr>
 <tr>
 <td>order-limitorder-amount-min-error</td>
@@ -13951,8 +13951,8 @@ Rate Limit (NEW): 20times/2s</p>
 <li>order-value-min-error: The order price is less than minimum price</li>
 <li>order-orderprice-precision-error : The precision for limited order price is wrong </li>
 <li>order-orderamount-precision-error : The precision for limited order amount is wrong</li>
-<li>order-limitorder-price-max-error : The limited order price is higher than the threshold</li>
-<li>order-limitorder-price-min-error : The limited order price is lower than the threshold</li>
+<li>order-limitorder-price-max-error : The limited order price is higher than the threshold(limit price to buy cannot be higher than 110% of the market price)</li>
+<li>order-limitorder-price-min-error : The limited order price is lower than the threshold(limit price to sell cannot be lower than 90% of the market price)</li>
 <li>order-limitorder-amount-max-error : The limited order amount is larger than the threshold</li>
 <li>order-limitorder-amount-min-error : The limited order amount is smaller than the threshold<br></li>
 </ul>
