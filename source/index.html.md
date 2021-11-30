@@ -5899,8 +5899,8 @@ Below is the error code and description returned by Trading APIs
 | cancel-disabled                                              | The symbol is pending and not allowed to cancel order        |
 | order-invalid-price                                          | The order price is invalid, usually exceeds the 10% of latest trade price |
 | order-accountbalance-error                                   | The account balance is insufficient                          |
-| order-limitorder-price-min-error                             | Sell price cannot be lower than specific price               |
-| order-limitorder-price-max-error                             | Buy price cannot be higher than specific price               |
+| order-limitorder-price-min-error                             | Sell price cannot be lower than specific price(limit price to sell cannot be lower than 90% of the market price)              |
+| order-limitorder-price-max-error                             | Buy price cannot be higher than specific price(limit price to buy cannot be higher than 110% of the market price)               |
 | order-limitorder-amount-min-error                            | Limit order amount can not be less than specific number      |
 | order-limitorder-amount-max-error                            | Limit order amount can not be more than specific number      |
 | order-etp-nav-price-min-error                                | Order price cannot be lower than specific percentage         |
@@ -5952,8 +5952,8 @@ Below are common errors:
 - order-value-min-error: The order price is less than minimum price
 - order-orderprice-precision-error : The precision for limited order price is wrong 
 - order-orderamount-precision-error : The precision for limited order amount is wrong
-- order-limitorder-price-max-error : The limited order price is higher than the threshold
-- order-limitorder-price-min-error : The limited order price is lower than the threshold
+- order-limitorder-price-max-error : The limited order price is higher than the threshold(limit price to buy cannot be higher than 110% of the market price)
+- order-limitorder-price-min-error : The limited order price is lower than the threshold(limit price to sell cannot be lower than 90% of the market price)
 - order-limitorder-amount-max-error : The limited order amount is larger than the threshold
 - order-limitorder-amount-min-error : The limited order amount is smaller than the threshold  
 
