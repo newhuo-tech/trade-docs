@@ -3423,7 +3423,7 @@ API Key 权限：读取<br>
 
 ### HTTP 请求
 
-- POST `/internal/common/ams-dw/query/client-order-id`
+- GET `/internal/common/ams-dw/query/client-order-id`
 
 ### 请求参数
 
