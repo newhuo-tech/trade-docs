@@ -26,8 +26,8 @@ table th {
 
 | 生效时间<br>(UTC +8) | 接口     | 变化      | 摘要         |
 | ---------- | --------- | --------- | --------------- |
-| 2021.11.30 | `/v1/dw/withdraw/api/create` | 优化 | 新增请求参数"client-order-id" |
-| 2021.11.30 | `/internal/common/ams-dw/query/client-order-id` | 新增 | 通过clientOrderId查询提币订单 |
+| 2021.11.30 | `POST /v1/dw/withdraw/api/create` | 优化 | 新增请求参数"client-order-id" |
+| 2021.11.30 | `GET /v1/query/withdraw/client-order-id` | 新增 | 通过clientOrderId查询提币订单 |
 | 2021.8.19 | `accounts.update#${mode}` | 优化 | 增加“账户变更的序号”参数“seqNum” |
 | 2021.8.19 | `GET /v1/account/accounts/{account-id}/balance` | 优化 | 增加“账户变更的序号”参数“seq-num” |
 | 2021.8.12 | `market.$symbol.ticker` | 新增 | 增加聚合行情（Ticker）数据 |
@@ -3423,7 +3423,7 @@ API Key 权限：读取<br>
 
 ### HTTP 请求
 
-- GET `/internal/common/ams-dw/query/client-order-id`
+- GET `/v1/query/withdraw/client-order-id`
 
 ### 请求参数
 
