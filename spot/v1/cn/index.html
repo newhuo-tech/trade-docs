@@ -485,6 +485,9 @@
                     <a href="#6b7bd94d29" class="toc-h2 toc-link" data-title="虚拟币提币">虚拟币提币</a>
                   </li>
                   <li>
+                    <a href="#clientorderid" class="toc-h2 toc-link" data-title="通过clientOrderId查询提币订单">通过clientOrderId查询提币订单</a>
+                  </li>
+                  <li>
                     <a href="#534d29990b" class="toc-h2 toc-link" data-title="取消提币">取消提币</a>
                   </li>
                   <li>
@@ -843,6 +846,18 @@ table th {
 <th>摘要</th>
 </tr>
 </thead><tbody>
+<tr>
+<td>2021.11.30</td>
+<td><code>/v1/dw/withdraw/api/create</code></td>
+<td>优化</td>
+<td>新增请求参数&quot;client-order-id&quot;</td>
+</tr>
+<tr>
+<td>2021.11.30</td>
+<td><code>/internal/common/ams-dw/query/client-order-id</code></td>
+<td>新增</td>
+<td>通过clientOrderId查询提币订单</td>
+</tr>
 <tr>
 <td>2021.8.19</td>
 <td><code>accounts.update#${mode}</code></td>
@@ -8661,7 +8676,18 @@ endTime缺省值：当前时间</p>
 <td>虚拟币共享地址tag，适用于xrp，xem，bts，steem，eos，xmr</td>
 <td>格式, &quot;123&quot;类的整数字符串</td>
 </tr>
+<tr>
+<td>client-order-id</td>
+<td>false</td>
+<td>string</td>
+<td>客户端提币订单ID（最长32位的字符串）</td>
+<td></td>
+</tr>
 </tbody></table>
+<h3 id='e0361480e3'>备注</h3>
+<ul>
+<li>client-order-id（客户端提币订单ID）如果不为空，就会做幂等校验，相同client-order-id的提币请求，后发起的会直接返回前面提交成功的提币订单ID</li>
+</ul>
 
 <blockquote>
 <p>Response:</p>
@@ -8687,16 +8713,248 @@ endTime缺省值：当前时间</p>
 <td></td>
 </tr>
 </tbody></table>
+<h2 id='clientorderid'>通过clientOrderId查询提币订单</h2>
+<p>API Key 权限：读取<br></p>
+<h3 id='http-27'>HTTP 请求</h3>
+<ul>
+<li>POST <code>/internal/common/ams-dw/query/client-order-id</code></li>
+</ul>
+<h3 id='1f9ac54b15-29'>请求参数</h3>
+<table><thead>
+<tr>
+<th>参数名称</th>
+<th>是否必须</th>
+<th>类型</th>
+<th>描述</th>
+<th>取值范围</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>clientOrderId</td>
+<td>true</td>
+<td>string</td>
+<td>客户端提币订单ID（最长32位的字符串）</td>
+<td></td>
+</tr>
+</tbody></table>
+<h3 id='e0361480e3-2'>备注</h3>
+<ul>
+<li>用于查询api提币订单（api提币订单下单时使用了client-order-id，返回对应提币订单数据对象，如果api提币订单下单时没有传入client-order-id，返回空）</li>
+</ul>
+
+<blockquote>
+<p>Response:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="w">
+ </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ok"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">101123262</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"client-order-id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1113"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"withdraw"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"sub-type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"FAST"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"usdt"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"chain"</span><span class="p">:</span><span class="w"> </span><span class="s2">"usdt"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"tx-hash"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"amount"</span><span class="p">:</span><span class="w"> </span><span class="mf">1.200000000000000000</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"from-addr-tag"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1PL24EbWrNNrnMKw1cxAHPsebUz7DdhWTx"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"address-tag"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"fee"</span><span class="p">:</span><span class="w"> </span><span class="mi">0E-18</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"state"</span><span class="p">:</span><span class="w"> </span><span class="s2">"confirmed"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"created-at"</span><span class="p">:</span><span class="w"> </span><span class="mi">1637758163686</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"updated-at"</span><span class="p">:</span><span class="w"> </span><span class="mi">1637758251559</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre><h3 id='2213f4c32f-23'>响应数据</h3>
+<table><thead>
+<tr>
+<th>参数名称</th>
+<th>是否必须</th>
+<th>数据类型</th>
+<th>描述</th>
+<th>取值范围</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>status  &gt;</td>
+<td>true</td>
+<td>stirng</td>
+<td>请求返回结果</td>
+<td></td>
+</tr>
+<tr>
+<td>&lt;data\   &gt;</td>
+<td>false</td>
+<td>long</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>address</td>
+<td>true</td>
+<td>string</td>
+<td>地址</td>
+<td></td>
+</tr>
+<tr>
+<td>client-order-id</td>
+<td>true</td>
+<td>string</td>
+<td>客户端提币订单ID</td>
+<td></td>
+</tr>
+<tr>
+<td>address-tag</td>
+<td>true</td>
+<td>string</td>
+<td>地址tag</td>
+<td></td>
+</tr>
+<tr>
+<td>amount</td>
+<td>true</td>
+<td>decimal</td>
+<td>数量</td>
+<td></td>
+</tr>
+<tr>
+<td>blockchain-confirm</td>
+<td>false</td>
+<td>int</td>
+<td>区块链确认次数</td>
+<td></td>
+</tr>
+<tr>
+<td>chain</td>
+<td>false</td>
+<td>string</td>
+<td>区块链</td>
+<td></td>
+</tr>
+<tr>
+<td>created-at</td>
+<td>true</td>
+<td>long</td>
+<td>创建时间</td>
+<td></td>
+</tr>
+<tr>
+<td>currency</td>
+<td>true</td>
+<td>string</td>
+<td>币种</td>
+<td></td>
+</tr>
+<tr>
+<td>error-code</td>
+<td>true</td>
+<td>string</td>
+<td>错误码</td>
+<td></td>
+</tr>
+<tr>
+<td>error-msg</td>
+<td>true</td>
+<td>string</td>
+<td>错误信息</td>
+<td></td>
+</tr>
+<tr>
+<td>fee</td>
+<td>true</td>
+<td>decimal</td>
+<td>手续费</td>
+<td></td>
+</tr>
+<tr>
+<td>from-addr-tag</td>
+<td>true</td>
+<td>string</td>
+<td>出款地址tag</td>
+<td></td>
+</tr>
+<tr>
+<td>from-address</td>
+<td>false</td>
+<td>string</td>
+<td>出款地址</td>
+<td></td>
+</tr>
+<tr>
+<td>id</td>
+<td>true</td>
+<td>long</td>
+<td>ID</td>
+<td></td>
+</tr>
+<tr>
+<td>request-id</td>
+<td>true</td>
+<td>string</td>
+<td>唯一标识ID</td>
+<td></td>
+</tr>
+<tr>
+<td>state</td>
+<td>true</td>
+<td>string</td>
+<td>状态</td>
+<td></td>
+</tr>
+<tr>
+<td>tx-hash</td>
+<td>true</td>
+<td>string</td>
+<td>交易哈希</td>
+<td></td>
+</tr>
+<tr>
+<td>type</td>
+<td>true</td>
+<td>string</td>
+<td>类型</td>
+<td></td>
+</tr>
+<tr>
+<td>updated-at</td>
+<td>true</td>
+<td>long</td>
+<td>更新时间</td>
+<td></td>
+</tr>
+<tr>
+<td>user-id</td>
+<td>false</td>
+<td>long</td>
+<td>用户id</td>
+<td></td>
+</tr>
+<tr>
+<td>wallet-confirm</td>
+<td>false</td>
+<td>int</td>
+<td>钱包确认次数</td>
+<td></td>
+</tr>
+<tr>
+<td>&lt;/data&gt;</td>
+<td>false</td>
+<td>long</td>
+<td></td>
+<td></td>
+</tr>
+</tbody></table>
 <h2 id='534d29990b'>取消提币</h2>
 <p>此节点用于取消已提交的提币请求，限母用户可用</p>
 
 <p>API Key 权限：提币<br>
 限频值（NEW）：20次/2s</p>
-<h3 id='http-27'>HTTP 请求</h3>
+<h3 id='http-28'>HTTP 请求</h3>
 <ul>
 <li>POST <code>/v1/dw/withdraw-virtual/{withdraw-id}/cancel</code></li>
 </ul>
-<h3 id='1f9ac54b15-29'>请求参数</h3>
+<h3 id='1f9ac54b15-30'>请求参数</h3>
 <table><thead>
 <tr>
 <th>参数名称</th>
@@ -8723,7 +8981,7 @@ endTime缺省值：当前时间</p>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
   </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="mi">700</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre><h3 id='2213f4c32f-23'>响应数据</h3>
+</span></code></pre><h3 id='2213f4c32f-24'>响应数据</h3>
 <table><thead>
 <tr>
 <th>参数名称</th>
@@ -8746,11 +9004,11 @@ endTime缺省值：当前时间</p>
 
 <p>API Key 权限：读取<br>
 限频值（NEW）：20次/2s</p>
-<h3 id='http-28'>HTTP 请求</h3>
+<h3 id='http-29'>HTTP 请求</h3>
 <ul>
 <li>GET <code>/v1/query/deposit-withdraw</code></li>
 </ul>
-<h3 id='1f9ac54b15-30'>请求参数</h3>
+<h3 id='1f9ac54b15-31'>请求参数</h3>
 <table><thead>
 <tr>
 <th>参数名称</th>
@@ -8843,7 +9101,7 @@ endTime缺省值：当前时间</p>
         </span><span class="p">}</span><span class="w">
     </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre><h3 id='2213f4c32f-24'>响应数据</h3>
+</span></code></pre><h3 id='2213f4c32f-25'>响应数据</h3>
 <table><thead>
 <tr>
 <th>参数名称</th>
@@ -9161,11 +9419,11 @@ endTime缺省值：当前时间</p>
 <p>此接口用于设置子用户手续费抵扣模式（子用户抵扣或母用户抵扣）</p>
 
 <p>API Key 权限：交易</p>
-<h3 id='http-29'>HTTP 请求</h3>
+<h3 id='http-30'>HTTP 请求</h3>
 <ul>
 <li>POST <code>/v2/sub-user/deduct-mode</code></li>
 </ul>
-<h3 id='1f9ac54b15-31'>请求参数</h3>
+<h3 id='1f9ac54b15-32'>请求参数</h3>
 <table><thead>
 <tr>
 <th>参数名称</th>
@@ -9213,7 +9471,7 @@ endTime缺省值：当前时间</p>
     </span><span class="p">],</span><span class="w">
     </span><span class="s2">"ok"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre><h3 id='2213f4c32f-25'>响应数据</h3>
+</span></code></pre><h3 id='2213f4c32f-26'>响应数据</h3>
 <table><thead>
 <tr>
 <th>参数名称</th>
@@ -9284,11 +9542,11 @@ endTime缺省值：当前时间</p>
 <p>此接口用于母用户查询自身的API key信息，以及母用户查询子用户的API key信息</p>
 
 <p>API Key 权限：读取</p>
-<h3 id='http-30'>HTTP 请求</h3>
+<h3 id='http-31'>HTTP 请求</h3>
 <ul>
 <li>GET <code>/v2/user/api-key</code></li>
 </ul>
-<h3 id='1f9ac54b15-32'>请求参数</h3>
+<h3 id='1f9ac54b15-33'>请求参数</h3>
 <table><thead>
 <tr>
 <th>参数名称</th>
@@ -9347,7 +9605,7 @@ endTime缺省值：当前时间</p>
     </span><span class="p">],</span><span class="w">
     </span><span class="s2">"ok"</span><span class="p">:</span><span class="kc">true</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre><h3 id='2213f4c32f-26'>响应数据</h3>
+</span></code></pre><h3 id='2213f4c32f-27'>响应数据</h3>
 <table><thead>
 <tr>
 <th>参数名称</th>
@@ -9446,11 +9704,11 @@ endTime缺省值：当前时间</p>
 <p>此接口用于母子用户查询本用户UID</p>
 
 <p>API Key 权限：读取</p>
-<h3 id='http-31'>HTTP 请求</h3>
+<h3 id='http-32'>HTTP 请求</h3>
 <ul>
 <li>GET <code>/v2/user/uid</code></li>
 </ul>
-<h3 id='1f9ac54b15-33'>请求参数</h3>
+<h3 id='1f9ac54b15-34'>请求参数</h3>
 <p>无</p>
 
 <blockquote>
@@ -9460,7 +9718,7 @@ endTime缺省值：当前时间</p>
     </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="mi">200</span><span class="p">,</span><span class="w">
     </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="mi">63628520</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre><h3 id='2213f4c32f-27'>响应数据</h3>
+</span></code></pre><h3 id='2213f4c32f-28'>响应数据</h3>
 <table><thead>
 <tr>
 <th>参数名称</th>
@@ -9496,7 +9754,7 @@ endTime缺省值：当前时间</p>
 <p>此接口用于母用户进行子用户创建，单次最多50个</p>
 
 <p>API Key 权限：交易</p>
-<h3 id='http-32'>HTTP 请求</h3>
+<h3 id='http-33'>HTTP 请求</h3>
 <ul>
 <li>POST <code>/v2/sub-user/creation</code></li>
 </ul>
@@ -9516,7 +9774,7 @@ endTime缺省值：当前时间</p>
         </span><span class="p">}</span><span class="w">
     </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre><h3 id='1f9ac54b15-34'>请求参数</h3>
+</span></code></pre><h3 id='1f9ac54b15-35'>请求参数</h3>
 <table><thead>
 <tr>
 <th>参数名称</th>
@@ -9580,7 +9838,7 @@ endTime缺省值：当前时间</p>
         </span><span class="p">}</span><span class="w">
     </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre><h3 id='2213f4c32f-28'>响应数据</h3>
+</span></code></pre><h3 id='2213f4c32f-29'>响应数据</h3>
 <table><thead>
 <tr>
 <th>参数名称</th>
@@ -9658,11 +9916,11 @@ endTime缺省值：当前时间</p>
 <p>母用户通过此接口可获取所有子用户的UID列表及各用户状态</p>
 
 <p>API Key 权限：读取</p>
-<h3 id='http-33'>HTTP 请求</h3>
+<h3 id='http-34'>HTTP 请求</h3>
 <ul>
 <li>GET <code>/v2/sub-user/user-list</code></li>
 </ul>
-<h3 id='1f9ac54b15-35'>请求参数</h3>
+<h3 id='1f9ac54b15-36'>请求参数</h3>
 <table><thead>
 <tr>
 <th>参数名称</th>
@@ -9699,7 +9957,7 @@ endTime缺省值：当前时间</p>
         </span><span class="p">}</span><span class="w">
     </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre><h3 id='2213f4c32f-29'>响应数据</h3>
+</span></code></pre><h3 id='2213f4c32f-30'>响应数据</h3>
 <table><thead>
 <tr>
 <th>参数名称</th>
@@ -9764,11 +10022,11 @@ endTime缺省值：当前时间</p>
 限频值（NEW）：20次/2s</p>
 
 <p>此接口用于母用户对其下一个子用户进行冻结和解冻操作</p>
-<h3 id='http-34'>HTTP 请求</h3>
+<h3 id='http-35'>HTTP 请求</h3>
 <ul>
 <li>POST <code>/v2/sub-user/management</code></li>
 </ul>
-<h3 id='1f9ac54b15-36'>请求参数</h3>
+<h3 id='1f9ac54b15-37'>请求参数</h3>
 <table><thead>
 <tr>
 <th>参数</th>
@@ -9805,7 +10063,7 @@ endTime缺省值：当前时间</p>
     </span><span class="p">},</span><span class="w">
     </span><span class="s2">"ok"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre><h3 id='2213f4c32f-30'>响应数据</h3>
+</span></code></pre><h3 id='2213f4c32f-31'>响应数据</h3>
 <table><thead>
 <tr>
 <th>参数</th>
@@ -9855,11 +10113,11 @@ endTime缺省值：当前时间</p>
 <p>母用户通过此接口可获取特定子用户的用户状态</p>
 
 <p>API Key 权限：读取</p>
-<h3 id='http-35'>HTTP 请求</h3>
+<h3 id='http-36'>HTTP 请求</h3>
 <ul>
 <li>GET <code>/v2/sub-user/user-state</code></li>
 </ul>
-<h3 id='1f9ac54b15-37'>请求参数</h3>
+<h3 id='1f9ac54b15-38'>请求参数</h3>
 <table><thead>
 <tr>
 <th>参数名称</th>
@@ -9890,7 +10148,7 @@ endTime缺省值：当前时间</p>
         </span><span class="s2">"userState"</span><span class="p">:</span><span class="w"> </span><span class="s2">"normal"</span><span class="w">
     </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre><h3 id='2213f4c32f-31'>响应数据</h3>
+</span></code></pre><h3 id='2213f4c32f-32'>响应数据</h3>
 <table><thead>
 <tr>
 <th>参数名称</th>
@@ -9948,11 +10206,11 @@ endTime缺省值：当前时间</p>
 
 <p>此接口用于母用户批量设置子用户的交易权限。
 子用户的现货交易权限默认开通无须设置。</p>
-<h3 id='http-36'>HTTP 请求</h3>
+<h3 id='http-37'>HTTP 请求</h3>
 <ul>
 <li>POST <code>/v2/sub-user/tradable-market</code></li>
 </ul>
-<h3 id='1f9ac54b15-38'>请求参数</h3>
+<h3 id='1f9ac54b15-39'>请求参数</h3>
 <table><thead>
 <tr>
 <th>参数</th>
@@ -10005,7 +10263,7 @@ endTime缺省值：当前时间</p>
     </span><span class="p">],</span><span class="w">
     </span><span class="s2">"ok"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre><h3 id='2213f4c32f-32'>响应数据</h3>
+</span></code></pre><h3 id='2213f4c32f-33'>响应数据</h3>
 <table><thead>
 <tr>
 <th>参数</th>
@@ -10086,11 +10344,11 @@ endTime缺省值：当前时间</p>
 子用户的资金转出权限包括：
 -   由子用户现货（spot）账户转出至同一母用户下另一子用户的现货（spot）账户；
 -   由子用户现货（spot）账户转出至母用户现货（spot）账户（无须设置，默认开通）。</p>
-<h3 id='http-37'>HTTP 请求</h3>
+<h3 id='http-38'>HTTP 请求</h3>
 <ul>
 <li>POST <code>/v2/sub-user/transferability</code></li>
 </ul>
-<h3 id='1f9ac54b15-39'>请求参数</h3>
+<h3 id='1f9ac54b15-40'>请求参数</h3>
 <table><thead>
 <tr>
 <th>参数</th>
@@ -10143,7 +10401,7 @@ endTime缺省值：当前时间</p>
     </span><span class="p">],</span><span class="w">
     </span><span class="s2">"ok"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre><h3 id='2213f4c32f-33'>响应数据</h3>
+</span></code></pre><h3 id='2213f4c32f-34'>响应数据</h3>
 <table><thead>
 <tr>
 <th>参数</th>
@@ -10221,11 +10479,11 @@ endTime缺省值：当前时间</p>
 <p>母用户通过此接口可获取特定子用户的Account ID列表及各账户状态</p>
 
 <p>API Key 权限：读取</p>
-<h3 id='http-38'>HTTP 请求</h3>
+<h3 id='http-39'>HTTP 请求</h3>
 <ul>
 <li>GET <code>/v2/sub-user/account-list</code></li>
 </ul>
-<h3 id='1f9ac54b15-40'>请求参数</h3>
+<h3 id='1f9ac54b15-41'>请求参数</h3>
 <table><thead>
 <tr>
 <th>参数名称</th>
@@ -10277,7 +10535,7 @@ endTime缺省值：当前时间</p>
         </span><span class="p">]</span><span class="w">
     </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre><h3 id='2213f4c32f-34'>响应数据</h3>
+</span></code></pre><h3 id='2213f4c32f-35'>响应数据</h3>
 <table><thead>
 <tr>
 <th>参数名称</th>
@@ -10404,11 +10662,11 @@ endTime缺省值：当前时间</p>
 <p>此接口用于母用户创建子用户的API key</p>
 
 <p>API Key 权限：交易</p>
-<h3 id='http-39'>HTTP 请求</h3>
+<h3 id='http-40'>HTTP 请求</h3>
 <ul>
 <li>POST <code>/v2/sub-user/api-key-generation</code></li>
 </ul>
-<h3 id='1f9ac54b15-41'>请求参数</h3>
+<h3 id='1f9ac54b15-42'>请求参数</h3>
 <table><thead>
 <tr>
 <th>参数名称</th>
@@ -10474,7 +10732,7 @@ endTime缺省值：当前时间</p>
         </span><span class="s2">"ipAddresses"</span><span class="p">:</span><span class="w"> </span><span class="s2">"192.168.0.1,192.168.1.1"</span><span class="w">
     </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre><h3 id='2213f4c32f-35'>响应数据</h3>
+</span></code></pre><h3 id='2213f4c32f-36'>响应数据</h3>
 <table><thead>
 <tr>
 <th>参数名称</th>
@@ -10552,11 +10810,11 @@ endTime缺省值：当前时间</p>
 <p>此接口用于母用户修改子用户的API key</p>
 
 <p>API Key 权限：交易</p>
-<h3 id='http-40'>HTTP 请求</h3>
+<h3 id='http-41'>HTTP 请求</h3>
 <ul>
 <li>POST <code>/v2/sub-user/api-key-modification</code></li>
 </ul>
-<h3 id='1f9ac54b15-42'>请求参数</h3>
+<h3 id='1f9ac54b15-43'>请求参数</h3>
 <table><thead>
 <tr>
 <th>参数名称</th>
@@ -10621,7 +10879,7 @@ endTime缺省值：当前时间</p>
     </span><span class="p">},</span><span class="w">
     </span><span class="s2">"ok"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre><h3 id='2213f4c32f-36'>响应数据</h3>
+</span></code></pre><h3 id='2213f4c32f-37'>响应数据</h3>
 <table><thead>
 <tr>
 <th>参数名称</th>
@@ -10685,11 +10943,11 @@ endTime缺省值：当前时间</p>
 <p>此接口用于母用户删除子用户的API key</p>
 
 <p>API Key 权限：交易</p>
-<h3 id='http-41'>HTTP 请求</h3>
+<h3 id='http-42'>HTTP 请求</h3>
 <ul>
 <li>POST <code>/v2/sub-user/api-key-deletion</code></li>
 </ul>
-<h3 id='1f9ac54b15-43'>请求参数</h3>
+<h3 id='1f9ac54b15-44'>请求参数</h3>
 <table><thead>
 <tr>
 <th>参数名称</th>
@@ -10725,7 +10983,7 @@ endTime缺省值：当前时间</p>
     </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="mi">200</span><span class="p">,</span><span class="w">
     </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre><h3 id='2213f4c32f-37'>响应数据</h3>
+</span></code></pre><h3 id='2213f4c32f-38'>响应数据</h3>
 <table><thead>
 <tr>
 <th>参数名称</th>
@@ -10755,11 +11013,11 @@ endTime缺省值：当前时间</p>
 限频值（NEW）：2次/2s</p>
 
 <p>母用户执行母子用户之间的划转</p>
-<h3 id='http-42'>HTTP 请求</h3>
+<h3 id='http-43'>HTTP 请求</h3>
 <ul>
 <li>POST <code>/v1/subuser/transfer</code></li>
 </ul>
-<h3 id='1f9ac54b15-44'>请求参数</h3>
+<h3 id='1f9ac54b15-45'>请求参数</h3>
 <table><thead>
 <tr>
 <th>参数</th>
@@ -10819,7 +11077,7 @@ endTime缺省值：当前时间</p>
   </span><span class="s2">"data"</span><span class="p">:</span><span class="mi">123456</span><span class="p">,</span><span class="w">
   </span><span class="s2">"status"</span><span class="p">:</span><span class="s2">"ok"</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre><h3 id='2213f4c32f-38'>响应数据</h3>
+</span></code></pre><h3 id='2213f4c32f-39'>响应数据</h3>
 <table><thead>
 <tr>
 <th>参数</th>
@@ -10873,11 +11131,11 @@ endTime缺省值：当前时间</p>
 <p>此节点用于母用户查询子用户特定币种（IOTA除外）在其所在区块链中的充币地址，限母用户可用</p>
 
 <p>API Key 权限：读取</p>
-<h3 id='http-43'>HTTP 请求</h3>
+<h3 id='http-44'>HTTP 请求</h3>
 <ul>
 <li>GET  <code>/v2/sub-user/deposit-address</code></li>
 </ul>
-<h3 id='1f9ac54b15-45'>请求参数</h3>
+<h3 id='1f9ac54b15-46'>请求参数</h3>
 <table><thead>
 <tr>
 <th>字段名称</th>
@@ -10935,7 +11193,7 @@ endTime缺省值：当前时间</p>
         </span><span class="p">}</span><span class="w">
     </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre><h3 id='2213f4c32f-39'>响应数据</h3>
+</span></code></pre><h3 id='2213f4c32f-40'>响应数据</h3>
 <table><thead>
 <tr>
 <th>字段名称</th>
@@ -11006,11 +11264,11 @@ endTime缺省值：当前时间</p>
 <p>此节点用于母用户查询子用户充值记录，限母用户可用</p>
 
 <p>API Key 权限：读取</p>
-<h3 id='http-44'>HTTP 请求</h3>
+<h3 id='http-45'>HTTP 请求</h3>
 <ul>
 <li>GET <code>/v2/sub-user/query-deposit</code></li>
 </ul>
-<h3 id='1f9ac54b15-46'>请求参数</h3>
+<h3 id='1f9ac54b15-47'>请求参数</h3>
 <table><thead>
 <tr>
 <th>参数名称</th>
@@ -11097,7 +11355,7 @@ endTime缺省值：当前时间<br></p>
         </span><span class="p">}</span><span class="w">
     </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre><h3 id='2213f4c32f-40'>响应数据</h3>
+</span></code></pre><h3 id='2213f4c32f-41'>响应数据</h3>
 <table><thead>
 <tr>
 <th>参数名称</th>
@@ -11250,11 +11508,11 @@ endTime缺省值：当前时间<br></p>
 限频值（NEW）：2次/2s</p>
 
 <p>母用户查询其下所有子用户的各币种汇总余额</p>
-<h3 id='http-45'>HTTP 请求</h3>
+<h3 id='http-46'>HTTP 请求</h3>
 <ul>
 <li>GET <code>/v1/subuser/aggregate-balance</code></li>
 </ul>
-<h3 id='1f9ac54b15-47'>请求参数</h3>
+<h3 id='1f9ac54b15-48'>请求参数</h3>
 <p>无</p>
 
 <blockquote>
@@ -11280,7 +11538,7 @@ endTime缺省值：当前时间<br></p>
         </span><span class="p">}</span><span class="w">
     </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre><h3 id='2213f4c32f-41'>响应数据</h3>
+</span></code></pre><h3 id='2213f4c32f-42'>响应数据</h3>
 <table><thead>
 <tr>
 <th>参数</th>
@@ -11338,11 +11596,11 @@ endTime缺省值：当前时间<br></p>
 限频值（NEW）：20次/2s</p>
 
 <p>母用户查询子用户各币种账户余额</p>
-<h3 id='http-46'>HTTP 请求</h3>
+<h3 id='http-47'>HTTP 请求</h3>
 <ul>
 <li>GET <code>/v1/account/accounts/{sub-uid}</code></li>
 </ul>
-<h3 id='1f9ac54b15-48'>请求参数</h3>
+<h3 id='1f9ac54b15-49'>请求参数</h3>
 <table><thead>
 <tr>
 <th>参数</th>
@@ -11399,7 +11657,7 @@ endTime缺省值：当前时间<br></p>
         </span><span class="p">}</span><span class="w">
     </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre><h3 id='2213f4c32f-42'>响应数据</h3>
+</span></code></pre><h3 id='2213f4c32f-43'>响应数据</h3>
 <table><thead>
 <tr>
 <th>参数</th>
@@ -11618,7 +11876,7 @@ endTime缺省值：当前时间<br></p>
 限频值；100次/2s</p>
 
 <p>发送一个新订单到火币以进行撮合。</p>
-<h3 id='http-47'>HTTP 请求</h3>
+<h3 id='http-48'>HTTP 请求</h3>
 <ul>
 <li>POST <code>/v1/order/orders/place</code></li>
 </ul>
@@ -11635,7 +11893,7 @@ endTime缺省值：当前时间<br></p>
   </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"buy-limit"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"client-order-id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"a0001"</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre><h3 id='1f9ac54b15-49'>请求参数</h3>
+</span></code></pre><h3 id='1f9ac54b15-50'>请求参数</h3>
 <table><thead>
 <tr>
 <th>参数名称</th>
@@ -11729,7 +11987,7 @@ endTime缺省值：当前时间<br></p>
     </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ok"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="s2">"356501383558845"</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre><h3 id='2213f4c32f-43'>响应数据</h3>
+</span></code></pre><h3 id='2213f4c32f-44'>响应数据</h3>
 <p>返回的主数据对象是一个对应下单单号的字符串。</p>
 
 <p>如client order ID（在8小时内）被复用，节点将返回错误消息invalid.client.order.id。</p>
@@ -11738,7 +11996,7 @@ endTime缺省值：当前时间<br></p>
 限频值（NEW）：50次/2s<br></p>
 
 <p>一个批量最多10张订单</p>
-<h3 id='http-48'>HTTP 请求</h3>
+<h3 id='http-49'>HTTP 请求</h3>
 <ul>
 <li>POST <code>/v1/order/batch-orders</code></li>
 </ul>
@@ -11766,7 +12024,7 @@ endTime缺省值：当前时间<br></p>
         </span><span class="s2">"client-order-id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"23456"</span><span class="w">
     </span><span class="p">}</span><span class="w">
 </span><span class="p">]</span><span class="w">
-</span></code></pre><h3 id='1f9ac54b15-50'>请求参数</h3>
+</span></code></pre><h3 id='1f9ac54b15-51'>请求参数</h3>
 <table><thead>
 <tr>
 <th>参数名称</th>
@@ -11870,7 +12128,7 @@ endTime缺省值：当前时间<br></p>
         </span><span class="p">}</span><span class="w">
     </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre><h3 id='2213f4c32f-44'>响应数据</h3>
+</span></code></pre><h3 id='2213f4c32f-45'>响应数据</h3>
 <table><thead>
 <tr>
 <th>字段名称</th>
@@ -11923,11 +12181,11 @@ endTime缺省值：当前时间<br></p>
 <p>此接口发送一个撤销订单的请求。</p>
 
 <aside class="warning">此接口只提交取消请求，实际取消结果需要通过订单状态，撮合状态等接口来确认。</aside>
-<h3 id='http-49'>HTTP 请求</h3>
+<h3 id='http-50'>HTTP 请求</h3>
 <ul>
 <li>POST <code>/v1/order/orders/{order-id}/submitcancel</code></li>
 </ul>
-<h3 id='1f9ac54b15-51'>请求参数</h3>
+<h3 id='1f9ac54b15-52'>请求参数</h3>
 <table><thead>
 <tr>
 <th>参数名称</th>
@@ -11963,7 +12221,7 @@ endTime缺省值：当前时间<br></p>
     </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ok"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="s2">"356501495694025"</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre><h3 id='2213f4c32f-45'>响应数据</h3>
+</span></code></pre><h3 id='2213f4c32f-46'>响应数据</h3>
 <p>返回的主数据对象是一个对应下单单号的字符串。</p>
 <h3 id='e08c1d4f9a-3'>错误码</h3>
 <blockquote>
@@ -12027,7 +12285,7 @@ endTime缺省值：当前时间<br></p>
 <aside class="notice">撤单个订单建议通过接口/v1/order/orders/{order-id}/submitcancel，会更快更稳定</aside>
 
 <aside class="warning">此接口只提交取消请求，实际取消结果需要通过订单状态，撮合状态等接口来确认。</aside>
-<h3 id='http-50'>HTTP 请求</h3>
+<h3 id='http-51'>HTTP 请求</h3>
 <ul>
 <li>POST <code>/v1/order/orders/submitCancelClientOrder</code></li>
 </ul>
@@ -12038,7 +12296,7 @@ endTime缺省值：当前时间<br></p>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
   </span><span class="s2">"client-order-id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"a0001"</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre><h3 id='1f9ac54b15-52'>请求参数</h3>
+</span></code></pre><h3 id='1f9ac54b15-53'>请求参数</h3>
 <table><thead>
 <tr>
 <th>参数名称</th>
@@ -12066,7 +12324,7 @@ endTime缺省值：当前时间<br></p>
     </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ok"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre><h3 id='2213f4c32f-46'>响应数据</h3>
+</span></code></pre><h3 id='2213f4c32f-47'>响应数据</h3>
 <table><thead>
 <tr>
 <th>字段名称</th>
@@ -12128,7 +12386,7 @@ endTime缺省值：当前时间<br></p>
 <p>API Key 权限：交易<br></p>
 
 <p>为了防止API用户在发生网络故障或用户端系统故障与火币系统失去联系时，给用户造成意外损失，火币新增自动撤单接口，当用户与火币发生意外断连时，能自动帮用户取消全部委托单，以避免损失，即提供Dead man&#39;s switch功能。若开启，在设定的时间数完前，接口没有被再次调用，则用户所有现货委托单将被取消（最大支持撤500单）。</p>
-<h3 id='http-51'>HTTP 请求</h3>
+<h3 id='http-52'>HTTP 请求</h3>
 <ul>
 <li>POST <code>/v2/algo-orders/cancel-all-after</code></li>
 </ul>
@@ -12139,7 +12397,7 @@ endTime缺省值：当前时间<br></p>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
   </span><span class="s2">"timeout"</span><span class="p">:</span><span class="w"> </span><span class="s2">"10"</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre><h3 id='1f9ac54b15-53'>请求参数</h3>
+</span></code></pre><h3 id='1f9ac54b15-54'>请求参数</h3>
 <table><thead>
 <tr>
 <th>参数名称</th>
@@ -12195,7 +12453,7 @@ Response:</p>
     </span><span class="s2">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Invalid constraints error timeout"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre><h3 id='2213f4c32f-47'>响应数据</h3>
+</span></code></pre><h3 id='2213f4c32f-48'>响应数据</h3>
 <table><thead>
 <tr>
 <th><strong>参数名称</strong></th>
@@ -12246,7 +12504,7 @@ Response:</p>
 限频值（NEW）：50次/2s</p>
 
 <p>查询已提交但是仍未完全成交或未被撤销的订单。</p>
-<h3 id='http-52'>HTTP 请求</h3>
+<h3 id='http-53'>HTTP 请求</h3>
 <ul>
 <li>GET <code>/v1/order/openOrders</code></li>
 </ul>
@@ -12259,7 +12517,7 @@ Response:</p>
    </span><span class="s2">"symbol"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ethusdt"</span><span class="p">,</span><span class="w">
    </span><span class="s2">"side"</span><span class="p">:</span><span class="w"> </span><span class="s2">"buy"</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre><h3 id='1f9ac54b15-54'>请求参数</h3>
+</span></code></pre><h3 id='1f9ac54b15-55'>请求参数</h3>
 <table><thead>
 <tr>
 <th>参数名称</th>
@@ -12343,7 +12601,7 @@ Response:</p>
         </span><span class="p">}</span><span class="w">
     </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre><h3 id='2213f4c32f-48'>响应数据</h3>
+</span></code></pre><h3 id='2213f4c32f-49'>响应数据</h3>
 <table><thead>
 <tr>
 <th>字段名称</th>
@@ -12439,11 +12697,11 @@ Response:</p>
 <p>此接口发送批量撤销所有（单次最大100个）订单的请求。</p>
 
 <aside class="warning">此接口只提交取消请求，实际取消结果需要通过订单状态，撮合状态等接口来确认。</aside>
-<h3 id='http-53'>HTTP 请求</h3>
+<h3 id='http-54'>HTTP 请求</h3>
 <ul>
 <li>POST <code>/v1/order/orders/batchCancelOpenOrders</code></li>
 </ul>
-<h3 id='1f9ac54b15-55'>请求参数</h3>
+<h3 id='1f9ac54b15-56'>请求参数</h3>
 <table><thead>
 <tr>
 <th>参数名称</th>
@@ -12507,7 +12765,7 @@ Response:</p>
         </span><span class="s2">"next-id"</span><span class="p">:</span><span class="mi">5454600</span><span class="w">
     </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre><h3 id='2213f4c32f-49'>响应数据</h3>
+</span></code></pre><h3 id='2213f4c32f-50'>响应数据</h3>
 <table><thead>
 <tr>
 <th>参数名称</th>
@@ -12558,7 +12816,7 @@ Response:</p>
 限频值（NEW）：50次/2s</p>
 
 <p>此接口同时为多个订单（基于id）发送取消请求，建议通过order-ids来撤单，比client-order-ids更快更稳定。</p>
-<h3 id='http-54'>HTTP 请求</h3>
+<h3 id='http-55'>HTTP 请求</h3>
 <ul>
 <li>POST <code>/v1/order/orders/batchcancel</code></li>
 </ul>
@@ -12571,7 +12829,7 @@ Response:</p>
          </span><span class="s2">"12345"</span><span class="p">,</span><span class="w"> </span><span class="s2">"123456"</span><span class="w">
     </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre><h3 id='1f9ac54b15-56'>请求参数</h3>
+</span></code></pre><h3 id='1f9ac54b15-57'>请求参数</h3>
 <table><thead>
 <tr>
 <th>参数名称</th>
@@ -12620,7 +12878,7 @@ Response:</p>
         </span><span class="p">]</span><span class="w">
     </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre><h3 id='2213f4c32f-50'>响应数据</h3>
+</span></code></pre><h3 id='2213f4c32f-51'>响应数据</h3>
 <table><thead>
 <tr>
 <th>字段名称</th>
@@ -12731,11 +12989,11 @@ Response:</p>
 限频值（NEW）：50次/2s</p>
 
 <p>此接口返回指定订单的最新状态和详情。通过API创建的订单，撤销超过2小时后无法查询。通过API创建的订单返回order-id，按此order-id查询订单还是返回base-record-invalid是因为系统内部处理有延迟，但是不影响成交。建议您后续重试查询或者通过订阅订单推送WebSocket消息查询。</p>
-<h3 id='http-55'>HTTP 请求</h3>
+<h3 id='http-56'>HTTP 请求</h3>
 <ul>
 <li>GET <code>/v1/order/orders/{order-id}</code></li>
 </ul>
-<h3 id='1f9ac54b15-57'>请求参数</h3>
+<h3 id='1f9ac54b15-58'>请求参数</h3>
 <table><thead>
 <tr>
 <th>参数名称</th>
@@ -12779,7 +13037,7 @@ Response:</p>
         </span><span class="s2">"canceled-at"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
     </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre><h3 id='2213f4c32f-51'>响应数据</h3>
+</span></code></pre><h3 id='2213f4c32f-52'>响应数据</h3>
 <table><thead>
 <tr>
 <th>字段名称</th>
@@ -12935,11 +13193,11 @@ Response:</p>
 限频值（NEW）：50次/2s</p>
 
 <p>此接口返回指定用户自编订单号（8小时内）的订单最新状态和详情。通过API创建的订单，撤销超过2小时后无法查询。建议通过GET <code>/v1/order/orders/{order-id}</code>来撤单，比使用clientOrderId更快更稳定</p>
-<h3 id='http-56'>HTTP 请求</h3>
+<h3 id='http-57'>HTTP 请求</h3>
 <ul>
 <li>GET <code>/v1/order/orders/getClientOrder</code></li>
 </ul>
-<h3 id='1f9ac54b15-58'>请求参数</h3>
+<h3 id='1f9ac54b15-59'>请求参数</h3>
 <table><thead>
 <tr>
 <th>参数名称</th>
@@ -12983,7 +13241,7 @@ Response:</p>
         </span><span class="s2">"canceled-at"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
     </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre><h3 id='2213f4c32f-52'>响应数据</h3>
+</span></code></pre><h3 id='2213f4c32f-53'>响应数据</h3>
 <table><thead>
 <tr>
 <th>字段名称</th>
@@ -13149,11 +13407,11 @@ Response:</p>
 限频值（NEW）：50次/2s</p>
 
 <p>此接口返回指定订单的成交明细。</p>
-<h3 id='http-57'>HTTP 请求</h3>
+<h3 id='http-58'>HTTP 请求</h3>
 <ul>
 <li>GET <code>/v1/order/orders/{order-id}/matchresults</code></li>
 </ul>
-<h3 id='1f9ac54b15-59'>请求参数</h3>
+<h3 id='1f9ac54b15-60'>请求参数</h3>
 <table><thead>
 <tr>
 <th>参数名称</th>
@@ -13200,7 +13458,7 @@ Response:</p>
         </span><span class="p">}</span><span class="w">
     </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre><h3 id='2213f4c32f-53'>响应数据</h3>
+</span></code></pre><h3 id='2213f4c32f-54'>响应数据</h3>
 <aside class="notice">返回的主数据对象为一个对象数组，其中每一个元件代表一个交易结果。</aside>
 
 <table><thead>
@@ -13364,7 +13622,7 @@ Response:</p>
 </ul>
 
 <p>火币Global建议用户以“时间范围“查询历史订单。未来，火币Global将下线以”日期范围“查询历史订单的方式，并另行通知。</p>
-<h3 id='http-58'>HTTP 请求</h3>
+<h3 id='http-59'>HTTP 请求</h3>
 <ul>
 <li>GET <code>/v1/order/orders</code></li>
 </ul>
@@ -13381,7 +13639,7 @@ Response:</p>
    </span><span class="s2">"symbol"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ethusdt"</span><span class="p">,</span><span class="w">
    </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"buy-limit"</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre><h3 id='1f9ac54b15-60'>请求参数</h3>
+</span></code></pre><h3 id='1f9ac54b15-61'>请求参数</h3>
 <table><thead>
 <tr>
 <th>参数名称</th>
@@ -13483,7 +13741,7 @@ Response:</p>
         </span><span class="p">}</span><span class="w">
     </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre><h3 id='2213f4c32f-54'>响应数据</h3>
+</span></code></pre><h3 id='2213f4c32f-55'>响应数据</h3>
 <table><thead>
 <tr>
 <th>参数名称</th>
@@ -13659,7 +13917,7 @@ Response:</p>
 限频值（NEW）：20次/2s</p>
 
 <p>此接口基于搜索条件查询最近48小时内历史订单。通过API创建的订单，撤销超过2小时后无法查询。</p>
-<h3 id='http-59'>HTTP 请求</h3>
+<h3 id='http-60'>HTTP 请求</h3>
 <ul>
 <li>GET <code>/v1/order/history</code></li>
 </ul>
@@ -13674,7 +13932,7 @@ Response:</p>
    </span><span class="s2">"direct"</span><span class="p">:</span><span class="w"> </span><span class="s2">"prev"</span><span class="p">,</span><span class="w">
    </span><span class="s2">"size"</span><span class="p">:</span><span class="w"> </span><span class="s2">"10"</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre><h3 id='1f9ac54b15-61'>请求参数</h3>
+</span></code></pre><h3 id='1f9ac54b15-62'>请求参数</h3>
 <table><thead>
 <tr>
 <th>参数名称</th>
@@ -13769,7 +14027,7 @@ Response:</p>
         </span><span class="p">}</span><span class="w">
     </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre><h3 id='2213f4c32f-55'>响应数据</h3>
+</span></code></pre><h3 id='2213f4c32f-56'>响应数据</h3>
 <table><thead>
 <tr>
 <th>参数名称</th>
@@ -13932,11 +14190,11 @@ Response:</p>
 限频值（NEW）：20次/2s</p>
 
 <p>此接口基于搜索条件查询当前和历史成交记录。</p>
-<h3 id='http-60'>HTTP 请求</h3>
+<h3 id='http-61'>HTTP 请求</h3>
 <ul>
 <li>GET <code>/v1/order/matchresults</code></li>
 </ul>
-<h3 id='1f9ac54b15-62'>请求参数</h3>
+<h3 id='1f9ac54b15-63'>请求参数</h3>
 <table><thead>
 <tr>
 <th>参数名称</th>
@@ -14031,7 +14289,7 @@ Response:</p>
         </span><span class="p">}</span><span class="w">
     </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre><h3 id='2213f4c32f-56'>响应数据</h3>
+</span></code></pre><h3 id='2213f4c32f-57'>响应数据</h3>
 <aside class="notice">返回的主数据对象为一个对象数组，其中每一个元件代表一个交易结果。</aside>
 
 <table><thead>
@@ -14204,11 +14462,11 @@ Response:</p>
 <p>Api用户查询交易对费率，一次限制最多查10个交易对，子用户的费率和母用户保持一致</p>
 
 <p>API Key 权限：读取</p>
-<h3 id='http-61'>HTTP 请求</h3>
+<h3 id='http-62'>HTTP 请求</h3>
 <ul>
 <li>GET <code>/v2/reference/transact-fee-rate</code></li>
 </ul>
-<h3 id='1f9ac54b15-63'>请求参数</h3>
+<h3 id='1f9ac54b15-64'>请求参数</h3>
 <table><thead>
 <tr>
 <th>参数</th>
@@ -14259,7 +14517,7 @@ Response:</p>
     </span><span class="p">],</span><span class="w">
     </span><span class="s2">"success"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre><h3 id='2213f4c32f-57'>响应数据</h3>
+</span></code></pre><h3 id='2213f4c32f-58'>响应数据</h3>
 <table><thead>
 <tr>
 <th>字段名称</th>
@@ -14626,7 +14884,7 @@ Response:</p>
 <p>API Key 权限：交易<br>
 限频值（NEW）：20次/2秒<br>
 仅可通过此节点下单策略委托，不可通过现货/杠杆交易相关接口下单策略委托，支持未触发OPEN订单最大数量为100。<br></p>
-<h3 id='1f9ac54b15-64'>请求参数</h3>
+<h3 id='1f9ac54b15-65'>请求参数</h3>
 <table><thead>
 <tr>
 <th>名称</th>
@@ -14742,7 +15000,7 @@ Response:</p>
         </span><span class="s2">"clientOrderId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"a001"</span><span class="w">
     </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre><h3 id='2213f4c32f-58'>响应数据</h3>
+</span></code></pre><h3 id='2213f4c32f-59'>响应数据</h3>
 <table><thead>
 <tr>
 <th>名称</th>
@@ -14801,7 +15059,7 @@ Response:</p>
         </span><span class="s2">"zy0002"</span><span class="p">,</span><span class="s2">"zy0003"</span><span class="w">
     </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre><h3 id='1f9ac54b15-65'>请求参数</h3>
+</span></code></pre><h3 id='1f9ac54b15-66'>请求参数</h3>
 <table><thead>
 <tr>
 <th>名称</th>
@@ -14835,7 +15093,7 @@ Response:</p>
         </span><span class="s2">"rejected"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w">
     </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre><h3 id='2213f4c32f-59'>响应数据</h3>
+</span></code></pre><h3 id='2213f4c32f-60'>响应数据</h3>
 <table><thead>
 <tr>
 <th>名称</th>
@@ -14891,7 +15149,7 @@ Response:</p>
 以orderOrigTime检索<br>
 未触发OPEN订单，指的是已成功下单，但尚未触发，订单状态orderStatus为created的订单<br>
 未触发OPEN订单，可通过此节点查询，但不可通过现货/杠杆交易相关接口查询<br></p>
-<h3 id='1f9ac54b15-66'>请求参数</h3>
+<h3 id='1f9ac54b15-67'>请求参数</h3>
 <table><thead>
 <tr>
 <th>名称</th>
@@ -14998,7 +15256,7 @@ Response:</p>
         </span><span class="p">}</span><span class="w">
     </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre><h3 id='2213f4c32f-60'>响应数据</h3>
+</span></code></pre><h3 id='2213f4c32f-61'>响应数据</h3>
 <table><thead>
 <tr>
 <th>名称</th>
@@ -15139,7 +15397,7 @@ Response:</p>
 历史终态订单包括，触发前被主动撤销的策略委托（orderStatus=canceled），触发失败的策略委托（orderStatus=rejected），触发成功的策略委托（orderStatus=triggered）。<br>
 如需查询已成功触发订单的后续状态，须通过现货/杠杆交易相关接口完成<br>
 触发前被主动撤销的策略委托及触发失败的策略委托，可通过此节点查询，但不可通过现货/杠杆交易相关接口查询<br></p>
-<h3 id='1f9ac54b15-67'>请求参数</h3>
+<h3 id='1f9ac54b15-68'>请求参数</h3>
 <table><thead>
 <tr>
 <th>名称</th>
@@ -15256,7 +15514,7 @@ Response:</p>
     </span><span class="p">],</span><span class="w">
     </span><span class="s2">"nextId"</span><span class="p">:</span><span class="w"> </span><span class="mi">9585084</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre><h3 id='2213f4c32f-61'>响应数据</h3>
+</span></code></pre><h3 id='2213f4c32f-62'>响应数据</h3>
 <table><thead>
 <tr>
 <th>名称</th>
@@ -15420,7 +15678,7 @@ Response:</p>
 以orderOrigTime检索<br>
 如需查询已成功触发订单的后续状态，须通过现货/杠杆交易相关接口完成<br>
 未触发的策略委托及触发失败的策略委托，可通过此节点查询，但不可通过现货/杠杆交易相关接口查询<br></p>
-<h3 id='1f9ac54b15-68'>请求参数</h3>
+<h3 id='1f9ac54b15-69'>请求参数</h3>
 <table><thead>
 <tr>
 <th>名称</th>
@@ -15462,7 +15720,7 @@ Response:</p>
         </span><span class="s2">"stopPrice"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.1"</span><span class="w">
     </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre><h3 id='2213f4c32f-62'>响应数据</h3>
+</span></code></pre><h3 id='2213f4c32f-63'>响应数据</h3>
 <table><thead>
 <tr>
 <th>名称</th>
@@ -15706,7 +15964,7 @@ Response:</p>
 <p>子用户可以调用</p>
 
 <p>还币顺序为，（如不指定transactId）先借先还，利息先还；如指定transactId时，currency参数不做校验。</p>
-<h3 id='http-62'>HTTP 请求</h3>
+<h3 id='http-63'>HTTP 请求</h3>
 <ul>
 <li>POST <code>/v2/account/repayment</code></li>
 </ul>
@@ -15720,7 +15978,7 @@ Response:</p>
     </span><span class="s2">"amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.00800334"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"transactId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"437"</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre><h3 id='1f9ac54b15-69'>请求参数</h3>
+</span></code></pre><h3 id='1f9ac54b15-70'>请求参数</h3>
 <table><thead>
 <tr>
 <th><strong>名称</strong></th>
@@ -15767,7 +16025,7 @@ Response:</p>
         </span><span class="p">}</span><span class="w">
     </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre><h3 id='2213f4c32f-63'>响应数据</h3>
+</span></code></pre><h3 id='2213f4c32f-64'>响应数据</h3>
 <table><thead>
 <tr>
 <th><strong>名称</strong></th>
@@ -15822,7 +16080,7 @@ Response:</p>
 <p>此接口用于现货账户与逐仓杠杆账户的资产互转。</p>
 
 <p>从现货账户划转至逐仓杠杆账户 <code>transfer-in</code>，从逐仓杠杆账户划转至现货账户 <code>transfer-out</code></p>
-<h3 id='http-63'>HTTP 请求</h3>
+<h3 id='http-64'>HTTP 请求</h3>
 <ul>
 <li><p>POST <code>/v1/dw/transfer-in/margin</code></p></li>
 <li><p>POST <code>/v1/dw/transfer-out/margin</code></p></li>
@@ -15836,7 +16094,7 @@ Response:</p>
   </span><span class="s2">"currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"eth"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1.0"</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre><h3 id='1f9ac54b15-70'>请求参数</h3>
+</span></code></pre><h3 id='1f9ac54b15-71'>请求参数</h3>
 <table><thead>
 <tr>
 <th>参数名称</th>
@@ -15877,7 +16135,7 @@ Response:</p>
     </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="mi">46971504</span><span class="p">,</span><span class="w">
     </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="mi">200</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre><h3 id='2213f4c32f-64'>响应数据</h3>
+</span></code></pre><h3 id='2213f4c32f-65'>响应数据</h3>
 <table><thead>
 <tr>
 <th>参数名称</th>
@@ -15906,11 +16164,11 @@ Response:</p>
 限频值（NEW）：20次/2s</p>
 
 <p>此接口返回用户级别的借币币息率及借币额度。</p>
-<h3 id='http-64'>HTTP 请求</h3>
+<h3 id='http-65'>HTTP 请求</h3>
 <ul>
 <li>GET <code>/v1/margin/loan-info</code></li>
 </ul>
-<h3 id='1f9ac54b15-71'>请求参数</h3>
+<h3 id='1f9ac54b15-72'>请求参数</h3>
 <table><thead>
 <tr>
 <th>参数名称</th>
@@ -15958,7 +16216,7 @@ Response:</p>
         </span><span class="p">}</span><span class="w">
     </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre><h3 id='2213f4c32f-65'>响应数据</h3>
+</span></code></pre><h3 id='2213f4c32f-66'>响应数据</h3>
 <table><thead>
 <tr>
 <th>参数名称</th>
@@ -16032,7 +16290,7 @@ Response:</p>
 限频值（NEW）：2次/2s</p>
 
 <p>此接口用于申请借币.</p>
-<h3 id='http-65'>HTTP 请求</h3>
+<h3 id='http-66'>HTTP 请求</h3>
 <ul>
 <li>POST <code>/v1/margin/orders</code></li>
 </ul>
@@ -16045,7 +16303,7 @@ Response:</p>
   </span><span class="s2">"currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"eth"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1.0"</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre><h3 id='1f9ac54b15-72'>请求参数</h3>
+</span></code></pre><h3 id='1f9ac54b15-73'>请求参数</h3>
 <table><thead>
 <tr>
 <th>参数名称</th>
@@ -16085,7 +16343,7 @@ Response:</p>
   </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ok"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="mi">1000</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre><h3 id='2213f4c32f-66'>响应数据</h3>
+</span></code></pre><h3 id='2213f4c32f-67'>响应数据</h3>
 <table><thead>
 <tr>
 <th>字段名称</th>
@@ -16109,7 +16367,7 @@ Response:</p>
 限频值（NEW）：2次/2s</p>
 
 <p>此接口用于归还借币.</p>
-<h3 id='http-66'>HTTP 请求</h3>
+<h3 id='http-67'>HTTP 请求</h3>
 <ul>
 <li>POST <code>/v1/margin/orders/{order-id}/repay</code></li>
 </ul>
@@ -16120,7 +16378,7 @@ Response:</p>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
   </span><span class="s2">"amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1.0"</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre><h3 id='1f9ac54b15-73'>请求参数</h3>
+</span></code></pre><h3 id='1f9ac54b15-74'>请求参数</h3>
 <table><thead>
 <tr>
 <th>参数名称</th>
@@ -16149,7 +16407,7 @@ Response:</p>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">  
   </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="mi">1000</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre><h3 id='2213f4c32f-67'>响应数据</h3>
+</span></code></pre><h3 id='2213f4c32f-68'>响应数据</h3>
 <table><thead>
 <tr>
 <th>参数名称</th>
@@ -16168,11 +16426,11 @@ Response:</p>
 限频值（NEW）：100次/2s</p>
 
 <p>此接口基于指定搜索条件返回借币订单。</p>
-<h3 id='http-67'>HTTP 请求</h3>
+<h3 id='http-68'>HTTP 请求</h3>
 <ul>
 <li>GET <code>/v1/margin/loan-orders</code></li>
 </ul>
-<h3 id='1f9ac54b15-74'>请求参数</h3>
+<h3 id='1f9ac54b15-75'>请求参数</h3>
 <table><thead>
 <tr>
 <th>参数名称</th>
@@ -16280,7 +16538,7 @@ Response:</p>
         </span><span class="p">}</span><span class="w">
     </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre><h3 id='2213f4c32f-68'>响应数据</h3>
+</span></code></pre><h3 id='2213f4c32f-69'>响应数据</h3>
 <table><thead>
 <tr>
 <th>字段名称</th>
@@ -16464,11 +16722,11 @@ Response:</p>
 限频值（NEW）：100次/2s</p>
 
 <p>此接口返回借币账户详情。</p>
-<h3 id='http-68'>HTTP 请求</h3>
+<h3 id='http-69'>HTTP 请求</h3>
 <ul>
 <li>GET <code>/v1/margin/accounts/balance</code></li>
 </ul>
-<h3 id='1f9ac54b15-75'>请求参数</h3>
+<h3 id='1f9ac54b15-76'>请求参数</h3>
 <table><thead>
 <tr>
 <th>参数名称</th>
@@ -16545,7 +16803,7 @@ Response:</p>
     </span><span class="p">}</span><span class="w">
   </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre><h3 id='2213f4c32f-69'>响应数据</h3>
+</span></code></pre><h3 id='2213f4c32f-70'>响应数据</h3>
 <table><thead>
 <tr>
 <th>字段名称</th>
@@ -16662,7 +16920,7 @@ Response:</p>
 <p>此接口用于现货账户与全仓杠杆账户的资产互转。</p>
 
 <p>从现货账户划转至全仓杠杆账户 <code>transfer-in</code>，从全仓杠杆账户划转至现货账户 <code>transfer-out</code></p>
-<h3 id='http-69'>HTTP 请求</h3>
+<h3 id='http-70'>HTTP 请求</h3>
 <ul>
 <li>POST <code>/v1/cross-margin/transfer-in</code></li>
 <li>POST <code>/v1/cross-margin/transfer-out</code></li>
@@ -16675,7 +16933,7 @@ Response:</p>
   </span><span class="s2">"currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"eth"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1.0"</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre><h3 id='1f9ac54b15-76'>请求参数</h3>
+</span></code></pre><h3 id='1f9ac54b15-77'>请求参数</h3>
 <table><thead>
 <tr>
 <th>参数名称</th>
@@ -16708,7 +16966,7 @@ Response:</p>
   </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ok"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="mi">1000</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre><h3 id='2213f4c32f-70'>响应数据</h3>
+</span></code></pre><h3 id='2213f4c32f-71'>响应数据</h3>
 <table><thead>
 <tr>
 <th>参数名称</th>
@@ -16733,11 +16991,11 @@ Response:</p>
 <p>限频值（NEW）：2次/2s</p>
 
 <p>此接口返回用户级别的借币币息率及借币额度。</p>
-<h3 id='http-70'>HTTP 请求</h3>
+<h3 id='http-71'>HTTP 请求</h3>
 <ul>
 <li>GET <code>/v1/cross-margin/loan-info</code></li>
 </ul>
-<h3 id='1f9ac54b15-77'>请求参数</h3>
+<h3 id='1f9ac54b15-78'>请求参数</h3>
 <p>无</p>
 
 <blockquote>
@@ -16805,7 +17063,7 @@ Response:</p>
     </span><span class="p">],</span><span class="w">
     </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="mi">200</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre><h3 id='2213f4c32f-71'>响应数据</h3>
+</span></code></pre><h3 id='2213f4c32f-72'>响应数据</h3>
 <table><thead>
 <tr>
 <th>参数名称</th>
@@ -16870,11 +17128,11 @@ Response:</p>
 <p>限频值（NEW）：2次/2s</p>
 
 <p>此接口返回用户级别的持仓限额。</p>
-<h3 id='http-71'>HTTP 请求</h3>
+<h3 id='http-72'>HTTP 请求</h3>
 <ul>
 <li>GET <code>/v2/margin/limit</code></li>
 </ul>
-<h3 id='1f9ac54b15-78'>请求参数</h3>
+<h3 id='1f9ac54b15-79'>请求参数</h3>
 <table><thead>
 <tr>
 <th>参数名称</th>
@@ -16914,7 +17172,7 @@ Response:</p>
     </span><span class="p">],</span><span class="w">
     </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="mi">200</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre><h3 id='2213f4c32f-72'>响应数据</h3>
+</span></code></pre><h3 id='2213f4c32f-73'>响应数据</h3>
 <table><thead>
 <tr>
 <th>名称</th>
@@ -16964,7 +17222,7 @@ Response:</p>
 <p>限频值（NEW）：2次/2s</p>
 
 <p>此接口用于申请借币.</p>
-<h3 id='http-72'>HTTP 请求</h3>
+<h3 id='http-73'>HTTP 请求</h3>
 <ul>
 <li>POST <code>/v1/cross-margin/orders</code></li>
 </ul>
@@ -16976,7 +17234,7 @@ Response:</p>
   </span><span class="s2">"currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"eth"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1.0"</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre><h3 id='1f9ac54b15-79'>请求参数</h3>
+</span></code></pre><h3 id='1f9ac54b15-80'>请求参数</h3>
 <table><thead>
 <tr>
 <th>参数名称</th>
@@ -17009,7 +17267,7 @@ Response:</p>
   </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ok"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="mi">1000</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre><h3 id='2213f4c32f-73'>响应数据</h3>
+</span></code></pre><h3 id='2213f4c32f-74'>响应数据</h3>
 <table><thead>
 <tr>
 <th>字段名称</th>
@@ -17034,7 +17292,7 @@ Response:</p>
 <p>限频值（NEW）：2次/2s</p>
 
 <p>此接口用于归还借币.</p>
-<h3 id='http-73'>HTTP 请求</h3>
+<h3 id='http-74'>HTTP 请求</h3>
 <ul>
 <li>POST <code>/v1/cross-margin/orders/{order-id}/repay</code></li>
 </ul>
@@ -17045,7 +17303,7 @@ Response:</p>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
   </span><span class="s2">"amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1.0"</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre><h3 id='1f9ac54b15-80'>请求参数</h3>
+</span></code></pre><h3 id='1f9ac54b15-81'>请求参数</h3>
 <table><thead>
 <tr>
 <th>参数名称</th>
@@ -17075,7 +17333,7 @@ Response:</p>
   </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ok"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre><h3 id='2213f4c32f-74'>响应数据</h3>
+</span></code></pre><h3 id='2213f4c32f-75'>响应数据</h3>
 <table><thead>
 <tr>
 <th>参数名称</th>
@@ -17100,11 +17358,11 @@ Response:</p>
 <p>限频值（NEW）：2次/2s</p>
 
 <p>此接口基于指定搜索条件返回借币订单。</p>
-<h3 id='http-74'>HTTP 请求</h3>
+<h3 id='http-75'>HTTP 请求</h3>
 <ul>
 <li>GET <code>/v1/cross-margin/loan-orders</code></li>
 </ul>
-<h3 id='1f9ac54b15-81'>请求参数</h3>
+<h3 id='1f9ac54b15-82'>请求参数</h3>
 <table><thead>
 <tr>
 <th>参数名称</th>
@@ -17204,7 +17462,7 @@ Response:</p>
         </span><span class="p">}</span><span class="w">
     </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre><h3 id='2213f4c32f-75'>响应数据</h3>
+</span></code></pre><h3 id='2213f4c32f-76'>响应数据</h3>
 <table><thead>
 <tr>
 <th>字段名称</th>
@@ -17333,11 +17591,11 @@ Response:</p>
 <p>限频值（NEW）：2次/2s</p>
 
 <p>此接口返回借币账户详情。</p>
-<h3 id='http-75'>HTTP 请求</h3>
+<h3 id='http-76'>HTTP 请求</h3>
 <ul>
 <li>GET <code>/v1/cross-margin/accounts/balance</code></li>
 </ul>
-<h3 id='1f9ac54b15-82'>请求参数</h3>
+<h3 id='1f9ac54b15-83'>请求参数</h3>
 <table><thead>
 <tr>
 <th>参数名称</th>
@@ -17404,7 +17662,7 @@ Response:</p>
         </span><span class="p">]</span><span class="w">
     </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre><h3 id='2213f4c32f-76'>响应数据</h3>
+</span></code></pre><h3 id='2213f4c32f-77'>响应数据</h3>
 <table><thead>
 <tr>
 <th>字段名称</th>
@@ -17506,11 +17764,11 @@ Response:</p>
 <p>子用户可以调用</p>
 
 <p>按repayTime检索</p>
-<h3 id='http-76'>HTTP 请求</h3>
+<h3 id='http-77'>HTTP 请求</h3>
 <ul>
 <li>GET <code>/v2/account/repayment</code></li>
 </ul>
-<h3 id='1f9ac54b15-83'>请求参数</h3>
+<h3 id='1f9ac54b15-84'>请求参数</h3>
 <table><thead>
 <tr>
 <th><strong>名称</strong></th>
@@ -17591,7 +17849,7 @@ Response:</p>
         </span><span class="p">}</span><span class="w">
     </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre><h3 id='2213f4c32f-77'>响应数据</h3>
+</span></code></pre><h3 id='2213f4c32f-78'>响应数据</h3>
 <table><thead>
 <tr>
 <th><strong>名称</strong></th>
@@ -18061,7 +18319,7 @@ Response:</p>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
   </span><span class="s2">"sub"</span><span class="p">:</span><span class="w"> </span><span class="s2">"market.btcusdt.ticker"</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre><h3 id='1f9ac54b15-84'>请求参数</h3>
+</span></code></pre><h3 id='1f9ac54b15-85'>请求参数</h3>
 <table><thead>
 <tr>
 <th>参数</th>
@@ -18104,7 +18362,7 @@ Response:</p>
         </span><span class="s2">"lastSize"</span><span class="p">:</span><span class="mf">0.03</span><span class="w">
     </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre><h3 id='2213f4c32f-78'>响应数据</h3>
+</span></code></pre><h3 id='2213f4c32f-79'>响应数据</h3>
 <table><thead>
 <tr>
 <th>字段名称</th>
@@ -20551,7 +20809,7 @@ Response:</p>
 </ul>
 
 <p>API Key 权限：读取</p>
-<h3 id='1f9ac54b15-85'>请求参数</h3>
+<h3 id='1f9ac54b15-86'>请求参数</h3>
 <table><thead>
 <tr>
 <th>参数名称</th>
@@ -20583,7 +20841,7 @@ Response:</p>
 <td>buy兑入/sell兑出</td>
 </tr>
 </tbody></table>
-<h3 id='2213f4c32f-79'>响应数据</h3>
+<h3 id='2213f4c32f-80'>响应数据</h3>
 <table><thead>
 <tr>
 <th>参数名称</th>
@@ -20649,7 +20907,7 @@ Response:</p>
 </ul>
 
 <p>API Key 权限：交易</p>
-<h3 id='1f9ac54b15-86'>请求参数</h3>
+<h3 id='1f9ac54b15-87'>请求参数</h3>
 <table><thead>
 <tr>
 <th>参数名称</th>
@@ -20667,7 +20925,7 @@ Response:</p>
 <td></td>
 </tr>
 </tbody></table>
-<h3 id='2213f4c32f-80'>响应数据</h3>
+<h3 id='2213f4c32f-81'>响应数据</h3>
 <table><thead>
 <tr>
 <th>参数名称</th>
@@ -20785,13 +21043,13 @@ Response:</p>
 <p>杠杆ETP接口提供了ETP的换入、换出、调仓、查询等功能。</p>
 <h2 id='8bb7c6b75e'>基础参考信息</h2>
 <p>用户可以通过该接口取得关于杠杆ETP换入换出的基础参考信息。</p>
-<h3 id='http-77'>HTTP 请求</h3>
+<h3 id='http-78'>HTTP 请求</h3>
 <ul>
 <li>GET <code>/v2/etp/reference</code></li>
 </ul>
 
 <p>公共数据接口</p>
-<h3 id='1f9ac54b15-87'>请求参数</h3>
+<h3 id='1f9ac54b15-88'>请求参数</h3>
 <table><thead>
 <tr>
 <th>名称</th>
@@ -20833,7 +21091,7 @@ Response:</p>
     </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="mi">200</span><span class="p">,</span><span class="w">
     </span><span class="s2">"success"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre><h3 id='2213f4c32f-81'>响应数据</h3>
+</span></code></pre><h3 id='2213f4c32f-82'>响应数据</h3>
 <table><thead>
 <tr>
 <th>名称</th>
@@ -20953,14 +21211,14 @@ Response:</p>
 </tbody></table>
 <h2 id='etp-4'>杠杆ETP换入</h2>
 <p>用户可以通过该接口换入杠杆ETP。</p>
-<h3 id='http-78'>HTTP 请求</h3>
+<h3 id='http-79'>HTTP 请求</h3>
 <ul>
 <li>POST <code>/v2/etp/creation</code></li>
 </ul>
 
 <p>API Key 权限：交易<br>
 限频值：2次/秒<br></p>
-<h3 id='1f9ac54b15-88'>请求参数</h3>
+<h3 id='1f9ac54b15-89'>请求参数</h3>
 <table><thead>
 <tr>
 <th>名称</th>
@@ -20986,92 +21244,6 @@ Response:</p>
 <td>string</td>
 <td>TRUE</td>
 <td>申购金额单位（计价币种）</td>
-</tr>
-</tbody></table>
-<h3 id='2213f4c32f-82'>响应数据</h3>
-<table><thead>
-<tr>
-<th>名称</th>
-<th>类型</th>
-<th>是否必需</th>
-<th>描述</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>code</td>
-<td>integer</td>
-<td>TRUE</td>
-<td>状态码</td>
-</tr>
-<tr>
-<td>message</td>
-<td>string</td>
-<td>FALSE</td>
-<td>错误描述（如有）</td>
-</tr>
-<tr>
-<td>&lt;data&gt;</td>
-<td>object</td>
-<td>TRUE</td>
-<td></td>
-</tr>
-<tr>
-<td>transactId</td>
-<td>long</td>
-<td>TRUE</td>
-<td>交易ID</td>
-</tr>
-<tr>
-<td>transactTime</td>
-<td>long</td>
-<td>TRUE</td>
-<td>交易时间（unix time in millisecond）</td>
-</tr>
-<tr>
-<td>&lt;/data&gt;</td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-</tbody></table>
-
-<p>注：
-返回transactId 不意味着申购成功，用户须在申购后通过查询交易记录确认该申购状态。</p>
-<h2 id='etp-5'>杠杆ETP换出</h2>
-<p>用户可以通过该接口换出杠杆ETP。</p>
-<h3 id='http-79'>HTTP 请求</h3>
-<ul>
-<li>POST <code>/v2/etp/redemption</code></li>
-</ul>
-
-<p>API Key 权限：交易<br>
-限频值：2次/秒<br></p>
-<h3 id='1f9ac54b15-89'>请求参数</h3>
-<table><thead>
-<tr>
-<th>名称</th>
-<th>类型</th>
-<th>是否必需</th>
-<th>描述</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>etpName</td>
-<td>string</td>
-<td>TRUE</td>
-<td>ETP名称 (for example: btc3l)</td>
-</tr>
-<tr>
-<td>currency</td>
-<td>string</td>
-<td>TRUE</td>
-<td>赎回币种（计价币种）</td>
-</tr>
-<tr>
-<td>amount</td>
-<td>float</td>
-<td>TRUE</td>
-<td>赎回数量</td>
 </tr>
 </tbody></table>
 <h3 id='2213f4c32f-83'>响应数据</h3>
@@ -21122,10 +21294,96 @@ Response:</p>
 </tbody></table>
 
 <p>注：
+返回transactId 不意味着申购成功，用户须在申购后通过查询交易记录确认该申购状态。</p>
+<h2 id='etp-5'>杠杆ETP换出</h2>
+<p>用户可以通过该接口换出杠杆ETP。</p>
+<h3 id='http-80'>HTTP 请求</h3>
+<ul>
+<li>POST <code>/v2/etp/redemption</code></li>
+</ul>
+
+<p>API Key 权限：交易<br>
+限频值：2次/秒<br></p>
+<h3 id='1f9ac54b15-90'>请求参数</h3>
+<table><thead>
+<tr>
+<th>名称</th>
+<th>类型</th>
+<th>是否必需</th>
+<th>描述</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>etpName</td>
+<td>string</td>
+<td>TRUE</td>
+<td>ETP名称 (for example: btc3l)</td>
+</tr>
+<tr>
+<td>currency</td>
+<td>string</td>
+<td>TRUE</td>
+<td>赎回币种（计价币种）</td>
+</tr>
+<tr>
+<td>amount</td>
+<td>float</td>
+<td>TRUE</td>
+<td>赎回数量</td>
+</tr>
+</tbody></table>
+<h3 id='2213f4c32f-84'>响应数据</h3>
+<table><thead>
+<tr>
+<th>名称</th>
+<th>类型</th>
+<th>是否必需</th>
+<th>描述</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>code</td>
+<td>integer</td>
+<td>TRUE</td>
+<td>状态码</td>
+</tr>
+<tr>
+<td>message</td>
+<td>string</td>
+<td>FALSE</td>
+<td>错误描述（如有）</td>
+</tr>
+<tr>
+<td>&lt;data&gt;</td>
+<td>object</td>
+<td>TRUE</td>
+<td></td>
+</tr>
+<tr>
+<td>transactId</td>
+<td>long</td>
+<td>TRUE</td>
+<td>交易ID</td>
+</tr>
+<tr>
+<td>transactTime</td>
+<td>long</td>
+<td>TRUE</td>
+<td>交易时间（unix time in millisecond）</td>
+</tr>
+<tr>
+<td>&lt;/data&gt;</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody></table>
+
+<p>注：
 返回transactId不意味着赎回成功，用户须在赎回后通过查询交易记录确认该赎回状态。</p>
 <h2 id='etp-6'>获取杠杆ETP申赎记录</h2>
 <p>用户可以通过该接口获取杠杆ETP申赎记录。</p>
-<h3 id='http-80'>HTTP 请求</h3>
+<h3 id='http-81'>HTTP 请求</h3>
 <ul>
 <li>GET <code>/v2/etp/transactions</code></li>
 </ul>
@@ -21133,7 +21391,7 @@ Response:</p>
 <p>API Key 权限：读取<br>
 限频值：2次/秒<br>
 按transactTime检索<br></p>
-<h3 id='1f9ac54b15-90'>请求参数</h3>
+<h3 id='1f9ac54b15-91'>请求参数</h3>
 <table><thead>
 <tr>
 <th>名称</th>
@@ -21226,7 +21484,7 @@ startTime与endTime构成查询窗口，窗口最大可设置为10天，窗口�
         </span><span class="p">}</span><span class="w">
     </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre><h3 id='2213f4c32f-84'>响应数据</h3>
+</span></code></pre><h3 id='2213f4c32f-85'>响应数据</h3>
 <table><thead>
 <tr>
 <th>名称</th>
@@ -21361,14 +21619,14 @@ startTime与endTime构成查询窗口，窗口最大可设置为10天，窗口�
 如用户查询时，实际交易数量、实际交易金额、实际交易价格尚未生成，字段transactAmount、transactValue、transactPrice更新为空。<br></p>
 <h2 id='etp-7'>获取特定杠杆ETP申赎记录</h2>
 <p>用户可以通过该接口获取特定杠杆ETP申赎记录。</p>
-<h3 id='http-81'>HTTP 请求</h3>
+<h3 id='http-82'>HTTP 请求</h3>
 <ul>
 <li>GET <code>/v2/etp/transaction</code></li>
 </ul>
 
 <p>API Key 权限：读取<br>
 限频值：2次/秒<br></p>
-<h3 id='1f9ac54b15-91'>请求参数</h3>
+<h3 id='1f9ac54b15-92'>请求参数</h3>
 <table><thead>
 <tr>
 <th>名称</th>
@@ -21409,7 +21667,7 @@ startTime与endTime构成查询窗口，窗口最大可设置为10天，窗口�
     </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="mi">200</span><span class="p">,</span><span class="w">
     </span><span class="s2">"success"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre><h3 id='2213f4c32f-85'>响应数据</h3>
+</span></code></pre><h3 id='2213f4c32f-86'>响应数据</h3>
 <table><thead>
 <tr>
 <th>名称</th>
@@ -21538,14 +21796,14 @@ startTime与endTime构成查询窗口，窗口最大可设置为10天，窗口�
 如用户查询时，实际交易数量、实际交易金额、实际交易价格尚未生成，字段transactAmount、transactValue、transactPrice更新为空。<br></p>
 <h2 id='etp-8'>获取杠杆ETP调仓记录</h2>
 <p>用户可以通过该接口获取杠杆ETP调仓记录。</p>
-<h3 id='http-82'>HTTP 请求</h3>
+<h3 id='http-83'>HTTP 请求</h3>
 <ul>
 <li>GET <code>/v2/etp/rebalance</code></li>
 </ul>
 
 <p>公共数据接口<br>
 按rebalTime检索<br></p>
-<h3 id='1f9ac54b15-92'>请求参数</h3>
+<h3 id='1f9ac54b15-93'>请求参数</h3>
 <table><thead>
 <tr>
 <th>名称</th>
@@ -21625,7 +21883,7 @@ startTime与endTime构成查询窗口，窗口最大可设置为10天，窗口�
     </span><span class="p">],</span><span class="w">
     </span><span class="s2">"nextId"</span><span class="p">:</span><span class="mi">8168108</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre><h3 id='2213f4c32f-86'>响应数据</h3>
+</span></code></pre><h3 id='2213f4c32f-87'>响应数据</h3>
 <table><thead>
 <tr>
 <th>名称</th>
@@ -21685,13 +21943,13 @@ startTime与endTime构成查询窗口，窗口最大可设置为10天，窗口�
 </tbody></table>
 <h2 id='etp-9'>杠杆ETP单个撤单</h2>
 <p>用户可以通过该接口进行杠杆ETP撤单。</p>
-<h3 id='http-83'>HTTP 请求</h3>
+<h3 id='http-84'>HTTP 请求</h3>
 <ul>
 <li>POST <code>/v2/etp/{transactId}/cancel</code></li>
 </ul>
 
 <p>API Key 权限：交易<br>限频值：1次/秒<br></p>
-<h3 id='1f9ac54b15-93'>请求参数</h3>
+<h3 id='1f9ac54b15-94'>请求参数</h3>
 <table><thead>
 <tr>
 <th>名称</th>
@@ -21717,7 +21975,7 @@ startTime与endTime构成查询窗口，窗口最大可设置为10天，窗口�
     </span><span class="s2">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"撤单失败，订单不存在"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 
-</span></code></pre><h3 id='2213f4c32f-87'>响应数据</h3>
+</span></code></pre><h3 id='2213f4c32f-88'>响应数据</h3>
 <table><thead>
 <tr>
 <th>名称</th>
@@ -21741,13 +21999,13 @@ startTime与endTime构成查询窗口，窗口最大可设置为10天，窗口�
 </tbody></table>
 <h2 id='etp-10'>杠杆ETP批量撤单</h2>
 <p>用户可以通过该接口进行杠杆ETP批量撤单。</p>
-<h3 id='http-84'>HTTP 请求</h3>
+<h3 id='http-85'>HTTP 请求</h3>
 <ul>
 <li>POST <code>/v2/etp/batch-cancel</code></li>
 </ul>
 
 <p>API Key 权限：交易<br>限频值：1次/5秒<br></p>
-<h3 id='1f9ac54b15-94'>请求参数</h3>
+<h3 id='1f9ac54b15-95'>请求参数</h3>
 <table><thead>
 <tr>
 <th>名称</th>
@@ -21788,7 +22046,7 @@ startTime与endTime构成查询窗口，窗口最大可设置为10天，窗口�
     </span><span class="p">},</span><span class="w">
     </span><span class="s2">"message"</span><span class="p">:</span><span class="kc">null</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre><h3 id='2213f4c32f-88'>响应数据</h3>
+</span></code></pre><h3 id='2213f4c32f-89'>响应数据</h3>
 <table><thead>
 <tr>
 <th>名称</th>
@@ -21860,7 +22118,7 @@ startTime与endTime构成查询窗口，窗口最大可设置为10天，窗口�
 </tbody></table>
 <h2 id='etp-11'>获取ETP持仓限额</h2>
 <p>用户可以通过该接口查询ETP的持仓限额。</p>
-<h3 id='http-85'>HTTP 请求</h3>
+<h3 id='http-86'>HTTP 请求</h3>
 <ul>
 <li>GET <code>/v2/etp/limit</code></li>
 </ul>
@@ -21868,7 +22126,7 @@ startTime与endTime构成查询窗口，窗口最大可设置为10天，窗口�
 <p>API Key 权限：交易<br></p>
 
 <p>限频值：1次/1秒<br></p>
-<h3 id='1f9ac54b15-95'>请求参数</h3>
+<h3 id='1f9ac54b15-96'>请求参数</h3>
 <table><thead>
 <tr>
 <th>名称</th>
@@ -21904,7 +22162,7 @@ startTime与endTime构成查询窗口，窗口最大可设置为10天，窗口�
     </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="mi">200</span><span class="p">,</span><span class="w">
     </span><span class="s2">"success"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre><h3 id='2213f4c32f-89'>响应数据</h3>
+</span></code></pre><h3 id='2213f4c32f-90'>响应数据</h3>
 <table><thead>
 <tr>
 <th>名称</th>
