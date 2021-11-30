@@ -30,8 +30,8 @@ table th {
 
 | Release Time <br>(UTC +8) | API  | New / Update    | Description     |
 | ------------------------ | ---------------------- | --------------- | ------------------------------------- |
-| 2021.11.30 | `Query withdrawal order by client order id` | Add | Add "Query withdrawal order by client order id" |
-| 2021.11.30 | `/v1/dw/withdraw/api/create` | update | Add Request Parameters "client-order-id" |
+| 2021.11.30 | `GET /v1/query/withdraw/client-order-id` | Add | Add "Query withdrawal order by client order id" |
+| 2021.11.30 | `POST /v1/dw/withdraw/api/create` | update | Add Request Parameters "client-order-id" |
 | 2021.8.19 | `accounts.update#${mode}` | Update | Add "Serial Number of Account Change" parameter："seqNum" |
 | 2021.8.19 | `GET /v1/account/accounts/{account-id}/balance` | Update | Add "Serial Number of Account Change" parameter："seq-num" |
 | 2021.8.12 | `market.$symbol.ticker` | Add | Add Market Ticker data |
@@ -3398,7 +3398,7 @@ API Key Permission: Read<br>
 
 ### HTTP Request
 
-- GET `/internal/common/ams-dw/query/client-order-id`
+- GET `/v1/query/withdraw/client-order-id`
 
 ### Request Parameters
 
