@@ -848,13 +848,13 @@ table th {
 </thead><tbody>
 <tr>
 <td>2021.11.30</td>
-<td><code>/v1/dw/withdraw/api/create</code></td>
+<td><code>POST /v1/dw/withdraw/api/create</code></td>
 <td>优化</td>
 <td>新增请求参数&quot;client-order-id&quot;</td>
 </tr>
 <tr>
 <td>2021.11.30</td>
-<td><code>/internal/common/ams-dw/query/client-order-id</code></td>
+<td><code>GET /v1/query/withdraw/client-order-id</code></td>
 <td>新增</td>
 <td>通过clientOrderId查询提币订单</td>
 </tr>
@@ -8717,7 +8717,7 @@ endTime缺省值：当前时间</p>
 <p>API Key 权限：读取<br></p>
 <h3 id='http-27'>HTTP 请求</h3>
 <ul>
-<li>GET <code>/internal/common/ams-dw/query/client-order-id</code></li>
+<li>GET <code>/v1/query/withdraw/client-order-id</code></li>
 </ul>
 <h3 id='1f9ac54b15-29'>请求参数</h3>
 <table><thead>
