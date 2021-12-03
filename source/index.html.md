@@ -6014,7 +6014,7 @@ A: match-id表示订单在撮合中的顺序号，trade-id表示成交时的序�
 A: 当前火币有基于最新成交价上下一定幅度的限价保护，对流动性不好的币，基于盘口数据下单可能会触发限价保护。建议基于ws推送的成交价+盘口数据信息进行下单
 
 ### Q7: 如何获取杠杆类交易的币种对？
-A: 您可以根据` GET /v1/common/symbols`接口返回数据中的字段区分。leverage-ratio代表逐仓杠杆倍数。super-magin-leverage-ratio代表支持全仓杠杆倍数。如果值为0，表明不支持杠杆交易。
+A: 您可以根据` GET /v1/common/symbols`接口返回数据中的字段区分。leverage-ratio代表逐仓杠杆倍数。super-margin-leverage-ratio代表支持全仓杠杆倍数。如果值为0，表明不支持杠杆交易。
 
 # 策略委托
 
