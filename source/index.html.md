@@ -5574,7 +5574,7 @@ API Key 权限：读取<br>
 | types      | false    | string | 查询的订单类型组合，使用逗号分割               |                             | 所有可能的订单类型（见本章节简介）                           |
 | start-time | false    | long   | 查询开始时间, 时间格式UTC time in millisecond。 以订单生成时间进行查询 | -48h 查询结束时间的前48小时 | 取值范围 [((end-time) – 48h), (end-time)] ，查询窗口最大为48小时，窗口平移范围为最近180天，已完全撤销的历史订单的查询窗口平移范围只有最近2小时(state="canceled") |
 | end-time   | false    | long   | 查询结束时间, 时间格式UTC time in millisecond。 以订单生成时间进行查询 | present                     | 取值范围 [(present-179d), present] ，查询窗口最大为48小时，窗口平移范围为最近180天，已完全撤销的历史订单的查询窗口平移范围只有最近2小时(state="canceled") |
-| states     | true     | string | 查询的订单状态组合，使用','分割        |                             | 所有可能的订单状态（见本章节简介）                           |
+| states     | true     | string | 查询的订单状态组合，使用','分割        |                             | filled（已成交），partial-canceled（部分成交撤销），canceled（已撤销）                          |
 | from       | false    | string | 查询起始 ID     |              | 如果是向后查询，则赋值为上一次查询结果中得到的最后一条id ；如果是向前查询，则赋值为上一次查询结果中得到的第一条id |
 | direct     | false    | string | 查询方向          |                             | prev 向前；next 向后                                         |
 | size       | false    | string | 查询记录大小                     | 100                         | [1-100]                                              |
@@ -5625,8 +5625,8 @@ API Key 权限：读取<br>
 | client-order-id   | false    | string   | 用户自编订单号（所有open订单可返回client-order-id（如有）；仅7天内（基于订单创建时间）的closed订单（state <> canceled）可返回client-order-id（如有）；仅8小时内（基于订单创建时间）的closed订单（state = canceled）可被查询） |                                                              |
 | price   | true   | string   | 订单价格  |        |
 | source  | true   | string   | 订单来源  | 所有可能的订单来源（见本章节简介） |
-| state  | true   | string   | 订单状态  | 所有可能的订单状态（见本章节简介） |
-| symbol  | true | string  | 交易对  | btcusdt, ethbtc, rcneth ...     |
+| state  | true   | string   | 订单状态  | filled（已成交），partial-canceled（部分成交撤销），canceled（已撤销）  |
+| symbol  | true | string  | 交易对  | btcusdt, ethbtc, rcneth ...     |
 | type   | true  | string  | 订单类型  | 所有可能的订单类型（见本章节简介） |
 | stop-price  | false    | string   | 止盈止损订单触发价格  |   |
 | operator  | false    | string   | 止盈止损订单触发价运算符  | gte,lte   |
