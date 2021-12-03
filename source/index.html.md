@@ -5509,14 +5509,11 @@ Rate Limit (NEW): 50times/2s
 
 This endpoint returns orders based on a specific searching criteria. The order created via API will no longer be queryable after being cancelled for more than 2 hours.
 
-
-- Upon user defined "start-time" AND/OR "end-time", Huobi server will return historical orders whose order creation time falling into the period. The maximum query window between "start-time" and "end-time" is 48-hour. Oldest order searchable should be within recent 180 days. If either "start-time" or "end-time" is defined, Huobi server will ignore "start-date" and "end-date" regardless they were filled or not.
-
-- If user does neither define "start-time" nor "end-time", but "start-date"/"end-date", the order searching will be based on defined "date range", as usual. The maximum query window is 2 days, and oldest order searchable should be within recent 180 days.
-
-- If user does not define any of "start-time"/"end-time"/"start-date"/"end-date", by default Huobi server will treat current time as "end-time", and then return historical orders within recent 48 hours.
-
-Huobi Global suggests API users to search historical orders based on "time" filter instead of "date". In the near future, Huobi Global would remove "start-date"/"end-date" fields from the endpoint, through another notification.
+- If the user does not fill in the start-time and end-time any parameters, the server will return the historical orders from near to far [now, now - 48 hours].
+- If the user fills in the start-time but does not fill in the end-time parameter, the server will return the historical order from near to far [start-time + 48 hours, start-time].
+- If the user does not fill in the start-time but fills in the end-time parameter, the server will return the historical order from near to far [end-time, end-time - 48 hours].
+- If the user fills in both start-time and end-time parameters, the server will return historical orders from near to far [end-time, start-time].
+- The maximum range of each query is 48 hours, and the last 180 days data can be queried continuously.
 
 
 ### HTTP Request
