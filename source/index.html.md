@@ -5542,15 +5542,11 @@ API Key 权限：读取<br>
 
 此接口基于搜索条件查询历史订单。通过API创建的订单，撤销超过2小时后无法查询。
 
-用户可选择以“时间范围”查询历史订单，以替代原先的以“日期范围“查询方式。
-
--	如用户填写start-time AND/OR end-time查询历史订单，服务器将按照用户指定的“时间范围“查询并返回，并忽略start-date/end-date参数。此方式的查询窗口大小限定为最大48小时，窗口平移范围为最近180天。
-
--	如用户不填写start-time/end-time参数，而填写start-date AND/OR end-date查询历史订单，服务器将按照用户指定的“日期范围“查询并返回。此方式的查询窗口大小限定为最大2天，窗口平移范围为最近180天。
-
--	如用户既不填写start-time/end-time参数，也不填写start-date/end-date参数，服务器将缺省以当前时间为end-time，返回最近48小时内的历史订单。
-
-火币Global建议用户以“时间范围“查询历史订单。未来，火币Global将下线以”日期范围“查询历史订单的方式，并另行通知。
+- 如用户start-time和end-time两个参数都没填写，服务器将返回由近到远[now, now-48小时]内的历史订单。
+- 如用户填写start-time而没填写end-time参数，服务器将返回由近到远[start-time+48小时, start-time]内的历史订单。
+- 如用户没有填写start-time而填写end-time参数，服务器将返回由近到远[end-time, end-time-48小时]内的历史订单。
+- 如用户start-time和end-time两个参数都填写了，服务器将返回由近到远[end-time, start-time]内的历史订单。
+- 每次查询范围最大为48小时, 可连续查询最近180天数据。
 
 
 ### HTTP 请求
