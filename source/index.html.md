@@ -5543,7 +5543,7 @@ This endpoint returns orders based on a specific searching criteria. The order c
 | types      | string    | false    | NA      | One or more types of order to include in the search, use comma to separate. | buy-market, sell-market, buy-limit, sell-limit, buy-ioc, sell-ioc, buy-stop-limit, sell-stop-limit, buy-limit-fok, sell-limit-fok, buy-stop-limit-fok, sell-stop-limit-fok |
 | start-time | long      | false    | -48h    | Search starts time, UTC time in millisecond                  | Value range [((end-time) – 48h), (end-time)], maximum query window size is 48 hours, query window shift should be within past 180 days, query window shift should be within past 2 hours for cancelled order (state = "canceled") |
 | end-time   | long      | false    | present | Search ends time, UTC time in millisecond                    | Value range [(present-179d), present], maximum query window size is 48 hours, query window shift should be within past 180 days, queriable range should be within past 2 hours for cancelled order (state = "canceled") |
-| states     | string    | true     | NA      | One or more  states of order to include in the search, use comma to separate. | All possible order state (refer to introduction in this section) |
+| states     | string    | true     | NA      | One or more  states of order to include in the search, use comma to separate. | filled, partial-canceled, canceled |
 | from       | string    | false    | NA      | Search order id to begin with                                | NA                                                           |
 | direct     | string    | false    | both    | Search direction when 'from' is used                         | next, prev                                                   |
 | size       | integer   | false    | 100     | The number of orders to return              | [1-100]         |
@@ -5596,7 +5596,7 @@ This endpoint returns orders based on a specific searching criteria. The order c
 | filled-cash-amount | string    | The filled total in quote currency                           |
 | filled-fees        | string    | Transaction fee (Accurate fees refer to matchresults endpoint) |
 | source             | string    | All possible order source (refer to introduction in this section) |
-| state              | string    | All possible order state (refer to introduction in this section) |
+| state              | string    | filled, partial-canceled, canceled                |
 | exchange           | string    | Internal data                                                |
 | batch              | string    | Internal data                                                |
 | stop-price         | string    | trigger price of stop limit order                            |
