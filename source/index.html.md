@@ -778,6 +778,8 @@ Some http/websocket library may include port in the host, you can try to append 
 
 9.The hidden text in API Key and Secret Key may have impact on the signature.
 
+10.Check the byte[] is directly to be Base64 encoded after generated from the HmacSHA256 signature, instead of hexadecimal string to be Base64 encoded.
+
 Right now the official [SDK](https://github.com/HuobiRDCenter) supports multiple languages, you can refer to the signature implementation, or below three signature examples.
 
 <a href='https://github.com/HuobiRDCenter/huobi_Java/blob/master/java_signature_demo.md'>JAVA signature example</a> | <a href='https://github.com/HuobiRDCenter/huobi_Cpp/blob/master/examples/cpp_signature_demo.md'>C++ signature example</a>  | <a href='https://github.com/HuobiRDCenter/huobi_Python/blob/master/example/python_signature_demo.md'>Python signature example</a>   
