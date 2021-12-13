@@ -1783,6 +1783,7 @@ The signature process of coin margined swap is similar to huobi future . In addi
 10. The authorization of websocket is similar to the authorization of restful interface.Pls note that the json body of the websocket authorization shouldn't be URL encoded
 11. The host in signature text should be the same as the host in your API request.The proxy may change the request host, you can try without proxy;Some http/websocket library may include port in the host, you can try to append port in signature host, like "api.hbdm.com:443"
 12. The hidden text in API Key and Secret Key may have impact on the signature.
+13. Check the byte[] is directly to be Base64 encoded after generated from the HmacSHA256 signature, instead of hexadecimal string to be Base64 encoded.
 
 If the reason for signature failure has not been found through the above methods. And you can confirm that by this <a href='https://github.com/hbdmapi/huobi_api_rules '>  demo </a > which is specially explaining the signature.
 
