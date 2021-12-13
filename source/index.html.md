@@ -2161,7 +2161,9 @@ colo相当于是 创建一个VPC节点，直接连了火币合约的内网，会
 
 11. 签名时所带Host应与请求接口时Host相同。如果您使用了代理，代理可能会改变请求Host，可以尝试去掉代理；您使用的网络连接库可能会把端口包含在Host内，可以尝试在签名用到的Host中包含端口，如“api.hbdm.com:443"
 
-12. Api Key 与 Secret Key中是否存在隐藏特殊字符，影响签名.
+12. Api Key 与 Secret Key中是否存在隐藏特殊字符，影响签名。
+
+13.检查生成 HmacSHA256 签名结果后是否直接将byte[] 转 Base64 编码，而不是使用其签名结果转换16进制字符串的内容再进行 Base64 编码。
 
 如果通过以上的方法还没找出签名失败的原因，可以通过专门验证签名的 <a href='https://github.com/hbdmapi/huobi_api_rules '>  demo </a> 来确认您的签名是在哪一步出现问题。
 
