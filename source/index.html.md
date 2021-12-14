@@ -6685,7 +6685,7 @@ API Key 权限：读取<br>
 | symbol     | true     | string | 交易对                                               |                                  | btcusdt, ethbtc...（取值参考`GET /v1/common/symbols`）       |
 | start-date | false    | string | 查询开始日期, 日期格式yyyy-mm-dd                     |                                  |                                                              |
 | end-date   | false    | string | 查询结束日期, 日期格式yyyy-mm-dd                     |                                  |                                                              |
-| states     | false    | string | 状态列表，可以支持多个状态，用逗号分隔               |                                  | created 未放款，accrual 已放款，cleared 已还清，invalid 异常 |
+| states     | false    | string | 状态列表，可以支持多个状态，用逗号分隔               |                                  | created 未放款，accrual 已放款，cleared 已还清，invalid 异常，failed 借贷失败  |
 | from       | false    | string | 查询起始 ID                                          |                                  |                                                              |
 | direct     | false    | string | 查询方向                                             |                                  | prev 向前，时间（或 ID）正序；next 向后，时间（或 ID）倒序） |
 | size       | false    | string | 查询记录大小                                         | 100                              | [1, 100]                                                     |
@@ -6743,7 +6743,7 @@ API Key 权限：读取<br>
 | interest-balance   | true     | string   | 未还币息                   |                                                              |
 | created-at         | true     | long     | 借币发起时间               |                                                              |
 | accrued-at         | true     | long     | 最近一次计息时间           |                                                              |
-| state              | true     | string   | 订单状态                   | created 未放款，accrual 已放款，cleared 已还清，invalid 异常 |
+| state              | true     | string   | 订单状态                   | created 未放款，accrual 已放款，cleared 已还清，invalid 异常，failed 借贷失败 |
 | paid-point         | true     | string   | 已支付点卡金额（用于还息） |                                                              |
 | paid-coin          | true     | string   | 已支付原币金额（用于还息） |                                                              |
 | deduct-rate        | true     | string   | 抵扣率（用于还息）         |                                                              |
