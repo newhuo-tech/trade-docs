@@ -6677,7 +6677,7 @@ This endpoint returns margin orders based on a specific searching criteria.
 | Parameter  | Data Type | Required | Default                                                      | Description                                                  | Value Range                                        |
 | ---------- | --------- | -------- | ------------------------------------------------------------ | ------------------------------------------------------------ | -------------------------------------------------- |
 | symbol     | string    | true     | NA                                                           | The trading symbol to trade                                  | The trading symbol, e.g. btcusdt, bccbtc           |
-| states     | string    | false    | NA                                                           | Order status list, multiple state allowed, separated by comma | created, accrual (loaned), cleared (paid), invalid |
+| states     | string    | false    | NA                                                           | Order status list, multiple state allowed, separated by comma | created, accrual (loaned), cleared (paid), invalid, failed |
 | start-date | string    | false    | -61d                                                         | Search starts date, in format yyyy-mm-dd                     | NA                                                 |
 | end-date   | string    | false    | today                                                        | Search ends date, in format yyyy-mm-dd                       | NA                                                 |
 | from       | string    | false    | NA                                                           | Search order id to begin with                                | NA                                                 |
@@ -6736,7 +6736,7 @@ This endpoint returns margin orders based on a specific searching criteria.
 | interest-rate      | string    | The loan interest rate                                       |
 | interest-amount    | string    | The accumulated loan interest                                |
 | interest-balance   | string    | The amount of loan interest left                             |
-| state              | string    | Loan state, possible values: created, accrual (loaned), cleared (paid), invalid |
+| state              | string    | Loan state, possible values: created, accrual (loaned), cleared (paid), invalid, failed |
 | paid-point         | string    | Paid Huobi Points for repayment                              |
 | paid-coin          | string    | Paid original cryptocurrency for repayment                   |
 | deduct-rate        | string    | Deduction rate for repayment                                 |
