@@ -7819,7 +7819,7 @@ Websocket服务器同时支持一次性请求数据（pull）。
 ```
 而5档/20档MBP逐笔增量，在订单簿未发生变化时，不推送数据；<br>
 未来，150档增量推送的数据行为将与5档增量保持一致，即，在订单簿未发生变化时，不再推送空消息；<br>
-5）5档/20档逐笔增量行情仅支持部分交易对（btcusdt,ethusdt,xrpusdt,eosusdt,ltcusdt,etcusdt,adausdt,dashusdt,bsvusdt,htusdt,dotusdt,linkusdt,iotausdt,zecusdt,trxusdt,xmrusdt,arusdt,dfausdt,nftusdt,uniusdt,dogeusdt,solusdt,xecusdt,lunausdt,bchusdt,maticusdt,vetusdt,xlmusdt,filusdt,thetausdt），150档快照增量支持全部交易对。<br>
+5）5档/20档逐笔增量行情仅支持部分交易对: btcusdt, ethusdt, xrpusdt, eosusdt, ltcusdt, etcusdt, adausdt, dashusdt, bsvusdt, htusdt, dotusdt, linkusdt, iotausdt, zecusdt, trxusdt, xmrusdt, arusdt, dfausdt, nftusdt, uniusdt, dogeusdt, solusdt, xecusdt, lunausdt, bchusdt, maticusdt, vetusdt, xlmusdt, filusdt, thetausdt 。150档快照增量支持全部交易对。
 
 REQ频道支持5档/20档/150档全量数据的获取。<br>
 
