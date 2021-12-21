@@ -2181,7 +2181,10 @@ colo相当于是 创建一个VPC节点，直接连了火币合约的内网，会
 
 在结算时不能下单和撤单，若用户在结算期间下单或撤单会返回错误码“1056”，提示结算中无法下单和撤单。
 
-建议您在结算时间点每隔几秒钟轮询获取合约信息接口： /api/v1/contract_contract_info 或 通过websocket订阅“订阅合约信息变动(免鉴权)（sub）”：public.$symbol.contract_info，当返回报文中contract_status返回状态码为5、6、7、8中的任意一个时表示在结算中，当contract_status返回状态码为1时是表示结算完成可以正常下单和撤单。
+您可以通过下面两种方式查询结算状态：
+ - restful每隔几秒轮询获取合约信息接口： /api/v1/contract_contract_info
+ - websocket订阅“订阅合约信息变动(免鉴权)（sub）”：public.$symbol.contract_info
+当返回报文中contract_status返回状态码为5、6、7、8中的任意一个时表示在结算中，当contract_status返回状态码为1时是表示结算完成可以正常下单和撤单。
 
 温馨提示您，交割合约在新加坡时间每天16:00进行结算或周五16:00进行交割。在结算或交割期间查询资金和持仓会返回错误码，返回的错误码及错误码表示的含义如下：
 
