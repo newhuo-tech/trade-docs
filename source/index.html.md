@@ -2130,6 +2130,7 @@ There is an open source asynchronous quantization framework which integrates Huo
 ### Q1: What is the future settlement cycle? Which interface can be used to check the status when the future is settled? 
 
 Orders can't be placed or cancelled during settlement period, error code "1056" will be returned if users place or cancel orders. 
+
 You are recommended to request contract information by this two ways:
 
 - restful, every few seconds during settlement period to access: /api/v1/contract_contract_info. 
@@ -2145,6 +2146,7 @@ Error codes and their meaning are as following:
 2. Error code "1078" indicates that "the fund query of part of perpetual swap trading pairs failed during the settlement";
 3. Error code "1079" indicates that "the position query of current perpetual swap trading pair failed during the settlement";
 4. Error code "1080" indicates that "the position query of part of perpetual swap trading pairs failed during the settlement";
+
 You are recommended to read the status code from the returned message. If the above four types of status code appear, the returned data is not accurate and couldn't be used as reference.
 
 ### Q2: How to query the system status of the exchange?
