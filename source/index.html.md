@@ -2125,7 +2125,7 @@ Yes. The ratelimit of interface with private key is based on the UID, not the AP
 
 There is an open source asynchronous quantization framework which integrates Huobi future and Huobi swap: <a href=https://github.com/hbdmapi/hbdm_Python>here</a>. If you have any quetsions, please open a ticket in github issues.
 
-## Settlement and Delivery 
+## Delivery and Settlement 
 
 ### Q1: What is the future settlement cycle? Which interface can be used to check the status when the future is settled? 
 
