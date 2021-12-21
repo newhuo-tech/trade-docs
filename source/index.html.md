@@ -7527,6 +7527,80 @@ You will receive a response accordingly and immediately
 The limitation of single connection is 100 ms.
 
 
+## Market Candlestick
+
+This topic sends a new candlestick whenever it is available.
+
+### Topic
+
+`market.$symbol$.kline.$period$`
+
+> Subscribe request
+
+```json
+{
+  "sub": "market.ethbtc.kline.1min",
+  "id": "id1"
+}
+```
+
+### Topic Parameter
+
+| Parameter | Data Type | Required | Description          | Value Range                                                  |
+| --------- | --------- | -------- | -------------------- | ------------------------------------------------------------ |
+| symbol    | string    | true     | Trading symbol       | All supported trading symbol, e.g. btcusdt, bccbtc. (to retrieve candlesticks for ETP NAV, symbol = ETP trading symbol + suffix 'nav'，for example: btc3lusdtnav) |
+| period    | string    | true     | Candlestick interval | 1min, 5min, 15min, 30min, 60min, 4hour, 1day, 1mon, 1week, 1year |
+
+> Response
+
+```json
+{
+  "id": "id1",
+  "status": "ok",
+  "subbed": "market.ethbtc.kline.1min",
+  "ts": 1489474081631 //system response time
+}
+```
+
+> Update example
+
+```json
+{
+    "ch":"market.ethbtc.kline.1min",
+    "ts":1630981694370,
+    "tick":{
+        "id":1630981680,
+        "open":0.074849,
+        "close":0.074848,
+        "low":0.074848,
+        "high":0.074849,
+        "amount":2.4448,
+        "vol":0.1829884187,
+        "count":3
+    }
+}
+```
+
+### Update Content
+
+| Field  | Data Type | Description                                                  |
+| ------ | --------- | ------------------------------------------------------------ |
+| ch     | string   | Data belonged channel，Format：market.$symbol.kline.$period     |
+| ts     | long     | Time of Respond Generation, Unit: Millisecond   |
+| \<tick\> | object     |                      |
+| id     | integer   | UNIX epoch timestamp in second as response id                |
+| amount | float     | Aggregated trading volume during the interval (in base currency) |
+| count  | integer   | Number of trades during the interval                         |
+| open   | float     | Opening price during the interval                            |
+| close  | float     | Closing price during the interval                            |
+| low    | float     | Low price during the interval                                |
+| high   | float     | High price during the interval                               |
+| vol    | float     | Aggregated trading value during the interval (in quote currency) |
+| \</tick\> |       |                      |
+
+<aside class="notice">When symbol is set to "hb10" or "huobi10", amount, count, and vol will always have the value of 0</aside>
+
+
 ## Market Ticker
 
 Retrieve the market ticker,data is pushed every 100ms.
