@@ -717,6 +717,9 @@
                     <a href="#5ea2e0cde2-10" class="toc-h2 toc-link" data-title="简介">简介</a>
                   </li>
                   <li>
+                    <a href="#k-2" class="toc-h2 toc-link" data-title="K线数据">K线数据</a>
+                  </li>
+                  <li>
                     <a href="#ticker-2" class="toc-h2 toc-link" data-title="聚合行情(Ticker)数据">聚合行情(Ticker)数据</a>
                   </li>
                   <li>
@@ -18308,7 +18311,143 @@ Response:</p>
 <p>数据请求（req）限频规则</p>
 
 <p>单个连接每两次请求不能小于100ms。</p>
-<h2 id='ticker-2'>聚合行情(Ticker)数据</h2><h3 id='a94c7743c5'>主题订阅</h3>
+<h2 id='k-2'>K线数据</h2><h3 id='a94c7743c5'>主题订阅</h3>
+<p>一旦K线数据产生，Websocket服务器将通过此订阅主题接口推送至客户端：</p>
+
+<p><code>market.$symbol$.kline.$period$</code></p>
+
+<blockquote>
+<p>订阅请求</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"sub"</span><span class="p">:</span><span class="w"> </span><span class="s2">"market.ethbtc.kline.1min"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"id1"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre><h3 id='749d765242'>参数</h3>
+<table><thead>
+<tr>
+<th>参数</th>
+<th>数据类型</th>
+<th>是否必需</th>
+<th>描述</th>
+<th>取值范围</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>symbol</td>
+<td>string</td>
+<td>true</td>
+<td>交易代码</td>
+<td>btcusdt, ethbtc...等（如需获取杠杆ETP净值K线，净值symbol = 杠杆ETP交易对symbol + 后缀‘nav’，例如：btc3lusdtnav）</td>
+</tr>
+<tr>
+<td>period</td>
+<td>string</td>
+<td>true</td>
+<td>K线周期</td>
+<td>1min, 5min, 15min, 30min, 60min, 4hour, 1day, 1mon, 1week, 1year</td>
+</tr>
+</tbody></table>
+
+<blockquote>
+<p>Response</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"id1"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ok"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"subbed"</span><span class="p">:</span><span class="w"> </span><span class="s2">"market.ethbtc.kline.1min"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"ts"</span><span class="p">:</span><span class="w"> </span><span class="mi">1489474081631</span><span class="w"> </span><span class="err">//system</span><span class="w"> </span><span class="err">response</span><span class="w"> </span><span class="err">time</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<blockquote>
+<p>Update example</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"ch"</span><span class="p">:</span><span class="s2">"market.ethbtc.kline.1min"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"ts"</span><span class="p">:</span><span class="mi">1630981694370</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"tick"</span><span class="p">:{</span><span class="w">
+        </span><span class="s2">"id"</span><span class="p">:</span><span class="mi">1630981680</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"open"</span><span class="p">:</span><span class="mf">0.074849</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"close"</span><span class="p">:</span><span class="mf">0.074848</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"low"</span><span class="p">:</span><span class="mf">0.074848</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"high"</span><span class="p">:</span><span class="mf">0.074849</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"amount"</span><span class="p">:</span><span class="mf">2.4448</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"vol"</span><span class="p">:</span><span class="mf">0.1829884187</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"count"</span><span class="p">:</span><span class="mi">3</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre><h3 id='7bf990a9a9'>数据更新字段列表</h3>
+<table><thead>
+<tr>
+<th>字段</th>
+<th>数据类型</th>
+<th>描述</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>ch</td>
+<td>string</td>
+<td>数据所属的 channel，格式：market.$symbol.kline.$period</td>
+</tr>
+<tr>
+<td>ts</td>
+<td>long</td>
+<td>系统响应时间</td>
+</tr>
+<tr>
+<td>&lt;tick&gt;</td>
+<td>object</td>
+<td></td>
+</tr>
+<tr>
+<td>id</td>
+<td>integer</td>
+<td>unix时间，同时作为K线ID</td>
+</tr>
+<tr>
+<td>amount</td>
+<td>float</td>
+<td>成交量</td>
+</tr>
+<tr>
+<td>count</td>
+<td>integer</td>
+<td>成交笔数</td>
+</tr>
+<tr>
+<td>open</td>
+<td>float</td>
+<td>开盘价</td>
+</tr>
+<tr>
+<td>close</td>
+<td>float</td>
+<td>收盘价（当K线为最晚的一根时，是最新成交价）</td>
+</tr>
+<tr>
+<td>low</td>
+<td>float</td>
+<td>最低价</td>
+</tr>
+<tr>
+<td>high</td>
+<td>float</td>
+<td>最高价</td>
+</tr>
+<tr>
+<td>vol</td>
+<td>float</td>
+<td>成交额, 即 sum(每一笔成交价 * 该笔的成交量)</td>
+</tr>
+<tr>
+<td>&lt;/tick&gt;</td>
+<td></td>
+<td></td>
+</tr>
+</tbody></table>
+
+<aside class="notice">当symbol被设为“hb10”或“huobi10”时，amount，count，vol均为零值。</aside>
+<h2 id='ticker-2'>聚合行情(Ticker)数据</h2><h3 id='a94c7743c5-2'>主题订阅</h3>
 <p>获取市场聚合行情数据，每100ms推送一次。</p>
 
 <p><code>market.$symbol.ticker</code></p>
@@ -18458,7 +18597,7 @@ Response:</p>
 </tbody></table>
 <h2 id='8742b7d9f7'>市场深度行情数据</h2>
 <p>此主题发送最新市场深度快照。快照频率为每秒1次。</p>
-<h3 id='a94c7743c5-2'>主题订阅</h3>
+<h3 id='a94c7743c5-3'>主题订阅</h3>
 <p><code>market.$symbol.depth.$type</code></p>
 
 <blockquote>
@@ -18468,7 +18607,7 @@ Response:</p>
   </span><span class="s2">"sub"</span><span class="p">:</span><span class="w"> </span><span class="s2">"market.btcusdt.depth.step0"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"id1"</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre><h3 id='749d765242'>参数</h3>
+</span></code></pre><h3 id='749d765242-2'>参数</h3>
 <table><thead>
 <tr>
 <th>参数</th>
@@ -18575,7 +18714,7 @@ Response:</p>
         </span><span class="s2">"ts"</span><span class="p">:</span><span class="mi">1630983549500</span><span class="w">
     </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre><h3 id='7bf990a9a9'>数据更新字段列表</h3>
+</span></code></pre><h3 id='7bf990a9a9-2'>数据更新字段列表</h3>
 <aside class="notice">在'tick'object下方呈现买盘卖盘深度列表</aside>
 
 <table><thead>
@@ -18724,7 +18863,7 @@ Response:</p>
   </span><span class="s2">"req"</span><span class="p">:</span><span class="w"> </span><span class="s2">"market.btcusdt.mbp.5"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"id2"</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre><h3 id='749d765242-2'>参数</h3>
+</span></code></pre><h3 id='749d765242-3'>参数</h3>
 <table><thead>
 <tr>
 <th>参数</th>
@@ -18803,7 +18942,7 @@ Response:</p>
         </span><span class="p">]</span><span class="w">
     </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre><h3 id='7bf990a9a9-2'>数据更新字段列表</h3>
+</span></code></pre><h3 id='7bf990a9a9-3'>数据更新字段列表</h3>
 <table><thead>
 <tr>
 <th>字段</th>
@@ -18844,7 +18983,7 @@ Response:</p>
     </span><span class="s2">"sub"</span><span class="p">:</span><span class="w"> </span><span class="s2">"market.btcusdt.mbp.refresh.20"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"id1"</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre><h3 id='749d765242-3'>参数</h3>
+</span></code></pre><h3 id='749d765242-4'>参数</h3>
 <table><thead>
 <tr>
 <th>参数</th>
@@ -18907,7 +19046,7 @@ Response:</p>
         </span><span class="p">]</span><span class="w">
     </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre><h3 id='7bf990a9a9-3'>数据更新字段列表</h3>
+</span></code></pre><h3 id='7bf990a9a9-4'>数据更新字段列表</h3>
 <table><thead>
 <tr>
 <th>字段</th>
@@ -18933,7 +19072,7 @@ Response:</p>
 </tbody></table>
 <h2 id='9d97b30872'>买一卖一逐笔行情</h2>
 <p>当买一价、买一量、卖一价、卖一量，其中任一数据发生变化时，此主题推送逐笔更新。</p>
-<h3 id='a94c7743c5-3'>主题订阅</h3>
+<h3 id='a94c7743c5-4'>主题订阅</h3>
 <p><code>market.$symbol.bbo</code></p>
 
 <blockquote>
@@ -18943,7 +19082,7 @@ Response:</p>
   </span><span class="s2">"sub"</span><span class="p">:</span><span class="w"> </span><span class="s2">"market.btcusdt.bbo"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"id1"</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre><h3 id='749d765242-4'>参数</h3>
+</span></code></pre><h3 id='749d765242-5'>参数</h3>
 <table><thead>
 <tr>
 <th>参数</th>
@@ -18990,7 +19129,7 @@ Response:</p>
         </span><span class="s2">"symbol"</span><span class="p">:</span><span class="s2">"btcusdt"</span><span class="w">
     </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre><h3 id='7bf990a9a9-4'>数据更新字段列表</h3>
+</span></code></pre><h3 id='7bf990a9a9-5'>数据更新字段列表</h3>
 <table><thead>
 <tr>
 <th>字段</th>
@@ -19054,7 +19193,7 @@ Response:</p>
 <td></td>
 </tr>
 </tbody></table>
-<h2 id='56c6c47284-2'>成交明细</h2><h3 id='a94c7743c5-4'>主题订阅</h3>
+<h2 id='56c6c47284-2'>成交明细</h2><h3 id='a94c7743c5-5'>主题订阅</h3>
 <p>此主题提供市场最新成交逐笔明细。</p>
 
 <p><code>market.$symbol.trade.detail</code></p>
@@ -19066,7 +19205,7 @@ Response:</p>
   </span><span class="s2">"sub"</span><span class="p">:</span><span class="w"> </span><span class="s2">"market.btcusdt.trade.detail"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"id1"</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre><h3 id='749d765242-5'>参数</h3>
+</span></code></pre><h3 id='749d765242-6'>参数</h3>
 <table><thead>
 <tr>
 <th>参数</th>
@@ -19118,7 +19257,7 @@ Response:</p>
         </span><span class="p">]</span><span class="w">
     </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre><h3 id='7bf990a9a9-5'>数据更新字段列表</h3>
+</span></code></pre><h3 id='7bf990a9a9-6'>数据更新字段列表</h3>
 <table><thead>
 <tr>
 <th>字段</th>
@@ -19203,7 +19342,7 @@ Response:</p>
   </span><span class="s2">"req"</span><span class="p">:</span><span class="w"> </span><span class="s2">"market.btcusdt.trade.detail"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"id11"</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre><h2 id='7c47ef3411'>市场概要</h2><h3 id='a94c7743c5-5'>主题订阅</h3>
+</span></code></pre><h2 id='7c47ef3411'>市场概要</h2><h3 id='a94c7743c5-6'>主题订阅</h3>
 <p>此主题提供24小时内最新市场概要快照。快照频率不超过每秒10次。</p>
 
 <p><code>market.$symbol.detail</code></p>
@@ -19215,7 +19354,7 @@ Response:</p>
   </span><span class="s2">"sub"</span><span class="p">:</span><span class="w"> </span><span class="s2">"market.btcusdt.detail"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"id1"</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre><h3 id='749d765242-6'>参数</h3>
+</span></code></pre><h3 id='749d765242-7'>参数</h3>
 <table><thead>
 <tr>
 <th>参数</th>
@@ -19264,7 +19403,7 @@ Response:</p>
         </span><span class="s2">"count"</span><span class="p">:</span><span class="mi">471348</span><span class="w">
     </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre><h3 id='7bf990a9a9-6'>数据更新字段列表</h3>
+</span></code></pre><h3 id='7bf990a9a9-7'>数据更新字段列表</h3>
 <table><thead>
 <tr>
 <th>字段</th>
@@ -19344,7 +19483,7 @@ Response:</p>
   </span><span class="s2">"req"</span><span class="p">:</span><span class="w"> </span><span class="s2">"market.btcusdt.detail"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"id11"</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre><h2 id='etp-2'>杠杆ETP实时净值推送</h2><h3 id='a94c7743c5-6'>主题订阅</h3>
+</span></code></pre><h2 id='etp-2'>杠杆ETP实时净值推送</h2><h3 id='a94c7743c5-7'>主题订阅</h3>
 <p>此主题提供杠杆ETP实时净值的推送。</p>
 
 <p><code>market.$symbol.etp</code></p>
@@ -19356,7 +19495,7 @@ Response:</p>
   </span><span class="s2">"sub"</span><span class="p">:</span><span class="w"> </span><span class="s2">"market.btc3lusdt.etp"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"id1"</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre><h3 id='749d765242-7'>参数</h3>
+</span></code></pre><h3 id='749d765242-8'>参数</h3>
 <table><thead>
 <tr>
 <th>参数</th>
@@ -19401,7 +19540,7 @@ Response:</p>
         </span><span class="p">]</span><span class="w">
     </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre><h3 id='7bf990a9a9-7'>数据更新字段列表</h3>
+</span></code></pre><h3 id='7bf990a9a9-8'>数据更新字段列表</h3>
 <table><thead>
 <tr>
 <th>字段名称</th>
@@ -19764,7 +19903,7 @@ Response:</p>
 <td>交易代码（支持通配符 * ）</td>
 </tr>
 </tbody></table>
-<h3 id='7bf990a9a9-8'>数据更新字段列表</h3>
+<h3 id='7bf990a9a9-9'>数据更新字段列表</h3>
 <blockquote>
 <p>Update example</p>
 </blockquote>
@@ -20643,7 +20782,7 @@ Response:</p>
         </span><span class="s2">"changeTime"</span><span class="p">:</span><span class="w"> </span><span class="mi">1574393385122</span><span class="w">
     </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre><h3 id='7bf990a9a9-9'>数据更新字段列表</h3>
+</span></code></pre><h3 id='7bf990a9a9-10'>数据更新字段列表</h3>
 <table><thead>
 <tr>
 <th>字段</th>
