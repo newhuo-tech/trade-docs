@@ -411,7 +411,7 @@
                     <a href="#access-and-authentication" class="toc-h2 toc-link" data-title="Access and Authentication">Access and Authentication</a>
                   </li>
                   <li>
-                    <a href="#settlement-and-delivery" class="toc-h2 toc-link" data-title="Settlement and Delivery">Settlement and Delivery</a>
+                    <a href="#delivery-and-settlement" class="toc-h2 toc-link" data-title="Delivery and Settlement">Delivery and Settlement</a>
                   </li>
                   <li>
                     <a href="#market-and-websocket" class="toc-h2 toc-link" data-title="Market and Websocket">Market and Websocket</a>
@@ -4168,7 +4168,7 @@ contracts. Please note that the rate limit of WS order push and RESTFUL private 
 <p>Yes. The ratelimit of interface with private key is based on the UID, not the API key. The master and sub accounts are separately ratelimited and don&#39;t affect each other.</p>
 <h3 id='q8-is-there-any-recommendation-for-third-party-framework-which-integrates-huobi-future'>Q8: Is there any recommendation for third-party framework which integrates Huobi future?</h3>
 <p>There is an open source asynchronous quantization framework which integrates Huobi future and Huobi swap: <a href=https://github.com/hbdmapi/hbdm_Python>here</a>. If you have any quetsions, please open a ticket in github issues.</p>
-<h2 id='settlement-and-delivery'>Settlement and Delivery</h2><h3 id='q1-what-is-the-future-settlement-cycle-which-interface-can-be-used-to-check-the-status-when-the-future-is-settled'>Q1: What is the future settlement cycle? Which interface can be used to check the status when the future is settled?</h3>
+<h2 id='delivery-and-settlement'>Delivery and Settlement</h2><h3 id='q1-what-is-the-future-settlement-cycle-which-interface-can-be-used-to-check-the-status-when-the-future-is-settled'>Q1: What is the future settlement cycle? Which interface can be used to check the status when the future is settled?</h3>
 <p>Orders can&#39;t be placed or cancelled during settlement period, error code &quot;1056&quot; will be returned if users place or cancel orders. 
 You are recommended to request contract information by this two ways:</p>
 
@@ -4207,7 +4207,7 @@ You are recommended to read the status code from the returned message. If the ab
 
 <p>or the “Subscribe system status updates” interface (&quot;topic: public.$service.heartbeat&quot;); </p>
 
-<p>If the return parameter heartbeat 1, it means that the system is available now and can be connected normally.</p>
+<p>If the return parameter heartbeat is 1, it means that the system is available now and can be connected normally.</p>
 <h2 id='market-and-websocket'>Market and Websocket</h2><h3 id='q1-how-often-are-the-snapshot-orderbook-subscription-and-incremental-orderbook-subscription-pushed'>Q1: How often are the snapshot orderbook subscription and incremental orderbook subscription pushed?</h3>
 <p>The snapshot orderbook subscription(market.$symbol.depth.$type) is checked once every 100MS.If there is an update,it will be pushed. It will be pushed at least 1 second.The incremental orderbook subscription is checked once every 30MS.If there is an update,it will be pushed.If there is no update, it will not be pushed.</p>
 <h3 id='q2-how-often-is-the-market-trade-subscription-pushed'>Q2: How often is the market trade subscription pushed?</h3>
