@@ -4169,8 +4169,9 @@ contracts. Please note that the rate limit of WS order push and RESTFUL private 
 <h3 id='q8-is-there-any-recommendation-for-third-party-framework-which-integrates-huobi-future'>Q8: Is there any recommendation for third-party framework which integrates Huobi future?</h3>
 <p>There is an open source asynchronous quantization framework which integrates Huobi future and Huobi swap: <a href=https://github.com/hbdmapi/hbdm_Python>here</a>. If you have any quetsions, please open a ticket in github issues.</p>
 <h2 id='delivery-and-settlement'>Delivery and Settlement</h2><h3 id='q1-what-is-the-future-settlement-cycle-which-interface-can-be-used-to-check-the-status-when-the-future-is-settled'>Q1: What is the future settlement cycle? Which interface can be used to check the status when the future is settled?</h3>
-<p>Orders can&#39;t be placed or cancelled during settlement period, error code &quot;1056&quot; will be returned if users place or cancel orders. 
-You are recommended to request contract information by this two ways:</p>
+<p>Orders can&#39;t be placed or cancelled during settlement period, error code &quot;1056&quot; will be returned if users place or cancel orders. </p>
+
+<p>You are recommended to request contract information by this two ways:</p>
 
 <ul>
 <li>restful, every few seconds during settlement period to access: /api/v1/contract_contract_info. </li>
@@ -4187,9 +4188,10 @@ You are recommended to request contract information by this two ways:</p>
 <li>Error code &quot;1077&quot; indicates that &quot;the fund query of current perpetual swap trading pair failed during the settlement&quot;;</li>
 <li>Error code &quot;1078&quot; indicates that &quot;the fund query of part of perpetual swap trading pairs failed during the settlement&quot;;</li>
 <li>Error code &quot;1079&quot; indicates that &quot;the position query of current perpetual swap trading pair failed during the settlement&quot;;</li>
-<li>Error code &quot;1080&quot; indicates that &quot;the position query of part of perpetual swap trading pairs failed during the settlement&quot;;
-You are recommended to read the status code from the returned message. If the above four types of status code appear, the returned data is not accurate and couldn&#39;t be used as reference.</li>
+<li>Error code &quot;1080&quot; indicates that &quot;the position query of part of perpetual swap trading pairs failed during the settlement&quot;;</li>
 </ol>
+
+<p>You are recommended to read the status code from the returned message. If the above four types of status code appear, the returned data is not accurate and couldn&#39;t be used as reference.</p>
 <h3 id='q2-how-to-query-the-system-status-of-the-exchange'>Q2: How to query the system status of the exchange?</h3>
 <p>There are two common statuses of the exchange systems: settlement/delivery in progress; suspended for maintenance; when the system is in these two kinds of statuses, the system will return the response error code and error information when calling the related API interfaces.</p>
 
