@@ -7564,6 +7564,79 @@ Websocket服务器同时支持一次性请求数据（pull）。
 
 单个连接每两次请求不能小于100ms。
 
+## K线数据
+
+### 主题订阅
+
+一旦K线数据产生，Websocket服务器将通过此订阅主题接口推送至客户端：
+
+`market.$symbol$.kline.$period$`
+
+> 订阅请求
+
+```json
+{
+  "sub": "market.ethbtc.kline.1min",
+  "id": "id1"
+}
+```
+
+### 参数
+
+| 参数   | 数据类型 | 是否必需 | 描述     | 取值范围                                                     |
+| ------ | -------- | -------- | -------- | ------------------------------------------------------------ |
+| symbol | string   | true     | 交易代码 | btcusdt, ethbtc...等（如需获取杠杆ETP净值K线，净值symbol = 杠杆ETP交易对symbol + 后缀‘nav’，例如：btc3lusdtnav） |
+| period | string   | true     | K线周期  | 1min, 5min, 15min, 30min, 60min, 4hour, 1day, 1mon, 1week, 1year |
+
+> Response
+
+```json
+{
+  "id": "id1",
+  "status": "ok",
+  "subbed": "market.ethbtc.kline.1min",
+  "ts": 1489474081631 //system response time
+}
+```
+
+> Update example
+
+```json
+{
+    "ch":"market.ethbtc.kline.1min",
+    "ts":1630981694370,
+    "tick":{
+        "id":1630981680,
+        "open":0.074849,
+        "close":0.074848,
+        "low":0.074848,
+        "high":0.074849,
+        "amount":2.4448,
+        "vol":0.1829884187,
+        "count":3
+    }
+}
+```
+
+### 数据更新字段列表
+
+| 字段   | 数据类型 | 描述                                        |
+| ------ | -------- | ------------------------------------------- |
+| ch     | string   | 数据所属的 channel，格式：market.$symbol.kline.$period     |
+| ts     | long     | 系统响应时间               |
+| \<tick\> | object     |                      |
+| id     | integer  | unix时间，同时作为K线ID                     |
+| amount | float    | 成交量                                      |
+| count  | integer  | 成交笔数                                    |
+| open   | float    | 开盘价                                      |
+| close  | float    | 收盘价（当K线为最晚的一根时，是最新成交价） |
+| low    | float    | 最低价                                      |
+| high   | float    | 最高价                                      |
+| vol    | float    | 成交额, 即 sum(每一笔成交价 * 该笔的成交量) |
+| \</tick\> |       |                      |
+
+<aside class="notice">当symbol被设为“hb10”或“huobi10”时，amount，count，vol均为零值。</aside>
+
 
 ## 聚合行情(Ticker)数据
 
