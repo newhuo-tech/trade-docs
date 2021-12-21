@@ -717,6 +717,9 @@
                     <a href="#introduction-10" class="toc-h2 toc-link" data-title="Introduction">Introduction</a>
                   </li>
                   <li>
+                    <a href="#market-candlestick" class="toc-h2 toc-link" data-title="Market Candlestick">Market Candlestick</a>
+                  </li>
+                  <li>
                     <a href="#market-ticker" class="toc-h2 toc-link" data-title="Market Ticker">Market Ticker</a>
                   </li>
                   <li>
@@ -17305,9 +17308,145 @@ or
 <p><strong>Rate limt of pull style query (req)</strong></p>
 
 <p>The limitation of single connection is 100 ms.</p>
+<h2 id='market-candlestick'>Market Candlestick</h2>
+<p>This topic sends a new candlestick whenever it is available.</p>
+<h3 id='topic'>Topic</h3>
+<p><code>market.$symbol$.kline.$period$</code></p>
+
+<blockquote>
+<p>Subscribe request</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"sub"</span><span class="p">:</span><span class="w"> </span><span class="s2">"market.ethbtc.kline.1min"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"id1"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre><h3 id='topic-parameter'>Topic Parameter</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Data Type</th>
+<th>Required</th>
+<th>Description</th>
+<th>Value Range</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>symbol</td>
+<td>string</td>
+<td>true</td>
+<td>Trading symbol</td>
+<td>All supported trading symbol, e.g. btcusdt, bccbtc. (to retrieve candlesticks for ETP NAV, symbol = ETP trading symbol + suffix &#39;nav&#39;，for example: btc3lusdtnav)</td>
+</tr>
+<tr>
+<td>period</td>
+<td>string</td>
+<td>true</td>
+<td>Candlestick interval</td>
+<td>1min, 5min, 15min, 30min, 60min, 4hour, 1day, 1mon, 1week, 1year</td>
+</tr>
+</tbody></table>
+
+<blockquote>
+<p>Response</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"id1"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ok"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"subbed"</span><span class="p">:</span><span class="w"> </span><span class="s2">"market.ethbtc.kline.1min"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"ts"</span><span class="p">:</span><span class="w"> </span><span class="mi">1489474081631</span><span class="w"> </span><span class="err">//system</span><span class="w"> </span><span class="err">response</span><span class="w"> </span><span class="err">time</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<blockquote>
+<p>Update example</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"ch"</span><span class="p">:</span><span class="s2">"market.ethbtc.kline.1min"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"ts"</span><span class="p">:</span><span class="mi">1630981694370</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"tick"</span><span class="p">:{</span><span class="w">
+        </span><span class="s2">"id"</span><span class="p">:</span><span class="mi">1630981680</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"open"</span><span class="p">:</span><span class="mf">0.074849</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"close"</span><span class="p">:</span><span class="mf">0.074848</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"low"</span><span class="p">:</span><span class="mf">0.074848</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"high"</span><span class="p">:</span><span class="mf">0.074849</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"amount"</span><span class="p">:</span><span class="mf">2.4448</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"vol"</span><span class="p">:</span><span class="mf">0.1829884187</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"count"</span><span class="p">:</span><span class="mi">3</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre><h3 id='update-content'>Update Content</h3>
+<table><thead>
+<tr>
+<th>Field</th>
+<th>Data Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>ch</td>
+<td>string</td>
+<td>Data belonged channel，Format：market.$symbol.kline.$period</td>
+</tr>
+<tr>
+<td>ts</td>
+<td>long</td>
+<td>Time of Respond Generation, Unit: Millisecond</td>
+</tr>
+<tr>
+<td>&lt;tick&gt;</td>
+<td>object</td>
+<td></td>
+</tr>
+<tr>
+<td>id</td>
+<td>integer</td>
+<td>UNIX epoch timestamp in second as response id</td>
+</tr>
+<tr>
+<td>amount</td>
+<td>float</td>
+<td>Aggregated trading volume during the interval (in base currency)</td>
+</tr>
+<tr>
+<td>count</td>
+<td>integer</td>
+<td>Number of trades during the interval</td>
+</tr>
+<tr>
+<td>open</td>
+<td>float</td>
+<td>Opening price during the interval</td>
+</tr>
+<tr>
+<td>close</td>
+<td>float</td>
+<td>Closing price during the interval</td>
+</tr>
+<tr>
+<td>low</td>
+<td>float</td>
+<td>Low price during the interval</td>
+</tr>
+<tr>
+<td>high</td>
+<td>float</td>
+<td>High price during the interval</td>
+</tr>
+<tr>
+<td>vol</td>
+<td>float</td>
+<td>Aggregated trading value during the interval (in quote currency)</td>
+</tr>
+<tr>
+<td>&lt;/tick&gt;</td>
+<td></td>
+<td></td>
+</tr>
+</tbody></table>
+
+<aside class="notice">When symbol is set to "hb10" or "huobi10", amount, count, and vol will always have the value of 0</aside>
 <h2 id='market-ticker'>Market Ticker</h2>
 <p>Retrieve the market ticker,data is pushed every 100ms.</p>
-<h3 id='topic'>Topic</h3>
+<h3 id='topic-2'>Topic</h3>
 <p><code>market.$symbol.ticker</code></p>
 
 <blockquote>
@@ -17460,7 +17599,7 @@ or
 </tbody></table>
 <h2 id='market-depth'>Market Depth</h2>
 <p>This topic sends the latest market by price order book in snapshot mode at 1-second interval.</p>
-<h3 id='topic-2'>Topic</h3>
+<h3 id='topic-3'>Topic</h3>
 <p><code>market.$symbol.depth.$type</code></p>
 
 <blockquote>
@@ -17470,7 +17609,7 @@ or
   </span><span class="s2">"sub"</span><span class="p">:</span><span class="w"> </span><span class="s2">"market.btcusdt.depth.step0"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"id1"</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre><h3 id='topic-parameter'>Topic Parameter</h3>
+</span></code></pre><h3 id='topic-parameter-2'>Topic Parameter</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -17577,7 +17716,7 @@ While type is set as ‘step1’, ‘step2’, ‘step3’, ‘step4’, or ‘s
         </span><span class="s2">"ts"</span><span class="p">:</span><span class="mi">1630983549500</span><span class="w">
     </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre><h3 id='update-content'>Update Content</h3>
+</span></code></pre><h3 id='update-content-2'>Update Content</h3>
 <aside class="notice">Under 'tick' object there is a list of bids and a list of asks</aside>
 
 <table><thead>
@@ -17805,7 +17944,7 @@ In the future, Huobi Global will align the update behavior of 150-level incremen
         </span><span class="p">]</span><span class="w">
     </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre><h3 id='update-content-2'>Update Content</h3>
+</span></code></pre><h3 id='update-content-3'>Update Content</h3>
 <table><thead>
 <tr>
 <th>Field Name</th>
@@ -17907,7 +18046,7 @@ In the future, Huobi Global will align the update behavior of 150-level incremen
         </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre><h3 id='update-content-3'>Update Content</h3>
+</span></code></pre><h3 id='update-content-4'>Update Content</h3>
 <table><thead>
 <tr>
 <th>Field Name</th>
@@ -17933,7 +18072,7 @@ In the future, Huobi Global will align the update behavior of 150-level incremen
 </tbody></table>
 <h2 id='best-bid-offer'>Best Bid/Offer</h2>
 <p>User can receive BBO (Best Bid/Offer) update in tick by tick mode.</p>
-<h3 id='topic-3'>Topic</h3>
+<h3 id='topic-4'>Topic</h3>
 <p><code>market.$symbol.bbo</code></p>
 
 <blockquote>
@@ -17943,7 +18082,7 @@ In the future, Huobi Global will align the update behavior of 150-level incremen
   </span><span class="s2">"sub"</span><span class="p">:</span><span class="w"> </span><span class="s2">"market.btcusdt.bbo"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"id1"</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre><h3 id='topic-parameter-2'>Topic parameter</h3>
+</span></code></pre><h3 id='topic-parameter-3'>Topic parameter</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -17990,7 +18129,7 @@ In the future, Huobi Global will align the update behavior of 150-level incremen
         </span><span class="s2">"symbol"</span><span class="p">:</span><span class="s2">"btcusdt"</span><span class="w">
     </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre><h3 id='update-content-4'>Update Content</h3>
+</span></code></pre><h3 id='update-content-5'>Update Content</h3>
 <table><thead>
 <tr>
 <th>Field</th>
@@ -18056,7 +18195,7 @@ In the future, Huobi Global will align the update behavior of 150-level incremen
 </tbody></table>
 <h2 id='trade-detail'>Trade Detail</h2>
 <p>This topic sends the latest completed trades. It updates in tick by tick mode.</p>
-<h3 id='topic-4'>Topic</h3>
+<h3 id='topic-5'>Topic</h3>
 <p><code>market.$symbol.trade.detail</code></p>
 
 <blockquote>
@@ -18066,7 +18205,7 @@ In the future, Huobi Global will align the update behavior of 150-level incremen
   </span><span class="s2">"sub"</span><span class="p">:</span><span class="w"> </span><span class="s2">"market.btcusdt.trade.detail"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"id1"</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre><h3 id='topic-parameter-3'>Topic Parameter</h3>
+</span></code></pre><h3 id='topic-parameter-4'>Topic Parameter</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -18118,7 +18257,7 @@ In the future, Huobi Global will align the update behavior of 150-level incremen
         </span><span class="p">]</span><span class="w">
     </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre><h3 id='update-content-5'>Update Content</h3>
+</span></code></pre><h3 id='update-content-6'>Update Content</h3>
 <table><thead>
 <tr>
 <th>Field</th>
@@ -18205,7 +18344,7 @@ In the future, Huobi Global will align the update behavior of 150-level incremen
 </span><span class="p">}</span><span class="w">
 </span></code></pre><h2 id='market-details'>Market Details</h2>
 <p>This topic sends the latest market stats with 24h summary. It updates in snapshot mode, in frequency of no more than 10 times per second.</p>
-<h3 id='topic-5'>Topic</h3>
+<h3 id='topic-6'>Topic</h3>
 <p><code>market.$symbol.detail</code></p>
 
 <blockquote>
@@ -18215,7 +18354,7 @@ In the future, Huobi Global will align the update behavior of 150-level incremen
   </span><span class="s2">"sub"</span><span class="p">:</span><span class="w"> </span><span class="s2">"market.btcusdt.detail"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"id1"</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre><h3 id='topic-parameter-4'>Topic Parameter</h3>
+</span></code></pre><h3 id='topic-parameter-5'>Topic Parameter</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -18264,7 +18403,7 @@ In the future, Huobi Global will align the update behavior of 150-level incremen
         </span><span class="s2">"count"</span><span class="p">:</span><span class="mi">471348</span><span class="w">
     </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre><h3 id='update-content-6'>Update Content</h3>
+</span></code></pre><h3 id='update-content-7'>Update Content</h3>
 <table><thead>
 <tr>
 <th>Field</th>
@@ -18391,7 +18530,7 @@ In the future, Huobi Global will align the update behavior of 150-level incremen
         </span><span class="p">]</span><span class="w">
     </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre><h3 id='update-content-7'>Update Content</h3>
+</span></code></pre><h3 id='update-content-8'>Update Content</h3>
 <table><thead>
 <tr>
 <th>Field Name</th>
@@ -18711,7 +18850,7 @@ By comparing to api.huobi.pro, the network latency to api-aws.huobi.pro is lower
 <p>The field list in order update message can be various per event type, developers can design the data structure in either of two ways:<br>
 - Define a data structure including fields for all event types, allowing a few of them are null<br>
 - Define different data structure for each event type to include specific fields, inheriting from a common data structure which has common fields</p>
-<h3 id='topic-6'>Topic</h3>
+<h3 id='topic-7'>Topic</h3>
 <p><code>orders#${symbol}</code></p>
 
 <blockquote>
@@ -18746,7 +18885,7 @@ By comparing to api.huobi.pro, the network latency to api-aws.huobi.pro is lower
 <td>Trading symbol (wildcard * is allowed)</td>
 </tr>
 </tbody></table>
-<h3 id='update-content-8'>Update Content</h3><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+<h3 id='update-content-9'>Update Content</h3><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
     </span><span class="s2">"action"</span><span class="p">:</span><span class="s2">"push"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"ch"</span><span class="p">:</span><span class="s2">"orders#btcusdt"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"data"</span><span class="p">:</span><span class="w">
@@ -19188,7 +19327,7 @@ By comparing to api.huobi.pro, the network latency to api-aws.huobi.pro is lower
 <p>Only update when order is in transaction or cancellation. Order transaction update is in tick by tick mode, which means, if a taker’s order matches with multiple maker’s orders, the simultaneous multiple trades will be disseminated one by one. But the update sequence of the multiple trades, may not be exactly the same as the sequence of the transactions made. Also, if an order is auto cancelled immediately just after its partial fills, for example a typical IOC order, this channel would possibly disseminate the cancellation update first prior to the trade. <br></p>
 
 <p>If user willing to receive order updates in exact same sequence with the original happening, it is recommended to subscribe order update channel orders#${symbol}.<br></p>
-<h3 id='topic-7'>Topic</h3>
+<h3 id='topic-8'>Topic</h3>
 <p><code>trade.clearing#${symbol}#${mode}</code></p>
 <h3 id='subscription-field-2'>Subscription Field</h3>
 <table><thead>
@@ -19485,7 +19624,7 @@ About optional field ‘mode’: If not filled, or filled with 0, it implicates 
 <p>API Key Permission: Read</p>
 
 <p>The topic updates account change details.</p>
-<h3 id='topic-8'>Topic</h3>
+<h3 id='topic-9'>Topic</h3>
 <p><code>accounts.update#${mode}</code></p>
 
 <p>Upon subscription field value specified, the update can be triggered by either of following events:</p>
