@@ -2127,6 +2127,50 @@ Yes. The ratelimit of interface with private key is based on the UID, not the AP
 
 There is an open source asynchronous quantization framework which integrates Huobi future and Huobi swap: <a href=https://github.com/hbdmapi/hbdm_Python>here</a>. If you have any quetsions, please open a ticket in github issues.
 
+## Settlement 
+
+### Q1: What is the USDT Margined Swap funding rate settlement cycle? Which interface can be used to check the status when the fund rate is settled? 
+
+We warmly remind you that Huobi USDT Margined Swap is settled every 8 hours, and the settlement will be at the end of each period. For example, 00:00 - 08:00 is a period, and its settlement time would be at 08:00; 08:00 - 16:00 is a period, and its settlement time would be at 16:00; 16:00 - 00:00 (+1 day) is a period, and its settlement time would be at 00:00. All times mentioned above are Singapore Standard time (GMT+8).
+
+（1）Orders can't be placed or cancelled during settlement period, error code "1056" will be returned if users place or cancel orders. 
+
+You are recommended to request contract information by this two ways:
+
+- restful, every few seconds during settlement period to access: /linear-swap-api/v1/swap_contract_info
+- websocket, Subscribe Contract Info (no authentication): public.$symbol.contract_info
+
+It's in settlement time if there is any number of 5, 6, 7, 8 included in the returned status code of contract_status, while it indicates that settlement completed and users could place and cancel orders as usual if the returned status code is 1.
+
+（2）When querying fund or position information during the settlement period, error codes will be returned. Error code and their meaning are as following:
+
+1. Error code "1077" indicates that "the fund query of current perpetual swap trading pair failed during the settlement";
+2. Error code "1078" indicates that "the fund query of part of perpetual swap trading pairs failed during the settlement";
+3. Error code "1079" indicates that "the position query of current perpetual swap trading pair failed during the settlement";
+4. Error code "1080" indicates that "the position query of part of perpetual swap trading pairs failed during the settlement";
+
+You are recommended to read the status code from the returned message. If the above four types of status code appear, the returned data is not accurate and couldn't be used as reference.
+
+### Q2: How to query the system status of the exchange?
+
+There are two common statuses of the exchange systems: settlement/delivery in progress; suspended for maintenance; when the system is in these two kinds of statuses, the system will return the response error code and error information when calling the related API interfaces.
+
+a.	How to judge whether the settlement/delivery has been done?
+
+Users can judge from the value “contract_status” returned by the “Get Information of an Order” interface (/linear-swap-api/v1/swap_contract_info); 
+
+or Subscribe Contract Info (no authentication): public.$symbol.contract_info
+
+If the return parameter contract_status is 1, it means that the settlement/delivery has been done and the trading has been resumed now.
+
+b. How to judge whether the system is suspended for maintenance or not?
+
+Users can judge from the value “heartbeat” pushed by the “Queried if system interface is available” interface (https://api.hbdm.com/heartbeat/) 
+
+or the “Subscribe system status updates” interface ("topic: public.$service.heartbeat"); 
+
+If the return parameter heartbeat is 1, it means that the system is available now and can be connected normally.
+
 
 ## Market and Websocket
 
@@ -2313,21 +2357,7 @@ If you run the above command multiple times in a row, and the results obtained e
 
 ## Order and Trade
 
-### Q1: What is the USDT Margined Swap funding rate settlement cycle? Which interface can be used to check the status when the fund rate is settled? 
-
-We warmly remind you that Huobi USDT Margined Swap is settled every 8 hours, and the settlement will be at the end of each period. For example, 00:00 - 08:00 is a period, and its settlement time would be at 08:00; 08:00 - 16:00 is a period, and its settlement time would be at 16:00; 16:00 - 00:00 (+1 day) is a period, and its settlement time would be at 00:00. All times mentioned above are Singapore Standard time (GMT+8).
-
-（1）Orders can't be placed or cancelled during settlement period, error code "1056" will be returned if users place or cancel orders. You are recommended to request contract information every few seconds during settlement period: linear-swap-api/v1/swap_contract_info. It's in settlement time if there is any number of 5, 6, 7, 8 included in the returned status code of contract_status, while it indicates that settlement completed and users could place and cancel orders as usual if the returned status code is 1.
-
-（2）When querying fund or position information during the settlement period, error codes will be returned. Error code and their meaning are as following:
-
-Error code "1077" indicates that "the fund query of current perpetual swap trading pair failed during the settlement";
-Error code "1078" indicates that "the fund query of part of perpetual swap trading pairs failed during the settlement";
-Error code "1079" indicates that "the position query of current perpetual swap trading pair failed during the settlement";
-Error code "1080" indicates that "the position query of part of perpetual swap trading pairs failed during the settlement";
-You are recommended to read the status code from the returned message. If the above four types of status code appear, the returned data is not accurate and couldn't be used as reference.
-
-### Q2: What's the reason for 1004 error code?
+### Q1: What's the reason for 1004 error code?
 
 We notice that the system is sometimes overloaded when the market suddenly turns to be highly volatile. If the system is busy recently or the following prompts appear:
 
@@ -2335,81 +2365,71 @@ We notice that the system is sometimes overloaded when the market suddenly turns
 
 please be patient, and do not place or cancel order repeatedly during the process to avoid repeated orders and additional pressure on system performance. In the meanwhile, it is recommended to place and cancel orders through Web and APP.
 
-### Q3: The same order ID and match ID can have multiple trades. for example: if a user take a large amount of maker orders, there will be multiple corresponding trades . How to identify these different trades ?
+### Q2: The same order ID and match ID can have multiple trades. for example: if a user take a large amount of maker orders, there will be multiple corresponding trades . How to identify these different trades ?
 
 The field ID returned by the information interface /linear-swap-api/v1/swap_order_detail is a globally unique transaction identifier. if a maker order is matched multiple times, a trade will be pushed once there is a transaction matched.
 
-### Q4: What is the delay for the round trip of huobi USDT Margined swap?
+### Q3: What is the delay for the round trip of huobi USDT Margined swap?
 
 At present,it normally takes about 30-50ms from placing the order to getting the status of the order.
 
-### Q5: Why does the API return connection reset or Max retris or Timeout error?
+### Q4: Why does the API return connection reset or Max retris or Timeout error?
 
 Most of the network connectivity problems ,(such as Connection reset or network timeout )  are caused by network instability , you can use the server in AWS Tokyo C area with api.hbdm.vn , which can effectively reduce network timeout errors.
 
-### Q6: How to check the order status without order_id not returned?
+### Q5: How to check the order status without order_id not returned?
  
  If the order_id couldn't be returned due to network problems, you can query the status of the order by adding the custom order number(client_order_id ).
 
-### Q7: What to do if it's diconnected after the websocket subscription of account, order and positions for a while?
+### Q6: What to do if it's diconnected after the websocket subscription of account, order and positions for a while?
   
  When subscribing private accounts, orders and positions, the heartbeat should also be maintained regularly ,which is different from the market heartbeat format . Please refer to the "websocket Heartbeat and Authentication Interface" . if it is disconnected ,please try to reconnect.
 
-### Q8: What is the difference between order status 1 and 2 ? what is the status 3 ?
+### Q7: What is the difference between order status 1 and 2 ? what is the status 3 ?
  
  Status 1 is the preparation for submission. status 2 is the sequential submission  of internal process, which can be considered that it has been accepted by the system.  Status 3 indicated that the order has been  already submitted to market.
 
-### Q9: Is there an interface to get the total assets in BTC of my account ? 
+### Q8: Is there an interface to get the total assets in BTC of my account ? 
   
  No.
 
-### Q10: Why is the order filled after the order is withdrawed successfully by placing API cancellation ?
+### Q9: Why is the order filled after the order is withdrawed successfully by placing API cancellation ?
   
  The success return of order cancellation or placement  only represents that the command is excuted successfully and doesn't mean that the order has been cancelled . You can check the order status through the interface /linear-swap-api/v1/swap_order_info.
 
-### Q11: Does the order status of 10 mean the order is failed?
+### Q10: Does the order status of 10 mean the order is failed?
 
 Query the order status by /linear-swap-api/v1/swap_order_info.If the status is 10,the order is failed。
 
-### Q12: How long does it generally take for an API from withdrawing to cancelling successfully ?
+### Q11: How long does it generally take for an API from withdrawing to cancelling successfully ?
 
 The order cancellation command generally takes several tens of ms. The actual status of order cancellation can be obtained by invoking an interface: /linear-swap-api/v1/swap_order_info
 
-### Q13: How to get historical liquidation orders?
+### Q12: How to get historical liquidation orders?
 
 To obtain historical liquidation orders, you can access the one of two api interfaces: Get History Orders (/linear-swap-api/v1/swap_hisorders【Isolated】or /linear-swap-api/v1/swap_cross_hisorders【Cross】), Get History Match Results (/linear-swap-api/v1/swap_matchresults【Isolated】or /linear-swap-api/v1/swap_cross_matchresults【Cross】) with the return field order_source (order source) to judge. When order_source returns "risk", it means that this order is a liquidated order.
 
-### Q14: How to query the system status of the exchange?
-
-There are two common statuses of the exchange systems: settlement/delivery in progress; suspended for maintenance; when the system is in these two kinds of statuses, the system will return the response error code and error information when calling the related API interfaces.
-
-a.	How to judge whether the settlement/delivery has been done?
-Users can judge from the value “contract_status” returned by the “Get Information of an Order” interface (/linear-swap-api/v1/swap_contract_info); If the value turns out 1, it means that the settlement/delivery has been done and the trading has been resumed now.
-
-b. How to judge whether the system is suspended for maintenance or not?
-Users can judge from the value “heartbeat” pushed by the “Queried if system interface is available” interface (https://api.hbdm.com/heartbeat/) or the “Subscribe system status updates” interface ("topic: public.$service.heartbeat"); If the value turns out 1, it means that the system is available now and can be connected normally.
-
-### Q15: Does Huob Futures support holding bi-directional position?
+### Q13: Does Huob Futures support holding bi-directional position?
 
 Yes, Huobi Futures supports long and short positions being held at the same time.
 
-### Q16: How to ensure the order to be rapidly filled?
+### Q14: How to ensure the order to be rapidly filled?
 
 At present, Huobi Futures does not support market price when placing an order. To increase the probability of a transaction, users can choose to place an order based on BBO price (opponent), optimal 5 (optimal_5), optimal 10 (optimal_10), optimal 20 (optimal_20), among which the success probability of optimal 20 is the largest, while the slippage always is the largest as well.
 
 It is important to note that the above methods will not guarantee the order to be filled in 100%. The system will obtain the optimal N price at that moment and place the order.
 
-### Q17: How can API procedure be connected to the exchange more rapidly?
+### Q15: How can API procedure be connected to the exchange more rapidly?
 
 It’s recommended to use a AWS Tokyo c-zone server and the domain name “api.hbdm.vn” to connect to the system.
 
-### Q18: It occurs an “abnormal service” error when transferring assets between spots and derivatives.
+### Q16: It occurs an “abnormal service” error when transferring assets between spots and derivatives.
 
 a. Check whether the request address is the address of Huobi Global : api.huobi.pro?
 
 b. Check whether the precision of the coin does not exceed 8 decimal places? 
 
-### Q19: How to confirm whether the position is opened or closed successfully?
+### Q17: How to confirm whether the position is opened or closed successfully?
 
 Placing an order successfully through “Place an Order” interface (/linear-swap-api/v1/swap_order) or “Place a batch of orders” interface (/linear-swap-api/v1/swap_batchorder) just means the server has received your order placing instructions rather than you have opened/closed a position successfully.
 
@@ -2421,7 +2441,7 @@ a.	For “Get Information of an order” interface (/linear-swap-api/v1/swap_ord
 
 b.	There is a delay in “Order Details Acquisition” interface (/linear-swap-api/v1/swap_order_detail), so it is better to fill in “created_at” (order timestamp) and “order_type” (order type, fill in 1 by default). In this way, it will directly query the database, so the query results will be more timely.
 
-### Q20: Why are orders canceled by the system automatically?
+### Q18: Why are orders canceled by the system automatically?
 
 The order_price_type which can be chosen are IOC, FOK and Maker (Post Only). When the order book cannot meet with the corresponding conditions, the system will cancel the orders automatically:
 
@@ -2431,17 +2451,17 @@ IOC order: If the order cannot be filled immediately, the unfilled part will be 
 
 FOK order: If the order cannot be filled in its entirety, it will be wholly cancelled. No partial fulfillments are allowed.
 
-### Q21: How to query the maximum amount (cont) available to open by using users’ current assets?
+### Q19: How to query the maximum amount (cont) available to open by using users’ current assets?
 
 At present, we do not have an interface by which users can directly query the maximum amount (cont) available to open by using users’ the current asset.
 
-### Q22: Are the “order_id” and “order_id_str” the same? 
+### Q20: Are the “order_id” and “order_id_str” the same? 
 
 The “order_id_str” is the string format of “order_id”, whose values are the same.
 
 For the “order_id” with 18 bits, the “JSON.parse” in “nodejs” and “javascript” will be “int” by default, and mistakes will occur when analyzing. Thus, we advise using “order_id_str”.
 
-### Q23: How to get the active buying/selling quantity in transaction data?
+### Q21: How to get the active buying/selling quantity in transaction data?
 
 Users can get the data via “Query The Last Trade of a Contract” (/linear-swap-ex/market/trade) interface or by subscribing "sub": "market.$contract_code.trade.detail", thereinto
 
@@ -2449,13 +2469,13 @@ Amount refers to the trading volume (cont), which is the sum of the buying/selli
 
 Direction refers to the active trading direction.
 
-### Q24: The interval between “from” and “to” is “2000*period” when acquiring KLine data, then why the data obtained is []?
+### Q22: The interval between “from” and “to” is “2000*period” when acquiring KLine data, then why the data obtained is []?
 
 When acquiring the Kline data, the two time points “from” and “to” are contained, therefore it includes 2001 pieces of data. However, this exceeds the maximum limit 2000. Therefore, the system will return [].
 
 Besides, the returned data will be [] as well if the interval between “from” and “to” exceeds 2 years.
 
-### Q25: How to get the latest price?
+### Q23: How to get the latest price?
 
 There are two methods to get the latest price:
 
@@ -2463,7 +2483,7 @@ a. Invoking the “Get KLine Data(/linear-swap-ex/market/history/kline)” inter
 
 b. Invoking the “Query The Last Trade of a Contract(/linear-swap-ex/market/trade)” interface, the returned “price” will be the latest price.
 
-### Q26: How to get the latest index price?
+### Q24: How to get the latest index price?
 
 There are two methods to get the latest index price:
 
@@ -2471,7 +2491,7 @@ a.	Calling the “Get Contract Index Price Information” interface (/linear-swa
 
 b.	Calling the “Subscribe Index Kline Data” websocket (market.$contract_code.index.$period), the “close” of the last Kline data in returned data will be the latest index price.
 
-### Q27: Will API upgrade affect the operation of the program?
+### Q25: Will API upgrade affect the operation of the program?
 
 In general, API upgrade will partly influence the ws disconnection. To avoid this, you can set up a ws-reconnect mechanism in advance; Please subscribe to the upgrade announcements for more details:
 
@@ -2481,7 +2501,7 @@ Coin-margined swaps: https://status-swap.huobigroup.com/
 
 USDT-margined swaps: https://status-linear-swap.huobigroup.com/
 
-### Q28:  What does mean the “margin_balance” in “Query User’s Account Information” interface (api/v1/contract_account_info)?
+### Q26:  What does mean the “margin_balance” in “Query User’s Account Information” interface (api/v1/contract_account_info)?
 
 ”margin_balance” refers to the account equity
 
@@ -2493,7 +2513,7 @@ Note: Account balance = margin_static - profit_real, there is only margin_static
 
 Each of the two calculation methods above can get the margin_balance
 
-### Q29: Is the “risk_rate” (margin rate) in “Query User’s Account Information” interface (/linear-swap-api/v1/swap_account_info) the same as the margin rate on WEB?
+### Q27: Is the “risk_rate” (margin rate) in “Query User’s Account Information” interface (/linear-swap-api/v1/swap_account_info) the same as the margin rate on WEB?
 
 Yes, it is
 
