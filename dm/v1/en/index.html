@@ -411,6 +411,9 @@
                     <a href="#access-and-authentication" class="toc-h2 toc-link" data-title="Access and Authentication">Access and Authentication</a>
                   </li>
                   <li>
+                    <a href="#settlement-and-delivery" class="toc-h2 toc-link" data-title="Settlement and Delivery">Settlement and Delivery</a>
+                  </li>
+                  <li>
                     <a href="#market-and-websocket" class="toc-h2 toc-link" data-title="Market and Websocket">Market and Websocket</a>
                   </li>
                   <li>
@@ -4165,6 +4168,46 @@ contracts. Please note that the rate limit of WS order push and RESTFUL private 
 <p>Yes. The ratelimit of interface with private key is based on the UID, not the API key. The master and sub accounts are separately ratelimited and don&#39;t affect each other.</p>
 <h3 id='q8-is-there-any-recommendation-for-third-party-framework-which-integrates-huobi-future'>Q8: Is there any recommendation for third-party framework which integrates Huobi future?</h3>
 <p>There is an open source asynchronous quantization framework which integrates Huobi future and Huobi swap: <a href=https://github.com/hbdmapi/hbdm_Python>here</a>. If you have any quetsions, please open a ticket in github issues.</p>
+<h2 id='settlement-and-delivery'>Settlement and Delivery</h2><h3 id='q1-what-is-the-future-settlement-cycle-which-interface-can-be-used-to-check-the-status-when-the-future-is-settled'>Q1: What is the future settlement cycle? Which interface can be used to check the status when the future is settled?</h3>
+<p>Orders can&#39;t be placed or cancelled during settlement period, error code &quot;1056&quot; will be returned if users place or cancel orders. 
+You are recommended to request contract information by this two ways:</p>
+
+<ul>
+<li>restful, every few seconds during settlement period to access: /api/v1/contract_contract_info. </li>
+<li>websocket, Subscribe Contract Info (no authentication): public.$symbol.contract_info</li>
+</ul>
+
+<p>It&#39;s in settlement time if there is any number of 5, 6, 7, 8 included in the returned status code of contract_status, while it indicates that settlement completed and users could place and cancel orders as usual if the returned status code is 1.</p>
+
+<p>Kindly remind you that the delivery contract will be settled every day at 16:00 Singapore time or be deliveried at 16:00 on Friday. Inquiry about funds and positions during settlement or delivery will return an error code.</p>
+
+<p>Error codes and their meaning are as following:</p>
+
+<ol>
+<li>Error code &quot;1077&quot; indicates that &quot;the fund query of current perpetual swap trading pair failed during the settlement&quot;;</li>
+<li>Error code &quot;1078&quot; indicates that &quot;the fund query of part of perpetual swap trading pairs failed during the settlement&quot;;</li>
+<li>Error code &quot;1079&quot; indicates that &quot;the position query of current perpetual swap trading pair failed during the settlement&quot;;</li>
+<li>Error code &quot;1080&quot; indicates that &quot;the position query of part of perpetual swap trading pairs failed during the settlement&quot;;
+You are recommended to read the status code from the returned message. If the above four types of status code appear, the returned data is not accurate and couldn&#39;t be used as reference.</li>
+</ol>
+<h3 id='q2-how-to-query-the-system-status-of-the-exchange'>Q2: How to query the system status of the exchange?</h3>
+<p>There are two common statuses of the exchange systems: settlement/delivery in progress; suspended for maintenance; when the system is in these two kinds of statuses, the system will return the response error code and error information when calling the related API interfaces.</p>
+
+<p>a. How to judge whether the settlement/delivery has been done? </p>
+
+<p>Users can judge from the value “contract_status” returned by the “Get Information of an Order” interface ( /api/v1/contract_contract_info) </p>
+
+<p>or Subscribe Contract Info (no authentication): public.$symbol.contract_info</p>
+
+<p>If the return parameter contract_status is 1, it means that the settlement/delivery has been done and the trading has been resumed now.</p>
+
+<p>b. How to judge whether the system is suspended for maintenance or not?</p>
+
+<p>Users can judge from the value “heartbeat” pushed by the “Queried if system interface is available” interface (https://api.hbdm.com/heartbeat/) </p>
+
+<p>or the “Subscribe system status updates” interface (&quot;topic: public.$service.heartbeat&quot;); </p>
+
+<p>If the return parameter heartbeat 1, it means that the system is available now and can be connected normally.</p>
 <h2 id='market-and-websocket'>Market and Websocket</h2><h3 id='q1-how-often-are-the-snapshot-orderbook-subscription-and-incremental-orderbook-subscription-pushed'>Q1: How often are the snapshot orderbook subscription and incremental orderbook subscription pushed?</h3>
 <p>The snapshot orderbook subscription(market.$symbol.depth.$type) is checked once every 100MS.If there is an update,it will be pushed. It will be pushed at least 1 second.The incremental orderbook subscription is checked once every 30MS.If there is an update,it will be pushed.If there is no update, it will not be pushed.</p>
 <h3 id='q2-how-often-is-the-market-trade-subscription-pushed'>Q2: How often is the market trade subscription pushed?</h3>
@@ -4302,45 +4345,33 @@ It will be pushed only when position event is updated.</p>
 <p>speed_download(B/s):2010.000</p>
 
 <p>If you run the above command multiple times in a row, and the results obtained each time are very different, you can: a. Select an appropriate Huobi domain name, b. Optimize or reselect the network where the program is located.</p>
-<h2 id='order-and-trade'>Order and Trade</h2><h3 id='q1-what-is-the-future-settlement-cycle-which-interface-can-be-used-to-check-the-status-when-the-future-is-settled'>Q1: What is the future settlement cycle? Which interface can be used to check the status when the future is settled?</h3>
-<p>一、Orders can&#39;t be placed or cancelled during settlement period, error code &quot;1056&quot; will be returned if users place or cancel orders. You are recommended to request contract information every few seconds during settlement period: /api/v1/contract_contract_info. It&#39;s in settlement time if there is any number of 5, 6, 7, 8 included in the returned status code of contract_status, while it indicates that settlement completed and users could place and cancel orders as usual if the returned status code is 1.</p>
-
-<p>二、Kindly remind you that the delivery contract will be settled every day at 16:00 Singapore time or be deliveried at 16:00 on Friday. Inquiry about funds and positions during settlement or delivery will return an error code.</p>
-
-<p>Error codes and their meaning are as following:</p>
-
-<p>Error code &quot;1077&quot; indicates that &quot;the fund query of current perpetual swap trading pair failed during the settlement&quot;;
-Error code &quot;1078&quot; indicates that &quot;the fund query of part of perpetual swap trading pairs failed during the settlement&quot;;
-Error code &quot;1079&quot; indicates that &quot;the position query of current perpetual swap trading pair failed during the settlement&quot;;
-Error code &quot;1080&quot; indicates that &quot;the position query of part of perpetual swap trading pairs failed during the settlement&quot;;
-You are recommended to read the status code from the returned message. If the above four types of status code appear, the returned data is not accurate and couldn&#39;t be used as reference.</p>
-<h3 id='q2-what-39-s-the-reason-for-1004-error-code'>Q2: What&#39;s the reason for 1004 error code?</h3>
+<h2 id='order-and-trade'>Order and Trade</h2><h3 id='q1-what-39-s-the-reason-for-1004-error-code'>Q1: What&#39;s the reason for 1004 error code?</h3>
 <p>We notice that the system is sometimes overloaded when the market suddenly turns to be highly volatile. If the system is busy recently or the following prompts appear:</p>
 
 <p>{“status”: “error”, “err_code”: 1004, “err_msg”: “System busy. Please try again later.”, “ts”:}</p>
 
 <p>please be patient, and do not place or cancel order repeatedly during the process to avoid repeated orders and additional pressure on system performance. In the meanwhile, it is recommended to place and cancel orders through Web and APP.</p>
-<h3 id='q3-the-same-order-id-and-match-id-can-have-multiple-trades-for-example-if-a-user-take-a-large-amount-of-maker-orders-there-will-be-multiple-corresponding-trades-how-to-identify-these-different-trades'>Q3: The same order ID and match ID can have multiple trades. for example: if a user take a large amount of maker orders, there will be multiple corresponding trades . How to identify these different trades ?</h3>
+<h3 id='q2-the-same-order-id-and-match-id-can-have-multiple-trades-for-example-if-a-user-take-a-large-amount-of-maker-orders-there-will-be-multiple-corresponding-trades-how-to-identify-these-different-trades'>Q2: The same order ID and match ID can have multiple trades. for example: if a user take a large amount of maker orders, there will be multiple corresponding trades . How to identify these different trades ?</h3>
 <p>The field ID returned by the information interface /api/v1/contract_order_detail is a globally unique transaction identifier. if a maker order is matched multiple times, a trade will be pushed once there is a transaction matched.</p>
-<h3 id='q4-what-is-the-delay-for-the-round-trip-of-huobi-future'>Q4: What is the delay for the round trip of huobi future?</h3>
+<h3 id='q3-what-is-the-delay-for-the-round-trip-of-huobi-future'>Q3: What is the delay for the round trip of huobi future?</h3>
 <p>At present,it normally takes about 30-50ms from placing the order to getting the status of the order.</p>
-<h3 id='q5-why-does-the-api-return-connection-reset-or-max-retris-or-timeout-error'>Q5: Why does the API return connection reset or Max retris or Timeout error?</h3>
+<h3 id='q4-why-does-the-api-return-connection-reset-or-max-retris-or-timeout-error'>Q4: Why does the API return connection reset or Max retris or Timeout error?</h3>
 <p>Most of the network connectivity problems ,(such as Connection reset or network timeout )  are caused by network instability , you can use the server in AWS Tokyo C area with api.hbdm.vn , which can effectively reduce network timeout errors.</p>
-<h3 id='q6-how-to-check-the-order-status-without-order_id-not-returned'>Q6: How to check the order status without order_id not returned?</h3>
+<h3 id='q5-how-to-check-the-order-status-without-order_id-not-returned'>Q5: How to check the order status without order_id not returned?</h3>
 <p>If the order_id couldn&#39;t be returned due to network problems, you can query the status of the order by adding the custom order number(client_order_id ).</p>
-<h3 id='q7-what-to-do-if-it-39-s-diconnected-after-the-websocket-subscription-of-account-order-and-positions-for-a-while'>Q7: What to do if it&#39;s diconnected after the websocket subscription of account, order and positions for a while?</h3>
+<h3 id='q6-what-to-do-if-it-39-s-diconnected-after-the-websocket-subscription-of-account-order-and-positions-for-a-while'>Q6: What to do if it&#39;s diconnected after the websocket subscription of account, order and positions for a while?</h3>
 <p>When subscribing private accounts, orders and positions, the heartbeat should also be maintained regularly ,which is different from the market heartbeat format . Please refer to the <a href=https://docs.huobigroup.com/docs/dm/v1/en/#websocket-heartbeat-and-authentication-interface >&quot;websocket Heartbeat and Authentication Interface&quot; </a>. if the it is disconnected ,please try to reconnect.</p>
-<h3 id='q8-what-is-the-difference-between-order-status-1-and-2-what-is-the-status-3'>Q8: What is the difference between order status 1 and 2 ? what is the status 3 ?</h3>
+<h3 id='q7-what-is-the-difference-between-order-status-1-and-2-what-is-the-status-3'>Q7: What is the difference between order status 1 and 2 ? what is the status 3 ?</h3>
 <p>Status 1 is the preparation for submission. status 2 is the sequential submission  of internal process, which can be considered that it has been accepted by the system.  Status 3 indicated that the order has been  already submitted to market.</p>
-<h3 id='q9-is-there-an-interface-to-get-the-total-assets-in-btc-of-my-account'>Q9: Is there an interface to get the total assets in BTC of my account ?</h3>
+<h3 id='q8-is-there-an-interface-to-get-the-total-assets-in-btc-of-my-account'>Q8: Is there an interface to get the total assets in BTC of my account ?</h3>
 <p>No.</p>
-<h3 id='q10-why-is-the-order-filled-after-the-order-is-withdrawed-successfully-by-placing-api-cancellation'>Q10: Why is the order filled after the order is withdrawed successfully by placing API cancellation ?</h3>
+<h3 id='q9-why-is-the-order-filled-after-the-order-is-withdrawed-successfully-by-placing-api-cancellation'>Q9: Why is the order filled after the order is withdrawed successfully by placing API cancellation ?</h3>
 <p>The success return of order cancellation or placement  only represents that the command is excuted successfully and doesn&#39;t mean that the order has been cancelled . You can check the order status through the interface /api/v1/contract_order_info.</p>
-<h3 id='q11-how-long-does-it-generally-take-for-an-api-from-withdrawing-to-cancelling-successfully'>Q11: How long does it generally take for an API from withdrawing to cancelling successfully ?</h3>
+<h3 id='q10-how-long-does-it-generally-take-for-an-api-from-withdrawing-to-cancelling-successfully'>Q10: How long does it generally take for an API from withdrawing to cancelling successfully ?</h3>
 <p>The order cancellation command generally takes several tens of ms. The actual status of order cancellation can be obtained by invoking the interface: /api/v1/contract_order_info.</p>
-<h3 id='q12-how-to-get-historical-liquidation-orders'>Q12: How to get historical liquidation orders?</h3>
+<h3 id='q11-how-to-get-historical-liquidation-orders'>Q11: How to get historical liquidation orders?</h3>
 <p>To obtain historical liquidation orders, you can access the one of four api interfaces: Get History Orders (/api/v1/contract_hisorders), Get History Match Results (/api/v1/contract_matchresults), Query history orders via multiple fields (/api/v1/contract_hisorders_exact), Query history transactions via multiple fields (/api/v1/contract_matchresults_exact), with the return field order_source (order source) to judge. When order_source returns &quot;risk&quot;, it means that this order is a liquidated order.</p>
-<h3 id='q13-why-can-39-t-open-positions'>Q13: Why can&#39;t open positions?</h3>
+<h3 id='q12-why-can-39-t-open-positions'>Q12: Why can&#39;t open positions?</h3>
 <ol>
 <li>Available margin is not enough to open positions, cause we have the minimum amount requirements when open positions.</li>
 <li>The order price is out of the range of price limits.</li>
@@ -4349,27 +4380,19 @@ You are recommended to read the status code from the returned message. If the ab
 <li>Positions may only be closed within 10 min before settlement.(error code 1105)</li>
 <li>The positions are taken over by system.</li>
 </ol>
-<h3 id='q14-how-to-query-the-system-status-of-the-exchange'>Q14: How to query the system status of the exchange?</h3>
-<p>There are two common statuses of the exchange systems: settlement/delivery in progress; suspended for maintenance; when the system is in these two kinds of statuses, the system will return the response error code and error information when calling the related API interfaces.</p>
-
-<p>a.  How to judge whether the settlement/delivery has been done?
-Users can judge from the value “contract_status” returned by the “Get Information of an Order” interface ( /api/v1/contract_contract_info); If the value turns out 1, it means that the settlement/delivery has been done and the trading has been resumed now.</p>
-
-<p>b. How to judge whether the system is suspended for maintenance or not?
-Users can judge from the value “heartbeat” pushed by the “Queried if system interface is available” interface (https://api.hbdm.com/heartbeat/) or the “Subscribe system status updates” interface (&quot;topic: public.$service.heartbeat&quot;); If the value turns out 1, it means that the system is available now and can be connected normally.</p>
-<h3 id='q15-does-huob-futures-support-holding-bi-directional-position'>Q15: Does Huob Futures support holding bi-directional position?</h3>
+<h3 id='q13-does-huob-futures-support-holding-bi-directional-position'>Q13: Does Huob Futures support holding bi-directional position?</h3>
 <p>Yes, Huobi Futures supports long and short positions being held at the same time.</p>
-<h3 id='q16-how-to-ensure-the-order-to-be-rapidly-filled'>Q16: How to ensure the order to be rapidly filled?</h3>
+<h3 id='q14-how-to-ensure-the-order-to-be-rapidly-filled'>Q14: How to ensure the order to be rapidly filled?</h3>
 <p>At present, Huobi Futures does not support market price when placing an order. To increase the probability of a transaction, users can choose to place an order based on BBO price (opponent), optimal 5 (optimal_5), optimal 10 (optimal_10), optimal 20 (optimal_20), among which the success probability of optimal 20 is the largest, while the slippage always is the largest as well.</p>
 
 <p>It is important to note that the above methods will not guarantee the order to be filled in 100%. The system will obtain the optimal N price at that moment and place the order.</p>
-<h3 id='q17-how-can-api-procedure-be-connected-to-the-exchange-more-rapidly'>Q17: How can API procedure be connected to the exchange more rapidly?</h3>
+<h3 id='q15-how-can-api-procedure-be-connected-to-the-exchange-more-rapidly'>Q15: How can API procedure be connected to the exchange more rapidly?</h3>
 <p>It’s recommended to use a AWS Tokyo c-zone server and the domain name “api.hbdm.vn” to connect to the system.</p>
-<h3 id='q18-it-occurs-an-abnormal-service-error-when-transferring-assets-between-spots-and-derivatives'>Q18: It occurs an “abnormal service” error when transferring assets between spots and derivatives.</h3>
+<h3 id='q16-it-occurs-an-abnormal-service-error-when-transferring-assets-between-spots-and-derivatives'>Q16: It occurs an “abnormal service” error when transferring assets between spots and derivatives.</h3>
 <p>a. Check whether the request address is the address of Huobi Global : api.huobi.pro?</p>
 
 <p>b. Check whether the precision of the coin does not exceed 8 decimal places? </p>
-<h3 id='q19-how-to-confirm-whether-the-position-is-opened-or-closed-successfully'>Q19: How to confirm whether the position is opened or closed successfully?</h3>
+<h3 id='q17-how-to-confirm-whether-the-position-is-opened-or-closed-successfully'>Q17: How to confirm whether the position is opened or closed successfully?</h3>
 <p>Placing an order successfully through “Place an Order” interface (/api/v1/contract_order) or “Place a batch of orders” interface (/api/v1/contract_batchorder) just means the server has received your order placing instructions rather than you have opened/closed a position successfully.</p>
 
 <p>You can check the order status by filling the returned “order_id” in the “Get Information of an Order” interface (/api/v1/contract_order_info) or the “Order Details Acquisition” interface (/api/v1/contract_order_detail); If the order has been filled, the “status” value in the return parameter will turn out 6 (wholly filled)</p>
@@ -4379,7 +4402,7 @@ Users can judge from the value “heartbeat” pushed by the “Queried if syste
 <p>a.  For “Get Information of an order” interface (/api/v1/contract_order_info), after the settlement or delivery, the system will delete all the orders in ended status (5: partially filled orders have been cancelled; 6: wholly filled; 7: cancelled);</p>
 
 <p>b.  There is a delay in “Order Details Acquisition” interface (/api/v1/contract_order_detail), so it is better to fill in “created_at” (order timestamp) and “order_type” (order type, fill in 1 by default). In this way, it will directly query the database, so the query results will be more timely.</p>
-<h3 id='q20-why-are-orders-canceled-by-the-system-automatically'>Q20: Why are orders canceled by the system automatically?</h3>
+<h3 id='q18-why-are-orders-canceled-by-the-system-automatically'>Q18: Why are orders canceled by the system automatically?</h3>
 <p>The order_price_type which can be chosen are IOC, FOK and Maker (Post Only). When the order book cannot meet with the corresponding conditions, the system will cancel the orders automatically:</p>
 
 <p>Post_only: If the order placed is filled with an existing order on the order book immediately, the order will be cancelled to ensure the user is always a maker.</p>
@@ -4387,35 +4410,35 @@ Users can judge from the value “heartbeat” pushed by the “Queried if syste
 <p>IOC order: If the order cannot be filled immediately, the unfilled part will be cancelled at once;</p>
 
 <p>FOK order: If the order cannot be filled in its entirety, it will be wholly cancelled. No partial fulfillments are allowed.</p>
-<h3 id='q21-how-to-query-the-maximum-amount-cont-available-to-open-by-using-users-current-assets'>Q21: How to query the maximum amount (cont) available to open by using users’ current assets?</h3>
+<h3 id='q19-how-to-query-the-maximum-amount-cont-available-to-open-by-using-users-current-assets'>Q19: How to query the maximum amount (cont) available to open by using users’ current assets?</h3>
 <p>At present, we do not have an interface by which users can directly query the maximum amount (cont) available to open by using users’ the current asset.</p>
-<h3 id='q22-are-the-order_id-and-order_id_str-the-same'>Q22: Are the “order_id” and “order_id_str” the same?</h3>
+<h3 id='q20-are-the-order_id-and-order_id_str-the-same'>Q20: Are the “order_id” and “order_id_str” the same?</h3>
 <p>The “order_id_str” is the string format of “order_id”, whose values are the same.</p>
 
 <p>For the “order_id” with 18 bits, the “JSON.parse” in “nodejs” and “javascript” will be “int” by default, and mistakes will occur when analyzing. Thus, we advise using “order_id_str”.</p>
-<h3 id='q23-how-to-get-the-active-buying-selling-quantity-in-transaction-data'>Q23: How to get the active buying/selling quantity in transaction data?</h3>
+<h3 id='q21-how-to-get-the-active-buying-selling-quantity-in-transaction-data'>Q21: How to get the active buying/selling quantity in transaction data?</h3>
 <p>Users can get the data via “Query The Last Trade of a Contract” (/market/trade) interface or by subscribing &quot;sub&quot;: &quot;market.$contract_code.trade.detail&quot;, thereinto</p>
 
 <p>Amount refers to the trading volume (cont), which is the sum of the buying/selling volume; </p>
 
 <p>Direction refers to the active trading direction.</p>
-<h3 id='q24-the-interval-between-from-and-to-is-2000-period-when-acquiring-kline-data-then-why-the-data-obtained-is'>Q24: The interval between “from” and “to” is “2000*period” when acquiring KLine data, then why the data obtained is []?</h3>
+<h3 id='q22-the-interval-between-from-and-to-is-2000-period-when-acquiring-kline-data-then-why-the-data-obtained-is'>Q22: The interval between “from” and “to” is “2000*period” when acquiring KLine data, then why the data obtained is []?</h3>
 <p>When acquiring the Kline data, the two time points “from” and “to” are contained, therefore it includes 2001 pieces of data. However, this exceeds the maximum limit 2000. Therefore, the system will return [].</p>
 
 <p>Besides, the returned data will be [] as well if the interval between “from” and “to” exceeds 2 years.</p>
-<h3 id='q25-how-to-get-the-latest-price'>Q25: How to get the latest price?</h3>
+<h3 id='q23-how-to-get-the-latest-price'>Q23: How to get the latest price?</h3>
 <p>There are two methods to get the latest price:</p>
 
 <p>a. Invoking the “Get KLine Data” interface and filling in any “period”, the “close” of the last data in return data will be the latest price;</p>
 
 <p>b. Invoking the “Query The Last Trade of a Contract” interface, the returned “price” will be the latest price.</p>
-<h3 id='q26-how-to-get-the-latest-index-price'>Q26: How to get the latest index price?</h3>
+<h3 id='q24-how-to-get-the-latest-index-price'>Q24: How to get the latest index price?</h3>
 <p>There are two methods to get the latest index price:</p>
 
 <p>a.  Calling the “Get Contract Index Price Information” interface (/api/v1/contract_index), the returned “index_price” will be the latest index price.</p>
 
 <p>b.  Calling the “Subscribe Index Kline Data” websocket (market.$symbol.index.$period), the “close” of the last Kline data in returned data will be the latest index price.</p>
-<h3 id='q27-will-api-upgrade-affect-the-operation-of-the-program'>Q27: Will API upgrade affect the operation of the program?</h3>
+<h3 id='q25-will-api-upgrade-affect-the-operation-of-the-program'>Q25: Will API upgrade affect the operation of the program?</h3>
 <p>In general, API upgrade will partly influence the ws disconnection. To avoid this, you can set up a ws-reconnect mechanism in advance; Please subscribe to the upgrade announcements for more details:</p>
 
 <p>Coin-margined futures: https://status-dm.huobigroup.com/</p>
@@ -4423,7 +4446,7 @@ Users can judge from the value “heartbeat” pushed by the “Queried if syste
 <p>Coin-margined swaps: https://status-swap.huobigroup.com/</p>
 
 <p>USDT-margined swaps: https://status-linear-swap.huobigroup.com/</p>
-<h3 id='q28-what-does-mean-the-margin_balance-in-query-user-s-account-information-interface-api-v1-contract_account_info'>Q28:  What does mean the “margin_balance” in “Query User’s Account Information” interface (api/v1/contract_account_info)?</h3>
+<h3 id='q26-what-does-mean-the-margin_balance-in-query-user-s-account-information-interface-api-v1-contract_account_info'>Q26:  What does mean the “margin_balance” in “Query User’s Account Information” interface (api/v1/contract_account_info)?</h3>
 <p>”margin_balance” refers to the account equity</p>
 
 <ol>
@@ -4434,7 +4457,7 @@ Users can judge from the value “heartbeat” pushed by the “Queried if syste
 <p>Note: Account balance = margin_static - profit_real, there is only margin_static in the return data of api interface</p>
 
 <p>Each of the two calculation methods above can get the margin_balance</p>
-<h3 id='q29-is-the-risk_rate-margin-rate-in-query-user-s-account-information-interface-api-v1-contract_account_info-the-same-as-the-margin-rate-on-web'>Q29: Is the “risk_rate” (margin rate) in “Query User’s Account Information” interface (/api/v1/contract_account_info) the same as the margin rate on WEB?</h3>
+<h3 id='q27-is-the-risk_rate-margin-rate-in-query-user-s-account-information-interface-api-v1-contract_account_info-the-same-as-the-margin-rate-on-web'>Q27: Is the “risk_rate” (margin rate) in “Query User’s Account Information” interface (/api/v1/contract_account_info) the same as the margin rate on WEB?</h3>
 <p>Yes, it is</p>
 
 <p>When the “risk_rate” is less than or equal to 0, the position will be liquidated.</p>
