@@ -2165,7 +2165,7 @@ Users can judge from the value “heartbeat” pushed by the “Queried if syste
 
 or the “Subscribe system status updates” interface ("topic: public.$service.heartbeat"); 
 
-If the return parameter heartbeat 1, it means that the system is available now and can be connected normally.
+If the return parameter heartbeat is 1, it means that the system is available now and can be connected normally.
 
 ## Market and Websocket
 
