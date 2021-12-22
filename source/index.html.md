@@ -2498,7 +2498,7 @@ Coin-margined futures: https://status-dm.huobigroup.com/
 
 Coin-margined swaps: https://status-swap.huobigroup.com/
 
-USDT-margined contract: https://status-linear-swap.huobigroup.com/
+USDT-margined contracts: https://status-linear-swap.huobigroup.com/
 
 ### Q26:  What does mean the “margin_balance” in “Query User’s Account Information” interface (api/v1/contract_account_info)?
 
