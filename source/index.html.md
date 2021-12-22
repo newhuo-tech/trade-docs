@@ -1,5 +1,5 @@
 ---
-title: 火币USDT本位合约 API 文档
+title: 火币U本位合约 API 文档
 
 language_tabs: # must be one of https://git.io/vQNgJ
   - shell
@@ -13,9 +13,9 @@ search: true
 
 # 简介
 
-## USDT本位合约API简介
+## U本位合约API简介
 
-欢迎使用火币USDT本位合约 API！ 你可以使用此 API 获得市场行情数据，进行交易，并且管理你的账户。
+欢迎使用火币U本位合约 API！ 你可以使用此 API 获得市场行情数据，进行交易，并且管理你的账户。
 
 在文档的右侧是代码示例，目前我们仅提供针对 `shell` 的代码示例。
 
@@ -28,7 +28,7 @@ search: true
 做市商项目不支持点卡抵扣、VIP、交易量相关活动以及任何形式的返佣活动。
 </aside>
 
-欢迎有优秀 maker 策略交易量大的用户参与长期合约做市商项目。如果您的火币交割合约账户中有折合大于 3 BTC 资产，或火币币本位永续合约账户中有折合大于 3 BTC 资产，或火币USDT本位合约账户中有大于 100000 USDT 资产，请提供以下信息到 dm_mm@huobi.com（做市商项目不支持点卡抵扣、VIP、交易量相关活动以及任何形式的返佣活动）:
+欢迎有优秀 maker 策略交易量大的用户参与长期合约做市商项目。如果您的火币交割合约账户中有折合大于 3 BTC 资产，或火币币本位永续合约账户中有折合大于 3 BTC 资产，或火币U本位合约账户中有大于 100000 USDT 资产，请提供以下信息到 dm_mm@huobi.com（做市商项目不支持点卡抵扣、VIP、交易量相关活动以及任何形式的返佣活动）:
 
 1. 提供火币 UID （需不存在返佣关系的 UID）；
 2. 提供其他交易平台 maker 交易量截图证明（比如30天内成交量，或者 VIP 等级等）；
@@ -1653,7 +1653,7 @@ search: true
 读取  | 策略接口  | 全仓 |  /linear-swap-api/v1/swap_cross_tpsl_openorders                      | POST    |     【全仓】止盈止损订单当前委托       |       是          |
 读取  | 策略接口  | 全仓 |  /linear-swap-api/v1/swap_cross_tpsl_hisorders                       | POST    |     【全仓】止盈止损订单历史委托       |       是          |
 读取  | 策略接口  | 全仓 |  /linear-swap-api/v1/swap_cross_relation_tpsl_order                  | POST    |     【全仓】查询开仓单关联的止盈止损订单       |       是          |
-交易  | 账户接口    |  通用  |  https://api.huobi.pro/v2/account/transfer                         | POST   |      【通用】现货-USDT本位合约账户间进行资金的划转              |     是        |
+交易  | 账户接口    |  通用  |  https://api.huobi.pro/v2/account/transfer                         | POST   |      【通用】现货-U本位合约账户间进行资金的划转              |     是        |
 交易   |  策略接口  | 逐仓 |  /linear-swap-api/v1/swap_track_order |        POST        | 【逐仓】跟踪委托订单下单            |  是  |
 交易   |  策略接口  | 逐仓 |  /linear-swap-api/v1/swap_track_cancel |        POST        | 【逐仓】跟踪委托订单撤单            |  是  |
 交易   |  策略接口  | 逐仓 |  /linear-swap-api/v1/swap_track_cancelall |        POST        | 【逐仓】跟踪委托订单全部撤单            |  是  |
@@ -1819,7 +1819,7 @@ api.hbdm.com\n
 
 ## 访问次数限制
 
-* 交割合约、币本位永续合约和USDT本位合约都分开限频。
+* 交割合约、币本位永续合约和U本位合约都分开限频。
 
 * 公开行情接口和用户私有接口都有访问次数限制
 
@@ -1829,7 +1829,7 @@ api.hbdm.com\n
 
 - 行情类的公开接口，比如：获取K线数据、获取聚合行情、市场行情、获取行情深度数据、获取溢价指数K线、获取实时预测资金费率k线，获取基差数据、获取市场最近成交记录：
 
-    （1） restful接口：同一个IP, 所有业务（交割合约、币本位永续合约和USDT本位合约）总共1秒最多800个请求 
+    （1） restful接口：同一个IP, 所有业务（交割合约、币本位永续合约和U本位合约）总共1秒最多800个请求 
 
     （2） websocket：req请求，同一时刻最多请求50次；sub请求，无限制，服务器主动推送数据
     
@@ -2150,8 +2150,8 @@ curl "https://status-linear-swap.huobigroup.com/api/v2/summary.json"
 | swap_heartbeat             | int                   | 币本位永续 1: 可用 0: 不可用(即停服维护) 
 | estimated_recovery_time             | long                   | null: 正常. 交割合约预计恢复时间， 单位:毫秒
 | swap_estimated_recovery_time             | long                   | null: 正常. 币本位永续合约预计恢复时间，单位：毫秒.
-| linear_swap_heartbeat             | long                   | USDT本位合约 1: 可用 0: 不可用(即停服维护)
-| linear_swap_estimated_recovery_time             | long                   | null: 正常. USDT本位合约预计恢复时间，单位：毫秒.
+| linear_swap_heartbeat             | long                   | U本位合约 1: 可用 0: 不可用(即停服维护)
+| linear_swap_estimated_recovery_time             | long                   | null: 正常. U本位合约预计恢复时间，单位：毫秒.
 | \</data\>             |                  | 
 
 
@@ -2517,15 +2517,15 @@ curl "https://status-linear-swap.huobigroup.com/api/v2/summary.json"
 - <a href='https://github.com/hbdmapi/huobi_futures_Cpp'>C++</a>
 
 
-### 备注：USDT本位合约代码使用方式与币本位永续和交割合约类似，可以参考币本位永续和交割合约。
+### 备注：U本位合约代码使用方式与币本位永续和交割合约类似，可以参考币本位永续和交割合约。
 
 # 常见问题
 
 ## 接入验签相关
 
-### Q1: USDT本位合约API Key和现货是否同一个？
+### Q1: U本位合约API Key和现货是否同一个？
 
-USDT本位合约API Key和现货API Key是同一个，两个是一样的。您可以在 <a href='https://www.hbg.com/zh-cn/apikey/'>这里 </a> 创建 API Key。
+U本位合约API Key和现货API Key是同一个，两个是一样的。您可以在 <a href='https://www.hbg.com/zh-cn/apikey/'>这里 </a> 创建 API Key。
 
 ### Q2: 为什么经常出现断线、超时的错误？
 
@@ -2551,7 +2551,7 @@ colo相当于是 创建一个VPC节点，直接连了火币合约的内网，会
 
 ### Q6: 为什么签名认证总返回失败(403:Verification failure [校验失败]) ？
 
-USDT本位合约签名过程和币本位永续、币交割类似，除了参考以下注意事项外，请参照币本位永续或者交割的demo代码来验证签名是否成功，demo代码验证通过后，再去核对您自己的签名代码。币本位永续的demo代码在 <a href='https://docs.huobigroup.com/docs/coin_margined_swap/v1/cn/#2cff7db524'>  这里 </a>   查看。交割的demo代码在<a href='https://docs.huobigroup.com/docs/dm/v1/cn/#2cff7db524'>  这里</a>  查看。USDT本位合约的demo代码在 <a href='https://docs.huobigroup.com/docs/usdt_swap/v1/cn/#2cff7db524'>  这里 </a>   查看。
+U本位合约签名过程和币本位永续、币交割类似，除了参考以下注意事项外，请参照币本位永续或者交割的demo代码来验证签名是否成功，demo代码验证通过后，再去核对您自己的签名代码。币本位永续的demo代码在 <a href='https://docs.huobigroup.com/docs/coin_margined_swap/v1/cn/#2cff7db524'>  这里 </a>   查看。交割的demo代码在<a href='https://docs.huobigroup.com/docs/dm/v1/cn/#2cff7db524'>  这里</a>  查看。U本位合约的demo代码在 <a href='https://docs.huobigroup.com/docs/usdt_swap/v1/cn/#2cff7db524'>  这里 </a>   查看。
 
 1. 检查 API Key 是否有效，是否复制正确
 
@@ -2733,9 +2733,9 @@ market.$contract_code.depth.$type是全量数据，market.$contract_code.depth.s
 
 ### Q15: 订阅多个合约代码同一主题时, 需要多个 ws 连接吗?
 
-对于交割合约、币永续、USDT本位合约之间, 由于是不同的接口地址, 需要不同的 ws 连接
+对于交割合约、币永续、U本位合约之间, 由于是不同的接口地址, 需要不同的 ws 连接
 
-对于交割合约、币永续、USDT本位合约各自里面, 只要接口地址是一样的, 一个 ws 连接即可. 
+对于交割合约、币永续、U本位合约各自里面, 只要接口地址是一样的, 一个 ws 连接即可. 
 
 ### Q16: 是否可以通过 ws 下单和撤单?
 
@@ -2969,7 +2969,7 @@ margin_balance 是指账户权益
 
 ### Q3: API返回1032错误码是什么原因？
 
-1032代表您的访问次数超出限制，币本位永续合约、交割合约和USDT本位合约都分开限制频率，请查看合约交易接入说明中的访问次数限制，并且可以在api接口response中的header打印当前的频率限制次数来看是否超出限制频率。建议加大请求间隔延时避免超出限制频率。
+1032代表您的访问次数超出限制，币本位永续合约、交割合约和U本位合约都分开限制频率，请查看合约交易接入说明中的访问次数限制，并且可以在api接口response中的header打印当前的频率限制次数来看是否超出限制频率。建议加大请求间隔延时避免超出限制频率。
 
 ## 全仓模式和逐仓模式的区别与使用
 
@@ -13823,9 +13823,9 @@ sort_by | false  | string | 排序字段（降序），不填默认按照create_
 | ts              | true  | long   | 响应生成时间点，单位：毫秒                 |     |
 
 
-# USDT本位合约划转接口
+# U本位合约划转接口
 
-## 【通用】现货-USDT本位合约账户间进行资金的划转
+## 【通用】现货-U本位合约账户间进行资金的划转
 
 ### 实例
 
@@ -13835,20 +13835,20 @@ sort_by | false  | string | 排序字段（降序），不填默认按照create_
 
 该接口支持全仓模式和逐仓模式
 
-此接口用户币币现货账户与USDT本位合约账户之间的资金划转。
+此接口用户币币现货账户与U本位合约账户之间的资金划转。
 
 该接口的访问频次的限制为1秒/1次。
 
 注意：请求地址为火币Global地址
 
-现货与USDT本位合约划转接口，所有划转的币的精度是8位小数。
+现货与U本位合约划转接口，所有划转的币的精度是8位小数。
 
 ### 请求参数
 
   参数名称   |  是否必须    |  类型   |  描述      |  取值范围  |
 --------------  | --------------  | ---------- |  ------------------------  |  ------------------------------------------------------------------------------------------------------  |
-from  |    true  |  string  |  来源业务线账户，取值：spot(币币)、linear-swap(USDT本位合约)  |   e.g. spot  |
-to  |    true  |  string  |  目标业务线账户，取值：spot(币币)、linear-swap(USDT本位合约)  | e.g. linear-swap  |
+from  |    true  |  string  |  来源业务线账户，取值：spot(币币)、linear-swap(U本位合约)  |   e.g. spot  |
+to  |    true  |  string  |  目标业务线账户，取值：spot(币币)、linear-swap(U本位合约)  | e.g. linear-swap  |
 currency  |    true  |  string  |  币种,支持大小写  |   e.g. usdt  |
 amount  |   true  |  decimal  |   划转金额  |      |
 margin-account  |   true  |  string  |   保证金账户	  | e.g. btc-usdt、eth-usdt、USDT     |
@@ -14033,7 +14033,7 @@ message |    true  |   string    |   响应信息	 |   |
 
 - 行情类的公开接口，比如：获取K线数据、获取聚合行情、市场行情、获取行情深度数据、获取溢价指数K线、获取实时预测资金费率k线，获取基差数据、获取市场最近成交记录：
 
-    （1） restful接口：同一个IP, 所有业务（交割合约、币本位永续合约和USDT本位合约）总共1秒最多800个请求
+    （1） restful接口：同一个IP, 所有业务（交割合约、币本位永续合约和U本位合约）总共1秒最多800个请求
 
     （2） websocket：req请求，同一时刻最多请求50次；sub请求，无限制，服务器主动推送数据
 
@@ -18477,12 +18477,12 @@ topic    | string | 必填;必填；必填；订阅主题名称，必填 (accoun
 | ------ | ---- | ------ | -------- | -------------- |
 | op | true | string | 必填;订阅固定值为sub	 |  |
 | cid | false| string | 选填;Client 请求唯一 ID	 | |
-| topic | true| string | 必填;订阅主题名称:public.$service.heartbeat; 订阅USDT本位合约的系统状态信息 | |
+| topic | true| string | 必填;订阅主题名称:public.$service.heartbeat; 订阅U本位合约的系统状态信息 | |
 
 ### **sub订阅参数说明**:
 | 参数名称   | 是否必须 | 类型     | 描述   | 取值范围           |
 | ------ | ---- | ------ | -------- | -------------- |
-| service | true | string | 业务代码	 | linear-swap：USDT本位合约 |
+| service | true | string | 业务代码	 | linear-swap：U本位合约 |
 
 
 > **返回示例**:
