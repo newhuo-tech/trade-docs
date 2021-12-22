@@ -3017,7 +3017,7 @@ curl "https://api.hbdm.com/linear-swap-api/v1/swap_contract_info"
 
  - The request parameter "support_margin_mode" should be "all" when querying the contract information which supports the cross margin mode and the isolated margin mode both. The value of "cross" or "isolated" just can query the contract information which only supports the cross margin mode or the isolated margin mode. Please keep attention.
 
-  - The request parameter "contract_code" supports the contract code of futures, in that the format is BTC-USDT-201101; When both of (pair, contract_type) and contract_code filled in, the contract_code is the preferred.
+ - The request parameter "contract_code" supports the contract code of futures, in that the format is BTC-USDT-201101; When both of (pair, contract_type) and contract_code filled in, the contract_code is the preferred.
 
  - business_type is a required parameter when query info of futures contract, and its value must be futures or all.
 
@@ -3375,7 +3375,7 @@ curl "https://api.hbdm.com/linear-swap-ex/market/depth?contract_code=BTC-USDT&ty
 
  - The interface supports cross margin mode and isolated margin mode.
 
-- The request parameter "contract_code" supports the contract code of futures, in that the format is BTC-USDT-210625; and supports contract type: BTC-USDT, BTC-USDT-CW, BTC-USDT-NW, BTC-USDT-CQ, BTC-USDT-NQ.
+ - The request parameter "contract_code" supports the contract code of futures, in that the format is BTC-USDT-210625; and supports contract type: BTC-USDT, BTC-USDT-CW, BTC-USDT-NW, BTC-USDT-CQ, BTC-USDT-NQ.
 
 ###  Request Parameter  
 
@@ -3559,7 +3559,7 @@ curl "https://api.hbdm.com/linear-swap-ex/market/history/kline?period=1min&size=
 
  - The interface supports cross margin mode and isolated margin mode.
 
-- The request parameter "contract_code" supports the contract code of futures, in that the format is BTC-USDT-210625; and supports contract type: BTC-USDT, BTC-USDT-CW, BTC-USDT-NW, BTC-USDT-CQ, BTC-USDT-NQ.
+ - The request parameter "contract_code" supports the contract code of futures, in that the format is BTC-USDT-210625; and supports contract type: BTC-USDT, BTC-USDT-CW, BTC-USDT-NW, BTC-USDT-CQ, BTC-USDT-NQ.
 
 ###  Request Parameter  
 
@@ -4317,141 +4317,6 @@ curl "https://api.hbdm.com/linear-swap-api/v1/swap_adjustfactor"
             "business_type":"futures",
             "pair":"BTC-USDT",
             "contract_type":"this_week"
-        },
-        {
-            "symbol":"BTC",
-            "contract_code":"BTC-USDT-211217",
-            "margin_mode":"cross",
-            "list":[
-                {
-                    "lever_rate":1,
-                    "ladders":[
-                        {
-                            "ladder":0,
-                            "min_size":0,
-                            "max_size":3999,
-                            "adjust_factor":0.005
-                        },
-                        {
-                            "ladder":1,
-                            "min_size":4000,
-                            "max_size":39999,
-                            "adjust_factor":0.01
-                        },
-                        {
-                            "ladder":2,
-                            "min_size":40000,
-                            "max_size":79999,
-                            "adjust_factor":0.015
-                        },
-                        {
-                            "ladder":3,
-                            "min_size":80000,
-                            "max_size":119999,
-                            "adjust_factor":0.02
-                        },
-                        {
-                            "ladder":4,
-                            "min_size":120000,
-                            "max_size":null,
-                            "adjust_factor":0.025
-                        }
-                    ]
-                }
-            ],
-            "business_type":"futures",
-            "pair":"BTC-USDT",
-            "contract_type":"next_week"
-        },
-        {
-            "symbol":"BTC",
-            "contract_code":"BTC-USDT-211231",
-            "margin_mode":"cross",
-            "list":[
-                {
-                    "lever_rate":1,
-                    "ladders":[
-                        {
-                            "ladder":0,
-                            "min_size":0,
-                            "max_size":3999,
-                            "adjust_factor":0.005
-                        },
-                        {
-                            "ladder":1,
-                            "min_size":4000,
-                            "max_size":39999,
-                            "adjust_factor":0.01
-                        },
-                        {
-                            "ladder":2,
-                            "min_size":40000,
-                            "max_size":79999,
-                            "adjust_factor":0.015
-                        },
-                        {
-                            "ladder":3,
-                            "min_size":80000,
-                            "max_size":119999,
-                            "adjust_factor":0.02
-                        },
-                        {
-                            "ladder":4,
-                            "min_size":120000,
-                            "max_size":null,
-                            "adjust_factor":0.025
-                        }
-                    ]
-                }
-            ],
-            "business_type":"futures",
-            "pair":"BTC-USDT",
-            "contract_type":"quarter"
-        },
-        {
-            "symbol":"BTC",
-            "contract_code":"BTC-USDT",
-            "margin_mode":"cross",
-            "list":[
-                {
-                    "lever_rate":1,
-                    "ladders":[
-                        {
-                            "ladder":0,
-                            "min_size":0,
-                            "max_size":3999,
-                            "adjust_factor":0.005
-                        },
-                        {
-                            "ladder":1,
-                            "min_size":4000,
-                            "max_size":39999,
-                            "adjust_factor":0.01
-                        },
-                        {
-                            "ladder":2,
-                            "min_size":40000,
-                            "max_size":79999,
-                            "adjust_factor":0.015
-                        },
-                        {
-                            "ladder":3,
-                            "min_size":80000,
-                            "max_size":119999,
-                            "adjust_factor":0.02
-                        },
-                        {
-                            "ladder":4,
-                            "min_size":120000,
-                            "max_size":null,
-                            "adjust_factor":0.025
-                        }
-                    ]
-                }
-            ],
-            "business_type":"swap",
-            "pair":"BTC-USDT",
-            "contract_type":"swap"
         }
     ],
     "ts":1638754992327
@@ -12829,7 +12694,7 @@ Error：
 
  - The request parameter "contract_code" supports the contract code of futures, in that the format is BTC-USDT-210625.
 
-  - when all of pair and contract_code filled in, the contract_code is the preferred; when no one filled in, return all data in cross mode.
+ - when all of pair and contract_code filled in, the contract_code is the preferred; when no one filled in, return all data in cross mode.
 
 ### Request Parameter
 
