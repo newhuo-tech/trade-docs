@@ -5693,11 +5693,8 @@ It will be pushed only when position event is updated.</p>
 </code></pre><h4 id='remarks'>Remarks</h4>
 <ul>
 <li><p>The interface supports cross margin mode and isolated margin mode.</p></li>
-<li><p>The request parameter &quot;support_margin_mode&quot; should be &quot;all&quot; when querying the contract information which supports the cross margin mode and the isolated margin mode both. The value of &quot;cross&quot; or &quot;isolated&quot; just can query the contract information which only supports the cross margin mode or the isolated margin mode. Please keep attention.</p>
-
-<ul>
-<li>The request parameter &quot;contract_code&quot; supports the contract code of futures, in that the format is BTC-USDT-201101; When both of (pair, contract_type) and contract_code filled in, the contract_code is the preferred.</li>
-</ul></li>
+<li><p>The request parameter &quot;support_margin_mode&quot; should be &quot;all&quot; when querying the contract information which supports the cross margin mode and the isolated margin mode both. The value of &quot;cross&quot; or &quot;isolated&quot; just can query the contract information which only supports the cross margin mode or the isolated margin mode. Please keep attention.</p></li>
+<li><p>The request parameter &quot;contract_code&quot; supports the contract code of futures, in that the format is BTC-USDT-201101; When both of (pair, contract_type) and contract_code filled in, the contract_code is the preferred.</p></li>
 <li><p>business_type is a required parameter when query info of futures contract, and its value must be futures or all.</p></li>
 <li><p>When support_margin_mode is isolated，contract_type, business_type should not be futures type. And when support_margin_mode is cross, the return data is future&#39;s data</p></li>
 </ul>
@@ -6432,11 +6429,8 @@ It will be pushed only when position event is updated.</p>
 <pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.hbdm.com/linear-swap-ex/market/depth?contract_code=BTC-USDT&amp;type=step5"</span>
 </code></pre><h4 id='remarks-5'>Remarks</h4>
 <ul>
-<li><p>The interface supports cross margin mode and isolated margin mode.</p>
-
-<ul>
-<li>The request parameter &quot;contract_code&quot; supports the contract code of futures, in that the format is BTC-USDT-210625; and supports contract type: BTC-USDT, BTC-USDT-CW, BTC-USDT-NW, BTC-USDT-CQ, BTC-USDT-NQ.</li>
-</ul></li>
+<li><p>The interface supports cross margin mode and isolated margin mode.</p></li>
+<li><p>The request parameter &quot;contract_code&quot; supports the contract code of futures, in that the format is BTC-USDT-210625; and supports contract type: BTC-USDT, BTC-USDT-CW, BTC-USDT-NW, BTC-USDT-CQ, BTC-USDT-NQ.</p></li>
 </ul>
 <h3 id='request-parameter-5'>Request Parameter</h3>
 <table><thead>
@@ -6786,11 +6780,8 @@ It will be pushed only when position event is updated.</p>
 <pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.hbdm.com/linear-swap-ex/market/history/kline?period=1min&amp;size=200&amp;contract_code=BTC-USDT"</span>
 </code></pre><h4 id='remarks-6'>Remarks</h4>
 <ul>
-<li><p>The interface supports cross margin mode and isolated margin mode.</p>
-
-<ul>
-<li>The request parameter &quot;contract_code&quot; supports the contract code of futures, in that the format is BTC-USDT-210625; and supports contract type: BTC-USDT, BTC-USDT-CW, BTC-USDT-NW, BTC-USDT-CQ, BTC-USDT-NQ.</li>
-</ul></li>
+<li><p>The interface supports cross margin mode and isolated margin mode.</p></li>
+<li><p>The request parameter &quot;contract_code&quot; supports the contract code of futures, in that the format is BTC-USDT-210625; and supports contract type: BTC-USDT, BTC-USDT-CW, BTC-USDT-NW, BTC-USDT-CQ, BTC-USDT-NQ.</p></li>
 </ul>
 <h3 id='request-parameter-7'>Request Parameter</h3>
 <table><thead>
@@ -8629,141 +8620,6 @@ It will be pushed only when position event is updated.</p>
             </span><span class="s2">"business_type"</span><span class="p">:</span><span class="s2">"futures"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"pair"</span><span class="p">:</span><span class="s2">"BTC-USDT"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"contract_type"</span><span class="p">:</span><span class="s2">"this_week"</span><span class="w">
-        </span><span class="p">},</span><span class="w">
-        </span><span class="p">{</span><span class="w">
-            </span><span class="s2">"symbol"</span><span class="p">:</span><span class="s2">"BTC"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"contract_code"</span><span class="p">:</span><span class="s2">"BTC-USDT-211217"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"margin_mode"</span><span class="p">:</span><span class="s2">"cross"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"list"</span><span class="p">:[</span><span class="w">
-                </span><span class="p">{</span><span class="w">
-                    </span><span class="s2">"lever_rate"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="w">
-                    </span><span class="s2">"ladders"</span><span class="p">:[</span><span class="w">
-                        </span><span class="p">{</span><span class="w">
-                            </span><span class="s2">"ladder"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="w">
-                            </span><span class="s2">"min_size"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="w">
-                            </span><span class="s2">"max_size"</span><span class="p">:</span><span class="mi">3999</span><span class="p">,</span><span class="w">
-                            </span><span class="s2">"adjust_factor"</span><span class="p">:</span><span class="mf">0.005</span><span class="w">
-                        </span><span class="p">},</span><span class="w">
-                        </span><span class="p">{</span><span class="w">
-                            </span><span class="s2">"ladder"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="w">
-                            </span><span class="s2">"min_size"</span><span class="p">:</span><span class="mi">4000</span><span class="p">,</span><span class="w">
-                            </span><span class="s2">"max_size"</span><span class="p">:</span><span class="mi">39999</span><span class="p">,</span><span class="w">
-                            </span><span class="s2">"adjust_factor"</span><span class="p">:</span><span class="mf">0.01</span><span class="w">
-                        </span><span class="p">},</span><span class="w">
-                        </span><span class="p">{</span><span class="w">
-                            </span><span class="s2">"ladder"</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span><span class="w">
-                            </span><span class="s2">"min_size"</span><span class="p">:</span><span class="mi">40000</span><span class="p">,</span><span class="w">
-                            </span><span class="s2">"max_size"</span><span class="p">:</span><span class="mi">79999</span><span class="p">,</span><span class="w">
-                            </span><span class="s2">"adjust_factor"</span><span class="p">:</span><span class="mf">0.015</span><span class="w">
-                        </span><span class="p">},</span><span class="w">
-                        </span><span class="p">{</span><span class="w">
-                            </span><span class="s2">"ladder"</span><span class="p">:</span><span class="mi">3</span><span class="p">,</span><span class="w">
-                            </span><span class="s2">"min_size"</span><span class="p">:</span><span class="mi">80000</span><span class="p">,</span><span class="w">
-                            </span><span class="s2">"max_size"</span><span class="p">:</span><span class="mi">119999</span><span class="p">,</span><span class="w">
-                            </span><span class="s2">"adjust_factor"</span><span class="p">:</span><span class="mf">0.02</span><span class="w">
-                        </span><span class="p">},</span><span class="w">
-                        </span><span class="p">{</span><span class="w">
-                            </span><span class="s2">"ladder"</span><span class="p">:</span><span class="mi">4</span><span class="p">,</span><span class="w">
-                            </span><span class="s2">"min_size"</span><span class="p">:</span><span class="mi">120000</span><span class="p">,</span><span class="w">
-                            </span><span class="s2">"max_size"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
-                            </span><span class="s2">"adjust_factor"</span><span class="p">:</span><span class="mf">0.025</span><span class="w">
-                        </span><span class="p">}</span><span class="w">
-                    </span><span class="p">]</span><span class="w">
-                </span><span class="p">}</span><span class="w">
-            </span><span class="p">],</span><span class="w">
-            </span><span class="s2">"business_type"</span><span class="p">:</span><span class="s2">"futures"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"pair"</span><span class="p">:</span><span class="s2">"BTC-USDT"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"contract_type"</span><span class="p">:</span><span class="s2">"next_week"</span><span class="w">
-        </span><span class="p">},</span><span class="w">
-        </span><span class="p">{</span><span class="w">
-            </span><span class="s2">"symbol"</span><span class="p">:</span><span class="s2">"BTC"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"contract_code"</span><span class="p">:</span><span class="s2">"BTC-USDT-211231"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"margin_mode"</span><span class="p">:</span><span class="s2">"cross"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"list"</span><span class="p">:[</span><span class="w">
-                </span><span class="p">{</span><span class="w">
-                    </span><span class="s2">"lever_rate"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="w">
-                    </span><span class="s2">"ladders"</span><span class="p">:[</span><span class="w">
-                        </span><span class="p">{</span><span class="w">
-                            </span><span class="s2">"ladder"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="w">
-                            </span><span class="s2">"min_size"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="w">
-                            </span><span class="s2">"max_size"</span><span class="p">:</span><span class="mi">3999</span><span class="p">,</span><span class="w">
-                            </span><span class="s2">"adjust_factor"</span><span class="p">:</span><span class="mf">0.005</span><span class="w">
-                        </span><span class="p">},</span><span class="w">
-                        </span><span class="p">{</span><span class="w">
-                            </span><span class="s2">"ladder"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="w">
-                            </span><span class="s2">"min_size"</span><span class="p">:</span><span class="mi">4000</span><span class="p">,</span><span class="w">
-                            </span><span class="s2">"max_size"</span><span class="p">:</span><span class="mi">39999</span><span class="p">,</span><span class="w">
-                            </span><span class="s2">"adjust_factor"</span><span class="p">:</span><span class="mf">0.01</span><span class="w">
-                        </span><span class="p">},</span><span class="w">
-                        </span><span class="p">{</span><span class="w">
-                            </span><span class="s2">"ladder"</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span><span class="w">
-                            </span><span class="s2">"min_size"</span><span class="p">:</span><span class="mi">40000</span><span class="p">,</span><span class="w">
-                            </span><span class="s2">"max_size"</span><span class="p">:</span><span class="mi">79999</span><span class="p">,</span><span class="w">
-                            </span><span class="s2">"adjust_factor"</span><span class="p">:</span><span class="mf">0.015</span><span class="w">
-                        </span><span class="p">},</span><span class="w">
-                        </span><span class="p">{</span><span class="w">
-                            </span><span class="s2">"ladder"</span><span class="p">:</span><span class="mi">3</span><span class="p">,</span><span class="w">
-                            </span><span class="s2">"min_size"</span><span class="p">:</span><span class="mi">80000</span><span class="p">,</span><span class="w">
-                            </span><span class="s2">"max_size"</span><span class="p">:</span><span class="mi">119999</span><span class="p">,</span><span class="w">
-                            </span><span class="s2">"adjust_factor"</span><span class="p">:</span><span class="mf">0.02</span><span class="w">
-                        </span><span class="p">},</span><span class="w">
-                        </span><span class="p">{</span><span class="w">
-                            </span><span class="s2">"ladder"</span><span class="p">:</span><span class="mi">4</span><span class="p">,</span><span class="w">
-                            </span><span class="s2">"min_size"</span><span class="p">:</span><span class="mi">120000</span><span class="p">,</span><span class="w">
-                            </span><span class="s2">"max_size"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
-                            </span><span class="s2">"adjust_factor"</span><span class="p">:</span><span class="mf">0.025</span><span class="w">
-                        </span><span class="p">}</span><span class="w">
-                    </span><span class="p">]</span><span class="w">
-                </span><span class="p">}</span><span class="w">
-            </span><span class="p">],</span><span class="w">
-            </span><span class="s2">"business_type"</span><span class="p">:</span><span class="s2">"futures"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"pair"</span><span class="p">:</span><span class="s2">"BTC-USDT"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"contract_type"</span><span class="p">:</span><span class="s2">"quarter"</span><span class="w">
-        </span><span class="p">},</span><span class="w">
-        </span><span class="p">{</span><span class="w">
-            </span><span class="s2">"symbol"</span><span class="p">:</span><span class="s2">"BTC"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"contract_code"</span><span class="p">:</span><span class="s2">"BTC-USDT"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"margin_mode"</span><span class="p">:</span><span class="s2">"cross"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"list"</span><span class="p">:[</span><span class="w">
-                </span><span class="p">{</span><span class="w">
-                    </span><span class="s2">"lever_rate"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="w">
-                    </span><span class="s2">"ladders"</span><span class="p">:[</span><span class="w">
-                        </span><span class="p">{</span><span class="w">
-                            </span><span class="s2">"ladder"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="w">
-                            </span><span class="s2">"min_size"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="w">
-                            </span><span class="s2">"max_size"</span><span class="p">:</span><span class="mi">3999</span><span class="p">,</span><span class="w">
-                            </span><span class="s2">"adjust_factor"</span><span class="p">:</span><span class="mf">0.005</span><span class="w">
-                        </span><span class="p">},</span><span class="w">
-                        </span><span class="p">{</span><span class="w">
-                            </span><span class="s2">"ladder"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="w">
-                            </span><span class="s2">"min_size"</span><span class="p">:</span><span class="mi">4000</span><span class="p">,</span><span class="w">
-                            </span><span class="s2">"max_size"</span><span class="p">:</span><span class="mi">39999</span><span class="p">,</span><span class="w">
-                            </span><span class="s2">"adjust_factor"</span><span class="p">:</span><span class="mf">0.01</span><span class="w">
-                        </span><span class="p">},</span><span class="w">
-                        </span><span class="p">{</span><span class="w">
-                            </span><span class="s2">"ladder"</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span><span class="w">
-                            </span><span class="s2">"min_size"</span><span class="p">:</span><span class="mi">40000</span><span class="p">,</span><span class="w">
-                            </span><span class="s2">"max_size"</span><span class="p">:</span><span class="mi">79999</span><span class="p">,</span><span class="w">
-                            </span><span class="s2">"adjust_factor"</span><span class="p">:</span><span class="mf">0.015</span><span class="w">
-                        </span><span class="p">},</span><span class="w">
-                        </span><span class="p">{</span><span class="w">
-                            </span><span class="s2">"ladder"</span><span class="p">:</span><span class="mi">3</span><span class="p">,</span><span class="w">
-                            </span><span class="s2">"min_size"</span><span class="p">:</span><span class="mi">80000</span><span class="p">,</span><span class="w">
-                            </span><span class="s2">"max_size"</span><span class="p">:</span><span class="mi">119999</span><span class="p">,</span><span class="w">
-                            </span><span class="s2">"adjust_factor"</span><span class="p">:</span><span class="mf">0.02</span><span class="w">
-                        </span><span class="p">},</span><span class="w">
-                        </span><span class="p">{</span><span class="w">
-                            </span><span class="s2">"ladder"</span><span class="p">:</span><span class="mi">4</span><span class="p">,</span><span class="w">
-                            </span><span class="s2">"min_size"</span><span class="p">:</span><span class="mi">120000</span><span class="p">,</span><span class="w">
-                            </span><span class="s2">"max_size"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
-                            </span><span class="s2">"adjust_factor"</span><span class="p">:</span><span class="mf">0.025</span><span class="w">
-                        </span><span class="p">}</span><span class="w">
-                    </span><span class="p">]</span><span class="w">
-                </span><span class="p">}</span><span class="w">
-            </span><span class="p">],</span><span class="w">
-            </span><span class="s2">"business_type"</span><span class="p">:</span><span class="s2">"swap"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"pair"</span><span class="p">:</span><span class="s2">"BTC-USDT"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"contract_type"</span><span class="p">:</span><span class="s2">"swap"</span><span class="w">
         </span><span class="p">}</span><span class="w">
     </span><span class="p">],</span><span class="w">
     </span><span class="s2">"ts"</span><span class="p">:</span><span class="mi">1638754992327</span><span class="w">
@@ -32322,11 +32178,8 @@ transfer currency from sub-account to  master account using client_order_id=1).<
 <h3 id='note-90'>Note</h3>
 <ul>
 <li><p>This interface only supports cross margin mode.</p></li>
-<li><p>The request parameter &quot;contract_code&quot; supports the contract code of futures, in that the format is BTC-USDT-210625.</p>
-
-<ul>
-<li>when all of pair and contract_code filled in, the contract_code is the preferred; when no one filled in, return all data in cross mode.</li>
-</ul></li>
+<li><p>The request parameter &quot;contract_code&quot; supports the contract code of futures, in that the format is BTC-USDT-210625.</p></li>
+<li><p>when all of pair and contract_code filled in, the contract_code is the preferred; when no one filled in, return all data in cross mode.</p></li>
 </ul>
 <h3 id='request-parameter-95'>Request Parameter</h3>
 <table><thead>
