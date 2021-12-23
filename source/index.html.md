@@ -18149,7 +18149,7 @@ To subscribe contract infodata, the client has to make connection to the server 
 | op       | string | Required； Operator Name，required subscribe value is  sub             |
 | cid      | string | Optional; ID Client requests unique ID                    |
 | topic    | string | Required；Topic name format: public.$contract_code.contract_info. For parameter details please check req Subscribe Parameter  |
-| business_type |  false(more see remarks) |  string | business type, default is swap |  futures, swap, all |
+| business_type  |  string | business type, default is swap , futures, swap, all |
 
 ### Request Parameter：
 | **Parameter Name**    | **Mandotary** | **Type** | **Desc**        | **Default** | **Value Range**                                 |
@@ -18224,10 +18224,10 @@ To subscribe contract infodata, the client has to make connection to the server 
 | delivery_time	| 	string |  delivery time（When the contract does not need to be delivered, the field value is an empty string），millesecond timestamp
 | contract_status      |  int     | contract status ： 0: Delisting,1: Listing,2: Pending Listing,3: Suspension,4: Suspending of Listing,5: In Settlement,6: Delivering,7: Settlement Completed,8: Delivered |
 | support_margin_mode   | string      | support margin mode   cross："cross"；isolated："isolated"；all："all"|
-| contract_type | true |  string | contract type |  swap, this_week, next_week, quarter, next_ quarter |
-| pair |   true |  string | pair |   such as: “BTC-USDT”   |
-| business_type | true |  string | business type |  futures, swap |
-| delivery_date  | true | string  | delivery date, empty string when swap    | such as: "20180720"   |
+| contract_type |  string | contract type   swap, this_week, next_week, quarter, next_ quarter |
+| pair |  string | pair   such as: “BTC-USDT”   |
+| business_type |  string | business type  futures, swap |
+| delivery_date  |  string  | delivery date, empty string when swap , such as: "20180720"   |
 | \</data\>   | object array |     |    |
 
 
