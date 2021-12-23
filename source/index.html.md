@@ -3873,7 +3873,7 @@ curl "https://api.hbdm.com/linear-swap-ex/market/detail/merged?contract_code=BTC
 
 ###  示例
 
-- GET `/linear-swap-ex/market/trade`
+- GET `/linear-swap-ex/market/trade`
 
 ```shell
 
@@ -3939,7 +3939,7 @@ curl "https://api.hbdm.com/linear-swap-ex/market/trade?contract_code=BTC-USDT"
 | ts     | true | long | 成交时间       |      |
 | quantity   | true | string |  成交量（币）  |                |
 | contract_code     | true | string  | 合约代码       |      |
-| business_type | false | string | 业务类型，不填默认永续    | futures：交割、swap：永续、all：全部 |
+| business_type | false | string | 业务类型     | futures：交割、swap：永续  |
 | trade_turnover   | true | string |  成交额（计价币种）  |                |
 | \</data\>    |  |  |              |      |
 | \</tick\>    |  |  |              |      |
