@@ -7639,7 +7639,7 @@ curl <span class="s2">"https://api.hbdm.com/linear-swap-ex/market/detail/merged?
 </tbody></table>
 <h2 id='09bcc28ca0'>【通用】获取市场最近成交记录</h2><h3 id='30fd4ed55b-8'>示例</h3>
 <ul>
-<li>GET <code>/linear-swap-ex/market/trade</code></li>
+<li>GET <code>/linear-swap-ex/market/trade</code></li>
 </ul>
 <pre class="highlight shell tab-shell"><code>
 curl <span class="s2">"https://api.hbdm.com/linear-swap-ex/market/trade?contract_code=BTC-USDT"</span>
@@ -7806,10 +7806,10 @@ curl <span class="s2">"https://api.hbdm.com/linear-swap-ex/market/trade?contract
 </tr>
 <tr>
 <td>business_type</td>
-<td>false</td>
+<td>true</td>
 <td>string</td>
-<td>业务类型，不填默认永续</td>
-<td>futures：交割、swap：永续、all：全部</td>
+<td>业务类型</td>
+<td>futures：交割、swap：永续</td>
 </tr>
 <tr>
 <td>trade_turnover</td>
