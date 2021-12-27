@@ -8760,7 +8760,7 @@ The return order_id is 18 bits, it will make  mistake when nodejs and JavaScript
 
 | Parameter Name           | Mandatory  | Type | Desc                                             | Data Value                                                     |
 | ---------------- | ----- | -------- | ------------------------------------------------ | ------------------------------------------------------------ |
-| contract_code    | false  | string   | contract code                                         | swap: "BTC-USDT"... , future: "BTC-USDT-210625" ... |
+| contract_code    | false(more see remarks)  | string   | contract code                                         | swap: "BTC-USDT"... , future: "BTC-USDT-210625" ... |
 | pair | false(more see remarks) |  string | pair |   BTC-USDT   |
 | contract_type | false(more see remarks) |  string | contract type |  swap, this_week, next_week, quarter, next_ quarter |
 | client_order_id  | false | long     | Clients fill and maintain themselves.must be Less or Equal than 9223372036854775807                   |                                                              |
@@ -9033,7 +9033,7 @@ The return order_id is 18 bits, it will make  mistake when nodejs and JavaScript
 | Parameter Name            | Mandatory | Type     | Desc                     | Data Value           |
 | --------------- | ---- | ------ | ---------------------- | -------------- |
 | \<orders_data\>   | true | object array |     |  |
-| contract_code        | false | string   | contract code      | swap: "BTC-USDT"... , future: "BTC-USDT-210625" ... |
+| contract_code(more see remarks)        | false | string   | contract code      | swap: "BTC-USDT"... , future: "BTC-USDT-210625" ... |
 | pair | false(more see remarks) |  string | pair |   BTC-USDT   |
 | contract_type | false(more see remarks) |  string | contract type |  swap, this_week, next_week, quarter, next_ quarter |
 | client_order_id       |  false   |  long| Clients fill and maintain themselves.must be Less or Equal than 9223372036854775807                          |      |
@@ -9195,8 +9195,8 @@ client_order_id, order status query is available for orders placed within 8 hour
 
 | Parameter Name            | Mandatory | Type     | Desc                     | Data Value           |
 | --------------- | ---- | ------ | ---------------------- | -------------- |
-| order_id        | false(more detail see the note) | string | order ID（different IDs are separated by ",", maximum 10 orders can be withdrew at one time） |      |
-| client_order_id | false(more detail see the note) | string | Client order ID (different IDs are separated by ",", maximum 10 orders can be withdrew at one time) |      |
+| order_id        | false(more see remarks) | string | order ID（different IDs are separated by ",", maximum 10 orders can be withdrew at one time） |      |
+| client_order_id | false(more see remarks) | string | Client order ID (different IDs are separated by ",", maximum 10 orders can be withdrew at one time) |      |
 | contract_code   | false(more see remarks)  | string | contract code                       | swap: "BTC-USDT"... , future: "BTC-USDT-210625" ... |
 | pair | false(more see remarks) |  string | pair |   BTC-USDT   |
 | contract_type | false(more see remarks) |  string | contract type |  swap, this_week, next_week, quarter, next_ quarter |
@@ -12327,7 +12327,7 @@ Error：
 
 | Parameter Name            | Mandatory  | Type    | Description                    | Value Range                                    |
 | --------------- | ----- | ------ | --------------------- | ---------------------------------------- |
-| contract_code   | false | string | contract code    | swap: "BTC-USDT"... , future: "BTC-USDT-210625" ... |
+| contract_code   | false(more see remarks) | string | contract code    | swap: "BTC-USDT"... , future: "BTC-USDT-210625" ... |
 | pair | false(more see remarks) |  string | pair |   BTC-USDT   |
 | contract_type | false(more see remarks) |  string | contract type |  swap, this_week, next_week, quarter, next_ quarter |
 | direction | true | string | direction| "buy", "sell"  |
@@ -12452,16 +12452,14 @@ Error：
 ### Note
  - This interface only supports cross margin mode.
  - The frequency limit of this interface is 5 times per second.
-
  - The request parameter "contract_code" supports the contract code of futures, in that the format is BTC-USDT-210625.
-
  - one of (pair+contract_type) and contract_code must be filled in(if all of them not filled in, will get 1014 error code); and all filled in, the contract_code is the preferred.
 
 ### Request Parameter
 
 | Parameter Name          | Mandatory  | Type    | Description   | Value Range                                    |
 | ------------- | ----- | ------ | ------------- | ---------------------------------------- |
-| contract_code | false | string | contract code| swap: "BTC-USDT"... , future: "BTC-USDT-210625" ... |
+| contract_code | false(more see remarks) | string | contract code| swap: "BTC-USDT"... , future: "BTC-USDT-210625" ... |
 | pair | false(more see remarks) |  string | pair |   BTC-USDT   |
 | contract_type | false(more see remarks) |  string | contract type |  swap, this_week, next_week, quarter, next_ quarter |
 | order_id | true | string | order ID（different IDs are separated by ",", maximum 10 orders can be withdrew at one time）|    |
