@@ -20427,7 +20427,7 @@ transfer currency from sub-account to  master account using client_order_id=1).<
 </thead><tbody>
 <tr>
 <td>contract_code</td>
-<td>false</td>
+<td>false(more see remarks)</td>
 <td>string</td>
 <td>contract code</td>
 <td>swap: &quot;BTC-USDT&quot;... , future: &quot;BTC-USDT-210625&quot; ...</td>
@@ -21022,7 +21022,7 @@ transfer currency from sub-account to  master account using client_order_id=1).<
 <td></td>
 </tr>
 <tr>
-<td>contract_code</td>
+<td>contract_code(more see remarks)</td>
 <td>false</td>
 <td>string</td>
 <td>contract code</td>
@@ -21464,14 +21464,14 @@ transfer currency from sub-account to  master account using client_order_id=1).<
 </thead><tbody>
 <tr>
 <td>order_id</td>
-<td>false(more detail see the note)</td>
+<td>false(more see remarks)</td>
 <td>string</td>
 <td>order ID（different IDs are separated by &quot;,&quot;, maximum 10 orders can be withdrew at one time）</td>
 <td></td>
 </tr>
 <tr>
 <td>client_order_id</td>
-<td>false(more detail see the note)</td>
+<td>false(more see remarks)</td>
 <td>string</td>
 <td>Client order ID (different IDs are separated by &quot;,&quot;, maximum 10 orders can be withdrew at one time)</td>
 <td></td>
@@ -31107,7 +31107,7 @@ transfer currency from sub-account to  master account using client_order_id=1).<
 </thead><tbody>
 <tr>
 <td>contract_code</td>
-<td>false</td>
+<td>false(more see remarks)</td>
 <td>string</td>
 <td>contract code</td>
 <td>swap: &quot;BTC-USDT&quot;... , future: &quot;BTC-USDT-210625&quot; ...</td>
@@ -31468,9 +31468,9 @@ transfer currency from sub-account to  master account using client_order_id=1).<
 <h3 id='note-86'>Note</h3>
 <ul>
 <li>This interface only supports cross margin mode.</li>
-<li><p>The frequency limit of this interface is 5 times per second.</p></li>
-<li><p>The request parameter &quot;contract_code&quot; supports the contract code of futures, in that the format is BTC-USDT-210625.</p></li>
-<li><p>one of (pair+contract_type) and contract_code must be filled in(if all of them not filled in, will get 1014 error code); and all filled in, the contract_code is the preferred.</p></li>
+<li>The frequency limit of this interface is 5 times per second.</li>
+<li>The request parameter &quot;contract_code&quot; supports the contract code of futures, in that the format is BTC-USDT-210625.</li>
+<li>one of (pair+contract_type) and contract_code must be filled in(if all of them not filled in, will get 1014 error code); and all filled in, the contract_code is the preferred.</li>
 </ul>
 <h3 id='request-parameter-91'>Request Parameter</h3>
 <table><thead>
@@ -31484,7 +31484,7 @@ transfer currency from sub-account to  master account using client_order_id=1).<
 </thead><tbody>
 <tr>
 <td>contract_code</td>
-<td>false</td>
+<td>false(more see remarks)</td>
 <td>string</td>
 <td>contract code</td>
 <td>swap: &quot;BTC-USDT&quot;... , future: &quot;BTC-USDT-210625&quot; ...</td>
