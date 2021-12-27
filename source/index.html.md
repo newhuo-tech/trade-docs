@@ -2100,6 +2100,7 @@ curl "https://status-dm.huobigroup.com/api/v2/summary.json"
 **合约sdk**
 
 - <a href='https://github.com/hbdmapi/huobi_future_Java'>Java sdk</a>
+- <a href='https://github.com/hbdmapi/huobi_futures_CSharp'>CSharp</a>
 
 **异步库**
 
