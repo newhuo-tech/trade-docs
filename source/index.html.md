@@ -12472,7 +12472,7 @@ sort_by | false  | string | 排序字段（降序），不填默认按照create_
 | \<orders\>        |   true    |   object array    |                               |     |
 | symbol                 | true | string  | 品种代码               |                                          |
 | contract_code          | true | string  | 合约代码               | "BTC-USDT" ...                          |
-| margin_mode | true | string | 保证金模式  | cross：全仓模式；isolated：逐仓模式 |
+| margin_mode | true | string | 保证金模式  | isolated：逐仓模式 |
 | margin_account | true | string | 保证金账户  | 比如“USDT”，“BTC-USDT” |
 | volume                 | true | decimal  | 委托数量 |      |
 | order_type           | true | int | 订单类型：1、报单 2、撤单               |                                          |
