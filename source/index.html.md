@@ -7373,7 +7373,7 @@ curl "https://api.hbdm.com/index/market/history/linear_swap_basis?contract_code=
 | \<settlement_records\> | true     |  object   array    |                    |                                          |
 | symbol     | true   | string  | 品种代码                 | "BTC","ETH"... |
 | contract_code     | true   | string  | 合约代码                 |  "BTC-USDT" ... |
-| margin_mode | true | string | 保证金模式  | cross：全仓模式；isolated：逐仓模式 |
+| margin_mode | true | string | 保证金模式  |  isolated：逐仓模式 |
 | margin_account | true | string | 保证金账户  | 比如“BTC-USDT” |
 | margin_balance_init        | true | decimal | 本期初始账户权益         |                                          |
 | margin_balance        | true | decimal | 本期结算后账户权益         |                                          |
@@ -7514,7 +7514,7 @@ curl "https://api.hbdm.com/index/market/history/linear_swap_basis?contract_code=
 | status                 | true | string  | 请求处理结果             |                                          |
 | \<data\> | true     |  object      |                    |                                          |
 | \<settlement_records\> | true     |  object   array    |                    |                                          |
-| margin_mode | true | string | 保证金模式  | cross：全仓模式；isolated：逐仓模式 |
+| margin_mode | true | string | 保证金模式  | cross：全仓模式  |
 | margin_account | true | string | 保证金账户  | 比如“USDT” |
 | margin_balance_init        | true | decimal | 本期初始账户权益         |                                          |
 | margin_balance        | true | decimal | 本期结算后账户权益         |                                          |
@@ -12588,7 +12588,7 @@ sort_by | false  | string | 排序字段（降序），不填默认按照create_
 | \<orders\>        |   true    |   object array    |                               |     |
 | symbol                 | true | string  | 品种代码               |  ”BTC“、”ETH“...       |
 | contract_code          | true | string  | 合约代码               | 永续："BTC-USDT"... ，交割："BTC-USDT-210625"...     |
-| margin_mode | true | string | 保证金模式  | cross：全仓模式；isolated：逐仓模式 |
+| margin_mode | true | string | 保证金模式  | cross：全仓模式  |
 | margin_account | true | string | 保证金账户  | 比如“USDT”，“BTC-USDT” |
 | volume                 | true | decimal  | 委托数量 |      |
 | order_type           | true | int | 订单类型：1、报单 2、撤单               |                                          |
@@ -12686,7 +12686,7 @@ sort_by | false  | string | 排序字段（降序），不填默认按照create_
 | \<orders\>        |   true    |   object array    |                               |     |
 | symbol                 | true | string  | 品种代码               |                                          |
 | contract_code          | true | string  | 合约代码               | "BTC-USDT" ...                          |
-| margin_mode | true | string | 保证金模式  | cross：全仓模式；isolated：逐仓模式 |
+| margin_mode | true | string | 保证金模式  | isolated：逐仓模式 |
 | margin_account | true | string | 保证金账户  | 比如“USDT”，“BTC-USDT” |
 | volume                 | true | decimal  | 委托数量 |      |
 | order_type           | true | int | 订单类型：1、报单 2、撤单               |                                          |
@@ -12793,7 +12793,7 @@ sort_by | false  | string | 排序字段（降序），不填默认按照create_
 | \<orders\>        |   true    |   object array    |                               |     |
 | symbol                 | true | string  | 品种代码               |                                          |
 | contract_code          | true | string  | 合约代码               | 永续："BTC-USDT"... ，交割："BTC-USDT-210625"...    |
-| margin_mode | true | string | 保证金模式  | cross：全仓模式；isolated：逐仓模式 |
+| margin_mode | true | string | 保证金模式  | cross：全仓模式  |
 | margin_account | true | string | 保证金账户  | 比如“USDT”，“BTC-USDT” |
 | volume                 | true | decimal  | 委托数量 |      |
 | order_type           | true | int | 订单类型：1、报单 2、撤单               |                                          |
@@ -12922,7 +12922,7 @@ sort_by | false  | string | 排序字段（降序），不填默认按照create_
 | \<data\>        |   true    |   object     |                               | 字典                   |
 | symbol               | true | string  | 品种代码   |                                          |
 | contract_code        | true | string  | 合约代码   | "BTC-USDT" ...                          |
-| margin_mode | true | string | 保证金模式  | cross：全仓模式；isolated：逐仓模式 |
+| margin_mode | true | string | 保证金模式  | isolated：逐仓模式 |
 | margin_account | true | string | 保证金账户  | 比如“USDT”，“BTC-USDT” |
 | volume               | true | decimal | 委托数量   |                                          |
 | price                | true | decimal | 委托价格   |                                          |
@@ -13072,7 +13072,7 @@ sort_by | false  | string | 排序字段（降序），不填默认按照create_
 | \<data\>        |   true    |   object     |                               | 字典                   |
 | symbol               | true | string  | 品种代码   |                                          |
 | contract_code        | true | string  | 合约代码   |  永续："BTC-USDT"... ，交割："BTC-USDT-210625"...    |
-| margin_mode | true | string | 保证金模式  | cross：全仓模式；isolated：逐仓模式 |
+| margin_mode | true | string | 保证金模式  | cross：全仓模式   |
 | margin_account | true | string | 保证金账户  | 比如“USDT”，“BTC-USDT” |
 | volume               | true | decimal | 委托数量   |                                          |
 | price                | true | decimal | 委托价格   |                                          |
