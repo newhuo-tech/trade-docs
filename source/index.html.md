@@ -3031,7 +3031,7 @@ contract_code | string   | false      | swap: "BTC-USDT"... , future: "BTC-USDT-
 support_margin_mode | string   | false      | support margin mode cross："cross"；isolated："isolated"；all："all"|
 pair | string | false |   BTC-USDT   |
 contract_type | string | false |  swap, this_week, next_week, quarter, next_ quarter |
-business_type | string | false |  futures, swap, all(default is swap) |
+business_type | string | false(more see remarks) |  futures, swap, all(default is swap) |
 
 
 > Response
@@ -3114,7 +3114,7 @@ Parameter Name               |   Mandatory   |   Type   |   Description         
 status                         | true          | string   | Request Processing Result                     | "ok" , "error"                                               |
 \<data\>|               |          |   
 symbol                     |  true           |  string     |  symbol                          |  "BTC","ETH"...  |
-contract_code                  | true          | string   | Contract Code                                 | "BTC-USDT" ...                                              |
+contract_code                  | true          | string   | Contract Code                                 | swap: "BTC-USDT"... , future: "BTC-USDT-210625" ...                                         |
 contract_size                  | true          | decimal  | Contract Value (USDT of one contract)          | 10, 100...                                                   |
 price_tick                     | true          | decimal  | Minimum Variation of Contract Price           | 0.001, 0.01...                                               |
 settlement_date                  | true          | string   | Settlement  Date                        | eg "1490759594752"                                                |
@@ -3237,7 +3237,7 @@ curl "https://api.hbdm.com/linear-swap-api/v1/swap_price_limit?contract_code=BTC
 | symbol  |  true  |  string  |  Variety code  |  "BTC","ETH" ...           |                          
 | high_limit                     | true          | decimal  | Highest Buying Price                          |                                   |
 | low_limit                      | true          | decimal  | Lowest Selling Price                          |                                   |
-| contract_code                  | true          | string   | Contract Code                                 | eg "BTC-USDT"  ...               |
+| contract_code                  | true          | string   | Contract Code                                 | eg swap: "BTC-USDT"... , future: "BTC-USDT-210625" ...              |
 | contract_type | true |  string | contract type |  swap, this_week, next_week, quarter, next_ quarter |
 | pair |   true |  string | pair |   such as: “BTC-USDT”   |
 | business_type | true |  string | business type |  futures, swap |
@@ -3346,7 +3346,7 @@ curl "https://api.hbdm.com/linear-swap-api/v1/swap_open_interest?contract_code=B
 | symbol                         | true          | string   | Variety code                                  | "BTC", "ETH" ...                  |
 | volume                         | true          | decimal  | Position quantity(volume). Sum of both buy and sell sides |                                   |
 | amount                         | true          | decimal  | Position quantity(Currency). Sum of both buy and sell sides |                                   |
-| contract_code                  | true          | string   | Contract Code                                 | eg "BTC-USDT"   ...              |
+| contract_code                  | true          | string   | Contract Code                                 | eg swap: "BTC-USDT"... , future: "BTC-USDT-210625" ...    |
 | value               | true | decimal | Total position volume（The unit is the denominated currency of the contract. e.g:USDT）     | |
 | trade_amount | 	true | 	decimal | 	trading volume within the last 24 hours (coin). Sum of both buy and sell sides | 
 | trade_volume | 	true | 	decimal | 	trading volume within the last 24 hours (cont). Sum of both buy and sell sides | 
@@ -3381,7 +3381,7 @@ curl "https://api.hbdm.com/linear-swap-ex/market/depth?contract_code=BTC-USDT&ty
 
 |   Parameter Name   |   Parameter Type   |   Mandatory   |   Desc                                                       |
 | ------------------ | ------------------ | ------------- | ----------------------------------------------------------------- |
-| contract_code      | string             | true          | swap: "BTC-USDT"... , future: "BTC-USDT-FUTURES" ... or BTC-USDT-CW, BTC-USDT-NW, BTC-USDT-CQ, BTC-USDT-NQ |
+| contract_code      | string             | true          | swap: "BTC-USDT"... , future: "BTC-USDT-220325" ... or BTC-USDT-CW, BTC-USDT-NW, BTC-USDT-CQ, BTC-USDT-NQ |
 | type               | string             | true          | Get depth data within step 150, use step0, step1, step2, step3, step4, step5, step14, step15, step16, step17（merged depth data 0-5,14-17）；when step is 0，depth data will not be merged; Get depth data within step 20, use step6, step7, step8, step9, step10, step11, step12, step13, step18, step19(merged depth data 7-13,18-19); when step is 6, depth data will not be merged. |
 
 #### Node
@@ -3459,7 +3459,7 @@ curl "https://api.hbdm.com/linear-swap-ex/market/depth?contract_code=BTC-USDT&ty
 ### Request Parameter
 | Parameter Name   | Mandatory | Type     | Description  | Value Range |
 | ------ | ---- | ------ | ---------------------------------------- | ---- |
-| contract_code | false | string | contract code，if not filled in, return all | swap: "BTC-USDT"... , future: "BTC-USDT-FUTURES" ... or BTC-USDT-CW, BTC-USDT-NW, BTC-USDT-CQ, BTC-USDT-NQ |
+| contract_code | false | string | contract code，if not filled in, return all | swap: "BTC-USDT"... , future: "BTC-USDT-220325" ... or BTC-USDT-CW, BTC-USDT-NW, BTC-USDT-CQ, BTC-USDT-NQ |
 | business_type |  false(more see remarks) |  string | business type, default is swap |  futures, swap, all |
 
 > Response
@@ -3535,7 +3535,7 @@ curl "https://api.hbdm.com/linear-swap-ex/market/depth?contract_code=BTC-USDT&ty
 | ------ | ---- | ------ | ---------------------------------------- | -------------- |
 | status | true | string |  the result of server handling to request     | "ok" , "error" |
 | \<ticks\> |true  |  object array |           |                |
-| contract_code  | true | string  | contract code  | swap: "BTC-USDT"... , future: "BTC-USDT-FUTURES" ... or BTC-USDT-CW, BTC-USDT-NW, BTC-USDT-CQ, BTC-USDT-NQ |
+| contract_code  | true | string  | contract code  | swap: "BTC-USDT"... , future: "BTC-USDT-220325" ... or BTC-USDT-CW, BTC-USDT-NW, BTC-USDT-CQ, BTC-USDT-NQ |
 | business_type | true |  string | business type |  futures, swap |
 | mrid   | true | long | Match ID, unique identification  |                |
 | ask   | false | array | [Ask 1 price, Ask 1 qty (cont)] |                |
@@ -3565,7 +3565,7 @@ curl "https://api.hbdm.com/linear-swap-ex/market/history/kline?period=1min&size=
 
 |   Parameter Name   |   Mandatory   |   Type   |   Desc               |   Default   |   Value Range                                                |
 | ------------------ | ------------- | -------- | -------------------- | ----------- | ------------------------------------------------------------ |
-| contract_code       | true        | string         | swap: "BTC-USDT"... , future: "BTC-USDT-FUTURES" ... or BTC-USDT-CW, BTC-USDT-NW, BTC-USDT-CQ, BTC-USDT-NQ |
+| contract_code       | true        | string         | swap: "BTC-USDT"... , future: "BTC-USDT-220325" ... or BTC-USDT-CW, BTC-USDT-NW, BTC-USDT-CQ, BTC-USDT-NQ |
 | period             | true          | string   | KLine Type          |             | 1min, 5min, 15min, 30min, 60min, 1hour,4hour,1day, 1mon      |
 | size               | false         | int  | Acquisition Quantity | 150     | [1,2000]         |
 | from              | false         | long  | start timestamp seconds. |         |                                                    |
@@ -3714,7 +3714,7 @@ curl "https://api.hbdm.com/linear-swap-ex/market/detail/merged?contract_code=BTC
 
 |   Parameter Name   |   Mandatory   |   Type   |   Desc        |   Default   |   Value Range                                                |
 | ------------------ | ------------- | -------- | ------------- | ----------- | ------------------------------------------------------------ |
-| contract_code      | true           | string  | swap: "BTC-USDT"... , future: "BTC-USDT-FUTURES" ... or BTC-USDT-CW, BTC-USDT-NW, BTC-USDT-CQ, BTC-USDT-NQ |
+| contract_code      | true           | string  | swap: "BTC-USDT"... , future: "BTC-USDT-220325" ... or BTC-USDT-CW, BTC-USDT-NW, BTC-USDT-CQ, BTC-USDT-NQ |
 
 > Response:
 
@@ -3786,9 +3786,7 @@ curl "https://api.hbdm.com/linear-swap-ex/market/detail/merged?contract_code=BTC
 
  - The interface supports cross margin mode and isolated margin mode.
  - The interface data updated frequency is 50ms
- 
  - The request parameter "contract_code" supports the contract code of futures, in that the format is BTC-USDT-210625; and supports contract type: BTC-USDT, BTC-USDT-CW, BTC-USDT-NW, BTC-USDT-CQ, BTC-USDT-NQ.
- 
  - business_type is a required parameter when query info of futures contract, and its value must be futures or all.
 
 > Response:
@@ -3919,7 +3917,7 @@ curl "https://api.hbdm.com/linear-swap-ex/market/trade?contract_code=BTC-USDT"
 | direction  |  true  |  string  |  The direction to buy or sell is the direction of the taker (active transaction)  |   |    
 | ts  |  true  |  long  |  Order Creation Time |   |    
 | quantity   | true | string |  trading quantity(coin)   |                |
-| contract_code   | true | string |  Contract Code   |                |
+| contract_code   | true | string |  Contract Code   |  swap: "BTC-USDT"... , future: "BTC-USDT-210625" ... or BTC-USDT-CW, BTC-USDT-NW, BTC-USDT-CQ, BTC-USDT-NQ   |
 | business_type | true |  string | business type |  futures, swap |
 | trade_turnover   | true | string |  trade turnover(quoted currency)  |                |
 | \</data\>    |               |    |      | 
@@ -4332,7 +4330,7 @@ curl "https://api.hbdm.com/linear-swap-api/v1/swap_adjustfactor"
 | ts                | true | long    | Time of Respond Generation, Unit: Millisecond |                |
 | \<data\>          |  true    |   object array     |               |          |
 | symbol            | true | string  | symbol           | "BTC","ETH"...|
-| contract_code            | true | string  | contract code       |  "BTC-USDT" ... |
+| contract_code            | true | string  | contract code       |  swap: "BTC-USDT"... , future: "BTC-USDT-210625" ... |
 | margin_mode | true | string | margin mode  | cross: cross margin mode  |
 | contract_type | true |  string | contract type |  swap, this_week, next_week, quarter, next_ quarter |
 | pair |   true |  string | pair |   such as: “BTC-USDT”   |
@@ -4409,7 +4407,7 @@ curl "https://api.hbdm.com/linear-swap-api/v1/swap_his_open_interest?contract_co
 | ts | true  | long | Time of Respond Generation, Unit: Millisecond |  |
 | \<data\> |  |  | Dictionary Data |  |
 | symbol | true | string | symbol   | "BTC","ETH"... |
-| contract_code    |   true   | string  | contract code | e.g. "BTC-USDT" |
+| contract_code    |   true   | string  | contract code | e.g. swap: "BTC-USDT"... , future: "BTC-USDT-210625" ... |
 | contract_type | true |  string | contract type |  swap, this_week, next_week, quarter, next_ quarter |
 | pair |   true |  string | pair |   such as: “BTC-USDT”   |
 | business_type | true |  string | business type |  futures, swap |
@@ -4891,7 +4889,7 @@ curl "https://api.hbdm.com/linear-swap-api/v1/swap_elite_account_ratio?contract_
 | ts | true  | long | Time of Respond Generation, Unit: Millisecond |  |
 | \<data\> |  |  |  |  |
 | symbol | true  | string | symbol | "BTC","ETH"... |
-| contract_code    | true   |   string      | contract code  | e.g. "BTC-USDT" |
+| contract_code    | true   |   string      | contract code  | e.g. swap: "BTC-USDT"... , future: "BTC-USDT-FUTURES" ... |
 | pair |   true |  string | pair |   such as: “BTC-USDT”   |
 | business_type | true |  string | business type |  futures, swap |
 | \<list\> |  |  |  |  |
@@ -4955,7 +4953,7 @@ curl "https://api.hbdm.com/linear-swap-api/v1/swap_elite_position_ratio?contract
 | ts | true  | long | Time of Respond Generation, Unit: Millisecond|  |
 | \<data\> |  |  |  |  |
 | symbol | true  | string | symbol | "BTC","ETH"... |
-| contract_code | true   | string    | contract code  | e.g. "BTC-USDT" |
+| contract_code | true   | string    | contract code  | e.g. swap: "BTC-USDT"... , future: "BTC-USDT-FUTURES" ... |
 | pair |   true |  string | pair |   such as: “BTC-USDT”   |
 | business_type | true |  string | business type |  futures, swap |
 | \<list\> |  |  |  |  |
@@ -4985,8 +4983,8 @@ curl "https://api.hbdm.com/linear-swap-api/v1/swap_liquidation_orders?contract_c
 
 |   Parameter Name    |  Mandatory  |  Type   |    Desc          |    Default   |    Value Range                                |
 | ----------- | -------- | ------ | ------------- | ------- | ---------------------------------------- |
-| contract_code  | true      | string     |   contract code    | | Case-Insenstive.e.g. "BTC-USDT" |
-| pair | false |  string | pair |   | BTC-USDT   |
+| contract_code  | false(more see remarks)      | string     |   contract code    | | Case-Insenstive.e.g. swap: "BTC-USDT"... , future: "BTC-USDT-210625" ... |
+| pair | false(more see remarks) |  string | pair |   | BTC-USDT   |
 | trade_type      | true     | int  | trading types       |               | when “0”, request fully filled liquidated orders; when “5’, request liquidated close orders; when “6”, request liquidated open orders |
 | create_date | true     | int    | date        |         | 7，90（ 7 days or 90 days）        |
 | page_index | false     | int    | page, system sets page 1 by default without further instruction           |         |         |
@@ -5043,7 +5041,7 @@ curl "https://api.hbdm.com/linear-swap-api/v1/swap_liquidation_orders?contract_c
 | \<data\> |          |         |                    |              |
 | \<orders\> |          |         |                    |              |
 | symbol                 | true     | string  | symbol             |              |
-| contract_code    |  true     |  string  | contract code  | e.g. "BTC-USDT" |
+| contract_code    |  true     |  string  | contract code  | e.g.  swap: "BTC-USDT"... , future: "BTC-USDT-210625" ... |
 | direction              | true     | string  | "buy":buy"sell": sell     |              |
 | offset              | true     | string  | "open":open "close":  close      |              
 | volume           | true     | decimal |liquidation volume (cont)           |              |
@@ -5126,7 +5124,7 @@ curl "https://api.hbdm.com/linear-swap-api/v1/swap_liquidation_orders?contract_c
 | \<data\>          |  true    |   object array    |               |          |
 | \<settlement_record\>          |  true    |   object array    |               |          |
 | symbol        | true | string | Token Code         |             |
-| contract_code        | true | string | Contract Code          |   "BTC-USDT" ...             |
+| contract_code        | true | string | Contract Code          |   swap: "BTC-USDT"... , future: "BTC-USDT-210625" ...      |
 | settlement_time        | true | long | Settlement Time（timestamp，unit: millisecond）（when the settlement_type is delivery, the time is delivery time; when the settlement_type is settlement, the time is settlement time）          |             |
 | clawback_ratio        | true | decimal | Clawback Ratio      |             |
 | settlement_price        | true | decimal |  Settlement Price（when the settlement_type is delivery, the price is delivery price; when the settlement_type is settlement, the price is settlement price；）          |              |
@@ -5588,7 +5586,7 @@ curl "https://api.hbdm.com/index/market/history/linear_swap_basis?contract_code=
 | ---------------------- | ---- | ------- | ------------------ | ---------------------------------------- |
 | status                 | true | string  | status             |                                          |
 | \<data\> | true     |  object  array      |                    |                                          |
-| contract_code          | true | string  | contract code               | "BTC-USDT" ...                          |
+| contract_code          | true | string  | contract code               | swap: "BTC-USDT"... , future: "BTC-USDT-210625" ...          |
 | estimated_settlement_price              | true | decimal  |  Current-period estimated settlement price /Current-period estimated delivery price (When the settlement type is "delivery", it is estimated delivery price; Otherwise, it is estimated settlement price)  |                                  |
 | settlement_type        | true | string | settlement type         |  “delivery”，“settlement”            |
 | contract_type | true |  string | contract type |  swap, this_week, next_week, quarter, next_ quarter |
@@ -5616,7 +5614,7 @@ curl "https://api.hbdm.com/index/market/history/linear_swap_basis?contract_code=
 
 | Parameter Name          | Mandatory  | Parameter Type     | Description   | Value Range                                     |
 | ------------- | ----- | ------ | ------------- | ---------------------------------------- |
-| valuation_asset   | false  | string    |    The valuation according to the certain fiat currency. If not fill in, default as BTC    |   "BTC","USD","USDT","CNY","EUR","GBP","VND","HKD","TWD","MYR","SGD","KRW","RUB","TRY"    |
+| valuation_asset   | false  | string    |    The valuation according to the certain fiat currency. If not fill in, default as BTC    |   "BTC", "USD", "USDT", "CNY", "EUR", "GBP", "VND", "HKD", "TWD", "MYR", "SGD", "KRW", "RUB", "TRY"    |
 
 
 > Response: 
@@ -5640,7 +5638,7 @@ curl "https://api.hbdm.com/index/market/history/linear_swap_basis?contract_code=
 | ---------------------- | ---- | ------- | ------------------ | ---------------------------------------- |
 | status                 | true | string  | the result of server handles for the request             |                                          |
 | \<data\> | true     |  object array      |                    |                                          |
-| valuation_asset   | true  | string    |    The valuation according to the certain fiat currency   |  "BTC","USD","USDT","CNY","EUR","GBP","VND","HKD","TWD","MYR","SGD","KRW","RUB","TRY"   |
+| valuation_asset   | true  | string    |    The valuation according to the certain fiat currency   |  "BTC", "USD", "USDT", "CNY", "EUR", "GBP", "VND", "HKD", "TWD", "MYR", "SGD", "KRW", "RUB", "TRY"   |
 | balance        | true | string |    Asset Valuation       |         |
 | \</data\>            |      |         |                    |                                          |
 | ts                     | true | long    | timestamp                |                                          |
@@ -5841,7 +5839,7 @@ curl "https://api.hbdm.com/index/market/history/linear_swap_basis?contract_code=
 | risk_rate            | true   | decimal | margin rate                 |                |
 | \<contract_detail\> |    true    |  object array       ｜                   |                |
 | symbol     | true   | string  | symbol                 | "BTC","ETH"... |
-| contract_code     | true   | string  | contract code                 | swap: "BTC-USDT"... , future: "BTC-USDT-210625" ... |
+| contract_code     | true   | string  | contract code                 | swap: "BTC-USDT"...  |
 | margin_position      | true   | decimal | position margin (the margin used by current positions)	 |                |
 | margin_frozen        | true   | decimal | frozen margin                |                |
 | margin_available     | true   | decimal | available margin                |                |
@@ -5855,7 +5853,7 @@ curl "https://api.hbdm.com/index/market/history/linear_swap_basis?contract_code=
 | \</contract_detail\>            |        |         |                      |                |
 | \<futures_contract_detail\> |    true    |  object array       ｜                   |                |
 | symbol     | true   | string  | symbol                 | "BTC","ETH"... |
-| contract_code     | true   | string  | contract code                 | swap: "BTC-USDT"... , future: "BTC-USDT-210625" ... |
+| contract_code     | true   | string  | contract code                 |  future: "BTC-USDT-210625" ... |
 | margin_position      | true   | decimal | position margin (the margin used by current positions)	 |                |
 | margin_frozen        | true   | decimal | frozen margin                |                |
 | margin_available     | true   | decimal | available margin                |                |
@@ -5965,7 +5963,7 @@ curl "https://api.hbdm.com/index/market/history/linear_swap_basis?contract_code=
 
 | Parameter Name   | Mandatory  | Type     | Desc   | Data Value         |
 | ------ | ----- | ------ | ---- | ---------------------------- |
-| contract_code | false | string | contract code |  swap: "BTC-USDT"... , future: "BTC-USDT-FUTURES" ...  |
+| contract_code | false | string | contract code |  swap: "BTC-USDT"... , future: "BTC-USDT-211225" ...  |
 | pair | false |  string | pair |   BTC-USDT   |
 | contract_type | false |  string | contract type |  swap, this_week, next_week, quarter, next_ quarter |
 
@@ -6769,7 +6767,7 @@ contract_code | true | string | contract code	 |Case-Insenstive.Both uppercase a
 | status | true | string | the handling result of requests	 | "ok" , "error" |
 | ts                       | true | long | the create time point of response, unit: ms |  |
 | \<data\> |  |  |  |  |
-| symbol                  | true     | string  | type code               | "BTC","ETH"...when the$contract_code value is "*", it will subscribe all contract types |
+| symbol                  | true     | string  | type code               | "BTC","ETH"... |
 | contract_code             |   true            | string   |  contract code     | e.g. "BTC-USDT" |
 | margin_asset              | true              | string   | margin asset                 |                |
 | margin_balance                  | true     | decimal  | account equity               |                |
@@ -6917,7 +6915,7 @@ contract_code | true | string | contract code	 |Case-Insenstive.Both uppercase a
 | risk_rate            | true   | decimal | margin rate                 |                |
 | \<contract_detail\> |    true    |  object array       |                 |                |
 | symbol     | true   | string  | symbol                 | "BTC","ETH"... |
-| contract_code     | true   | string  | contract code                 |  "BTC-USDT" ... |
+| contract_code     | true   | string  | contract code                 |  swap:"BTC-USDT" ... |
 | margin_position      | true   | decimal | position margin (the margin used by current positions)	 |                |
 | margin_frozen        | true   | decimal | frozen margin                |                |
 | margin_available     | true   | decimal | available margin                |                |
@@ -6931,7 +6929,7 @@ contract_code | true | string | contract code	 |Case-Insenstive.Both uppercase a
 | \</contract_detail\>            |        |         |                      |                |
 | \<futures_contract_detail\> |    true    |  object array       |                 |                |
 | symbol     | true   | string  | symbol                 | "BTC","ETH"... |
-| contract_code     | true   | string  | contract code                 |  "BTC-USDT-211231" ... |
+| contract_code     | true   | string  | contract code                 |  future:"BTC-USDT-211231" ... |
 | margin_position      | true   | decimal | position margin (the margin used by current positions)	 |                |
 | margin_frozen        | true   | decimal | frozen margin                |                |
 | margin_available     | true   | decimal | available margin                |                |
@@ -7185,7 +7183,7 @@ contract_code | true | string | contract code	 |Case-Insenstive.Both uppercase a
 | id | true  | long | Financial record ID (contract code unqiue) |  |
 | ts | true  | long | create time |  |
 | asset | true  | string | asset | "USDT"... |
-| contract_code | true | string | contract type code   | "BTC-USDT",... |
+| contract_code | true | string | contract type code   | swap: "BTC-USDT"... , future: "BTC-USDT-210625" ... |
 | margin_account                | true | string  | margin account          | "BTC-USDT","USDT"...                           |
 | face_margin_account           | true | string  | The counterparty margin account only has value when the type transaction type are 34, 35, 36, 37, 38, 39; for other types, the field values are empty strings.         |  "BTC-USDT"...   | 
 | type | true  | int | transaction type | 3:close long; 4:close short; 5:fees for open positions-taker; 6:fees for open positions-maker; 7:fees for close positions-taker; 8:fees for close positions-maker; 9:close long for delivery; 10:close short for delivery; 11:delivery fee; 12:close long for liquidation; 13:lose short for liquidation; 14:transfer from spot exchange to contract exchange; 15:tranfer from contract exchange to spot exchange; 16:settle unrealized PnL-long positions; 17:settle unrealized PnL-short positions; 19:clawback; 26:system; 28:activity prize rewards; 29:rebate; 30:Funding fee-income; 31:Funding fee-expenditure; 34:transfer to sub; 35:transfer from sub; 36:transfer to master; 37:transfer from master; 38:Transfer in from another margin account; 39:Transfer out to another margin account;  |
@@ -7294,7 +7292,7 @@ contract_code | true | string | contract code	 |Case-Insenstive.Both uppercase a
 | id                    | true | long    |               |                                          |
 | ts                    | true | long    | create time          |                                          |
 | asset                | true | string  | asset          | "USDT"...                           |
-| contract_code                | true | string  | contract code         | "BTC-USDT"...                           |
+| contract_code                | true | string  | contract code         |  swap: "BTC-USDT"... , future: "BTC-USDT-210625" ...         |
 | margin_account                | true | string  | margin account          | "BTC-USDT","USDT"...                           |
 | face_margin_account           | true | string  | the counterparty margin account, only has value when the transaction Type is 34, 35, 36, 37, 38, 39, and the other types are empty strings  | "BTC-USDT"...                           |
 | type                  | true | int     | transaction Type          |  3:close long; 4:close short; 5:fees for open positions-taker; 6:fees for open positions-maker; 7:fees for close positions-taker; 8:fees for close positions-maker; 9:close long for delivery; 10:close short for delivery; 11:delivery fee; 12:close long for liquidation; 13:lose short for liquidation; 14:transfer from spot exchange to contract exchange; 15:tranfer from contract exchange to spot exchange; 16:settle unrealized PnL-long positions; 17:settle unrealized PnL-short positions; 19:clawback; 26:system; 28:activity prize rewards; 29:rebate; 30:Funding fee-income; 31:Funding fee-expenditure; 34:transfer to sub; 35:transfer from sub; 36:transfer to master; 37:transfer from master; 38:transfer from other margin account; 39:transfer to another margin account; |
@@ -7320,7 +7318,7 @@ contract_code | true | string | contract code	 |Case-Insenstive.Both uppercase a
 
 | Parameter Name         | Mandatory  | Type     | Description   | Value Range                                     |
 | ------------- | ----- | ------ | ------------- | ---------------------------------------- |
-| contract_code | true  | string | contract_code     |                                          |
+| contract_code | true  | string | contract_code     |     "BTC-USDT"...                                     |
 | start_time   | false  | long    | start time(timestamp, Unit: Millisecond)        |  Value Range：[(now - 90 days), now] , now - 90 days   |
 | end_time   | false  | long    | end time(timestamp, Unit: Millisecond)        | Value Range：(start_time, now], now  |
 | page_index	|false |	int	| page index | if not filled in is 1st	|
@@ -7724,7 +7722,7 @@ contract_code | true | string | contract code	 |Case-Insenstive.Both uppercase a
 
 |   Parameter Name                |   Mandatory  |   Type   |    Description             |   Value Range       |
 | ----------------------- | -------- | ------- | ------------------ | -------------- |
-| contract_code | false <img width=250/> | string <img width=250/> | contract type code <img width=1000/>  | Case-Insenstive.Both uppercase and lowercase are supported.e.g. "BTC-USDT" |
+| contract_code | false <img width=250/> | string <img width=250/> | contract type code <img width=1000/>  | Case-Insenstive.Both uppercase and lowercase are supported.e.g. swap:"BTC-USDT"... , future:"BTC-USDT-210625"... |
 | order_price_type | true  | string | Order Type | "limit": Limit Order，"opponent":BBO，"lightning": Lightning Close，"optimal_5": Optimal top 5 price，"optimal_10":Optimal top 10 price，"optimal_20":Optimal top 20 price,"fok":FOK order,"ioc":ioc order, "opponent_ioc"：IOC order using the BBO price，"lightning_ioc"：lightning IOC，"optimal_5_ioc"：optimal_5 IOC，"optimal_10_ioc"：optimal_10 IOC，"optimal_20_ioc"：optimal_20 IOC, "opponent_fok"：FOK order using the BBO price，"lightning_fok"：lightning FOK，"optimal_5_fok"：optimal_5 FOK，"optimal_10_fok"：optimal_10 FOK，"optimal_20_fok"：optimal_20 FOK|
 | pair | false |  string | pair |   BTC-USDT   |
 | contract_type | false |  string | contract type |  swap, this_week, next_week, quarter, next_ quarter |
@@ -7792,7 +7790,7 @@ contract_code | true | string | contract code	 |Case-Insenstive.Both uppercase a
 | order_price_type | true  | string | Order Type | "limit": Limit Order，"opponent":BBO，"lightning": Lightning Close，"optimal_5": Optimal top 5 price，"optimal_10":Optimal top 10 price，"optimal_20":Optimal top 20 price,"fok":FOK order,"ioc":ioc order, "opponent_ioc"：IOC order using the BBO price，"lightning_ioc"：lightning IOC，"optimal_5_ioc"：optimal_5 IOC，"optimal_10_ioc"：optimal_10 IOC，"optimal_20_ioc"：optimal_20 IOC, "opponent_fok"：FOK order using the BBO price，"lightning_fok"：lightning FOK，"optimal_5_fok"：optimal_5 FOK，"optimal_10_fok"：optimal_10 FOK，"optimal_20_fok"：optimal_20 FOK |
 | \<list\> |  |  |  |  |
 | symbol | true  | string | symbol | "BTC","ETH"... |
-| contract_code | true | string | contract type code   | "BTC-USDT",... |
+| contract_code | true | string | contract type code   |  swap:"BTC-USDT"... , future:"BTC-USDT-210625"... |
 | open_limit | true | decimal | Max open order limit | |
 | close_limit | true | decimal | Max close order limit |  |
 | contract_type | true |  string | contract type |  swap, this_week, next_week, quarter, next_ quarter |
@@ -9199,7 +9197,7 @@ client_order_id, order status query is available for orders placed within 8 hour
 | --------------- | ---- | ------ | ---------------------- | -------------- |
 | order_id        | false(more detail see the note) | string | order ID（different IDs are separated by ",", maximum 10 orders can be withdrew at one time） |      |
 | client_order_id | false(more detail see the note) | string | Client order ID (different IDs are separated by ",", maximum 10 orders can be withdrew at one time) |      |
-| contract_code          | false  | string | contract code                       | swap: "BTC-USDT"... , future: "BTC-USDT-210625" ... |
+| contract_code   | false(more see remarks)  | string | contract code                       | swap: "BTC-USDT"... , future: "BTC-USDT-210625" ... |
 | pair | false(more see remarks) |  string | pair |   BTC-USDT   |
 | contract_type | false(more see remarks) |  string | contract type |  swap, this_week, next_week, quarter, next_ quarter |
 
@@ -9309,8 +9307,8 @@ client_order_id, order status query is available for orders placed within 8 hour
 
  - The request parameter "contract_code" supports the contract code of futures, in that the format is BTC-USDT-210625.
  
- - one of (pair+contract_type) and contract_code must be filled in; and all filled in, the contract_code is the preferred. if just pair filled in, it will cancel all open orders of this pair. if just contract_type, it will cancel all open orders of this contract_type.
- 
+ - When both of pair、contract_type and contract_code filled in, the contract_code is the preferred. if just pair filled in, it will cancel all open orders of this pair. if just contract_type, it will cancel all open orders of this contract_type.
+
  - supports none any parameter, and it will cancel all open orders.
 
 ###  Request Parameter
@@ -9372,7 +9370,7 @@ client_order_id, order status query is available for orders placed within 8 hour
 
 | **Parameter Name**                | **Mandatory** | **Type**  | **Desc**             | **Value Range**       |
 | ----------------------- | -------- | ------- | ------------------ | -------------- |
-| contract_code | true | string | contract code	 |  “BTC-USDT” |
+| contract_code | true | string | contract code	 |  "BTC-USDT"... |
 | lever_rate | true | int | Leverage to switch [Using Leverage greater than 20 times requires prior approval of high-leverage agreement for the first time.] |  |
 
 > Response:
@@ -9405,7 +9403,7 @@ No：
 | ---------------------- | ---- | ------- | ------------------ | ---------------------------------------- |
 | status                 | true | string  | status: ok,error            |                                          |
 | \<data\> | false     |  object      |                    |                                          |
-| contract_code               | false | string    | contract code      |                                          |
+| contract_code               | false | string    | contract code      |   "BTC-USDT"...                    |
 | margin_mode                |   false   | string | margin mode  | isolated : "isolated" |
 | lever_rate               | false | int    | Switched leverage      |                                          |
 | \</data\>            |      |         |                    |                                          |
@@ -9434,9 +9432,9 @@ No：
 
 | Parameter Name  | Mandatory | Type | Desc  | Data Value |
 | ------------- | ------ | ----- | ---------------------------------------- | ---- |
-| contract_code | true | string | contract code	 | swap: "BTC-USDT"... , future: "BTC-USDT-210625" ... |
-| pair | false |  string | pair |   BTC-USDT   |
-| contract_type | false |  string | contract type |  swap, this_week, next_week, quarter, next_ quarter |
+| contract_code | false(more detail see the note) | string | contract code	 | swap: "BTC-USDT"... , future: "BTC-USDT-210625" ... |
+| pair | false(more detail see the note) |  string | pair |   BTC-USDT   |
+| contract_type | false(more detail see the note) |  string | contract type |  swap, this_week, next_week, quarter, next_ quarter |
 | lever_rate | true | int | Leverage to switch [Using Leverage greater than 20 times requires prior approval of high-leverage agreement for the first time.] | |
 
 > Response
@@ -9553,9 +9551,9 @@ No：
 
 | Parameter Name            | Mandatory  | Type     | Desc                    | Data Value                                     |
 | --------------- | ----- | ------ | --------------------- | ---------------------------------------- |
-| contract_code          | false | string | contract code                  | swap: "BTC-USDT"... , future: "BTC-USDT-210625" ... |
-| pair | false |  string | pair |   BTC-USDT   |
-| contract_type | false |  string | contract type |  swap, this_week, next_week, quarter, next_ quarter |
+| contract_code   | false(more detail see the note) | string | contract code                  | swap: "BTC-USDT"... , future: "BTC-USDT-210625" ... |
+| pair | false(more detail see the note) |  string | pair |   BTC-USDT   |
+| contract_type | false(more detail see the note) |  string | contract type |  swap, this_week, next_week, quarter, next_ quarter |
 | volume          | true  | decimal | place volume               |                                          |
 | direction       | true  | string | direction      |        “buy”/“sell” |
 | client_order_id | false | long | client order ID | unique ID |
@@ -9716,16 +9714,16 @@ client_order_id，order status query is available for orders placed within 8 hou
 
  - The request parameter "contract_code" supports the contract code of futures, in that the format is BTC-USDT-210625.
 
- - one of (pair+contract_type) and contract_code must be filled in(if all of them not filled in, will get 1014 error code); and all filled in, the contract_code is the preferred.
+ - one of pair and contract_code must be filled in(if all of them not filled in, will get 1014 error code); and all filled in, the contract_code is the preferred.
 
 ###  Request Parameter
 
 | Parameter Name            | Mandatory  | Type     | Desc                                   | Data Value     |
 | --------------- | ----- | ------ | ------------------------------------ | ---- |
-| order_id        | false | string | order ID（different IDs are separated by ",", maximum 50 orders can be withdrew at one time）   |      |
-| client_order_id | false | string | client order ID Order ID（different IDs are separated by ",", maximum 50 orders can be withdrew at one time) |      |
-| contract_code          | false  | string | contract code | swap: "BTC-USDT"... , future: "BTC-USDT-210625" ... |
-| pair | false(more see remarks) |  string | pair |   BTC-USDT   |
+| order_id        | false(more detail see the note) | string | order ID（different IDs are separated by ",", maximum 50 orders can be withdrew at one time）   |      |
+| client_order_id | false(more detail see the note) | string | client order ID Order ID（different IDs are separated by ",", maximum 50 orders can be withdrew at one time) |      |
+| contract_code   | false(more detail see the note)  | string | contract code | swap: "BTC-USDT"... , future: "BTC-USDT-210625" ... |
+| pair | false(more detail see the note) |  string | pair |   BTC-USDT   |
 
 ####  Note：
 
@@ -9991,14 +9989,14 @@ Please note that created_at can't be "0"
 
  - The request parameter "contract_code" supports the contract code of futures, in that the format is BTC-USDT-210625.
 
- - one of (pair+contract_type) and contract_code must be filled in(if all of them not filled in, will get 1014 error code); and all filled in, the contract_code is the preferred.
+ - one of pair and contract_code must be filled in(if all of them not filled in, will get 1014 error code); and all filled in, the contract_code is the preferred.
 
 ###  Request Parameter
 
 | Parameter Name       | Mandatory  | Type     | Desc | Data Value  |
 | ---------- | ----- | ------ | ---------------------------- | ---- |
-| contract_code     | false  | string | contract code| swap: "BTC-USDT"... , future: "BTC-USDT-210625" ... |
-| pair | false |  string | pair |   BTC-USDT   |
+| contract_code     | false(more detail see the note)  | string | contract code| swap: "BTC-USDT"... , future: "BTC-USDT-210625" ... |
+| pair | false(more detail see the note) |  string | pair |   BTC-USDT   |
 | order_id   | true  | long   | order ID                         |      |
 | created_at | false  | long   | created timestamp                        |      |
 | order_type | false  | int    | order type | 1. Quotation; 2. Cancelled order; 3. Forced liquidation; 4. Delivery Order |
@@ -10525,7 +10523,7 @@ Please note that created_at can't be "0"
 
 | Parameter Name        | Mandatory  | Type     | Desc              | Data Value   |
 | ----------- | ----- | ----------- | ---------------------------------------- | ------ |
-| contract_code      | false  | string | contract code        | swap: "BTC-USDT"... , future: "BTC-USDT-210625" ... |
+| contract_code      | false(more see remarks)  | string | contract code        | swap: "BTC-USDT"... , future: "BTC-USDT-210625" ... |
 | pair | false(more see remarks) |  string | pair |   BTC-USDT   |
 | trade_type  | true  | int    | trade type        | 0:all,1: buy long,2: sell short,3: buy short,4: sell long,5: sell liquidation,6: buy liquidation,7:Delivery long,8: Delivery short,11:reduce positions to close long,12:reduce positions to close short|        |
 | type        | true  | int    | type          | 1:All Orders,2:Order in Finished Status                       |
@@ -10788,8 +10786,8 @@ Please note that created_at can't be "0"
 
 | Parameter Name        | Mandatory  | Type     | Description              | Value Range   |
 | ----------- | ----- | ----------- | ---------------------------------------- | ------ |
-| contract_code      | false  | string | contract code        | swap: "BTC-USDT"... , future: "BTC-USDT-210625" ... |
-| pair | false |  string | pair |   BTC-USDT   |
+| contract_code      | false(more see remarks)  | string | contract code        | swap: "BTC-USDT"... , future: "BTC-USDT-210625" ... |
+| pair | false(more see remarks) |  string | pair |   BTC-USDT   |
 | trade_type  | true  | int    | trade type        | 	0:all,1: buy long,2: sell short,3: buy short,4: sell long,5: sell liquidation,6: buy liquidation,7:Delivery long,8: Delivery short,11:reduce positions to close long,12:reduce positions to close short |
 | type        | true  | int    | Type          | 1:All Orders,2:Order in Finished Status                         |
 | status      | true  | string    | status        | support multiple query seperated by ',',such as '3,4,5', 0: all. 3. Have sumbmitted the orders; 4. Orders partially matched; 5. Orders cancelled with partially matched; 6. Orders fully matched; 7. Orders cancelled; |
@@ -11033,8 +11031,8 @@ ts                     | true     | long    | timestamp                |        
 
 | Parameter Name          | Mandatory  | Type     | Desc   | Data Value                                     |
 | ------------- | ----- | ------ | ------------- | ---------------------------------------- |
-| contract_code        | false  | string | contract code          | swap: "BTC-USDT"... , future: "BTC-USDT-210625" ... |
-| pair | false |  string | pair |   BTC-USDT   |
+| contract_code        | false(more see remarks)  | string | contract code          | swap: "BTC-USDT"... , future: "BTC-USDT-210625" ... |
+| pair | false(more see remarks) |  string | pair |   BTC-USDT   |
 | trade_type    | true  | int    | trade type        | 0:All; 1: Open long; 2: Open short; 3: Close short; 4: Close long; 5: Liquidate long positions; 6: Liquidate short positions |
 | create_date   | true  | int    | date        | any positive integer available. Requesting data beyond 90 will not be supported, otherwise, system will return trigger history data within the last 90 days by default.    |
 | page_index    | false | int    | page index, default 1st page     |                                          |
@@ -11136,7 +11134,7 @@ ts                     | true     | long    | timestamp                |        
 
 | Parameter Name          | Mandatory  | Type     | Description   | Value Range                                     |
 | ------------- | ----- | ------ | ------------- | ---------------------------------------- |
-| contract_code | true  | string | contract code     |                                          |
+| contract_code | true  | string | contract code     |      "BTC-USDT"...                            |
 | trade_type    | true  | int    | trade type        | 0:All; 1: Open long; 2: Open short; 3: Close short; 4: Close long; 5: Liquidate long positions; 6: Liquidate short positions |
 | start_time   | false  | long    | start time(timestamp in millisecond)        | more detail sees the follow note    |
 | end_time   | false  | long    | end time(timestamp in millisecond)        |  more detail sees the follow note   |
@@ -11260,8 +11258,8 @@ ts                     | true     | long    | timestamp                |        
 
 | Parameter Name          | Mandatory  | Type     | Description   | Value Range                                     |
 | ------------- | ----- | ------ | ------------- | ---------------------------------------- |
-| contract_code | false  | string | contract code     | swap: "BTC-USDT"... , future: "BTC-USDT-210625" ... |
-| pair | false |  string | pair |   BTC-USDT   |
+| contract_code | false(more see remarks)  | string | contract code     | swap: "BTC-USDT"... , future: "BTC-USDT-210625" ... |
+| pair | false(more see remarks) |  string | pair |   BTC-USDT   |
 | trade_type    | true  | int    | trade type       | 0:All; 1: Open long; 2: Open short; 3: Close short; 4: Close long; 5: Liquidate long positions; 6: Liquidate short positions |
 | start_time   | false  | long    | start time(timestamp in millisecond)        | more detail sees the follow note    |
 | end_time   | false  | long    | end time(timestamp in millisecond)        |  more detail sees the follow note   |
@@ -11484,9 +11482,9 @@ ts                     | true     | long    | timestamp                |        
 
 | Parameter Name            | Mandatory  | Type     | Desc                    | Data Value                                     |
 | --------------- | ----- | ------ | --------------------- | ---------------------------------------- |
-| contract_code | false | string | contract code | swap: "BTC-USDT"... , future: "BTC-USDT-210625" ... |
-| pair | false |  string | pair |   BTC-USDT   |
-| contract_type | false |  string | contract type |  swap, this_week, next_week, quarter, next_ quarter |
+| contract_code | false(more see remarks) | string | contract code | swap: "BTC-USDT"... , future: "BTC-USDT-210625" ... |
+| pair | false(more see remarks) |  string | pair |   BTC-USDT   |
+| contract_type | false(more see remarks) |  string | contract type |  swap, this_week, next_week, quarter, next_ quarter |
 | trigger_type | true | string | trigger type | ge: Equal to or Greater than；le: Less than or Equal to |
 | trigger_price | true | decimal | trigger price |  |
 | order_price | false | decimal | order price |  |
@@ -11599,9 +11597,9 @@ Error：
 
 | Parameter Name            | Mandatory  | Type     | Desc                    | Data Value                                     |
 | --------------- | ----- | ------ | --------------------- | ---------------------------------------- |
-| contract_code | false | string | contract code | swap: "BTC-USDT"... , future: "BTC-USDT-210625" ... |
-| pair | false |  string | pair |   BTC-USDT   |
-| contract_type | false |  string | contract type |  swap, this_week, next_week, quarter, next_ quarter |
+| contract_code | false(more see remarks) | string | contract code | swap: "BTC-USDT"... , future: "BTC-USDT-210625" ... |
+| pair | false(more see remarks) |  string | pair |   BTC-USDT   |
+| contract_type | false(more see remarks) |  string | contract type |  swap, this_week, next_week, quarter, next_ quarter |
 | order_id | true | string | order id. multiple orderids need to be joined by ",".Max number of order ids is 10 once. |  |
 
 > Response
@@ -11708,11 +11706,12 @@ Error：
 
 #### Remarks
  - The interface only supports cross margin mode.
+ 
  - The frequency limit of this interface is 5 times per second.
 
  - The request parameter "contract_code" supports the contract code of futures, in that the format is BTC-USDT-210625.
  
- - one of (pair+contract_type) and contract_code must be filled in; and all filled in, the contract_code is the preferred. if just pair filled in, it will cancel all open orders of this pair. if just contract_type, it will cancel all open orders of this contract_type.
+ - When both of pair、contract_type and contract_code filled in, the contract_code is the preferred. if just pair filled in, it will cancel all open orders of this pair. if just contract_type, it will cancel all open orders of this contract_type.
  
  - supports none any parameter, and it will cancel all open orders.
 
@@ -12552,12 +12551,13 @@ Error：
 
 ### Note
  - This interface only supports cross margin mode.
+ 
  - The frequency limit of this interface is 5 times per second.
 
  - The request parameter "contract_code" supports the contract code of futures, in that the format is BTC-USDT-210625.
  
- - all of (pair+contract_type) and contract_code filled in, the contract_code is the preferred. if just pair filled in, it will cancel all open orders of this pair. if just contract_type, it will cancel all open orders of this contract_type.
- 
+ - When both of pair、contract_type and contract_code filled in, the contract_code is the preferred. if just pair filled in, it will cancel all open orders of this pair. if just contract_type, it will cancel all open orders of this contract_type.
+
  - supports none any parameter, and it will cancel all open orders.
 
 ### Request Parameter
@@ -12780,7 +12780,7 @@ Error：
 | current_page        | true | int | current page   |                |
 | \<orders\>        |   true    |   object array    |                               |     |
 | symbol                 | true | string  | symbol              |                                          |
-| contract_code          | true | string  | contract code               | "BTC-USDT" ...                          |
+| contract_code          | true | string  | contract code               |  swap: "BTC-USDT"... , future: "BTC-USDT-210625" ...            |
 | margin_mode | true | string | margin mode  | cross, isolated |
 | margin_account | true | string | margin account  | such as “USDT”，“BTC-USDT” |
 | volume                 | true | decimal  | Numbers of orders (volume) |      |
@@ -12922,7 +12922,7 @@ Error：
 
 | Parameter Name          | Mandatory  | Type    | Description   | Value Range                                    |
 | ------------- | ----- | ------ | ------------- | ---------------------------------------- |
-| contract_code | false | string | swap: "BTC-USDT"... , future: "BTC-USDT-210625" ... |
+| contract_code | false(more see remarks) | string | swap: "BTC-USDT"... , future: "BTC-USDT-210625" ... |
 | pair | false(more see remarks) |  string | pair |   BTC-USDT   |
 | status | true | string | status| Multiple orders are separated by English commas, and the status of stop-profit and stop-loss orders is: 0:all(representing all orders in the end state), 4:Have sumbmitted the orders, 5:orders failed, 6:orders canceled, 11:expired  |
 | create_date | true | long | days | any positive integer available. Requesting data beyond 90 will not be supported, otherwise, system will return trigger history data within the last 90 days by default.   |
@@ -13178,8 +13178,8 @@ Error：
 
 | Parameter Name          | Mandatory  | Type    | Description   | Value Range                                    |
 | ------------- | ----- | ------ | ------------- | ---------------------------------------- |
-| contract_code | false | string | contract code| swap: "BTC-USDT"... , future: "BTC-USDT-210625" ... |
-| pair | false |  string | pair |   BTC-USDT   |
+| contract_code | false(more see remarks) | string | contract code| swap: "BTC-USDT"... , future: "BTC-USDT-210625" ... |
+| pair | false(more see remarks) |  string | pair |   BTC-USDT   |
 | order_id | true | long | open order id  |    |
 
 > Response
@@ -13373,6 +13373,7 @@ Error：
 
 #### Note: 
  - The interface only supports cross margin mode.
+ 
  - The frequency limit of this interface is 5 times per second.
 
  - The request parameter "contract_code" supports the contract code of futures, in that the format is BTC-USDT-210625.
@@ -13382,9 +13383,9 @@ Error：
 ### Request Parameter
 | Parameter Name            | Mandatory  | Type     | Description                    | Value Range                                     |
 | --------------- | ----- | ------ | --------------------- | ---------------------------------------- |
-| contract_code   | false | string | contract code    | swap: "BTC-USDT"... , future: "BTC-USDT-210625" ... |
-| pair | false |  string | pair |   BTC-USDT   |
-| contract_type | false |  string | contract type |  swap, this_week, next_week, quarter, next_ quarter |
+| contract_code   | false(more see remarks) | string | contract code    | swap: "BTC-USDT"... , future: "BTC-USDT-210625" ... |
+| pair | false(more see remarks) |  string | pair |   BTC-USDT   |
+| contract_type | false(more see remarks) |  string | contract type |  swap, this_week, next_week, quarter, next_ quarter |
 | direction | true | string | direction| buy, sell  |
 | offset | true | string | offset |   open, close  |
 | lever_rate | false | int | lever rate, is required when open position, is optional when close position|    |
@@ -13477,6 +13478,7 @@ Error：
 
 #### Note: 
  - The interface only supports cross margin mode.
+ 
  - The frequency limit of this interface is 5 times per second.
 
  - The request parameter "contract_code" supports the contract code of futures, in that the format is BTC-USDT-210625.
@@ -13487,9 +13489,9 @@ Error：
 
 | Parameter Name          | Mandatory  | Type     | Description   | Value Range                                     |
 | ------------- | ----- | ------ | ------------- | ---------------------------------------- |
-| contract_code   | false | string | contract code    | swap: "BTC-USDT"... , future: "BTC-USDT-210625" ... |
-| pair | false |  string | pair |   BTC-USDT   |
-| contract_type | false |  string | contract type |  swap, this_week, next_week, quarter, next_ quarter |
+| contract_code   | false(more see remarks) | string | contract code    | swap: "BTC-USDT"... , future: "BTC-USDT-210625" ... |
+| pair | false(more see remarks) |  string | pair |   BTC-USDT   |
+| contract_type | false(more see remarks) |  string | contract type |  swap, this_week, next_week, quarter, next_ quarter |
 | order_id | true | string | User's trailing order id (multiple order IDs are separated by ",", a maximum of 10 orders are allowed to be withdrawn at a time)|    |
 
 > Response: 
@@ -13581,11 +13583,8 @@ Error：
  - The interface only supports cross margin mode.
  - The frequency limit of this interface is 5 times per second.
  - You can fill in only one of direction and offset to cancel the orders. (such as direction=buy, all buy orders will be cancelled, including "open" and "close" offset)
-
  - The request parameter "contract_code" supports the contract code of futures, in that the format is BTC-USDT-210625.
-
- - one of (pair+contract_type) and contract_code must be filled in; and all filled in, the contract_code is the preferred. if just pair filled in, it will cancel all open orders of this pair. if just contract_type, it will cancel all open orders of this contract_type.
-
+ - When both of pair、contract_type and contract_code filled in, the contract_code is the preferred. if just pair filled in, it will cancel all open orders of this pair. if just contract_type, it will cancel all open orders of this contract_type.
  - supports none any parameter, and it will cancel all open orders.
 
 ### Request Parameter
@@ -13712,7 +13711,7 @@ Error：
 | ts              | true  | long   | Time of Respond Generation, Unit: Millisecond                 |     |
 
 
-## [cross]Current unfilled trailing order acquisition
+## [Cross]Current unfilled trailing order acquisition
 
  - POST `/linear-swap-api/v1/swap_cross_track_openorders`
 
@@ -13929,8 +13928,8 @@ Error：
 
 | Parameter Name          | Mandatory  | Type     | Description   | Value Range                                     |
 | ------------- | ----- | ------ | ------------- | ---------------------------------------- |
-| contract_code   | false | string | contract code    | swap: "BTC-USDT"... , future: "BTC-USDT-210625" ... |
-| pair | false |  string | pair |   BTC-USDT   |
+| contract_code   | false(more see remarks) | string | contract code    | swap: "BTC-USDT"... , future: "BTC-USDT-210625" ... |
+| pair | false(more see remarks) |  string | pair |   BTC-USDT   |
 | status | true | string | order status| Multiple separated by English commas, Trailing Order status: 0:all(representing all orders in the end state), 4.Submit the orders success, 5.Submit the orders failed, 6.Orders cancelled   |
 | trade_type | true  | int | trade type(if not filled in, means all)  |  0:all,1: buy long,2: sell short,3: buy short,4: sell long |
 | create_date | true | long | days| any positive integer available. Requesting data beyond 90 will not be supported, otherwise, system will return trigger history data within the last 90 days by default.   |
@@ -16546,7 +16545,7 @@ To subscribe order data, Clients have to make connection to the Server and send 
 ### Request Parameter：
 | **Parameter Name**    | **Mandotary** | **Type** | **Desc**        | **Default** | **Value Range**                                 |
 | ----------- | -------- | ------ | ------------- | ------- | ---------------------------------------- |
-| contract_code      | true     | string |  contract code          |         | swap: "BTC-USDT"... , future: "BTC-USDT-210625" ... |
+| contract_code      | true     | string |  contract code          |         | all: * (swap and future), swap: "BTC-USDT"... , future: "BTC-USDT-210625" ... |
 
 > Illustration on detailed data format of orders Notification
 
@@ -16616,7 +16615,7 @@ To subscribe order data, Clients have to make connection to the Server and send 
 | ts   | true | long  | server response timestamp   |    |
 | uid   | true | string  | uid  |    |
 | symbol   | true | string  | symbol   |  "BTC","ETH"...  |
-| contract_code   | true | string  | contract code   |    |
+| contract_code   | true | string  | contract code   | swap: "BTC-USDT"... , future: "BTC-USDT-210625" ...   |
 | margin_mode | true | string | margin mode  | cross: cross margin mode  |
 | margin_account | true | string | margin account  | "USDT"... |
 | volume   | true | decimal  | place volume   |    |
@@ -16951,7 +16950,7 @@ To subscribe order data, Clients have to make connection to the Server and send 
 ### Request Parameter：
 | **Parameter Name**    | **Mandotary** | **Type** | **Desc**        | **Default** | **Value Range**                                 |
 | ----------- | -------- | ------ | ------------- | ------- | ---------------------------------------- |
-| contract_code      | true     | string |  contract code          |         | swap: "BTC-USDT"... , future: "BTC-USDT-210625" ... |
+| contract_code      | true     | string |  contract code          |         | all: *(swap and future), swap: "BTC-USDT"... , future: "BTC-USDT-210625" ... |
 
 
 #### Note: 
@@ -17018,7 +17017,7 @@ To subscribe order data, Clients have to make connection to the Server and send 
 | ts   | true | long  | server response timestamp   |   |
 | uid   | true | string  | uid  |    |
 | symbol   | true | string  | symbol  |  "BTC","ETH"...  |
-| contract_code   | true | string  | contract code  |   |
+| contract_code   | true | string  | contract code  | swap: "BTC-USDT"... , future: "BTC-USDT-210625" ...  |
 | margin_mode | true | string | margin mode  | cross: cross margin mode  |
 | margin_account | true | string | margin account  | "USDT"... |
 | status   | true | int  | 1. Ready to submit the orders; 2. Ready to submit the orders; 3. Have sumbmitted the orders; 4. Orders partially matched; 5. Orders cancelled with partially matched; 6. Orders fully matched; 7. Orders cancelled; |    |
@@ -17377,7 +17376,7 @@ To subscribe accounts equity data updates, the client has to make connection to 
 | risk_rate            | true   | decimal | margin rate                 |                |
 | \<contract_detail\> |    true    |  object array       |                      |                |
 | symbol     | true   | string  | symbol                 | "BTC","ETH"... |
-| contract_code     | true   | string  | contract code                 |  "BTC-USDT" ... |
+| contract_code     | true   | string  | contract code                 |  swap: "BTC-USDT"...  |
 | margin_position      | true   | decimal | position margin (the margin used by current positions)	 |                |
 | margin_frozen        | true   | decimal | frozen margin                |                |
 | margin_available     | true   | decimal | available margin                |                |
@@ -17391,7 +17390,7 @@ To subscribe accounts equity data updates, the client has to make connection to 
 | \</contract_detail\>            |        |         |                      |                |
 | \<futures_contract_detail\> |    true    |  object array       |                      |                |
 | symbol     | true   | string  | symbol                 | "BTC","ETH"... |
-| contract_code     | true   | string  | contract code                 |  "BTC-USDT-211231" ... |
+| contract_code     | true   | string  | contract code                 |   future: "BTC-USDT-210625" ... |
 | margin_position      | true   | decimal | position margin (the margin used by current positions)	 |                |
 | margin_frozen        | true   | decimal | frozen margin                |                |
 | margin_available     | true   | decimal | available margin                |                |
@@ -17719,7 +17718,7 @@ To subscribe position updates data, the client has to make connection to the ser
 | event   | true | string  | event | order.close 、order.match、settlement、order.liquidation、order.cancel、init、snapshot   |
 | \<data\>   | true | object array |     |    |
 | symbol   | true | string  | symbol    | "BTC","ETH"...   |
-| contract_code   | true | string  | contract code  |    |
+| contract_code   | true | string  | contract code  | swap: "BTC-USDT"... , future: "BTC-USDT-210625" ...   |
 | margin_mode | true | string | margin mode  | cross: cross margin mode  |
 | margin_account | true | string | margin account  | "USDT"... |
 | volume   | true | decimal  | position quantity  |    |
@@ -18154,7 +18153,7 @@ To subscribe contract infodata, the client has to make connection to the server 
 ### Request Parameter：
 | **Parameter Name**    | **Mandotary** | **Type** | **Desc**        | **Default** | **Value Range**                                 |
 | ----------- | -------- | ------ | ------------- | ------- | ---------------------------------------- |
-| contract_code      | true     | string |  contract code          |         | swap: "BTC-USDT"... , future: "BTC-USDT-210625" ... |
+| contract_code      | true     | string |  contract code          |         | all: *(swap and future), swap: "BTC-USDT"... , future: "BTC-USDT-210625" ... |
 
 #### Remarks
 - subscripting * is ok when business_type filled in. when business_type is swap, subscripting * returns all swap contracts; when business_type is futures, subscripting * returns all futures contracts; when business_type is all, subscripting * returns all swap contracts and all futures contracts.
@@ -18216,7 +18215,7 @@ To subscribe contract infodata, the client has to make connection to the server 
 | event   | string  | event： "init", "update", "snapshot"  |
 | \<data\>   | object array |     |    |
 | symbol |string | symbol,"BTC","ETH"... |
-| contract_code  | string   |  contract_code,"BTC-USDT"  |
+| contract_code  | string   |  contract_code, swap: "BTC-USDT"... , future: "BTC-USDT-210625" ...  |
 | contract_size  | decimal | Contract Value (USDT of one contract). such as 10,100| 10, 100... |
 | price_tick  | decimal | Minimum Variation of Contract Price | 0.001, 0.01... |
 | settlement_date  |  string  | settlement date：such as "1490759594752"  |
@@ -18581,7 +18580,7 @@ To subscribe basis data, the Client has to make connection to the Server and sen
 | event | true  | string | event |   order，cancel，trigger_success，trigger_fail  |
 | \<data\> |   true   |  object array   |   |   |
 | symbol                 | true | string  | symbol               |                                          |
-| contract_code          | true | string  | contract code               | "BTC-USDT" ...                          |
+| contract_code          | true | string  | contract code               |   swap: "BTC-USDT"... , future: "BTC-USDT-210625" ...          |
 | margin_mode | true | string | margin mode  | cross: cross margin mode  |
 | margin_account | true | string | margin account  | "USDT"... |
 | trigger_type              | true | string  | trigger type： ge great than or equal to；le less than or equal to  |              |
