@@ -2493,7 +2493,7 @@ Error Code | Error Details Description|
 
 - <a href='https://github.com/hbdmapi/huobi_futures_Postman'>Postman</a>
 
-- <a href='https://github.com/hbdmapi/huobi_futures_CSharp'>CSharp</a>
+- <a href='https://github.com/hbdmapi/huobi_sdk_CSharp'>CSharp</a>
 
 - <a href='https://github.com/hbdmapi/huobi_futures_Golang'>Golang</a>
 
