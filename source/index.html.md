@@ -1734,6 +1734,7 @@ PS: Coin Margined Swap api is similar to future api.
 ### Contract SDK
 
 - <a href='https://github.com/hbdmapi/huobi_coin_swap_Java'>Java SDK</a>
+- <a href='https://github.com/hbdmapi/huobi_futures_CSharp'>CSharp</a>
 
 # Swap API FAQ
 
