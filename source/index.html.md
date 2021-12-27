@@ -2060,6 +2060,7 @@ Error Code | Error Details Description|
 **Contract sdk**
 
 - <a href='https://github.com/hbdmapi/huobi_future_Java'>Java</a>
+- <a href='https://github.com/hbdmapi/huobi_futures_CSharp'>CSharp</a>
 
 **Asynchronous Library**
 
