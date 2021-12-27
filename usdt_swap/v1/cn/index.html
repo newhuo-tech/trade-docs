@@ -223,7 +223,7 @@
             <a href="/docs/spot/v1/en/" id="btn_spot">现货</a>
           </span>
           <span class="nav_cell nav_tab">
-            <a href="/docs/dm/v1/en/" id="btn_dm">交割合约</a>
+            <a href="/docs/dm/v1/en/" id="btn_dm">币本位交割合约</a>
           </span>
           <span class="nav_cell nav_tab">
             <a href="/docs/coin_margined_swap/v1/en/" id="btn_coin_margined_swap">币本位永续合约</a>
@@ -32107,7 +32107,7 @@ curl <span class="s2">"https://api.hbdm.com/index/market/history/linear_swap_bas
 <td>true</td>
 <td>string</td>
 <td>保证金模式</td>
-<td>cross：全仓模式；isolated：逐仓模式</td>
+<td>isolated：逐仓模式</td>
 </tr>
 <tr>
 <td>margin_account</td>
@@ -45994,7 +45994,7 @@ curl <span class="s2">"https://api.hbdm.com/index/market/history/linear_swap_bas
 <td>topic</td>
 <td>true</td>
 <td>string</td>
-<td>订阅主题名称，必填 (public.$contract_code.funding_rate) 订阅某个品种下的强平订单信息；$contract_code为品种代码（BTC-USDT、ETH-USDT），如果值为 * 时代表订阅所有品种; contract_code支持大小写;</td>
+<td>订阅主题名称，必填 (public.$contract_code.funding_rate) 订阅某个品种下的资金费率；$contract_code为品种代码（BTC-USDT、ETH-USDT），如果值为 * 时代表订阅所有品种; contract_code支持大小写;</td>
 <td></td>
 </tr>
 </tbody></table>
@@ -46162,7 +46162,7 @@ curl <span class="s2">"https://api.hbdm.com/index/market/history/linear_swap_bas
 <tr>
 <td style="text-align: left">topic</td>
 <td style="text-align: left">string</td>
-<td style="text-align: left">必填;必填；必填；订阅主题名称，必填 (public.$contract_code.funding_rate)  订阅、取消订阅某个合约代码下的资产变更信息，当 $contract_code值为 * 时代表订阅所有合约代码;</td>
+<td style="text-align: left">必填;必填；必填；订阅主题名称，必填 (public.$contract_code.funding_rate)  订阅、取消订阅某个合约代码下的资金费率，当 $contract_code值为 * 时代表订阅所有合约代码;</td>
 </tr>
 </tbody></table>
 <h3 id='25b9181131-10'>订阅与取消订阅规则说明</h3>
@@ -48071,7 +48071,7 @@ curl <span class="s2">"https://api.hbdm.com/index/market/history/linear_swap_bas
         //如果是中文环境
         lang_btn.innerHTML = 'English';
         btn_spot.innerHTML = '现货';
-        btn_dm.innerHTML = '交割合约';
+        btn_dm.innerHTML = '币本位交割合约';
         btn_coin_margined_swap.innerHTML = '币本位永续合约';
         btn_usdt_swap.innerHTML = 'U本位合约';
       //  btn_option.innerHTML = '期权合约';
