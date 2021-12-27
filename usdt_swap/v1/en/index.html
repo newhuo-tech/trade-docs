@@ -223,7 +223,7 @@
             <a href="/docs/spot/v1/en/" id="btn_spot">现货</a>
           </span>
           <span class="nav_cell nav_tab">
-            <a href="/docs/dm/v1/en/" id="btn_dm">交割合约</a>
+            <a href="/docs/dm/v1/en/" id="btn_dm">币本位交割合约</a>
           </span>
           <span class="nav_cell nav_tab">
             <a href="/docs/coin_margined_swap/v1/en/" id="btn_coin_margined_swap">币本位永续合约</a>
@@ -764,7 +764,7 @@
                     <a href="#isolated-current-unfilled-trailing-order-acquisition" class="toc-h2 toc-link" data-title="[Isolated]Current unfilled trailing order acquisition">[Isolated]Current unfilled trailing order acquisition</a>
                   </li>
                   <li>
-                    <a href="#cross-current-unfilled-trailing-order-acquisition" class="toc-h2 toc-link" data-title="[cross]Current unfilled trailing order acquisition">[cross]Current unfilled trailing order acquisition</a>
+                    <a href="#cross-current-unfilled-trailing-order-acquisition" class="toc-h2 toc-link" data-title="[Cross]Current unfilled trailing order acquisition">[Cross]Current unfilled trailing order acquisition</a>
                   </li>
                   <li>
                     <a href="#isolated-get-history-trailing-orders" class="toc-h2 toc-link" data-title="[Isolated]Get History Trailing Orders">[Isolated]Get History Trailing Orders</a>
@@ -5315,7 +5315,7 @@ contracts. Please note that the rate limit of WS order push and RESTFUL private 
 <li><p><a href='https://github.com/hbdmapi/huobi_usdt_swap_Java'>Java</a></p></li>
 <li><p><a href='https://github.com/hbdmapi/hbdm_Python'>Python</a></p></li>
 <li><p><a href='https://github.com/hbdmapi/huobi_futures_Postman'>Postman</a></p></li>
-<li><p><a href='https://github.com/hbdmapi/huobi_futures_CSharp'>CSharp</a></p></li>
+<li><p><a href='https://github.com/hbdmapi/huobi_sdk_CSharp'>CSharp</a></p></li>
 <li><p><a href='https://github.com/hbdmapi/huobi_futures_Golang'>Golang</a></p></li>
 <li><p><a href='https://github.com/hbdmapi/huobi_futures_Cpp'>C++</a></p></li>
 </ul>
@@ -5734,7 +5734,7 @@ It will be pushed only when position event is updated.</p>
 <tr>
 <td>business_type</td>
 <td>string</td>
-<td>false</td>
+<td>false(more see remarks)</td>
 <td>futures, swap, all(default is swap)</td>
 </tr>
 </tbody></table>
@@ -5845,7 +5845,7 @@ It will be pushed only when position event is updated.</p>
 <td>true</td>
 <td>string</td>
 <td>Contract Code</td>
-<td>&quot;BTC-USDT&quot; ...</td>
+<td>swap: &quot;BTC-USDT&quot;... , future: &quot;BTC-USDT-210625&quot; ...</td>
 </tr>
 <tr>
 <td>contract_size</td>
@@ -6155,7 +6155,7 @@ It will be pushed only when position event is updated.</p>
 <td>true</td>
 <td>string</td>
 <td>Contract Code</td>
-<td>eg &quot;BTC-USDT&quot;  ...</td>
+<td>eg swap: &quot;BTC-USDT&quot;... , future: &quot;BTC-USDT-210625&quot; ...</td>
 </tr>
 <tr>
 <td>contract_type</td>
@@ -6351,7 +6351,7 @@ It will be pushed only when position event is updated.</p>
 <td>true</td>
 <td>string</td>
 <td>Contract Code</td>
-<td>eg &quot;BTC-USDT&quot;   ...</td>
+<td>eg swap: &quot;BTC-USDT&quot;... , future: &quot;BTC-USDT-210625&quot; ...</td>
 </tr>
 <tr>
 <td>value</td>
@@ -6445,7 +6445,7 @@ It will be pushed only when position event is updated.</p>
 <td>contract_code</td>
 <td>string</td>
 <td>true</td>
-<td>swap: &quot;BTC-USDT&quot;... , future: &quot;BTC-USDT-FUTURES&quot; ... or BTC-USDT-CW, BTC-USDT-NW, BTC-USDT-CQ, BTC-USDT-NQ</td>
+<td>swap: &quot;BTC-USDT&quot;... , future: &quot;BTC-USDT-220325&quot; ... or BTC-USDT-CW, BTC-USDT-NW, BTC-USDT-CQ, BTC-USDT-NQ</td>
 </tr>
 <tr>
 <td>type</td>
@@ -6616,7 +6616,7 @@ It will be pushed only when position event is updated.</p>
 <td>false</td>
 <td>string</td>
 <td>contract code，if not filled in, return all</td>
-<td>swap: &quot;BTC-USDT&quot;... , future: &quot;BTC-USDT-FUTURES&quot; ... or BTC-USDT-CW, BTC-USDT-NW, BTC-USDT-CQ, BTC-USDT-NQ</td>
+<td>swap: &quot;BTC-USDT&quot;... , future: &quot;BTC-USDT-220325&quot; ... or BTC-USDT-CW, BTC-USDT-NW, BTC-USDT-CQ, BTC-USDT-NQ</td>
 </tr>
 <tr>
 <td>business_type</td>
@@ -6721,7 +6721,7 @@ It will be pushed only when position event is updated.</p>
 <td>true</td>
 <td>string</td>
 <td>contract code</td>
-<td>swap: &quot;BTC-USDT&quot;... , future: &quot;BTC-USDT-FUTURES&quot; ... or BTC-USDT-CW, BTC-USDT-NW, BTC-USDT-CQ, BTC-USDT-NQ</td>
+<td>swap: &quot;BTC-USDT&quot;... , future: &quot;BTC-USDT-220325&quot; ... or BTC-USDT-CW, BTC-USDT-NW, BTC-USDT-CQ, BTC-USDT-NQ</td>
 </tr>
 <tr>
 <td>business_type</td>
@@ -6798,7 +6798,7 @@ It will be pushed only when position event is updated.</p>
 <td>contract_code</td>
 <td>true</td>
 <td>string</td>
-<td>swap: &quot;BTC-USDT&quot;... , future: &quot;BTC-USDT-FUTURES&quot; ... or BTC-USDT-CW, BTC-USDT-NW, BTC-USDT-CQ, BTC-USDT-NQ</td>
+<td>swap: &quot;BTC-USDT&quot;... , future: &quot;BTC-USDT-220325&quot; ... or BTC-USDT-CW, BTC-USDT-NW, BTC-USDT-CQ, BTC-USDT-NQ</td>
 <td></td>
 <td></td>
 </tr>
@@ -7198,7 +7198,7 @@ It will be pushed only when position event is updated.</p>
 <td>contract_code</td>
 <td>true</td>
 <td>string</td>
-<td>swap: &quot;BTC-USDT&quot;... , future: &quot;BTC-USDT-FUTURES&quot; ... or BTC-USDT-CW, BTC-USDT-NW, BTC-USDT-CQ, BTC-USDT-NQ</td>
+<td>swap: &quot;BTC-USDT&quot;... , future: &quot;BTC-USDT-220325&quot; ... or BTC-USDT-CW, BTC-USDT-NW, BTC-USDT-CQ, BTC-USDT-NQ</td>
 <td></td>
 <td></td>
 </tr>
@@ -7399,9 +7399,9 @@ It will be pushed only when position event is updated.</p>
 <h4 id='note-7'>Note</h4>
 <ul>
 <li>The interface supports cross margin mode and isolated margin mode.</li>
-<li><p>The interface data updated frequency is 50ms</p></li>
-<li><p>The request parameter &quot;contract_code&quot; supports the contract code of futures, in that the format is BTC-USDT-210625; and supports contract type: BTC-USDT, BTC-USDT-CW, BTC-USDT-NW, BTC-USDT-CQ, BTC-USDT-NQ.</p></li>
-<li><p>business_type is a required parameter when query info of futures contract, and its value must be futures or all.</p></li>
+<li>The interface data updated frequency is 50ms</li>
+<li>The request parameter &quot;contract_code&quot; supports the contract code of futures, in that the format is BTC-USDT-210625; and supports contract type: BTC-USDT, BTC-USDT-CW, BTC-USDT-NW, BTC-USDT-CQ, BTC-USDT-NQ.</li>
+<li>business_type is a required parameter when query info of futures contract, and its value must be futures or all.</li>
 </ul>
 
 <blockquote>
@@ -7753,7 +7753,7 @@ It will be pushed only when position event is updated.</p>
 <td>true</td>
 <td>string</td>
 <td>Contract Code</td>
-<td></td>
+<td>swap: &quot;BTC-USDT&quot;... , future: &quot;BTC-USDT-210625&quot; ... or BTC-USDT-CW, BTC-USDT-NW, BTC-USDT-CQ, BTC-USDT-NQ</td>
 <td></td>
 </tr>
 <tr>
@@ -8668,7 +8668,7 @@ It will be pushed only when position event is updated.</p>
 <td>true</td>
 <td>string</td>
 <td>contract code</td>
-<td>&quot;BTC-USDT&quot; ...</td>
+<td>swap: &quot;BTC-USDT&quot;... , future: &quot;BTC-USDT-210625&quot; ...</td>
 </tr>
 <tr>
 <td>margin_mode</td>
@@ -8900,7 +8900,7 @@ It will be pushed only when position event is updated.</p>
 <td>true</td>
 <td>string</td>
 <td>contract code</td>
-<td>e.g. &quot;BTC-USDT&quot;</td>
+<td>e.g. swap: &quot;BTC-USDT&quot;... , future: &quot;BTC-USDT-210625&quot; ...</td>
 </tr>
 <tr>
 <td>contract_type</td>
@@ -10130,7 +10130,7 @@ It will be pushed only when position event is updated.</p>
 <td>true</td>
 <td>string</td>
 <td>contract code</td>
-<td>e.g. &quot;BTC-USDT&quot;</td>
+<td>e.g. swap: &quot;BTC-USDT&quot;... , future: &quot;BTC-USDT-FUTURES&quot; ...</td>
 </tr>
 <tr>
 <td>pair</td>
@@ -10297,7 +10297,7 @@ It will be pushed only when position event is updated.</p>
 <td>true</td>
 <td>string</td>
 <td>contract code</td>
-<td>e.g. &quot;BTC-USDT&quot;</td>
+<td>e.g. swap: &quot;BTC-USDT&quot;... , future: &quot;BTC-USDT-FUTURES&quot; ...</td>
 </tr>
 <tr>
 <td>pair</td>
@@ -10380,15 +10380,15 @@ It will be pushed only when position event is updated.</p>
 </thead><tbody>
 <tr>
 <td>contract_code</td>
-<td>true</td>
+<td>false(more see remarks)</td>
 <td>string</td>
 <td>contract code</td>
 <td></td>
-<td>Case-Insenstive.e.g. &quot;BTC-USDT&quot;</td>
+<td>Case-Insenstive.e.g. swap: &quot;BTC-USDT&quot;... , future: &quot;BTC-USDT-210625&quot; ...</td>
 </tr>
 <tr>
 <td>pair</td>
-<td>false</td>
+<td>false(more see remarks)</td>
 <td>string</td>
 <td>pair</td>
 <td></td>
@@ -10512,7 +10512,7 @@ It will be pushed only when position event is updated.</p>
 <td>true</td>
 <td>string</td>
 <td>contract code</td>
-<td>e.g. &quot;BTC-USDT&quot;</td>
+<td>e.g.  swap: &quot;BTC-USDT&quot;... , future: &quot;BTC-USDT-210625&quot; ...</td>
 </tr>
 <tr>
 <td>direction</td>
@@ -10760,7 +10760,7 @@ It will be pushed only when position event is updated.</p>
 <td>true</td>
 <td>string</td>
 <td>Contract Code</td>
-<td>&quot;BTC-USDT&quot; ...</td>
+<td>swap: &quot;BTC-USDT&quot;... , future: &quot;BTC-USDT-210625&quot; ...</td>
 </tr>
 <tr>
 <td>settlement_time</td>
@@ -11938,7 +11938,7 @@ It will be pushed only when position event is updated.</p>
 <td>true</td>
 <td>string</td>
 <td>contract code</td>
-<td>&quot;BTC-USDT&quot; ...</td>
+<td>swap: &quot;BTC-USDT&quot;... , future: &quot;BTC-USDT-210625&quot; ...</td>
 </tr>
 <tr>
 <td>estimated_settlement_price</td>
@@ -12019,7 +12019,7 @@ It will be pushed only when position event is updated.</p>
 <td>false</td>
 <td>string</td>
 <td>The valuation according to the certain fiat currency. If not fill in, default as BTC</td>
-<td>&quot;BTC&quot;,&quot;USD&quot;,&quot;USDT&quot;,&quot;CNY&quot;,&quot;EUR&quot;,&quot;GBP&quot;,&quot;VND&quot;,&quot;HKD&quot;,&quot;TWD&quot;,&quot;MYR&quot;,&quot;SGD&quot;,&quot;KRW&quot;,&quot;RUB&quot;,&quot;TRY&quot;</td>
+<td>&quot;BTC&quot;, &quot;USD&quot;, &quot;USDT&quot;, &quot;CNY&quot;, &quot;EUR&quot;, &quot;GBP&quot;, &quot;VND&quot;, &quot;HKD&quot;, &quot;TWD&quot;, &quot;MYR&quot;, &quot;SGD&quot;, &quot;KRW&quot;, &quot;RUB&quot;, &quot;TRY&quot;</td>
 </tr>
 </tbody></table>
 
@@ -12065,7 +12065,7 @@ It will be pushed only when position event is updated.</p>
 <td>true</td>
 <td>string</td>
 <td>The valuation according to the certain fiat currency</td>
-<td>&quot;BTC&quot;,&quot;USD&quot;,&quot;USDT&quot;,&quot;CNY&quot;,&quot;EUR&quot;,&quot;GBP&quot;,&quot;VND&quot;,&quot;HKD&quot;,&quot;TWD&quot;,&quot;MYR&quot;,&quot;SGD&quot;,&quot;KRW&quot;,&quot;RUB&quot;,&quot;TRY&quot;</td>
+<td>&quot;BTC&quot;, &quot;USD&quot;, &quot;USDT&quot;, &quot;CNY&quot;, &quot;EUR&quot;, &quot;GBP&quot;, &quot;VND&quot;, &quot;HKD&quot;, &quot;TWD&quot;, &quot;MYR&quot;, &quot;SGD&quot;, &quot;KRW&quot;, &quot;RUB&quot;, &quot;TRY&quot;</td>
 </tr>
 <tr>
 <td>balance</td>
@@ -12539,7 +12539,7 @@ It will be pushed only when position event is updated.</p>
 <td>true</td>
 <td>string</td>
 <td>contract code</td>
-<td>swap: &quot;BTC-USDT&quot;... , future: &quot;BTC-USDT-210625&quot; ...</td>
+<td>swap: &quot;BTC-USDT&quot;...</td>
 </tr>
 <tr>
 <td>margin_position</td>
@@ -12637,7 +12637,7 @@ It will be pushed only when position event is updated.</p>
 <td>true</td>
 <td>string</td>
 <td>contract code</td>
-<td>swap: &quot;BTC-USDT&quot;... , future: &quot;BTC-USDT-210625&quot; ...</td>
+<td>future: &quot;BTC-USDT-210625&quot; ...</td>
 </tr>
 <tr>
 <td>margin_position</td>
@@ -12966,7 +12966,7 @@ It will be pushed only when position event is updated.</p>
 <td>false</td>
 <td>string</td>
 <td>contract code</td>
-<td>swap: &quot;BTC-USDT&quot;... , future: &quot;BTC-USDT-FUTURES&quot; ...</td>
+<td>swap: &quot;BTC-USDT&quot;... , future: &quot;BTC-USDT-211225&quot; ...</td>
 </tr>
 <tr>
 <td>pair</td>
@@ -15191,7 +15191,7 @@ It will be pushed only when position event is updated.</p>
 <td>true</td>
 <td>string</td>
 <td>type code</td>
-<td>&quot;BTC&quot;,&quot;ETH&quot;...when the$contract_code value is &quot;*&quot;, it will subscribe all contract types</td>
+<td>&quot;BTC&quot;,&quot;ETH&quot;...</td>
 </tr>
 <tr>
 <td>contract_code</td>
@@ -15563,7 +15563,7 @@ It will be pushed only when position event is updated.</p>
 <td>true</td>
 <td>string</td>
 <td>contract code</td>
-<td>&quot;BTC-USDT&quot; ...</td>
+<td>swap:&quot;BTC-USDT&quot; ...</td>
 </tr>
 <tr>
 <td>margin_position</td>
@@ -15661,7 +15661,7 @@ It will be pushed only when position event is updated.</p>
 <td>true</td>
 <td>string</td>
 <td>contract code</td>
-<td>&quot;BTC-USDT-211231&quot; ...</td>
+<td>future:&quot;BTC-USDT-211231&quot; ...</td>
 </tr>
 <tr>
 <td>margin_position</td>
@@ -16399,7 +16399,7 @@ It will be pushed only when position event is updated.</p>
 <td>true</td>
 <td>string</td>
 <td>contract type code</td>
-<td>&quot;BTC-USDT&quot;,...</td>
+<td>swap: &quot;BTC-USDT&quot;... , future: &quot;BTC-USDT-210625&quot; ...</td>
 </tr>
 <tr>
 <td>margin_account</td>
@@ -16747,7 +16747,7 @@ It will be pushed only when position event is updated.</p>
 <td>true</td>
 <td>string</td>
 <td>contract code</td>
-<td>&quot;BTC-USDT&quot;...</td>
+<td>swap: &quot;BTC-USDT&quot;... , future: &quot;BTC-USDT-210625&quot; ...</td>
 </tr>
 <tr>
 <td>margin_account</td>
@@ -16834,7 +16834,7 @@ It will be pushed only when position event is updated.</p>
 <td>true</td>
 <td>string</td>
 <td>contract_code</td>
-<td></td>
+<td>&quot;BTC-USDT&quot;...</td>
 </tr>
 <tr>
 <td>start_time</td>
@@ -17917,7 +17917,7 @@ It will be pushed only when position event is updated.</p>
 <td>false <img width=250/></td>
 <td>string <img width=250/></td>
 <td>contract type code <img width=1000/></td>
-<td>Case-Insenstive.Both uppercase and lowercase are supported.e.g. &quot;BTC-USDT&quot;</td>
+<td>Case-Insenstive.Both uppercase and lowercase are supported.e.g. swap:&quot;BTC-USDT&quot;... , future:&quot;BTC-USDT-210625&quot;...</td>
 </tr>
 <tr>
 <td>order_price_type</td>
@@ -18056,7 +18056,7 @@ It will be pushed only when position event is updated.</p>
 <td>true</td>
 <td>string</td>
 <td>contract type code</td>
-<td>&quot;BTC-USDT&quot;,...</td>
+<td>swap:&quot;BTC-USDT&quot;... , future:&quot;BTC-USDT-210625&quot;...</td>
 </tr>
 <tr>
 <td>open_limit</td>
@@ -21478,7 +21478,7 @@ transfer currency from sub-account to  master account using client_order_id=1).<
 </tr>
 <tr>
 <td>contract_code</td>
-<td>false</td>
+<td>false(more see remarks)</td>
 <td>string</td>
 <td>contract code</td>
 <td>swap: &quot;BTC-USDT&quot;... , future: &quot;BTC-USDT-210625&quot; ...</td>
@@ -21746,7 +21746,7 @@ transfer currency from sub-account to  master account using client_order_id=1).<
 <ul>
 <li><p>The interface only supports cross margin mode.</p></li>
 <li><p>The request parameter &quot;contract_code&quot; supports the contract code of futures, in that the format is BTC-USDT-210625.</p></li>
-<li><p>one of (pair+contract_type) and contract_code must be filled in; and all filled in, the contract_code is the preferred. if just pair filled in, it will cancel all open orders of this pair. if just contract_type, it will cancel all open orders of this contract_type.</p></li>
+<li><p>When both of pair、contract_type and contract_code filled in, the contract_code is the preferred. if just pair filled in, it will cancel all open orders of this pair. if just contract_type, it will cancel all open orders of this contract_type.</p></li>
 <li><p>supports none any parameter, and it will cancel all open orders.</p></li>
 </ul>
 <h3 id='request-parameter-62'>Request Parameter</h3>
@@ -21918,7 +21918,7 @@ transfer currency from sub-account to  master account using client_order_id=1).<
 <td>true</td>
 <td>string</td>
 <td>contract code</td>
-<td>“BTC-USDT”</td>
+<td>&quot;BTC-USDT&quot;...</td>
 </tr>
 <tr>
 <td>lever_rate</td>
@@ -21980,7 +21980,7 @@ transfer currency from sub-account to  master account using client_order_id=1).<
 <td>false</td>
 <td>string</td>
 <td>contract code</td>
-<td></td>
+<td>&quot;BTC-USDT&quot;...</td>
 </tr>
 <tr>
 <td>margin_mode</td>
@@ -22049,21 +22049,21 @@ transfer currency from sub-account to  master account using client_order_id=1).<
 </thead><tbody>
 <tr>
 <td>contract_code</td>
-<td>true</td>
+<td>false(more detail see the note)</td>
 <td>string</td>
 <td>contract code</td>
 <td>swap: &quot;BTC-USDT&quot;... , future: &quot;BTC-USDT-210625&quot; ...</td>
 </tr>
 <tr>
 <td>pair</td>
-<td>false</td>
+<td>false(more detail see the note)</td>
 <td>string</td>
 <td>pair</td>
 <td>BTC-USDT</td>
 </tr>
 <tr>
 <td>contract_type</td>
-<td>false</td>
+<td>false(more detail see the note)</td>
 <td>string</td>
 <td>contract type</td>
 <td>swap, this_week, next_week, quarter, next_ quarter</td>
@@ -22354,21 +22354,21 @@ transfer currency from sub-account to  master account using client_order_id=1).<
 </thead><tbody>
 <tr>
 <td>contract_code</td>
-<td>false</td>
+<td>false(more detail see the note)</td>
 <td>string</td>
 <td>contract code</td>
 <td>swap: &quot;BTC-USDT&quot;... , future: &quot;BTC-USDT-210625&quot; ...</td>
 </tr>
 <tr>
 <td>pair</td>
-<td>false</td>
+<td>false(more detail see the note)</td>
 <td>string</td>
 <td>pair</td>
 <td>BTC-USDT</td>
 </tr>
 <tr>
 <td>contract_type</td>
-<td>false</td>
+<td>false(more detail see the note)</td>
 <td>string</td>
 <td>contract type</td>
 <td>swap, this_week, next_week, quarter, next_ quarter</td>
@@ -22822,7 +22822,7 @@ transfer currency from sub-account to  master account using client_order_id=1).<
 <ul>
 <li><p>The interface only supports cross margin mode.</p></li>
 <li><p>The request parameter &quot;contract_code&quot; supports the contract code of futures, in that the format is BTC-USDT-210625.</p></li>
-<li><p>one of (pair+contract_type) and contract_code must be filled in(if all of them not filled in, will get 1014 error code); and all filled in, the contract_code is the preferred.</p></li>
+<li><p>one of pair and contract_code must be filled in(if all of them not filled in, will get 1014 error code); and all filled in, the contract_code is the preferred.</p></li>
 </ul>
 <h3 id='request-parameter-68'>Request Parameter</h3>
 <table><thead>
@@ -22836,28 +22836,28 @@ transfer currency from sub-account to  master account using client_order_id=1).<
 </thead><tbody>
 <tr>
 <td>order_id</td>
-<td>false</td>
+<td>false(more detail see the note)</td>
 <td>string</td>
 <td>order ID（different IDs are separated by &quot;,&quot;, maximum 50 orders can be withdrew at one time）</td>
 <td></td>
 </tr>
 <tr>
 <td>client_order_id</td>
-<td>false</td>
+<td>false(more detail see the note)</td>
 <td>string</td>
 <td>client order ID Order ID（different IDs are separated by &quot;,&quot;, maximum 50 orders can be withdrew at one time)</td>
 <td></td>
 </tr>
 <tr>
 <td>contract_code</td>
-<td>false</td>
+<td>false(more detail see the note)</td>
 <td>string</td>
 <td>contract code</td>
 <td>swap: &quot;BTC-USDT&quot;... , future: &quot;BTC-USDT-210625&quot; ...</td>
 </tr>
 <tr>
 <td>pair</td>
-<td>false(more see remarks)</td>
+<td>false(more detail see the note)</td>
 <td>string</td>
 <td>pair</td>
 <td>BTC-USDT</td>
@@ -23687,7 +23687,7 @@ transfer currency from sub-account to  master account using client_order_id=1).<
 <ul>
 <li><p>The interface only supports cross margin mode.</p></li>
 <li><p>The request parameter &quot;contract_code&quot; supports the contract code of futures, in that the format is BTC-USDT-210625.</p></li>
-<li><p>one of (pair+contract_type) and contract_code must be filled in(if all of them not filled in, will get 1014 error code); and all filled in, the contract_code is the preferred.</p></li>
+<li><p>one of pair and contract_code must be filled in(if all of them not filled in, will get 1014 error code); and all filled in, the contract_code is the preferred.</p></li>
 </ul>
 <h3 id='request-parameter-70'>Request Parameter</h3>
 <table><thead>
@@ -23701,14 +23701,14 @@ transfer currency from sub-account to  master account using client_order_id=1).<
 </thead><tbody>
 <tr>
 <td>contract_code</td>
-<td>false</td>
+<td>false(more detail see the note)</td>
 <td>string</td>
 <td>contract code</td>
 <td>swap: &quot;BTC-USDT&quot;... , future: &quot;BTC-USDT-210625&quot; ...</td>
 </tr>
 <tr>
 <td>pair</td>
-<td>false</td>
+<td>false(more detail see the note)</td>
 <td>string</td>
 <td>pair</td>
 <td>BTC-USDT</td>
@@ -25470,7 +25470,7 @@ transfer currency from sub-account to  master account using client_order_id=1).<
 </thead><tbody>
 <tr>
 <td>contract_code</td>
-<td>false</td>
+<td>false(more see remarks)</td>
 <td>string</td>
 <td>contract code</td>
 <td>swap: &quot;BTC-USDT&quot;... , future: &quot;BTC-USDT-210625&quot; ...</td>
@@ -26400,14 +26400,14 @@ transfer currency from sub-account to  master account using client_order_id=1).<
 </thead><tbody>
 <tr>
 <td>contract_code</td>
-<td>false</td>
+<td>false(more see remarks)</td>
 <td>string</td>
 <td>contract code</td>
 <td>swap: &quot;BTC-USDT&quot;... , future: &quot;BTC-USDT-210625&quot; ...</td>
 </tr>
 <tr>
 <td>pair</td>
-<td>false</td>
+<td>false(more see remarks)</td>
 <td>string</td>
 <td>pair</td>
 <td>BTC-USDT</td>
@@ -27250,14 +27250,14 @@ transfer currency from sub-account to  master account using client_order_id=1).<
 </thead><tbody>
 <tr>
 <td>contract_code</td>
-<td>false</td>
+<td>false(more see remarks)</td>
 <td>string</td>
 <td>contract code</td>
 <td>swap: &quot;BTC-USDT&quot;... , future: &quot;BTC-USDT-210625&quot; ...</td>
 </tr>
 <tr>
 <td>pair</td>
-<td>false</td>
+<td>false(more see remarks)</td>
 <td>string</td>
 <td>pair</td>
 <td>BTC-USDT</td>
@@ -27595,7 +27595,7 @@ transfer currency from sub-account to  master account using client_order_id=1).<
 <td>true</td>
 <td>string</td>
 <td>contract code</td>
-<td></td>
+<td>&quot;BTC-USDT&quot;...</td>
 </tr>
 <tr>
 <td>trade_type</td>
@@ -28023,14 +28023,14 @@ transfer currency from sub-account to  master account using client_order_id=1).<
 </thead><tbody>
 <tr>
 <td>contract_code</td>
-<td>false</td>
+<td>false(more see remarks)</td>
 <td>string</td>
 <td>contract code</td>
 <td>swap: &quot;BTC-USDT&quot;... , future: &quot;BTC-USDT-210625&quot; ...</td>
 </tr>
 <tr>
 <td>pair</td>
-<td>false</td>
+<td>false(more see remarks)</td>
 <td>string</td>
 <td>pair</td>
 <td>BTC-USDT</td>
@@ -28682,21 +28682,21 @@ transfer currency from sub-account to  master account using client_order_id=1).<
 </thead><tbody>
 <tr>
 <td>contract_code</td>
-<td>false</td>
+<td>false(more see remarks)</td>
 <td>string</td>
 <td>contract code</td>
 <td>swap: &quot;BTC-USDT&quot;... , future: &quot;BTC-USDT-210625&quot; ...</td>
 </tr>
 <tr>
 <td>pair</td>
-<td>false</td>
+<td>false(more see remarks)</td>
 <td>string</td>
 <td>pair</td>
 <td>BTC-USDT</td>
 </tr>
 <tr>
 <td>contract_type</td>
-<td>false</td>
+<td>false(more see remarks)</td>
 <td>string</td>
 <td>contract type</td>
 <td>swap, this_week, next_week, quarter, next_ quarter</td>
@@ -28987,21 +28987,21 @@ transfer currency from sub-account to  master account using client_order_id=1).<
 </thead><tbody>
 <tr>
 <td>contract_code</td>
-<td>false</td>
+<td>false(more see remarks)</td>
 <td>string</td>
 <td>contract code</td>
 <td>swap: &quot;BTC-USDT&quot;... , future: &quot;BTC-USDT-210625&quot; ...</td>
 </tr>
 <tr>
 <td>pair</td>
-<td>false</td>
+<td>false(more see remarks)</td>
 <td>string</td>
 <td>pair</td>
 <td>BTC-USDT</td>
 </tr>
 <tr>
 <td>contract_type</td>
-<td>false</td>
+<td>false(more see remarks)</td>
 <td>string</td>
 <td>contract type</td>
 <td>swap, this_week, next_week, quarter, next_ quarter</td>
@@ -29266,10 +29266,10 @@ transfer currency from sub-account to  master account using client_order_id=1).<
 </ul>
 <h4 id='remarks-77'>Remarks</h4>
 <ul>
-<li>The interface only supports cross margin mode.</li>
+<li><p>The interface only supports cross margin mode.</p></li>
 <li><p>The frequency limit of this interface is 5 times per second.</p></li>
 <li><p>The request parameter &quot;contract_code&quot; supports the contract code of futures, in that the format is BTC-USDT-210625.</p></li>
-<li><p>one of (pair+contract_type) and contract_code must be filled in; and all filled in, the contract_code is the preferred. if just pair filled in, it will cancel all open orders of this pair. if just contract_type, it will cancel all open orders of this contract_type.</p></li>
+<li><p>When both of pair、contract_type and contract_code filled in, the contract_code is the preferred. if just pair filled in, it will cancel all open orders of this pair. if just contract_type, it will cancel all open orders of this contract_type.</p></li>
 <li><p>supports none any parameter, and it will cancel all open orders.</p></li>
 </ul>
 <h3 id='request-parameter-83'>Request Parameter</h3>
@@ -31743,10 +31743,10 @@ transfer currency from sub-account to  master account using client_order_id=1).<
 </ul>
 <h3 id='note-88'>Note</h3>
 <ul>
-<li>This interface only supports cross margin mode.</li>
+<li><p>This interface only supports cross margin mode.</p></li>
 <li><p>The frequency limit of this interface is 5 times per second.</p></li>
 <li><p>The request parameter &quot;contract_code&quot; supports the contract code of futures, in that the format is BTC-USDT-210625.</p></li>
-<li><p>all of (pair+contract_type) and contract_code filled in, the contract_code is the preferred. if just pair filled in, it will cancel all open orders of this pair. if just contract_type, it will cancel all open orders of this contract_type.</p></li>
+<li><p>When both of pair、contract_type and contract_code filled in, the contract_code is the preferred. if just pair filled in, it will cancel all open orders of this pair. if just contract_type, it will cancel all open orders of this contract_type.</p></li>
 <li><p>supports none any parameter, and it will cancel all open orders.</p></li>
 </ul>
 <h3 id='request-parameter-93'>Request Parameter</h3>
@@ -32354,7 +32354,7 @@ transfer currency from sub-account to  master account using client_order_id=1).<
 <td>true</td>
 <td>string</td>
 <td>contract code</td>
-<td>&quot;BTC-USDT&quot; ...</td>
+<td>swap: &quot;BTC-USDT&quot;... , future: &quot;BTC-USDT-210625&quot; ...</td>
 </tr>
 <tr>
 <td>margin_mode</td>
@@ -32892,7 +32892,7 @@ transfer currency from sub-account to  master account using client_order_id=1).<
 </thead><tbody>
 <tr>
 <td>contract_code</td>
-<td>false</td>
+<td>false(more see remarks)</td>
 <td>string</td>
 <td>swap: &quot;BTC-USDT&quot;... , future: &quot;BTC-USDT-210625&quot; ...</td>
 <td></td>
@@ -33732,14 +33732,14 @@ transfer currency from sub-account to  master account using client_order_id=1).<
 </thead><tbody>
 <tr>
 <td>contract_code</td>
-<td>false</td>
+<td>false(more see remarks)</td>
 <td>string</td>
 <td>contract code</td>
 <td>swap: &quot;BTC-USDT&quot;... , future: &quot;BTC-USDT-210625&quot; ...</td>
 </tr>
 <tr>
 <td>pair</td>
-<td>false</td>
+<td>false(more see remarks)</td>
 <td>string</td>
 <td>pair</td>
 <td>BTC-USDT</td>
@@ -34350,7 +34350,7 @@ transfer currency from sub-account to  master account using client_order_id=1).<
 </ul>
 <h4 id='note-97'>Note:</h4>
 <ul>
-<li>The interface only supports cross margin mode.</li>
+<li><p>The interface only supports cross margin mode.</p></li>
 <li><p>The frequency limit of this interface is 5 times per second.</p></li>
 <li><p>The request parameter &quot;contract_code&quot; supports the contract code of futures, in that the format is BTC-USDT-210625.</p></li>
 <li><p>one of (pair+contract_type) and contract_code must be filled in; and all filled in, the contract_code is the preferred.</p></li>
@@ -34367,21 +34367,21 @@ transfer currency from sub-account to  master account using client_order_id=1).<
 </thead><tbody>
 <tr>
 <td>contract_code</td>
-<td>false</td>
+<td>false(more see remarks)</td>
 <td>string</td>
 <td>contract code</td>
 <td>swap: &quot;BTC-USDT&quot;... , future: &quot;BTC-USDT-210625&quot; ...</td>
 </tr>
 <tr>
 <td>pair</td>
-<td>false</td>
+<td>false(more see remarks)</td>
 <td>string</td>
 <td>pair</td>
 <td>BTC-USDT</td>
 </tr>
 <tr>
 <td>contract_type</td>
-<td>false</td>
+<td>false(more see remarks)</td>
 <td>string</td>
 <td>contract type</td>
 <td>swap, this_week, next_week, quarter, next_ quarter</td>
@@ -34645,7 +34645,7 @@ transfer currency from sub-account to  master account using client_order_id=1).<
 </ul>
 <h4 id='note-100'>Note:</h4>
 <ul>
-<li>The interface only supports cross margin mode.</li>
+<li><p>The interface only supports cross margin mode.</p></li>
 <li><p>The frequency limit of this interface is 5 times per second.</p></li>
 <li><p>The request parameter &quot;contract_code&quot; supports the contract code of futures, in that the format is BTC-USDT-210625.</p></li>
 <li><p>one of (pair+contract_type) and contract_code must be filled in; and all filled in, the contract_code is the preferred.</p></li>
@@ -34662,21 +34662,21 @@ transfer currency from sub-account to  master account using client_order_id=1).<
 </thead><tbody>
 <tr>
 <td>contract_code</td>
-<td>false</td>
+<td>false(more see remarks)</td>
 <td>string</td>
 <td>contract code</td>
 <td>swap: &quot;BTC-USDT&quot;... , future: &quot;BTC-USDT-210625&quot; ...</td>
 </tr>
 <tr>
 <td>pair</td>
-<td>false</td>
+<td>false(more see remarks)</td>
 <td>string</td>
 <td>pair</td>
 <td>BTC-USDT</td>
 </tr>
 <tr>
 <td>contract_type</td>
-<td>false</td>
+<td>false(more see remarks)</td>
 <td>string</td>
 <td>contract type</td>
 <td>swap, this_week, next_week, quarter, next_ quarter</td>
@@ -34933,10 +34933,10 @@ transfer currency from sub-account to  master account using client_order_id=1).<
 <ul>
 <li>The interface only supports cross margin mode.</li>
 <li>The frequency limit of this interface is 5 times per second.</li>
-<li><p>You can fill in only one of direction and offset to cancel the orders. (such as direction=buy, all buy orders will be cancelled, including &quot;open&quot; and &quot;close&quot; offset)</p></li>
-<li><p>The request parameter &quot;contract_code&quot; supports the contract code of futures, in that the format is BTC-USDT-210625.</p></li>
-<li><p>one of (pair+contract_type) and contract_code must be filled in; and all filled in, the contract_code is the preferred. if just pair filled in, it will cancel all open orders of this pair. if just contract_type, it will cancel all open orders of this contract_type.</p></li>
-<li><p>supports none any parameter, and it will cancel all open orders.</p></li>
+<li>You can fill in only one of direction and offset to cancel the orders. (such as direction=buy, all buy orders will be cancelled, including &quot;open&quot; and &quot;close&quot; offset)</li>
+<li>The request parameter &quot;contract_code&quot; supports the contract code of futures, in that the format is BTC-USDT-210625.</li>
+<li>When both of pair、contract_type and contract_code filled in, the contract_code is the preferred. if just pair filled in, it will cancel all open orders of this pair. if just contract_type, it will cancel all open orders of this contract_type.</li>
+<li>supports none any parameter, and it will cancel all open orders.</li>
 </ul>
 <h3 id='request-parameter-103'>Request Parameter</h3>
 <table><thead>
@@ -35359,7 +35359,7 @@ transfer currency from sub-account to  master account using client_order_id=1).<
 <td></td>
 </tr>
 </tbody></table>
-<h2 id='cross-current-unfilled-trailing-order-acquisition'>[cross]Current unfilled trailing order acquisition</h2>
+<h2 id='cross-current-unfilled-trailing-order-acquisition'>[Cross]Current unfilled trailing order acquisition</h2>
 <ul>
 <li>POST <code>/linear-swap-api/v1/swap_cross_track_openorders</code></li>
 </ul>
@@ -36071,14 +36071,14 @@ transfer currency from sub-account to  master account using client_order_id=1).<
 </thead><tbody>
 <tr>
 <td>contract_code</td>
-<td>false</td>
+<td>false(more see remarks)</td>
 <td>string</td>
 <td>contract code</td>
 <td>swap: &quot;BTC-USDT&quot;... , future: &quot;BTC-USDT-210625&quot; ...</td>
 </tr>
 <tr>
 <td>pair</td>
-<td>false</td>
+<td>false(more see remarks)</td>
 <td>string</td>
 <td>pair</td>
 <td>BTC-USDT</td>
@@ -41978,7 +41978,7 @@ Details are below:</p></li>
 <td>string</td>
 <td>contract code</td>
 <td></td>
-<td>swap: &quot;BTC-USDT&quot;... , future: &quot;BTC-USDT-210625&quot; ...</td>
+<td>all: * (swap and future), swap: &quot;BTC-USDT&quot;... , future: &quot;BTC-USDT-210625&quot; ...</td>
 </tr>
 </tbody></table>
 
@@ -42089,7 +42089,7 @@ Details are below:</p></li>
 <td>true</td>
 <td>string</td>
 <td>contract code</td>
-<td></td>
+<td>swap: &quot;BTC-USDT&quot;... , future: &quot;BTC-USDT-210625&quot; ...</td>
 </tr>
 <tr>
 <td>margin_mode</td>
@@ -42996,7 +42996,7 @@ Details are below:</p></li>
 <td>string</td>
 <td>contract code</td>
 <td></td>
-<td>swap: &quot;BTC-USDT&quot;... , future: &quot;BTC-USDT-210625&quot; ...</td>
+<td>all: *(swap and future), swap: &quot;BTC-USDT&quot;... , future: &quot;BTC-USDT-210625&quot; ...</td>
 </tr>
 </tbody></table>
 <h4 id='note-128'>Note:</h4>
@@ -43104,7 +43104,7 @@ Details are below:</p></li>
 <td>true</td>
 <td>string</td>
 <td>contract code</td>
-<td></td>
+<td>swap: &quot;BTC-USDT&quot;... , future: &quot;BTC-USDT-210625&quot; ...</td>
 </tr>
 <tr>
 <td>margin_mode</td>
@@ -43962,7 +43962,7 @@ Details are below:</p></li>
 <td>true</td>
 <td>string</td>
 <td>contract code</td>
-<td>&quot;BTC-USDT&quot; ...</td>
+<td>swap: &quot;BTC-USDT&quot;...</td>
 </tr>
 <tr>
 <td>margin_position</td>
@@ -44060,7 +44060,7 @@ Details are below:</p></li>
 <td>true</td>
 <td>string</td>
 <td>contract code</td>
-<td>&quot;BTC-USDT-211231&quot; ...</td>
+<td>future: &quot;BTC-USDT-210625&quot; ...</td>
 </tr>
 <tr>
 <td>margin_position</td>
@@ -44710,7 +44710,7 @@ Details are below:</p></li>
 <td>true</td>
 <td>string</td>
 <td>contract code</td>
-<td></td>
+<td>swap: &quot;BTC-USDT&quot;... , future: &quot;BTC-USDT-210625&quot; ...</td>
 </tr>
 <tr>
 <td>margin_mode</td>
@@ -45578,7 +45578,7 @@ Details are below:</p></li>
 <td>string</td>
 <td>contract code</td>
 <td></td>
-<td>swap: &quot;BTC-USDT&quot;... , future: &quot;BTC-USDT-210625&quot; ...</td>
+<td>all: *(swap and future), swap: &quot;BTC-USDT&quot;... , future: &quot;BTC-USDT-210625&quot; ...</td>
 </tr>
 </tbody></table>
 <h4 id='remarks-120'>Remarks</h4>
@@ -45666,7 +45666,7 @@ Details are below:</p></li>
 <tr>
 <td>contract_code</td>
 <td>string</td>
-<td>contract_code,&quot;BTC-USDT&quot;</td>
+<td>contract_code, swap: &quot;BTC-USDT&quot;... , future: &quot;BTC-USDT-210625&quot; ...</td>
 </tr>
 <tr>
 <td>contract_size</td>
@@ -46463,7 +46463,7 @@ Details are below:</p></li>
 <td>true</td>
 <td>string</td>
 <td>contract code</td>
-<td>&quot;BTC-USDT&quot; ...</td>
+<td>swap: &quot;BTC-USDT&quot;... , future: &quot;BTC-USDT-210625&quot; ...</td>
 </tr>
 <tr>
 <td>margin_mode</td>
@@ -47079,7 +47079,7 @@ Details are below:</p></li>
         //如果是中文环境
         lang_btn.innerHTML = 'English';
         btn_spot.innerHTML = '现货';
-        btn_dm.innerHTML = '交割合约';
+        btn_dm.innerHTML = '币本位交割合约';
         btn_coin_margined_swap.innerHTML = '币本位永续合约';
         btn_usdt_swap.innerHTML = 'U本位合约';
        // btn_option.innerHTML = '期权合约';
