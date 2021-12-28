@@ -6217,7 +6217,7 @@ It will be pushed only when position event is updated.</p>
 <td>contract_code</td>
 <td>string</td>
 <td>false</td>
-<td>Case-insenstive.such as BTC-USDT. ALL contracts by default.</td>
+<td>eg swap: &quot;BTC-USDT&quot;... , future: &quot;BTC-USDT-210625&quot; ...</td>
 </tr>
 <tr>
 <td>pair</td>
@@ -6615,7 +6615,7 @@ It will be pushed only when position event is updated.</p>
 <td>contract_code</td>
 <td>false</td>
 <td>string</td>
-<td>contract code，if not filled in, return all</td>
+<td>contract code or contract type</td>
 <td>swap: &quot;BTC-USDT&quot;... , future: &quot;BTC-USDT-220325&quot; ... or BTC-USDT-CW, BTC-USDT-NW, BTC-USDT-CQ, BTC-USDT-NQ</td>
 </tr>
 <tr>
@@ -6720,7 +6720,7 @@ It will be pushed only when position event is updated.</p>
 <td>contract_code</td>
 <td>true</td>
 <td>string</td>
-<td>contract code</td>
+<td>contract code or contract type</td>
 <td>swap: &quot;BTC-USDT&quot;... , future: &quot;BTC-USDT-220325&quot; ... or BTC-USDT-CW, BTC-USDT-NW, BTC-USDT-CQ, BTC-USDT-NQ</td>
 </tr>
 <tr>
@@ -6798,9 +6798,9 @@ It will be pushed only when position event is updated.</p>
 <td>contract_code</td>
 <td>true</td>
 <td>string</td>
+<td>contract code or contract type</td>
+<td></td>
 <td>swap: &quot;BTC-USDT&quot;... , future: &quot;BTC-USDT-220325&quot; ... or BTC-USDT-CW, BTC-USDT-NW, BTC-USDT-CQ, BTC-USDT-NQ</td>
-<td></td>
-<td></td>
 </tr>
 <tr>
 <td>period</td>
@@ -6991,7 +6991,6 @@ It will be pushed only when position event is updated.</p>
 <th>Mandatory</th>
 <th>Type</th>
 <th>Description</th>
-<th>Default Value</th>
 <th>Value Range</th>
 </tr>
 </thead><tbody>
@@ -6999,8 +6998,7 @@ It will be pushed only when position event is updated.</p>
 <td>contract_code</td>
 <td>true</td>
 <td>string</td>
-<td>contract code</td>
-<td></td>
+<td>contract code or contract type</td>
 <td>swap: &quot;BTC-USDT&quot;... , future: &quot;BTC-USDT-210625&quot; ... or BTC-USDT-CW, BTC-USDT-NW, BTC-USDT-CQ, BTC-USDT-NQ</td>
 </tr>
 <tr>
@@ -7008,7 +7006,6 @@ It will be pushed only when position event is updated.</p>
 <td>true</td>
 <td>string</td>
 <td>period</td>
-<td></td>
 <td>1min, 5min, 15min, 30min, 60min,4hour,1day, 1week,1mon</td>
 </tr>
 <tr>
@@ -7016,7 +7013,6 @@ It will be pushed only when position event is updated.</p>
 <td>true</td>
 <td>int</td>
 <td>size</td>
-<td></td>
 <td>[1,2000]</td>
 </tr>
 </tbody></table>
@@ -7190,7 +7186,6 @@ It will be pushed only when position event is updated.</p>
 <th>Mandatory</th>
 <th>Type</th>
 <th>Desc</th>
-<th>Default</th>
 <th>Value Range</th>
 </tr>
 </thead><tbody>
@@ -7198,9 +7193,8 @@ It will be pushed only when position event is updated.</p>
 <td>contract_code</td>
 <td>true</td>
 <td>string</td>
+<td>contract code or contract type</td>
 <td>swap: &quot;BTC-USDT&quot;... , future: &quot;BTC-USDT-220325&quot; ... or BTC-USDT-CW, BTC-USDT-NW, BTC-USDT-CQ, BTC-USDT-NQ</td>
-<td></td>
-<td></td>
 </tr>
 </tbody></table>
 
@@ -7375,7 +7369,6 @@ It will be pushed only when position event is updated.</p>
 <th>Mandatory</th>
 <th>Type</th>
 <th>Desc</th>
-<th>Default</th>
 <th>Value Range</th>
 </tr>
 </thead><tbody>
@@ -7383,9 +7376,8 @@ It will be pushed only when position event is updated.</p>
 <td>contract_code</td>
 <td>false</td>
 <td>string</td>
+<td>contract code or contract type</td>
 <td>swap: &quot;BTC-USDT&quot;... , future: &quot;BTC-USDT-210625&quot; ... or BTC-USDT-CW, BTC-USDT-NW, BTC-USDT-CQ, BTC-USDT-NQ</td>
-<td>if not filled in means all</td>
-<td></td>
 </tr>
 <tr>
 <td>business_type</td>
@@ -7393,7 +7385,6 @@ It will be pushed only when position event is updated.</p>
 <td>string</td>
 <td>business type, default is swap</td>
 <td>futures, swap, all</td>
-<td></td>
 </tr>
 </tbody></table>
 <h4 id='note-7'>Note</h4>
@@ -7463,7 +7454,7 @@ It will be pushed only when position event is updated.</p>
 <td>contract_code</td>
 <td>true</td>
 <td>string</td>
-<td>contract code</td>
+<td>contract code or contract type</td>
 <td>swap: &quot;BTC-USDT&quot;... , future: &quot;BTC-USDT-210625&quot; ... or BTC-USDT-CW, BTC-USDT-NW, BTC-USDT-CQ, BTC-USDT-NQ</td>
 </tr>
 <tr>
@@ -7596,7 +7587,7 @@ It will be pushed only when position event is updated.</p>
 <td>contract_code</td>
 <td>false</td>
 <td>string</td>
-<td>swap: &quot;BTC-USDT&quot;... , future: &quot;BTC-USDT-210625&quot; ... or BTC-USDT-CW, BTC-USDT-NW, BTC-USDT-CQ, BTC-USDT-NQ</td>
+<td>contract code or contract type, swap: &quot;BTC-USDT&quot;... , future: &quot;BTC-USDT-210625&quot; ... or BTC-USDT-CW, BTC-USDT-NW, BTC-USDT-CQ, BTC-USDT-NQ</td>
 </tr>
 <tr>
 <td>business_type</td>
@@ -7640,7 +7631,6 @@ It will be pushed only when position event is updated.</p>
 <th>Mandatory</th>
 <th>Type</th>
 <th>Desc</th>
-<th>Default</th>
 <th>Value Range</th>
 </tr>
 </thead><tbody>
@@ -7650,13 +7640,11 @@ It will be pushed only when position event is updated.</p>
 <td>string</td>
 <td>Data belonged channel，Format： market.$contract_code.trade.detail</td>
 <td></td>
-<td></td>
 </tr>
 <tr>
 <td>status</td>
 <td>true</td>
 <td>string</td>
-<td></td>
 <td></td>
 <td>&quot;ok&quot;,&quot;error&quot;</td>
 </tr>
@@ -7666,11 +7654,9 @@ It will be pushed only when position event is updated.</p>
 <td>long</td>
 <td>Sending time</td>
 <td></td>
-<td></td>
 </tr>
 <tr>
 <td>&lt;tick&gt;</td>
-<td></td>
 <td></td>
 <td></td>
 <td></td>
@@ -7682,7 +7668,6 @@ It will be pushed only when position event is updated.</p>
 <td>long</td>
 <td>Unique Order Id(symbol level).</td>
 <td></td>
-<td></td>
 </tr>
 <tr>
 <td>ts</td>
@@ -7690,11 +7675,9 @@ It will be pushed only when position event is updated.</p>
 <td>long</td>
 <td>Latest Creation Time</td>
 <td></td>
-<td></td>
 </tr>
 <tr>
 <td>&lt;data&gt;</td>
-<td></td>
 <td></td>
 <td></td>
 <td></td>
@@ -7706,14 +7689,12 @@ It will be pushed only when position event is updated.</p>
 <td>long</td>
 <td>Unique Transaction Id(symbol level)</td>
 <td></td>
-<td></td>
 </tr>
 <tr>
 <td>price</td>
 <td>true</td>
 <td>string</td>
 <td>Price</td>
-<td></td>
 <td></td>
 </tr>
 <tr>
@@ -7722,14 +7703,12 @@ It will be pushed only when position event is updated.</p>
 <td>string</td>
 <td>Quantity(Cont.). Sum of both buy and sell sides</td>
 <td></td>
-<td></td>
 </tr>
 <tr>
 <td>direction</td>
 <td>true</td>
 <td>string</td>
 <td>The direction to buy or sell is the direction of the taker (active transaction)</td>
-<td></td>
 <td></td>
 </tr>
 <tr>
@@ -7738,7 +7717,6 @@ It will be pushed only when position event is updated.</p>
 <td>long</td>
 <td>Order Creation Time</td>
 <td></td>
-<td></td>
 </tr>
 <tr>
 <td>quantity</td>
@@ -7746,15 +7724,13 @@ It will be pushed only when position event is updated.</p>
 <td>string</td>
 <td>trading quantity(coin)</td>
 <td></td>
-<td></td>
 </tr>
 <tr>
 <td>contract_code</td>
 <td>true</td>
 <td>string</td>
-<td>Contract Code</td>
+<td>Contract Code or Contract type</td>
 <td>swap: &quot;BTC-USDT&quot;... , future: &quot;BTC-USDT-210625&quot; ... or BTC-USDT-CW, BTC-USDT-NW, BTC-USDT-CQ, BTC-USDT-NQ</td>
-<td></td>
 </tr>
 <tr>
 <td>business_type</td>
@@ -7762,14 +7738,12 @@ It will be pushed only when position event is updated.</p>
 <td>string</td>
 <td>business type</td>
 <td>futures, swap</td>
-<td></td>
 </tr>
 <tr>
 <td>trade_turnover</td>
 <td>true</td>
 <td>string</td>
 <td>trade turnover(quoted currency)</td>
-<td></td>
 <td></td>
 </tr>
 <tr>
@@ -7778,11 +7752,9 @@ It will be pushed only when position event is updated.</p>
 <td></td>
 <td></td>
 <td></td>
-<td></td>
 </tr>
 <tr>
 <td>&lt;/tick&gt;</td>
-<td></td>
 <td></td>
 <td></td>
 <td></td>
@@ -7806,7 +7778,6 @@ It will be pushed only when position event is updated.</p>
 <th>Mandatory</th>
 <th>Data Type</th>
 <th>Desc</th>
-<th>Default</th>
 <th>Value Range</th>
 </tr>
 </thead><tbody>
@@ -7814,16 +7785,14 @@ It will be pushed only when position event is updated.</p>
 <td>contract_code</td>
 <td>true</td>
 <td>string</td>
+<td>contract code or contract type</td>
 <td>swap: &quot;BTC-USDT&quot;... , future: &quot;BTC-USDT-210625&quot; ... or BTC-USDT-CW, BTC-USDT-NW, BTC-USDT-CQ, BTC-USDT-NQ</td>
-<td></td>
-<td></td>
 </tr>
 <tr>
 <td>size</td>
 <td>true</td>
 <td>int</td>
 <td>Number of Trading Records Acquisition</td>
-<td>1</td>
 <td>[1, 2000]</td>
 </tr>
 </tbody></table>
@@ -8013,7 +7982,7 @@ It will be pushed only when position event is updated.</p>
 </tr>
 <tr>
 <td>business_type</td>
-<td>false(more see remarks)</td>
+<td>false</td>
 <td>string</td>
 <td>business type, default is swap</td>
 <td>futures, swap, all</td>
@@ -8171,7 +8140,7 @@ It will be pushed only when position event is updated.</p>
 <td>false</td>
 <td>int</td>
 <td>page size.100 by default. 100 at most</td>
-<td>100</td>
+<td>[1-100]</td>
 </tr>
 </tbody></table>
 
@@ -8794,8 +8763,8 @@ It will be pushed only when position event is updated.</p>
 <td>contract_code</td>
 <td>false(more see remarks)</td>
 <td>string</td>
+<td>contract_code</td>
 <td>swap: &quot;BTC-USDT&quot;... , future: &quot;BTC-USDT-210625&quot; ...</td>
-<td></td>
 </tr>
 <tr>
 <td>pair</td>
@@ -10374,7 +10343,6 @@ It will be pushed only when position event is updated.</p>
 <th>Mandatory</th>
 <th>Type</th>
 <th>Desc</th>
-<th>Default</th>
 <th>Value Range</th>
 </tr>
 </thead><tbody>
@@ -10383,7 +10351,6 @@ It will be pushed only when position event is updated.</p>
 <td>false(more see remarks)</td>
 <td>string</td>
 <td>contract code</td>
-<td></td>
 <td>Case-Insenstive.e.g. swap: &quot;BTC-USDT&quot;... , future: &quot;BTC-USDT-210625&quot; ...</td>
 </tr>
 <tr>
@@ -10391,7 +10358,6 @@ It will be pushed only when position event is updated.</p>
 <td>false(more see remarks)</td>
 <td>string</td>
 <td>pair</td>
-<td></td>
 <td>BTC-USDT</td>
 </tr>
 <tr>
@@ -10399,7 +10365,6 @@ It will be pushed only when position event is updated.</p>
 <td>true</td>
 <td>int</td>
 <td>trading types</td>
-<td></td>
 <td>when “0”, request fully filled liquidated orders; when “5’, request liquidated close orders; when “6”, request liquidated open orders</td>
 </tr>
 <tr>
@@ -10407,7 +10372,6 @@ It will be pushed only when position event is updated.</p>
 <td>true</td>
 <td>int</td>
 <td>date</td>
-<td></td>
 <td>7，90（ 7 days or 90 days）</td>
 </tr>
 <tr>
@@ -10416,14 +10380,12 @@ It will be pushed only when position event is updated.</p>
 <td>int</td>
 <td>page, system sets page 1 by default without further instruction</td>
 <td></td>
-<td></td>
 </tr>
 <tr>
 <td>page_size</td>
 <td>false</td>
 <td>int</td>
 <td>system sets page 20 by default without further instruction. Max page size is 50.</td>
-<td></td>
 <td></td>
 </tr>
 </tbody></table>
@@ -11135,14 +11097,14 @@ It will be pushed only when position event is updated.</p>
 <td>false</td>
 <td>int</td>
 <td>page index. 1 by default</td>
-<td>1</td>
+<td></td>
 </tr>
 <tr>
 <td>page_size</td>
 <td>false</td>
 <td>int</td>
 <td>page size.20 by default. 50 at most</td>
-<td>20</td>
+<td>[1-50]</td>
 </tr>
 </tbody></table>
 
@@ -11220,7 +11182,7 @@ It will be pushed only when position event is updated.</p>
 <td>fee_asset</td>
 <td>string</td>
 <td>fee asset</td>
-<td>eg:&quot;BTC&quot;,&quot;ETH&quot;...</td>
+<td>eg:&quot;USDT&quot;</td>
 </tr>
 <tr>
 <td>funding_time</td>
@@ -11293,7 +11255,6 @@ It will be pushed only when position event is updated.</p>
 <th><strong>Mandatory</strong></th>
 <th><strong>Type</strong></th>
 <th><strong>Desc</strong></th>
-<th><strong>Default</strong></th>
 <th><strong>Value Range</strong></th>
 </tr>
 </thead><tbody>
@@ -11302,7 +11263,6 @@ It will be pushed only when position event is updated.</p>
 <td>true</td>
 <td>string</td>
 <td>contract code</td>
-<td></td>
 <td>Case-Insenstive.Both uppercase and lowercase are supported.e.g. &quot;BTC-USDT&quot;,&quot;ETH-USDT&quot;.</td>
 </tr>
 <tr>
@@ -11310,7 +11270,6 @@ It will be pushed only when position event is updated.</p>
 <td>true</td>
 <td>string</td>
 <td>kline period</td>
-<td></td>
 <td>1min,5min, 15min, 30min, 60min,4hour,1day,1week,1mon</td>
 </tr>
 <tr>
@@ -11318,7 +11277,6 @@ It will be pushed only when position event is updated.</p>
 <td>true</td>
 <td>int</td>
 <td>kline size</td>
-<td></td>
 <td>[1,2000]</td>
 </tr>
 </tbody></table>
@@ -11353,7 +11311,6 @@ It will be pushed only when position event is updated.</p>
 <th><strong>Mandatory</strong></th>
 <th><strong>Type</strong></th>
 <th><strong>Desc</strong></th>
-<th><strong>Default</strong></th>
 <th><strong>Value Range</strong></th>
 </tr>
 </thead><tbody>
@@ -11362,7 +11319,6 @@ It will be pushed only when position event is updated.</p>
 <td>true</td>
 <td>string</td>
 <td>data channel</td>
-<td></td>
 <td>eg： market.period</td>
 </tr>
 <tr>
@@ -11371,14 +11327,12 @@ It will be pushed only when position event is updated.</p>
 <td></td>
 <td>object</td>
 <td></td>
-<td></td>
 </tr>
 <tr>
 <td>id</td>
 <td>true</td>
 <td>long</td>
 <td>index kline id,the same as kline timestamp, kline start timestamp</td>
-<td></td>
 <td></td>
 </tr>
 <tr>
@@ -11387,14 +11341,12 @@ It will be pushed only when position event is updated.</p>
 <td>string</td>
 <td>Trade Volume(Cont.) The value is 0</td>
 <td></td>
-<td></td>
 </tr>
 <tr>
 <td>count</td>
 <td>true</td>
 <td>string</td>
 <td>Order Quantity The value is 0</td>
-<td></td>
 <td></td>
 </tr>
 <tr>
@@ -11403,14 +11355,12 @@ It will be pushed only when position event is updated.</p>
 <td>string</td>
 <td>Opening Price</td>
 <td></td>
-<td></td>
 </tr>
 <tr>
 <td>close</td>
 <td>true</td>
 <td>string</td>
 <td>Closing Price,  the price in the last kline is the latest order price</td>
-<td></td>
 <td></td>
 </tr>
 <tr>
@@ -11419,14 +11369,12 @@ It will be pushed only when position event is updated.</p>
 <td>string</td>
 <td>Lowest Price</td>
 <td></td>
-<td></td>
 </tr>
 <tr>
 <td>high</td>
 <td>true</td>
 <td>string</td>
 <td>Highest Price</td>
-<td></td>
 <td></td>
 </tr>
 <tr>
@@ -11435,7 +11383,6 @@ It will be pushed only when position event is updated.</p>
 <td>string</td>
 <td>Trade Amount(Coin), The value is 0. )</td>
 <td></td>
-<td></td>
 </tr>
 <tr>
 <td>trade_turnover</td>
@@ -11443,11 +11390,9 @@ It will be pushed only when position event is updated.</p>
 <td>string</td>
 <td>Transaction amount, the value is 0.</td>
 <td></td>
-<td></td>
 </tr>
 <tr>
 <td>&lt;/data&gt;</td>
-<td></td>
 <td></td>
 <td></td>
 <td></td>
@@ -11458,16 +11403,14 @@ It will be pushed only when position event is updated.</p>
 <td>true</td>
 <td>string</td>
 <td>process status</td>
-<td></td>
 <td>&quot;ok&quot; , &quot;error&quot;</td>
 </tr>
 <tr>
 <td>ts</td>
 <td>true</td>
 <td>long</td>
-<td>timestamp of the response of the server</td>
+<td>timestamp of the response of the server, unit：millionseconds</td>
 <td></td>
-<td>unit：millionseconds</td>
 </tr>
 </tbody></table>
 <h2 id='general-query-estimated-funding-rate-kline-data'>[General] Query Estimated Funding Rate Kline Data</h2><h3 id='example-11'>example</h3>
@@ -11545,7 +11488,6 @@ It will be pushed only when position event is updated.</p>
 <th><strong>Mandatory</strong></th>
 <th><strong>Type</strong></th>
 <th><strong>Desc</strong></th>
-<th><strong>Default</strong></th>
 <th><strong>Value Range</strong></th>
 </tr>
 </thead><tbody>
@@ -11554,7 +11496,6 @@ It will be pushed only when position event is updated.</p>
 <td>true</td>
 <td>string</td>
 <td>data channel</td>
-<td></td>
 <td>eg： market.period</td>
 </tr>
 <tr>
@@ -11563,14 +11504,12 @@ It will be pushed only when position event is updated.</p>
 <td></td>
 <td>object</td>
 <td></td>
-<td></td>
 </tr>
 <tr>
 <td>id</td>
 <td>true</td>
 <td>long</td>
 <td>kline ID</td>
-<td></td>
 <td></td>
 </tr>
 <tr>
@@ -11579,14 +11518,12 @@ It will be pushed only when position event is updated.</p>
 <td>string</td>
 <td>Trade Volume(Cont.) The value is 0</td>
 <td></td>
-<td></td>
 </tr>
 <tr>
 <td>count</td>
 <td>true</td>
 <td>string</td>
 <td>Order Quantity The value is 0</td>
-<td></td>
 <td></td>
 </tr>
 <tr>
@@ -11595,14 +11532,12 @@ It will be pushed only when position event is updated.</p>
 <td>string</td>
 <td>Opening Price</td>
 <td></td>
-<td></td>
 </tr>
 <tr>
 <td>close</td>
 <td>true</td>
 <td>string</td>
 <td>Closing Price,  the price in the last kline is the latest order price</td>
-<td></td>
 <td></td>
 </tr>
 <tr>
@@ -11611,14 +11546,12 @@ It will be pushed only when position event is updated.</p>
 <td>string</td>
 <td>Lowest Price</td>
 <td></td>
-<td></td>
 </tr>
 <tr>
 <td>high</td>
 <td>true</td>
 <td>string</td>
 <td>Highest Price</td>
-<td></td>
 <td></td>
 </tr>
 <tr>
@@ -11627,7 +11560,6 @@ It will be pushed only when position event is updated.</p>
 <td>string</td>
 <td>Trade Amount(Coin), The value is 0. )</td>
 <td></td>
-<td></td>
 </tr>
 <tr>
 <td>trade_turnover</td>
@@ -11635,11 +11567,9 @@ It will be pushed only when position event is updated.</p>
 <td>string</td>
 <td>Transaction amount, the value is 0.</td>
 <td></td>
-<td></td>
 </tr>
 <tr>
 <td>&lt;/data&gt;</td>
-<td></td>
 <td></td>
 <td></td>
 <td></td>
@@ -11650,7 +11580,6 @@ It will be pushed only when position event is updated.</p>
 <td>true</td>
 <td>string</td>
 <td>process status</td>
-<td></td>
 <td>&quot;ok&quot; , &quot;error&quot;</td>
 </tr>
 <tr>
@@ -11658,7 +11587,6 @@ It will be pushed only when position event is updated.</p>
 <td>true</td>
 <td>long</td>
 <td>timestamp of the response of the server</td>
-<td></td>
 <td>unit：millionseconds</td>
 </tr>
 </tbody></table>
@@ -11687,7 +11615,7 @@ It will be pushed only when position event is updated.</p>
 <td>contract_code</td>
 <td>true</td>
 <td>string</td>
-<td>contract code name</td>
+<td>contract code or contract type</td>
 <td></td>
 <td>swap: &quot;BTC-USDT&quot;... , future: &quot;BTC-USDT-210625&quot; ... or BTC-USDT-CW, BTC-USDT-NW, BTC-USDT-CQ, BTC-USDT-NQ</td>
 </tr>
@@ -12523,7 +12451,7 @@ It will be pushed only when position event is updated.</p>
 <tr>
 <td>&lt;contract_detail&gt;</td>
 <td>true</td>
-<td>object array       ｜</td>
+<td>object array</td>
 <td></td>
 <td></td>
 </tr>
@@ -12621,7 +12549,7 @@ It will be pushed only when position event is updated.</p>
 <tr>
 <td>&lt;futures_contract_detail&gt;</td>
 <td>true</td>
-<td>object array       ｜</td>
+<td>object array</td>
 <td></td>
 <td></td>
 </tr>
@@ -12949,7 +12877,7 @@ It will be pushed only when position event is updated.</p>
 <ul>
 <li><p>The interface only supports cross margin mode.</p></li>
 <li><p>The request parameter &quot;contract_code&quot; supports the contract code of futures, in that the format is BTC-USDT-211225.</p></li>
-<li><p>one of (pair+contract_type) and contract_code must be filled in; when all filled in, the contract_code is the preferred; when no one filled in, return all contract type&#39;s data(swap and futures)</p></li>
+<li><p>When both of pair、contract_type and contract_code filled in, the contract_code is the preferred. when no one filled in, return all contract type&#39;s data(swap and futures)</p></li>
 </ul>
 <h3 id='request-parameter-33'>Request Parameter</h3>
 <table><thead>
@@ -15979,7 +15907,7 @@ It will be pushed only when position event is updated.</p>
 <ul>
 <li><p>The interface only supports cross margin mode.</p></li>
 <li><p>The request parameter &quot;contract_code&quot; supports the contract code of futures, in that the format is BTC-USDT-211225.</p></li>
-<li><p>one of (pair+contract_type) and contract_code must be filled in; when all filled in, the contract_code is the preferred; when no one filled in, return all contract type&#39;s data(swap and futures)</p></li>
+<li><p>When both of pair、contract_type and contract_code filled in, the contract_code is the preferred. when no one filled in, return all contract type&#39;s data(swap and futures)</p></li>
 </ul>
 <h3 id='request-parameter-40'>Request Parameter</h3>
 <table><thead>
@@ -17636,7 +17564,7 @@ It will be pushed only when position event is updated.</p>
 <td>false</td>
 <td>string</td>
 <td>Contract code, if not filled in, the actual available leverage of all contracts will be returned by default</td>
-<td>“BTC-USDT”。。。</td>
+<td>“BTC-USDT”...</td>
 </tr>
 </tbody></table>
 <h3 id='returning-parameter-44'>Returning Parameter：</h3>
@@ -19620,7 +19548,7 @@ transfer currency from sub-account to  master account using client_order_id=1).<
 <td>transfer_type</td>
 <td>false</td>
 <td>string</td>
-<td>All by default【multiple types need to be joined with &#39;;&#39;】</td>
+<td>All by default(multiple types need to be joined with &#39;,&#39;)</td>
 <td>34:transfer to sub account 35:transfer from sub account</td>
 </tr>
 <tr>
@@ -19635,14 +19563,14 @@ transfer currency from sub-account to  master account using client_order_id=1).<
 <td>false</td>
 <td>int</td>
 <td>1 by default</td>
-<td>1</td>
+<td></td>
 </tr>
 <tr>
 <td>page_size</td>
 <td>false</td>
 <td>int</td>
 <td>20 by default.less than or equal to 50.</td>
-<td>20</td>
+<td>[1-50]</td>
 </tr>
 </tbody></table>
 
@@ -21746,8 +21674,7 @@ transfer currency from sub-account to  master account using client_order_id=1).<
 <ul>
 <li><p>The interface only supports cross margin mode.</p></li>
 <li><p>The request parameter &quot;contract_code&quot; supports the contract code of futures, in that the format is BTC-USDT-210625.</p></li>
-<li><p>When both of pair、contract_type and contract_code filled in, the contract_code is the preferred. if just pair filled in, it will cancel all open orders of this pair. if just contract_type, it will cancel all open orders of this contract_type.</p></li>
-<li><p>supports none any parameter, and it will cancel all open orders.</p></li>
+<li><p>one of (pair+contract_type) and contract_code must be filled in(if all of them not filled in, will get 1014 error code); and all filled in, the contract_code is the preferred.</p></li>
 </ul>
 <h3 id='request-parameter-62'>Request Parameter</h3>
 <table><thead>
@@ -21761,21 +21688,21 @@ transfer currency from sub-account to  master account using client_order_id=1).<
 </thead><tbody>
 <tr>
 <td>contract_code</td>
-<td>false</td>
+<td>false(more see remarks)</td>
 <td>string</td>
 <td>contract code</td>
 <td>swap: &quot;BTC-USDT&quot;... , future: &quot;BTC-USDT-210625&quot; ...</td>
 </tr>
 <tr>
 <td>pair</td>
-<td>false</td>
+<td>false(more see remarks)</td>
 <td>string</td>
 <td>pair</td>
 <td>BTC-USDT</td>
 </tr>
 <tr>
 <td>contract_type</td>
-<td>false</td>
+<td>false(more see remarks)</td>
 <td>string</td>
 <td>contract type</td>
 <td>swap, this_week, next_week, quarter, next_ quarter</td>
@@ -22521,7 +22448,7 @@ transfer currency from sub-account to  master account using client_order_id=1).<
 
 <p>At least one of order_id and client_order_id must be filled in</p>
 
-<p>Both order_id and client_order_id can be used for order withdrawl，one of them needed at one time，if both of them are set，the default will be order id. The order completed( 5.partially fulfilled but cancelled by client; 6. Fully fulfilled; 7. Cancelled; ) will be deleted after the settlement of funding rate on 04:00(GMT+8), 12:00(GMT+8) and 20:00(GMT+8).</p>
+<p>Both order_id and client_order_id can be used for order withdrawl，one of them needed at one time，if both of them are set，the default will be order id. The order completed( 5.partially fulfilled but cancelled by client; 6. Fully fulfilled; 7. Cancelled; ) will be deleted after the settlement of funding rate on 00:00(GMT+8), 08:00(GMT+8) and 16:00(GMT+8).</p>
 
 <p>client_order_id，order status query is available for orders placed within 8 hours; Otherwise, clients cannot check orders placed beyond 8 hours.</p>
 
@@ -22866,7 +22793,7 @@ transfer currency from sub-account to  master account using client_order_id=1).<
 <h4 id='note-51'>Note：</h4>
 <ul>
 <li><p>When getting information on order cancellation via get order Information interface, users can only query last 2-hour data</p></li>
-<li><p>Both order_id and client_order_id can be used for order withdrawl，one of them needed at one time，if both of them are set，the default will be order id. The order completed( 5.partially fulfilled but cancelled by client; 6. Fully fulfilled; 7. Cancelled; ) will be deleted after the settlement of funding rate on 04:00(GMT+8), 12:00(GMT+8) and 20:00(GMT+8).</p></li>
+<li><p>Both order_id and client_order_id can be used for order withdrawl，one of them needed at one time，if both of them are set，the default will be order id. The order completed( 5.partially fulfilled but cancelled by client; 6. Fully fulfilled; 7. Cancelled; ) will be deleted after the settlement of funding rate on 00:00(GMT+8), 08:00(GMT+8) and 16:00(GMT+8).</p></li>
 <li><p>client_order_id，order status query is available for orders placed within 8 hours; Otherwise, clients cannot check orders placed beyond 8 hours.</p></li>
 </ul>
 
@@ -23241,8 +23168,6 @@ transfer currency from sub-account to  master account using client_order_id=1).<
 <p>The return order_id is 18 bits, it will make  mistake when nodejs and JavaScript analysed 18 bits. Because the Json.parse in nodejs and JavaScript is int by default. so the number over 18 bits need be parsed by jaso-bigint package.</p>
 
 <p>created_at should use timestamp of long type as 13 bits (include Millisecond), if send the accurate timestamp for &quot;created_at&quot;, query performance will be improved.</p>
-
-<p>eg. the timestamp &quot;2019/10/18 10:26:22&quot; can be changed：1571365582123.It can also directly obtain the timestamp（ts) from the returned ordering interface(swap_order) to query the corresponding orders.</p>
 
 <p>Please note that created_at can&#39;t be &quot;0&quot;</p>
 
@@ -23755,8 +23680,6 @@ transfer currency from sub-account to  master account using client_order_id=1).<
 <p>The return order_id is 18 bits, it will make  mistake when nodejs and JavaScript analysed 18 bits. Because the Json.parse in nodejs and JavaScript is int by default. so the number over 18 bits need be parsed by jaso-bigint package.</p>
 
 <p>created_at should use timestamp of long type as 13 bits (include Millisecond), if send the accurate timestamp for &quot;created_at&quot;, query performance will be improved.</p>
-
-<p>eg. the timestamp &quot;2019/10/18 10:26:22&quot; can be changed：1571365582123.It can also directly obtain the timestamp（ts) from the returned ordering interface(swap_order) to query the corresponding orders.</p>
 
 <p>Please note that created_at can&#39;t be &quot;0&quot;</p>
 
@@ -24623,7 +24546,7 @@ transfer currency from sub-account to  master account using client_order_id=1).<
 <ul>
 <li><p>The interface only supports cross margin mode.</p></li>
 <li><p>The request parameter &quot;contract_code&quot; supports the contract code of futures, in that the format is BTC-USDT-210625.</p></li>
-<li><p>one of pair and contract_code must be filled in; and all filled in, the contract_code is the preferred. supports none any parameter filled in, it means all contract code in cross mode.</p></li>
+<li><p>When both of (pair, contract_type) and contract_code filled in, the contract_code is the preferred.  supports none any parameter filled in, it means all contract code in cross mode.</p></li>
 </ul>
 <h3 id='request-parameter-72'>Request Parameter</h3>
 <table><thead>
@@ -29269,8 +29192,7 @@ transfer currency from sub-account to  master account using client_order_id=1).<
 <li><p>The interface only supports cross margin mode.</p></li>
 <li><p>The frequency limit of this interface is 5 times per second.</p></li>
 <li><p>The request parameter &quot;contract_code&quot; supports the contract code of futures, in that the format is BTC-USDT-210625.</p></li>
-<li><p>When both of pair、contract_type and contract_code filled in, the contract_code is the preferred. if just pair filled in, it will cancel all open orders of this pair. if just contract_type, it will cancel all open orders of this contract_type.</p></li>
-<li><p>supports none any parameter, and it will cancel all open orders.</p></li>
+<li><p>one of (pair+contract_type) and contract_code must be filled in(if all of them not filled in, will get 1014 error code); and all filled in, the contract_code is the preferred.</p></li>
 </ul>
 <h3 id='request-parameter-83'>Request Parameter</h3>
 <table><thead>
@@ -29284,21 +29206,21 @@ transfer currency from sub-account to  master account using client_order_id=1).<
 </thead><tbody>
 <tr>
 <td>contract_code</td>
-<td>false</td>
+<td>false(more see remarks)</td>
 <td>string</td>
 <td>contract code</td>
 <td>swap: &quot;BTC-USDT&quot;... , future: &quot;BTC-USDT-210625&quot; ...</td>
 </tr>
 <tr>
 <td>pair</td>
-<td>false</td>
+<td>false(more see remarks)</td>
 <td>string</td>
 <td>pair</td>
 <td>BTC-USDT</td>
 </tr>
 <tr>
 <td>contract_type</td>
-<td>false</td>
+<td>false(more see remarks)</td>
 <td>string</td>
 <td>contract type</td>
 <td>swap, this_week, next_week, quarter, next_ quarter</td>
@@ -30442,14 +30364,14 @@ transfer currency from sub-account to  master account using client_order_id=1).<
 </thead><tbody>
 <tr>
 <td>contract_code</td>
-<td>false</td>
+<td>false(more see remarks)</td>
 <td>string</td>
 <td>contract code</td>
 <td>swap: &quot;BTC-USDT&quot;... , future: &quot;BTC-USDT-210625&quot; ...</td>
 </tr>
 <tr>
 <td>pair</td>
-<td>false</td>
+<td>false(more see remarks)</td>
 <td>string</td>
 <td>pair</td>
 <td>BTC-USDT</td>
@@ -30686,10 +30608,10 @@ transfer currency from sub-account to  master account using client_order_id=1).<
 <td></td>
 </tr>
 <tr>
-<td><strong>relation_order_id</strong></td>
+<td>relation_order_id</td>
 <td>true</td>
 <td>string</td>
-<td><strong>relation order ID is the string related to the limit orders The value is -1 before the trigger orders executed</strong></td>
+<td>relation order ID is the string related to the limit orders The value is -1 before the trigger orders executed</td>
 <td></td>
 </tr>
 <tr>
@@ -31076,9 +30998,9 @@ transfer currency from sub-account to  master account using client_order_id=1).<
 <li>All take-profit and stop-loss orders are position closing orders.</li>
 <li>This interface only supports isolated margin mode.</li>
 <li>The frequency limit of this interface is 5 times per second.</li>
-<li><p>Fill in at least one of the take-profit trigger price(tp_trigger_price) and stop-loss trigger price(sl_trigger_price). If all the trigger price is not filled in, this type of take-profit and stop-loss order will not be placed.</p></li>
-<li><p>The request parameter &quot;contract_code&quot; supports the contract code of futures, in that the format is BTC-USDT-210625.</p></li>
-<li><p>one of (pair+contract_type) and contract_code must be filled in(if all of them not filled in, will get 1014 error code); and all filled in, the contract_code is the preferred.</p></li>
+<li>Fill in at least one of the take-profit trigger price(tp_trigger_price) and stop-loss trigger price(sl_trigger_price). If all the trigger price is not filled in, this type of take-profit and stop-loss order will not be placed.</li>
+<li>The request parameter &quot;contract_code&quot; supports the contract code of futures, in that the format is BTC-USDT-210625.</li>
+<li>one of (pair+contract_type) and contract_code must be filled in(if all of them not filled in, will get 1014 error code); and all filled in, the contract_code is the preferred.</li>
 </ul>
 
 <blockquote>
@@ -31746,8 +31668,7 @@ transfer currency from sub-account to  master account using client_order_id=1).<
 <li><p>This interface only supports cross margin mode.</p></li>
 <li><p>The frequency limit of this interface is 5 times per second.</p></li>
 <li><p>The request parameter &quot;contract_code&quot; supports the contract code of futures, in that the format is BTC-USDT-210625.</p></li>
-<li><p>When both of pair、contract_type and contract_code filled in, the contract_code is the preferred. if just pair filled in, it will cancel all open orders of this pair. if just contract_type, it will cancel all open orders of this contract_type.</p></li>
-<li><p>supports none any parameter, and it will cancel all open orders.</p></li>
+<li><p>one of (pair+contract_type) and contract_code must be filled in(if all of them not filled in, will get 1014 error code); and all filled in, the contract_code is the preferred.</p></li>
 </ul>
 <h3 id='request-parameter-93'>Request Parameter</h3>
 <table><thead>
@@ -31761,21 +31682,21 @@ transfer currency from sub-account to  master account using client_order_id=1).<
 </thead><tbody>
 <tr>
 <td>contract_code</td>
-<td>false</td>
+<td>false(more see remarks)</td>
 <td>string</td>
 <td>contract code</td>
 <td>swap: &quot;BTC-USDT&quot;... , future: &quot;BTC-USDT-210625&quot; ...</td>
 </tr>
 <tr>
 <td>pair</td>
-<td>false</td>
+<td>false(more see remarks)</td>
 <td>string</td>
 <td>pair</td>
 <td>BTC-USDT</td>
 </tr>
 <tr>
 <td>contract_type</td>
-<td>false</td>
+<td>false(more see remarks)</td>
 <td>string</td>
 <td>contract type</td>
 <td>swap, this_week, next_week, quarter, next_ quarter</td>
@@ -34935,8 +34856,7 @@ transfer currency from sub-account to  master account using client_order_id=1).<
 <li>The frequency limit of this interface is 5 times per second.</li>
 <li>You can fill in only one of direction and offset to cancel the orders. (such as direction=buy, all buy orders will be cancelled, including &quot;open&quot; and &quot;close&quot; offset)</li>
 <li>The request parameter &quot;contract_code&quot; supports the contract code of futures, in that the format is BTC-USDT-210625.</li>
-<li>When both of pair、contract_type and contract_code filled in, the contract_code is the preferred. if just pair filled in, it will cancel all open orders of this pair. if just contract_type, it will cancel all open orders of this contract_type.</li>
-<li>supports none any parameter, and it will cancel all open orders.</li>
+<li>one of (pair+contract_type) and contract_code must be filled in(if all of them not filled in, will get 1014 error code); and all filled in, the contract_code is the preferred.</li>
 </ul>
 <h3 id='request-parameter-103'>Request Parameter</h3>
 <table><thead>
@@ -34950,21 +34870,21 @@ transfer currency from sub-account to  master account using client_order_id=1).<
 </thead><tbody>
 <tr>
 <td>contract_code</td>
-<td>false</td>
+<td>false(more see remarks)</td>
 <td>string</td>
 <td>contract code</td>
 <td>swap: &quot;BTC-USDT&quot;... , future: &quot;BTC-USDT-210625&quot; ...</td>
 </tr>
 <tr>
 <td>pair</td>
-<td>false</td>
+<td>false(more see remarks)</td>
 <td>string</td>
 <td>pair</td>
 <td>BTC-USDT</td>
 </tr>
 <tr>
 <td>contract_type</td>
-<td>false</td>
+<td>false(more see remarks)</td>
 <td>string</td>
 <td>contract type</td>
 <td>swap, this_week, next_week, quarter, next_ quarter</td>
@@ -37653,7 +37573,6 @@ transfer currency from sub-account to  master account using client_order_id=1).<
 <th>Mandatory</th>
 <th>Type</th>
 <th>Description</th>
-<th>Default</th>
 <th>Value Range</th>
 </tr>
 </thead><tbody>
@@ -37661,8 +37580,7 @@ transfer currency from sub-account to  master account using client_order_id=1).<
 <td>contract_code</td>
 <td>true</td>
 <td>string</td>
-<td>swap code</td>
-<td></td>
+<td>contract code or contract type</td>
 <td>swap: &quot;BTC-USDT&quot;... , future: &quot;BTC-USDT-210625&quot; ... or BTC-USDT-CW, BTC-USDT-NW, BTC-USDT-CQ, BTC-USDT-NQ</td>
 </tr>
 <tr>
@@ -37670,7 +37588,6 @@ transfer currency from sub-account to  master account using client_order_id=1).<
 <td>true</td>
 <td>string</td>
 <td>Kline Period</td>
-<td></td>
 <td>1min, 5min, 15min, 30min, 60min,4hour,1day,1week, 1mon</td>
 </tr>
 </tbody></table>
@@ -37860,7 +37777,6 @@ transfer currency from sub-account to  master account using client_order_id=1).<
 <th>Mandatory</th>
 <th>Type</th>
 <th>Description</th>
-<th>Default</th>
 <th>Value Range</th>
 </tr>
 </thead><tbody>
@@ -37868,8 +37784,7 @@ transfer currency from sub-account to  master account using client_order_id=1).<
 <td>contract_code</td>
 <td>true</td>
 <td>string</td>
-<td>swap code</td>
-<td></td>
+<td>contract code or contract type</td>
 <td>swap: &quot;BTC-USDT&quot;... , future: &quot;BTC-USDT-210625&quot; ... or BTC-USDT-CW, BTC-USDT-NW, BTC-USDT-CQ, BTC-USDT-NQ</td>
 </tr>
 <tr>
@@ -37877,7 +37792,6 @@ transfer currency from sub-account to  master account using client_order_id=1).<
 <td>true</td>
 <td>string</td>
 <td>Kline Period</td>
-<td></td>
 <td>1min, 5min, 15min, 30min, 60min,4hour,1day,1week, 1mon</td>
 </tr>
 </tbody></table>
@@ -38089,7 +38003,6 @@ transfer currency from sub-account to  master account using client_order_id=1).<
 <th>Mandatory</th>
 <th>Type</th>
 <th>Description</th>
-<th>Default</th>
 <th>Value Range</th>
 </tr>
 </thead><tbody>
@@ -38097,8 +38010,7 @@ transfer currency from sub-account to  master account using client_order_id=1).<
 <td>contract_code</td>
 <td>true</td>
 <td>string</td>
-<td>swap code</td>
-<td></td>
+<td>contract code or contract type</td>
 <td>swap: &quot;BTC-USDT&quot;... , future: &quot;BTC-USDT-210625&quot; ... or BTC-USDT-CW, BTC-USDT-NW, BTC-USDT-CQ, BTC-USDT-NQ</td>
 </tr>
 <tr>
@@ -38106,7 +38018,6 @@ transfer currency from sub-account to  master account using client_order_id=1).<
 <td>true</td>
 <td>string</td>
 <td>Depth Type</td>
-<td></td>
 <td>Get depth data within step 150, use step0, step1, step2, step3, step4, step5, step14, step15, step16, step17（merged depth data 0-5,14-17）；when step is 0，depth data will not be merged; Get depth data within step 20, use step6, step7, step8, step9, step10, step11, step12, step13, step18, step19(merged depth data 7-13,18-19); when step is 6, depth data will not be merged.</td>
 </tr>
 </tbody></table>
@@ -38348,7 +38259,6 @@ Details are below:</p></li>
 <th>Mandatory</th>
 <th>Type</th>
 <th>Description</th>
-<th>Default</th>
 <th>Value Range</th>
 </tr>
 </thead><tbody>
@@ -38356,8 +38266,7 @@ Details are below:</p></li>
 <td>contract_code</td>
 <td>true</td>
 <td>string</td>
-<td>contract code</td>
-<td></td>
+<td>contract code or contract type</td>
 <td>swap: &quot;BTC-USDT&quot;... , future: &quot;BTC-USDT-210625&quot; ... or BTC-USDT-CW, BTC-USDT-NW, BTC-USDT-CQ, BTC-USDT-NQ</td>
 </tr>
 <tr>
@@ -38365,7 +38274,6 @@ Details are below:</p></li>
 <td>true</td>
 <td>int</td>
 <td>Depth size</td>
-<td></td>
 <td><code>20</code>: stands for 20 unmerged data. <code>150</code>:stands for 150 unmerged data.</td>
 </tr>
 </tbody></table>
@@ -38562,7 +38470,6 @@ Details are below:</p></li>
 <th>Mandatory</th>
 <th>Type</th>
 <th>Description</th>
-<th>Default</th>
 <th>Value Range</th>
 </tr>
 </thead><tbody>
@@ -38570,8 +38477,7 @@ Details are below:</p></li>
 <td>contract_code</td>
 <td>true</td>
 <td>string</td>
-<td>swap code</td>
-<td></td>
+<td>contract code or contract type</td>
 <td>swap: &quot;BTC-USDT&quot;... , future: &quot;BTC-USDT-210625&quot; ... or BTC-USDT-CW, BTC-USDT-NW, BTC-USDT-CQ, BTC-USDT-NQ</td>
 </tr>
 </tbody></table>
@@ -38775,7 +38681,7 @@ Details are below:</p></li>
 <td>contract_code</td>
 <td>true</td>
 <td>string</td>
-<td>Pairs</td>
+<td>contract code or contract type</td>
 <td>swap: &quot;BTC-USDT&quot;... , future: &quot;BTC-USDT-210625&quot; ... or BTC-USDT-CW, BTC-USDT-NW, BTC-USDT-CQ, BTC-USDT-NQ</td>
 </tr>
 </tbody></table>
@@ -38960,7 +38866,6 @@ Details are below:</p></li>
 <th>Mandatory</th>
 <th>Type</th>
 <th>Description</th>
-<th>Default</th>
 <th>Value Range</th>
 </tr>
 </thead><tbody>
@@ -38968,8 +38873,7 @@ Details are below:</p></li>
 <td>contract_code</td>
 <td>true</td>
 <td>string</td>
-<td>swap code</td>
-<td></td>
+<td>contract code or contract type</td>
 <td>swap: &quot;BTC-USDT&quot;... , future: &quot;BTC-USDT-210625&quot; ... or BTC-USDT-CW, BTC-USDT-NW, BTC-USDT-CQ, BTC-USDT-NQ</td>
 </tr>
 </tbody></table>
@@ -39165,7 +39069,6 @@ Details are below:</p></li>
 <th>Mandatory</th>
 <th>Type</th>
 <th>Description</th>
-<th>Default</th>
 <th>Value Range</th>
 </tr>
 </thead><tbody>
@@ -39173,8 +39076,7 @@ Details are below:</p></li>
 <td>contract_code</td>
 <td>true</td>
 <td>string</td>
-<td>swap code</td>
-<td></td>
+<td>contract code or contract type</td>
 <td>swap: &quot;BTC-USDT&quot;... , future: &quot;BTC-USDT-210625&quot; ... or BTC-USDT-CW, BTC-USDT-NW, BTC-USDT-CQ, BTC-USDT-NQ</td>
 </tr>
 </tbody></table>
@@ -39374,7 +39276,6 @@ Details are below:</p></li>
 <th><strong>Mandatory</strong></th>
 <th><strong>Type</strong></th>
 <th><strong>Desc</strong></th>
-<th><strong>Default</strong></th>
 <th><strong>Value Range</strong></th>
 </tr>
 </thead><tbody>
@@ -39383,7 +39284,6 @@ Details are below:</p></li>
 <td>true</td>
 <td>string</td>
 <td>index symbol</td>
-<td></td>
 <td>Case-Insenstive.Both uppercase and lowercase are supported..&quot;BTC-USDT&quot;,&quot;ETH-USDT&quot;...</td>
 </tr>
 <tr>
@@ -39391,7 +39291,6 @@ Details are below:</p></li>
 <td>true</td>
 <td>string</td>
 <td>kline type</td>
-<td></td>
 <td>1min, 5min, 15min, 30min, 60min,4hour,1day, 1mon</td>
 </tr>
 </tbody></table>
@@ -39577,7 +39476,6 @@ Details are below:</p></li>
 <th><strong>Mandotary</strong></th>
 <th><strong>Type</strong></th>
 <th><strong>Desc</strong></th>
-<th><strong>Default</strong></th>
 <th><strong>Value Range</strong></th>
 </tr>
 </thead><tbody>
@@ -39585,8 +39483,7 @@ Details are below:</p></li>
 <td>contract_code</td>
 <td>true</td>
 <td>string</td>
-<td>contract code</td>
-<td></td>
+<td>index symbol</td>
 <td>Case-Insenstive.Both uppercase and lowercase are supported..&quot;BTC-USDT&quot;,&quot;ETH-USDT&quot;...</td>
 </tr>
 <tr>
@@ -39594,7 +39491,6 @@ Details are below:</p></li>
 <td>true</td>
 <td>string</td>
 <td>kline type</td>
-<td></td>
 <td>1min, 5min, 15min, 30min, 60min,4hour,1day, 1mon</td>
 </tr>
 </tbody></table>
@@ -39798,7 +39694,6 @@ Details are below:</p></li>
 <th><strong>Mandatory</strong></th>
 <th><strong>Type</strong></th>
 <th><strong>Desc</strong></th>
-<th><strong>Default</strong></th>
 <th><strong>Value Range</strong></th>
 </tr>
 </thead><tbody>
@@ -39807,7 +39702,6 @@ Details are below:</p></li>
 <td>true</td>
 <td>string</td>
 <td>contract code</td>
-<td></td>
 <td>Case-Insenstive.Both uppercase and lowercase are supported..&quot;BTC-USDT&quot;,&quot;ETH-USDT&quot;...</td>
 </tr>
 <tr>
@@ -39815,7 +39709,6 @@ Details are below:</p></li>
 <td>true</td>
 <td>string</td>
 <td>kline type</td>
-<td></td>
 <td>1min, 5min, 15min, 30min, 60min,4hour,1day, 1week, 1mon</td>
 </tr>
 </tbody></table>
@@ -40006,7 +39899,6 @@ Details are below:</p></li>
 <th><strong>Mandotary</strong></th>
 <th><strong>Type</strong></th>
 <th><strong>Desc</strong></th>
-<th><strong>Default</strong></th>
 <th><strong>Value Range</strong></th>
 </tr>
 </thead><tbody>
@@ -40015,7 +39907,6 @@ Details are below:</p></li>
 <td>true</td>
 <td>string</td>
 <td>contract code</td>
-<td></td>
 <td>Case-Insenstive.Both uppercase and lowercase are supported..&quot;BTC-USDT&quot;,&quot;ETH-USDT&quot;...</td>
 </tr>
 <tr>
@@ -40023,7 +39914,6 @@ Details are below:</p></li>
 <td>true</td>
 <td>string</td>
 <td>kline type</td>
-<td></td>
 <td>1min, 5min, 15min, 30min, 60min,4hour,1day, 1week, 1mon</td>
 </tr>
 </tbody></table>
@@ -40223,7 +40113,6 @@ Details are below:</p></li>
 <th><strong>Mandatory</strong></th>
 <th><strong>Type</strong></th>
 <th><strong>Desc</strong></th>
-<th><strong>Default</strong></th>
 <th><strong>Value Range</strong></th>
 </tr>
 </thead><tbody>
@@ -40232,7 +40121,6 @@ Details are below:</p></li>
 <td>true</td>
 <td>string</td>
 <td>contract code</td>
-<td></td>
 <td>Case-Insenstive.Both uppercase and lowercase are supported..&quot;BTC-USDT&quot;,&quot;ETH-USDT&quot;...</td>
 </tr>
 <tr>
@@ -40240,7 +40128,6 @@ Details are below:</p></li>
 <td>true</td>
 <td>string</td>
 <td>kline type</td>
-<td></td>
 <td>1min, 5min, 15min, 30min, 60min,4hour,1day, 1week, 1mon</td>
 </tr>
 </tbody></table>
@@ -40439,7 +40326,6 @@ Details are below:</p></li>
 <th><strong>Mandotary</strong></th>
 <th><strong>Type</strong></th>
 <th><strong>Desc</strong></th>
-<th><strong>Default</strong></th>
 <th><strong>Value Range</strong></th>
 </tr>
 </thead><tbody>
@@ -40448,7 +40334,6 @@ Details are below:</p></li>
 <td>true</td>
 <td>string</td>
 <td>contract code</td>
-<td></td>
 <td>Case-Insenstive.Both uppercase and lowercase are supported..&quot;BTC-USDT&quot;,&quot;ETH-USDT&quot;...</td>
 </tr>
 <tr>
@@ -40456,7 +40341,6 @@ Details are below:</p></li>
 <td>true</td>
 <td>string</td>
 <td>kline type</td>
-<td></td>
 <td>1min, 5min, 15min, 30min, 60min,4hour,1day, 1week, 1mon</td>
 </tr>
 </tbody></table>
@@ -41053,7 +40937,6 @@ Details are below:</p></li>
 <th>Mandatory</th>
 <th>Type</th>
 <th>Description</th>
-<th>Default Value</th>
 <th>Value Range</th>
 </tr>
 </thead><tbody>
@@ -41062,7 +40945,6 @@ Details are below:</p></li>
 <td>true</td>
 <td>string</td>
 <td>contract code</td>
-<td></td>
 <td>swap: &quot;BTC-USDT&quot;... , future: &quot;BTC-USDT-210625&quot; ... or BTC-USDT-CW, BTC-USDT-NW, BTC-USDT-CQ, BTC-USDT-NQ</td>
 </tr>
 <tr>
@@ -41070,7 +40952,6 @@ Details are below:</p></li>
 <td>true</td>
 <td>string</td>
 <td>period</td>
-<td></td>
 <td>1min, 5min, 15min, 30min, 60min,4hour,1day, 1week, 1mon</td>
 </tr>
 </tbody></table>
@@ -41287,7 +41168,6 @@ Details are below:</p></li>
 <th>Mandatory</th>
 <th>Type</th>
 <th>Description</th>
-<th>Default Value</th>
 <th>Value Range</th>
 </tr>
 </thead><tbody>
@@ -41296,7 +41176,6 @@ Details are below:</p></li>
 <td>true</td>
 <td>string</td>
 <td>contract code</td>
-<td></td>
 <td>swap: &quot;BTC-USDT&quot;... , future: &quot;BTC-USDT-210625&quot; ... or BTC-USDT-CW, BTC-USDT-NW, BTC-USDT-CQ, BTC-USDT-NQ</td>
 </tr>
 <tr>
@@ -41304,7 +41183,6 @@ Details are below:</p></li>
 <td>true</td>
 <td>string</td>
 <td>period</td>
-<td></td>
 <td>1min, 5min, 15min, 30min, 60min,4hour,1day, 1week, 1mon</td>
 </tr>
 </tbody></table>
@@ -41525,7 +41403,25 @@ Details are below:</p></li>
 <tr>
 <td>topic</td>
 <td>string</td>
-<td>Required；format: orders.$contract_code; contract_code is case-insenstive.Both uppercase and lowercase are supported.e.g. &quot;BTC-USDT&quot;</td>
+<td>Required；format: orders.$contract_code; For parameter details please check req Subscribe Parameter</td>
+</tr>
+</tbody></table>
+<h3 id='sub-subscribe-parameter-rules-12'>sub Subscribe Parameter Rules</h3>
+<table><thead>
+<tr>
+<th><strong>Parameter Name</strong></th>
+<th><strong>Mandatory</strong></th>
+<th><strong>Type</strong></th>
+<th><strong>Desc</strong></th>
+<th><strong>Value Range</strong></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>contract_code</td>
+<td>true</td>
+<td>string</td>
+<td>contract code</td>
+<td>&quot;*&quot; all(it means to subscribe the  all match orders) &quot;BTC-USDT&quot;,&quot;ETH-USDT&quot;...</td>
 </tr>
 </tbody></table>
 
@@ -41855,7 +41751,7 @@ Details are below:</p></li>
 </span></code></pre><h3 id='format-illustration-of-unsubscribe-order-data'>Format illustration of unsubscribe order data</h3>
 <table><thead>
 <tr>
-<th>Filed</th>
+<th>Field Name</th>
 <th>Type</th>
 <th>Description</th>
 </tr>
@@ -41863,17 +41759,35 @@ Details are below:</p></li>
 <tr>
 <td>op</td>
 <td>string</td>
-<td>Required;Operator Name，value for unsubscribe is unsub;</td>
+<td>Required； Operator Name，required subscribe value is  sub</td>
 </tr>
 <tr>
 <td>cid</td>
 <td>string</td>
-<td>Optional;  Client requests unique ID</td>
+<td>Optional; ID Client requests unique ID</td>
 </tr>
 <tr>
 <td>topic</td>
 <td>string</td>
-<td>Optional; Unsubscribe Topic Name，format: orders.$contract_code; contract_code is case-insenstive.Both uppercase and lowercase are supported.e.g. &quot;BTC-USDT&quot;</td>
+<td>Required；Unsubscribe Topic Name, format: orders.$contract_code; For parameter details please check req Subscribe Parameter</td>
+</tr>
+</tbody></table>
+<h3 id='sub-subscribe-parameter-rules-13'>sub Subscribe Parameter Rules</h3>
+<table><thead>
+<tr>
+<th><strong>Parameter Name</strong></th>
+<th><strong>Mandatory</strong></th>
+<th><strong>Type</strong></th>
+<th><strong>Desc</strong></th>
+<th><strong>Value Range</strong></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>contract_code</td>
+<td>true</td>
+<td>string</td>
+<td>contract code</td>
+<td>&quot;*&quot; all(it means to unsubscribe the  all orders)  &quot;BTC-USDT&quot;,&quot;ETH-USDT&quot;...</td>
 </tr>
 </tbody></table>
 <h3 id='rules-on-subscribe-and-unsubscribe'>Rules on Subscribe and Unsubscribe</h3>
@@ -41968,7 +41882,6 @@ Details are below:</p></li>
 <th><strong>Mandotary</strong></th>
 <th><strong>Type</strong></th>
 <th><strong>Desc</strong></th>
-<th><strong>Default</strong></th>
 <th><strong>Value Range</strong></th>
 </tr>
 </thead><tbody>
@@ -41977,7 +41890,6 @@ Details are below:</p></li>
 <td>true</td>
 <td>string</td>
 <td>contract code</td>
-<td></td>
 <td>all: * (swap and future), swap: &quot;BTC-USDT&quot;... , future: &quot;BTC-USDT-210625&quot; ...</td>
 </tr>
 </tbody></table>
@@ -42446,7 +42358,7 @@ Details are below:</p></li>
 <tr>
 <td>topic</td>
 <td>string</td>
-<td>Optional; Unsubscribe Topic Name，format: orders_cross.$contract_code; For parameter details please check req unsubscribe Parameter</td>
+<td>Required; Unsubscribe Topic Name，format: orders_cross.$contract_code; For parameter details please check req unsubscribe Parameter</td>
 </tr>
 </tbody></table>
 <h3 id='request-parameter-129'>Request Parameter：</h3>
@@ -42456,7 +42368,6 @@ Details are below:</p></li>
 <th><strong>Mandotary</strong></th>
 <th><strong>Type</strong></th>
 <th><strong>Desc</strong></th>
-<th><strong>Default</strong></th>
 <th><strong>Value Range</strong></th>
 </tr>
 </thead><tbody>
@@ -42465,7 +42376,6 @@ Details are below:</p></li>
 <td>true</td>
 <td>string</td>
 <td>contract code</td>
-<td></td>
 <td>all: *(swap and future), swap: &quot;BTC-USDT&quot;... , future: &quot;BTC-USDT-210625&quot; ...</td>
 </tr>
 </tbody></table>
@@ -42551,7 +42461,25 @@ Details are below:</p></li>
 <tr>
 <td>topic</td>
 <td>string</td>
-<td>Required；format: matchOrders.$contract_code; contract_code is case-insenstive.Both uppercase and lowercase are supported.e.g. &quot;BTC-USDT&quot;</td>
+<td>Required; subscribe Topic Name，format: matchOrders.$contract_code; For parameter details please check req unsubscribe Parameter</td>
+</tr>
+</tbody></table>
+<h3 id='request-parameter-130'>Request Parameter：</h3>
+<table><thead>
+<tr>
+<th><strong>Parameter Name</strong></th>
+<th><strong>Mandotary</strong></th>
+<th><strong>Type</strong></th>
+<th><strong>Desc</strong></th>
+<th><strong>Value Range</strong></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>contract_code</td>
+<td>true</td>
+<td>string</td>
+<td>contract code</td>
+<td>&quot;*&quot; all(it means to subscribe the  all match orders)  &quot;BTC-USDT&quot;...</td>
 </tr>
 </tbody></table>
 <h4 id='note-127'>Note:</h4>
@@ -42873,25 +42801,43 @@ Details are below:</p></li>
 </span></code></pre><h3 id='format-illustration-of-unsubscribe-order-data-3'>Format illustration of unsubscribe order data</h3>
 <table><thead>
 <tr>
-<th>Filed</th>
-<th>Type</th>
-<th>Description</th>
+<th>attr</th>
+<th>type</th>
+<th>desc</th>
 </tr>
 </thead><tbody>
 <tr>
 <td>op</td>
 <td>string</td>
-<td>Required;Operator Name，value for unsubscribe is unsub;</td>
+<td>Required； Operator Name，required subscribe value is  sub</td>
 </tr>
 <tr>
 <td>cid</td>
 <td>string</td>
-<td>Optional;  Client requests unique ID</td>
+<td>Optional; ID Client requests unique ID</td>
 </tr>
 <tr>
 <td>topic</td>
 <td>string</td>
-<td>Optional; format: matchOrders.$contract_code; contract_code is case-insenstive.Both uppercase and lowercase are supported.e.g. &quot;BTC-USDT&quot;</td>
+<td>Required; Unsubscribe Topic Name，format: matchOrders.$contract_code; For parameter details please check req unsubscribe Parameter</td>
+</tr>
+</tbody></table>
+<h3 id='request-parameter-131'>Request Parameter：</h3>
+<table><thead>
+<tr>
+<th><strong>Parameter Name</strong></th>
+<th><strong>Mandotary</strong></th>
+<th><strong>Type</strong></th>
+<th><strong>Desc</strong></th>
+<th><strong>Value Range</strong></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>contract_code</td>
+<td>true</td>
+<td>string</td>
+<td>contract code</td>
+<td>&quot;*&quot; all(it means to unsubscribe the  all match orders)  &quot;BTC-USDT&quot;...</td>
 </tr>
 </tbody></table>
 <h3 id='rules-on-subscribe-and-unsubscribe-3'>Rules on Subscribe and Unsubscribe</h3>
@@ -42979,14 +42925,13 @@ Details are below:</p></li>
 <td>Required；format: matchOrders_cross.$contract_code; For parameter details please check req Subscribe Parameter</td>
 </tr>
 </tbody></table>
-<h3 id='request-parameter-130'>Request Parameter：</h3>
+<h3 id='request-parameter-132'>Request Parameter：</h3>
 <table><thead>
 <tr>
 <th><strong>Parameter Name</strong></th>
 <th><strong>Mandotary</strong></th>
 <th><strong>Type</strong></th>
 <th><strong>Desc</strong></th>
-<th><strong>Default</strong></th>
 <th><strong>Value Range</strong></th>
 </tr>
 </thead><tbody>
@@ -42995,7 +42940,6 @@ Details are below:</p></li>
 <td>true</td>
 <td>string</td>
 <td>contract code</td>
-<td></td>
 <td>all: *(swap and future), swap: &quot;BTC-USDT&quot;... , future: &quot;BTC-USDT-210625&quot; ...</td>
 </tr>
 </tbody></table>
@@ -43358,17 +43302,16 @@ Details are below:</p></li>
 <tr>
 <td>topic</td>
 <td>string</td>
-<td>Optional; format: matchOrders_cross.$contract_code; For parameter details please check req Subscribe Parameter</td>
+<td>Required;Unsubscribe Topic Name, format: matchOrders_cross.$contract_code; For parameter details please check req Subscribe Parameter</td>
 </tr>
 </tbody></table>
-<h3 id='request-parameter-131'>Request Parameter：</h3>
+<h3 id='request-parameter-133'>Request Parameter：</h3>
 <table><thead>
 <tr>
 <th><strong>Parameter Name</strong></th>
 <th><strong>Mandotary</strong></th>
 <th><strong>Type</strong></th>
 <th><strong>Desc</strong></th>
-<th><strong>Default</strong></th>
 <th><strong>Value Range</strong></th>
 </tr>
 </thead><tbody>
@@ -43377,7 +43320,6 @@ Details are below:</p></li>
 <td>true</td>
 <td>string</td>
 <td>contract code</td>
-<td></td>
 <td>all: *(swap and future), swap: &quot;BTC-USDT&quot;... , future: &quot;BTC-USDT-210625&quot; ...</td>
 </tr>
 </tbody></table>
@@ -43445,7 +43387,7 @@ Details are below:</p></li>
 </span></code></pre><h3 id='format-illustration-on-request-subscribe-account-equity-updates-data'>Format illustration on request subscribe account equity updates data</h3>
 <table><thead>
 <tr>
-<th>Field Name</th>
+<th>Filed</th>
 <th>Type</th>
 <th>Description</th>
 </tr>
@@ -43453,7 +43395,7 @@ Details are below:</p></li>
 <tr>
 <td>op</td>
 <td>string</td>
-<td>Required； Operator Name，Subscribe value is sub</td>
+<td>Required;Operator Name，value for unsubscribe is unsub;</td>
 </tr>
 <tr>
 <td>cid</td>
@@ -43463,7 +43405,25 @@ Details are below:</p></li>
 <tr>
 <td>topic</td>
 <td>string</td>
-<td>Required； Subscribe Topic Name，Required subscribe accounts.$contract_code   Subscribe/unsubscribe the balance change of a given coin，when the value of $contract_code is “*”, it means to subscribe/unsubscribe the balance change of all coins; contract_code is case-insenstive.Both uppercase and lowercase are supported.e.g. &quot;BTC-USDT&quot;</td>
+<td>Required;subscribe Topic Name, format: accounts.$contract_code; For parameter details please check req Subscribe Parameter</td>
+</tr>
+</tbody></table>
+<h3 id='request-parameter-134'>Request Parameter：</h3>
+<table><thead>
+<tr>
+<th><strong>Parameter Name</strong></th>
+<th><strong>Mandotary</strong></th>
+<th><strong>Type</strong></th>
+<th><strong>Desc</strong></th>
+<th><strong>Value Range</strong></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>contract_code</td>
+<td>true</td>
+<td>string</td>
+<td>contract code</td>
+<td>&quot;*&quot; all(it means to subscribe the balance change of all coins), &quot;BTC-USDT&quot;...</td>
 </tr>
 </tbody></table>
 <h3 id='note-129'>Note:</h3>
@@ -43663,7 +43623,7 @@ Details are below:</p></li>
 </span></code></pre><h3 id='format-illustration-on-unsubscribe-account-equity-updates'>Format Illustration on Unsubscribe Account Equity Updates</h3>
 <table><thead>
 <tr>
-<th>Filed Name</th>
+<th>Filed</th>
 <th>Type</th>
 <th>Description</th>
 </tr>
@@ -43671,17 +43631,35 @@ Details are below:</p></li>
 <tr>
 <td>op</td>
 <td>string</td>
-<td>Required; Operator Name，Subscribe value is unsub;</td>
+<td>Required;Operator Name，value for unsubscribe is unsub;</td>
 </tr>
 <tr>
 <td>cid</td>
 <td>string</td>
-<td>Optional; Client requests unique ID</td>
+<td>Optional;  Client requests unique ID</td>
 </tr>
 <tr>
 <td>topic</td>
 <td>string</td>
-<td>Required;Required； Required； Subscribe Topic，Subscribe accounts.$contract_code required  unsubscribe/unsubscribe account equity change of a given coin，when the $contract_code value is *, it stands for subscribing/unsubscribing data of all coins; contract_code is case-insenstive.Both uppercase and lowercase are supported.e.g. &quot;BTC-USDT&quot;</td>
+<td>Required;unsubscribe Topic Name, format: accounts.$contract_code; For parameter details please check req Subscribe Parameter</td>
+</tr>
+</tbody></table>
+<h3 id='request-parameter-135'>Request Parameter：</h3>
+<table><thead>
+<tr>
+<th><strong>Parameter Name</strong></th>
+<th><strong>Mandotary</strong></th>
+<th><strong>Type</strong></th>
+<th><strong>Desc</strong></th>
+<th><strong>Value Range</strong></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>contract_code</td>
+<td>true</td>
+<td>string</td>
+<td>contract code</td>
+<td>&quot;*&quot; all(it means to unsubscribe the balance change of all coins), &quot;BTC-USDT&quot;...</td>
 </tr>
 </tbody></table>
 <h3 id='rules-on-subscribe-and-unsubscribe-5'>Rules on Subscribe and Unsubscribe</h3>
@@ -43748,7 +43726,7 @@ Details are below:</p></li>
 </span></code></pre><h4 id='subscribe-request-parameter'>Subscribe Request Parameter</h4>
 <table><thead>
 <tr>
-<th>Field Name</th>
+<th>Filed</th>
 <th>Type</th>
 <th>Description</th>
 </tr>
@@ -43756,17 +43734,35 @@ Details are below:</p></li>
 <tr>
 <td>op</td>
 <td>string</td>
-<td>Mandatory；Operator Name，required subscribe value is sub</td>
+<td>Required;Operator Name，value for unsubscribe is unsub;</td>
 </tr>
 <tr>
 <td>cid</td>
 <td>string</td>
-<td>Optional; Client requests unique ID</td>
+<td>Optional;  Client requests unique ID</td>
 </tr>
 <tr>
 <td>topic</td>
 <td>string</td>
-<td>Mandatory；topic name: accounts_cross.$margin_account，$margin_account now only（USDT）</td>
+<td>Required;subscribe Topic Name, format: accounts_cross.$margin_account; For parameter details please check req Subscribe Parameter</td>
+</tr>
+</tbody></table>
+<h3 id='request-parameter-136'>Request Parameter：</h3>
+<table><thead>
+<tr>
+<th><strong>Parameter Name</strong></th>
+<th><strong>Mandotary</strong></th>
+<th><strong>Type</strong></th>
+<th><strong>Desc</strong></th>
+<th><strong>Value Range</strong></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>margin_account</td>
+<td>true</td>
+<td>string</td>
+<td>margin account</td>
+<td>&quot;*&quot; all(it means to subscribe the balance change of all coins), &quot;USDT&quot;...</td>
 </tr>
 </tbody></table>
 <h3 id='note-130'>Note:</h3>
@@ -43857,7 +43853,7 @@ Details are below:</p></li>
 <td>true</td>
 <td>string</td>
 <td>event of margin account update</td>
-<td>order.open 、order.match)、settlement、order.liquidation、order.cancel)、contract.transfer、ontract.system、other)、init、napshot</td>
+<td>order.open 、order.match 、settlement、order.liquidation、order.cancel 、contract.transfer、ontract.system、other 、init、napshot</td>
 </tr>
 <tr>
 <td>&lt;data&gt;</td>
@@ -44177,7 +44173,7 @@ Details are below:</p></li>
 </span></code></pre><h4 id='unsubscribe-request-parameter'>Unsubscribe Request Parameter</h4>
 <table><thead>
 <tr>
-<th>Field Name</th>
+<th>Filed</th>
 <th>Type</th>
 <th>Description</th>
 </tr>
@@ -44185,17 +44181,35 @@ Details are below:</p></li>
 <tr>
 <td>op</td>
 <td>string</td>
-<td>Mandatory;Operator Name，required subscribe value is unsub</td>
+<td>Required;Operator Name，value for unsubscribe is unsub;</td>
 </tr>
 <tr>
 <td>cid</td>
 <td>string</td>
-<td>Optional; Client requests unique ID</td>
+<td>Optional;  Client requests unique ID</td>
 </tr>
 <tr>
 <td>topic</td>
 <td>string</td>
-<td>Mandatory;topic name: accounts_cross.$margin_account，$margin_account now only（USDT）</td>
+<td>Required;unsubscribe Topic Name, format: accounts_cross.$margin_account; For parameter details please check req Subscribe Parameter</td>
+</tr>
+</tbody></table>
+<h3 id='request-parameter-137'>Request Parameter：</h3>
+<table><thead>
+<tr>
+<th><strong>Parameter Name</strong></th>
+<th><strong>Mandotary</strong></th>
+<th><strong>Type</strong></th>
+<th><strong>Desc</strong></th>
+<th><strong>Value Range</strong></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>margin_account</td>
+<td>true</td>
+<td>string</td>
+<td>margin account</td>
+<td>&quot;*&quot; all(it means to unsubscribe the balance change of all coins), &quot;USDT&quot;...</td>
 </tr>
 </tbody></table>
 <h3 id='rules-on-subscribe-and-unsubscribe-6'>Rules on Subscribe and Unsubscribe</h3>
@@ -44263,24 +44277,42 @@ Details are below:</p></li>
 <table><thead>
 <tr>
 <th>Filed Name</th>
-<th style="text-align: left">Type</th>
-<th style="text-align: left">Description</th>
+<th>type</th>
+<th>desc</th>
 </tr>
 </thead><tbody>
 <tr>
 <td>op</td>
-<td style="text-align: left">string</td>
-<td style="text-align: left">Required；Operator Name，Subscribe value is sub</td>
+<td>string</td>
+<td>Required； Operator Name，required subscribe value is  sub</td>
 </tr>
 <tr>
 <td>cid</td>
-<td style="text-align: left">string</td>
-<td style="text-align: left">Optional ; Client requests unique ID</td>
+<td>string</td>
+<td>Optional; ID Client requests unique ID</td>
 </tr>
 <tr>
 <td>topic</td>
-<td style="text-align: left">string</td>
-<td style="text-align: left">Required； Subscribe Topic, Subscribe (positions.$contract_code) Required  Subscribe/unsubscribe the position data of a single coin, when the $contract_code value is *, it stands for subscribing the data of all coins. contract_code is case-insenstive.Both uppercase and lowercase are supported.e.g. &quot;BTC-USDT&quot;</td>
+<td>string</td>
+<td>Required; subscribe Topic Name，format: positions.$contract_code; For parameter details please check req unsubscribe Parameter</td>
+</tr>
+</tbody></table>
+<h3 id='request-parameter-138'>Request Parameter：</h3>
+<table><thead>
+<tr>
+<th><strong>Parameter Name</strong></th>
+<th><strong>Mandotary</strong></th>
+<th><strong>Type</strong></th>
+<th><strong>Desc</strong></th>
+<th><strong>Value Range</strong></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>contract_code</td>
+<td>true</td>
+<td>string</td>
+<td>contract code</td>
+<td>&quot;*&quot; all(it means to subscribe the  all positions)  &quot;BTC-USDT&quot;...</td>
 </tr>
 </tbody></table>
 
@@ -44482,25 +44514,43 @@ Details are below:</p></li>
 </span></code></pre><h3 id='format-illustration-of-unsubscribe-position-updates'>Format Illustration of Unsubscribe Position Updates</h3>
 <table><thead>
 <tr>
-<th>Field Name</th>
-<th>Type</th>
-<th>Description</th>
+<th>Filed Name</th>
+<th>type</th>
+<th>desc</th>
 </tr>
 </thead><tbody>
 <tr>
 <td>op</td>
 <td>string</td>
-<td>Required; Operator Name，Subscribe value is unsub;</td>
+<td>Required； Operator Name，required subscribe value is  sub</td>
 </tr>
 <tr>
 <td>cid</td>
 <td>string</td>
-<td>Optional;  Client requests unique ID</td>
+<td>Optional; ID Client requests unique ID</td>
 </tr>
 <tr>
 <td>topic</td>
 <td>string</td>
-<td>Required;Required；Required；Subscribe topic，Subscribe positions.$contract_code required  Subscribe or unsubscribe the position updates of a single coin; when $contract_code value is *, it stands for subscribing the data of all coins; contract_code is case-insenstive.Both uppercase and lowercase are supported.e.g. &quot;BTC-USDT&quot;</td>
+<td>Required; unsubscribe Topic Name，format: positions.$contract_code; For parameter details please check req unsubscribe Parameter</td>
+</tr>
+</tbody></table>
+<h3 id='request-parameter-139'>Request Parameter：</h3>
+<table><thead>
+<tr>
+<th><strong>Parameter Name</strong></th>
+<th><strong>Mandotary</strong></th>
+<th><strong>Type</strong></th>
+<th><strong>Desc</strong></th>
+<th><strong>Value Range</strong></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>contract_code</td>
+<td>true</td>
+<td>string</td>
+<td>contract code</td>
+<td>&quot;*&quot; all(it means to unsubscribe the  all positions)  &quot;BTC-USDT&quot;...</td>
 </tr>
 </tbody></table>
 <h3 id='rules-on-subscribe-and-unsubscribe-7'>Rules on Subscribe and Unsubscribe</h3>
@@ -44589,7 +44639,7 @@ Details are below:</p></li>
 <td style="text-align: left">Required； Subscribe Topic, Subscribe (positions_cross.$contract_code) Required  Subscribe/unsubscribe the position data of a single coin, For parameter details please check req Subscribe Parameter</td>
 </tr>
 </tbody></table>
-<h3 id='request-parameter-132'>Request Parameter：</h3>
+<h3 id='request-parameter-140'>Request Parameter：</h3>
 <table><thead>
 <tr>
 <th><strong>Parameter Name</strong></th>
@@ -44902,7 +44952,7 @@ Details are below:</p></li>
 <td>Required;Required；Required；Subscribe topic，Subscribe positions_cross.$contract_code required  Subscribe or unsubscribe the position updates of a single coin; For parameter details please check req Subscribe Parameter</td>
 </tr>
 </tbody></table>
-<h3 id='request-parameter-133'>Request Parameter：</h3>
+<h3 id='request-parameter-141'>Request Parameter：</h3>
 <table><thead>
 <tr>
 <th><strong>Parameter Name</strong></th>
@@ -45011,14 +45061,13 @@ Details are below:</p></li>
 <td>business type, default is swap: futures, swap, all</td>
 </tr>
 </tbody></table>
-<h3 id='request-parameter-134'>Request Parameter：</h3>
+<h3 id='request-parameter-142'>Request Parameter：</h3>
 <table><thead>
 <tr>
 <th><strong>Parameter Name</strong></th>
 <th><strong>Mandotary</strong></th>
 <th><strong>Type</strong></th>
 <th><strong>Desc</strong></th>
-<th><strong>Default</strong></th>
 <th><strong>Value Range</strong></th>
 </tr>
 </thead><tbody>
@@ -45027,8 +45076,7 @@ Details are below:</p></li>
 <td>true</td>
 <td>string</td>
 <td>contract code</td>
-<td></td>
-<td>all: *(swap and future), swap: &quot;BTC-USDT&quot;... , future: &quot;BTC-USDT-210625&quot; ... or BTC-USDT-CW, BTC-USDT-NW, BTC-USDT-CQ, BTC-USDT-NQ</td>
+<td>all: *(more see remarks), swap: &quot;BTC-USDT&quot;... , future: &quot;BTC-USDT-210625&quot; ...</td>
 </tr>
 </tbody></table>
 <h4 id='remarks-115'>Remarks</h4>
@@ -45211,14 +45259,13 @@ Details are below:</p></li>
 <td>business type, default swap: futures,swap,all</td>
 </tr>
 </tbody></table>
-<h3 id='request-parameter-135'>Request Parameter：</h3>
+<h3 id='request-parameter-143'>Request Parameter：</h3>
 <table><thead>
 <tr>
 <th><strong>Parameter Name</strong></th>
 <th><strong>Mandotary</strong></th>
 <th><strong>Type</strong></th>
 <th><strong>Desc</strong></th>
-<th><strong>Default</strong></th>
 <th><strong>Value Range</strong></th>
 </tr>
 </thead><tbody>
@@ -45227,8 +45274,7 @@ Details are below:</p></li>
 <td>true</td>
 <td>string</td>
 <td>contract code</td>
-<td></td>
-<td>all: *(swap and future), swap: &quot;BTC-USDT&quot;... , future: &quot;BTC-USDT-210625&quot; ...</td>
+<td>all: *(more see remarks), swap: &quot;BTC-USDT&quot;... , future: &quot;BTC-USDT-210625&quot; ...</td>
 </tr>
 </tbody></table>
 <h4 id='note-133'>Note</h4>
@@ -45301,9 +45347,9 @@ Details are below:</p></li>
 </span></code></pre><h3 id='data-format-illustration-of-orders-subscription-4'>Data format illustration of orders subscription</h3>
 <table><thead>
 <tr>
-<th>Field Name</th>
-<th>Type</th>
-<th>Description</th>
+<th>Filed Name</th>
+<th>type</th>
+<th>desc</th>
 </tr>
 </thead><tbody>
 <tr>
@@ -45319,7 +45365,25 @@ Details are below:</p></li>
 <tr>
 <td>topic</td>
 <td>string</td>
-<td>Required；Topic name format: public.$contract_code.funding_rate.; contract_code is case-insenstive.Both uppercase and lowercase are supported.e.g. &quot;BTC-USDT&quot;</td>
+<td>Required; subscribe Topic Name，format: public.$contract_code.funding_rate; For parameter details please check req unsubscribe Parameter</td>
+</tr>
+</tbody></table>
+<h3 id='request-parameter-144'>Request Parameter：</h3>
+<table><thead>
+<tr>
+<th><strong>Parameter Name</strong></th>
+<th><strong>Mandotary</strong></th>
+<th><strong>Type</strong></th>
+<th><strong>Desc</strong></th>
+<th><strong>Value Range</strong></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>contract_code</td>
+<td>true</td>
+<td>string</td>
+<td>contract code</td>
+<td>&quot;*&quot; all(it means to subscribe the  all funding rate)  &quot;BTC-USDT&quot;...</td>
 </tr>
 </tbody></table>
 
@@ -45442,25 +45506,43 @@ Details are below:</p></li>
 </span></code></pre><h3 id='request-field-desc-of-unsubscrbing-funding-rate'>request field desc of unsubscrbing funding rate</h3>
 <table><thead>
 <tr>
-<th style="text-align: left">field</th>
-<th style="text-align: left">datatype</th>
-<th style="text-align: left">desc</th>
+<th>Filed Name</th>
+<th>type</th>
+<th>desc</th>
 </tr>
 </thead><tbody>
 <tr>
-<td style="text-align: left">op</td>
-<td style="text-align: left">string</td>
-<td style="text-align: left">Required; Operator Name，subscribe value is unsub;</td>
+<td>op</td>
+<td>string</td>
+<td>Required； Operator Name，required subscribe value is  sub</td>
 </tr>
 <tr>
-<td style="text-align: left">cid</td>
-<td style="text-align: left">string</td>
-<td style="text-align: left">Optional;   Client requests unique ID</td>
+<td>cid</td>
+<td>string</td>
+<td>Optional; ID Client requests unique ID</td>
 </tr>
 <tr>
-<td style="text-align: left">topic</td>
-<td style="text-align: left">string</td>
-<td style="text-align: left">Subscribe topic name，Require subscribe public.$contract_code.funding_rate Subscribe/unsubscribe the data of a given contract code; when the $contract_code value is *, it stands for subscribing/unsubscribing all the funding rates of contract codes，;</td>
+<td>topic</td>
+<td>string</td>
+<td>Required; unsubscribe Topic Name，format: public.$contract_code.funding_rate; For parameter details please check req unsubscribe Parameter</td>
+</tr>
+</tbody></table>
+<h3 id='request-parameter-145'>Request Parameter：</h3>
+<table><thead>
+<tr>
+<th><strong>Parameter Name</strong></th>
+<th><strong>Mandotary</strong></th>
+<th><strong>Type</strong></th>
+<th><strong>Desc</strong></th>
+<th><strong>Value Range</strong></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>contract_code</td>
+<td>true</td>
+<td>string</td>
+<td>contract code</td>
+<td>&quot;*&quot; all(it means to unsubscribe the  all funding rate)  &quot;BTC-USDT&quot;...</td>
 </tr>
 </tbody></table>
 <h3 id='data-format-of-subscription-and-unsubscription-of-funding-rate'>Data format of subscription and unsubscription of funding rate</h3>
@@ -45499,11 +45581,11 @@ Details are below:</p></li>
 </tbody></table>
 <h3 id='note-134'>Note</h3>
 <ul>
-<li><p>Funding rate will be pushed every 60 seconds by default.Funding rate will not be calculated under conditions below:</p></li>
-<li><p>the contract can&#39;t be traded.eg:Pending Listing、Suspension、Delisting、In settlement、Delivering、Settlement Completed、Delivered,etc.  </p></li>
-<li><p>the &#39;update_time&#39; field of index data hasn&#39;t been changed over 5 minutes.</p></li>
-<li><p>the &#39;update_time&#39; field of orderbook data hasn&#39;t been changed over 5 minutes.</p></li>
-<li><p>If the value is equal to last value over 5 continuous counts calculated by md5 of 150 bids data and 150 asks data. </p></li>
+<li>Funding rate will be pushed every 60 seconds by default.Funding rate will not be calculated under conditions below:</li>
+<li>the contract can&#39;t be traded.eg:Pending Listing、Suspension、Delisting、In settlement、Delivering、Settlement Completed、Delivered,etc.<br></li>
+<li>the &#39;update_time&#39; field of index data hasn&#39;t been changed over 5 minutes.</li>
+<li>the &#39;update_time&#39; field of orderbook data hasn&#39;t been changed over 5 minutes.</li>
+<li>If the value is equal to last value over 5 continuous counts calculated by md5 of 150 bids data and 150 asks data. </li>
 </ul>
 <h2 id='general-subscribe-contract-info-no-authentication-sub'>[General] Subscribe Contract Info (no authentication)（sub）</h2><h4 id='remarks-119'>Remarks</h4>
 <ul>
@@ -45561,7 +45643,7 @@ Details are below:</p></li>
 <td>business type, default is swap , futures, swap, all</td>
 </tr>
 </tbody></table>
-<h3 id='request-parameter-136'>Request Parameter：</h3>
+<h3 id='request-parameter-146'>Request Parameter：</h3>
 <table><thead>
 <tr>
 <th><strong>Parameter Name</strong></th>
@@ -45787,7 +45869,7 @@ Details are below:</p></li>
 <td style="text-align: left">Subscribe topic name，Require subscribe public.$contract_code.contract_info Subscribe/unsubscribe the data of a given contract code; For parameter details please check req Subscribe Parameter</td>
 </tr>
 </tbody></table>
-<h3 id='request-parameter-137'>Request Parameter：</h3>
+<h3 id='request-parameter-147'>Request Parameter：</h3>
 <table><thead>
 <tr>
 <th><strong>Parameter Name</strong></th>
@@ -45872,36 +45954,46 @@ Details are below:</p></li>
   </span><span class="s2">"cid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"40sG903yz80oDFWr"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 
-</span></code></pre><h3 id='request-parameter-138'>Request Parameter</h3>
+</span></code></pre><h3 id='request-parameter-148'>Request Parameter</h3>
 <table><thead>
 <tr>
-<th>Parameter Name</th>
-<th>Mandotary</th>
-<th>Type</th>
-<th>Desc</th>
-<th>Value Range</th>
+<th>Filed Name</th>
+<th>type</th>
+<th>desc</th>
 </tr>
 </thead><tbody>
 <tr>
 <td>op</td>
-<td>true</td>
 <td>string</td>
 <td>Required； Operator Name，required subscribe value is  sub</td>
-<td></td>
 </tr>
 <tr>
 <td>cid</td>
-<td>false</td>
 <td>string</td>
 <td>Optional; ID Client requests unique ID</td>
-<td></td>
 </tr>
 <tr>
 <td>topic</td>
+<td>string</td>
+<td>Required; subscribe Topic Name，format: trigger_order.$contract_code; For parameter details please check req unsubscribe Parameter</td>
+</tr>
+</tbody></table>
+<h3 id='request-parameter-149'>Request Parameter：</h3>
+<table><thead>
+<tr>
+<th><strong>Parameter Name</strong></th>
+<th><strong>Mandotary</strong></th>
+<th><strong>Type</strong></th>
+<th><strong>Desc</strong></th>
+<th><strong>Value Range</strong></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>contract_code</td>
 <td>true</td>
 <td>string</td>
-<td>Required；format: trigger_order.$contract_code; contract_code is case-insenstive.Both uppercase and lowercase are supported.e.g. &quot;BTC-USDT&quot;</td>
-<td></td>
+<td>contract code</td>
+<td>&quot;*&quot; all(it means to subscribe the  all trigger order)  &quot;BTC-USDT&quot;...</td>
 </tr>
 </tbody></table>
 
@@ -46222,25 +46314,43 @@ Details are below:</p></li>
 </span></code></pre><h3 id='format-illustration-of-unsubscribe-order-data-5'>Format illustration of unsubscribe order data</h3>
 <table><thead>
 <tr>
-<th style="text-align: left">Filed</th>
-<th style="text-align: left">Type</th>
-<th style="text-align: left">Description</th>
+<th>Filed Name</th>
+<th>type</th>
+<th>desc</th>
 </tr>
 </thead><tbody>
 <tr>
-<td style="text-align: left">op</td>
-<td style="text-align: left">string</td>
-<td style="text-align: left">Required;Operator Name，value for unsubscribe is unsub;</td>
+<td>op</td>
+<td>string</td>
+<td>Required； Operator Name，required subscribe value is  sub</td>
 </tr>
 <tr>
-<td style="text-align: left">cid</td>
-<td style="text-align: left">string</td>
-<td style="text-align: left">Optional;  Client requests unique ID</td>
+<td>cid</td>
+<td>string</td>
+<td>Optional; ID Client requests unique ID</td>
 </tr>
 <tr>
-<td style="text-align: left">topic</td>
-<td style="text-align: left">string</td>
-<td style="text-align: left">Optional; Unsubscribe Topic Name，format: trigger_order.$contract_code; contract_code is case-insenstive.Both uppercase and lowercase are supported.e.g. &quot;BTC-USDT&quot;</td>
+<td>topic</td>
+<td>string</td>
+<td>Required; unsubscribe Topic Name，format: trigger_order.$contract_code; For parameter details please check req unsubscribe Parameter</td>
+</tr>
+</tbody></table>
+<h3 id='request-parameter-150'>Request Parameter：</h3>
+<table><thead>
+<tr>
+<th><strong>Parameter Name</strong></th>
+<th><strong>Mandotary</strong></th>
+<th><strong>Type</strong></th>
+<th><strong>Desc</strong></th>
+<th><strong>Value Range</strong></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>contract_code</td>
+<td>true</td>
+<td>string</td>
+<td>contract code</td>
+<td>&quot;*&quot; all(it means to unsubscribe the  all trigger order)  &quot;BTC-USDT&quot;...</td>
 </tr>
 </tbody></table>
 <h3 id='rules-on-subscribe-and-unsubscribe-10'>Rules on Subscribe and Unsubscribe</h3>
@@ -46303,7 +46413,7 @@ Details are below:</p></li>
   </span><span class="s2">"cid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"40sG903yz80oDFWr"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 
-</span></code></pre><h3 id='request-parameter-139'>Request Parameter</h3>
+</span></code></pre><h3 id='request-parameter-151'>Request Parameter</h3>
 <table><thead>
 <tr>
 <th>Parameter Name</th>
@@ -46335,7 +46445,7 @@ Details are below:</p></li>
 <td></td>
 </tr>
 </tbody></table>
-<h3 id='request-parameter-140'>Request Parameter：</h3>
+<h3 id='request-parameter-152'>Request Parameter：</h3>
 <table><thead>
 <tr>
 <th><strong>Parameter Name</strong></th>
@@ -46718,7 +46828,7 @@ Details are below:</p></li>
 <td style="text-align: left">Optional; Unsubscribe Topic Name，format: trigger_order_cross.$contract_code; For parameter details please check req Subscribe Parameter</td>
 </tr>
 </tbody></table>
-<h3 id='request-parameter-141'>Request Parameter：</h3>
+<h3 id='request-parameter-153'>Request Parameter：</h3>
 <table><thead>
 <tr>
 <th><strong>Parameter Name</strong></th>
@@ -46796,7 +46906,7 @@ Details are below:</p></li>
     </span><span class="s2">"cid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"id generated by client"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"topic"</span><span class="p">:</span><span class="w"> </span><span class="s2">"public.linear-swap.heartbeat"</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre><h3 id='request-parameter-142'><strong>Request Parameter</strong>:</h3>
+</span></code></pre><h3 id='request-parameter-154'><strong>Request Parameter</strong>:</h3>
 <table><thead>
 <tr>
 <th>Name</th>
