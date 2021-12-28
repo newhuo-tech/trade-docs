@@ -3267,7 +3267,7 @@ curl "https://api.hbdm.com/linear-swap-api/v1/swap_open_interest?contract_code=B
 
 |   Parameter Name   |   Parameter Type   |   Mandatory   |   Desc                                            |
 | ------------------ | ------------------ | ------------- | ------------------------------------------------- |
-| contract_code      | string             | false         | Case-insenstive.such as BTC-USDT. ALL contracts by default.                                        |
+| contract_code      | string             | false         | eg swap: "BTC-USDT"... , future: "BTC-USDT-210625" ...                         |
 | pair |  string | false | pair, BTC-USDT   |
 | contract_type | string | false | contract type: swap, this_week, next_week, quarter, next_ quarter |
 | business_type | string | false(more see remarks) | business type, default is swap: futures, swap, all |
@@ -3459,7 +3459,7 @@ curl "https://api.hbdm.com/linear-swap-ex/market/depth?contract_code=BTC-USDT&ty
 ### Request Parameter
 | Parameter Name   | Mandatory | Type     | Description  | Value Range |
 | ------ | ---- | ------ | ---------------------------------------- | ---- |
-| contract_code | false | string | contract code，if not filled in, return all | swap: "BTC-USDT"... , future: "BTC-USDT-220325" ... or BTC-USDT-CW, BTC-USDT-NW, BTC-USDT-CQ, BTC-USDT-NQ |
+| contract_code | false | string | contract code or contract type | swap: "BTC-USDT"... , future: "BTC-USDT-220325" ... or BTC-USDT-CW, BTC-USDT-NW, BTC-USDT-CQ, BTC-USDT-NQ |
 | business_type |  false(more see remarks) |  string | business type, default is swap |  futures, swap, all |
 
 > Response
@@ -3535,7 +3535,7 @@ curl "https://api.hbdm.com/linear-swap-ex/market/depth?contract_code=BTC-USDT&ty
 | ------ | ---- | ------ | ---------------------------------------- | -------------- |
 | status | true | string |  the result of server handling to request     | "ok" , "error" |
 | \<ticks\> |true  |  object array |           |                |
-| contract_code  | true | string  | contract code  | swap: "BTC-USDT"... , future: "BTC-USDT-220325" ... or BTC-USDT-CW, BTC-USDT-NW, BTC-USDT-CQ, BTC-USDT-NQ |
+| contract_code  | true | string  | contract code or contract type  | swap: "BTC-USDT"... , future: "BTC-USDT-220325" ... or BTC-USDT-CW, BTC-USDT-NW, BTC-USDT-CQ, BTC-USDT-NQ |
 | business_type | true |  string | business type |  futures, swap |
 | mrid   | true | long | Match ID, unique identification  |                |
 | ask   | false | array | [Ask 1 price, Ask 1 qty (cont)] |                |
@@ -3565,7 +3565,7 @@ curl "https://api.hbdm.com/linear-swap-ex/market/history/kline?period=1min&size=
 
 |   Parameter Name   |   Mandatory   |   Type   |   Desc               |   Default   |   Value Range                                                |
 | ------------------ | ------------- | -------- | -------------------- | ----------- | ------------------------------------------------------------ |
-| contract_code       | true        | string         | swap: "BTC-USDT"... , future: "BTC-USDT-220325" ... or BTC-USDT-CW, BTC-USDT-NW, BTC-USDT-CQ, BTC-USDT-NQ |
+| contract_code       | true        | string         | contract code or contract type |  | swap: "BTC-USDT"... , future: "BTC-USDT-220325" ... or BTC-USDT-CW, BTC-USDT-NW, BTC-USDT-CQ, BTC-USDT-NQ |
 | period             | true          | string   | KLine Type          |             | 1min, 5min, 15min, 30min, 60min, 1hour,4hour,1day, 1mon      |
 | size               | false         | int  | Acquisition Quantity | 150     | [1,2000]         |
 | from              | false         | long  | start timestamp seconds. |         |                                                    |
@@ -3632,11 +3632,11 @@ curl "https://api.hbdm.com/linear-swap-ex/market/history/kline?period=1min&size=
  - The request parameter "contract_code" supports the contract code of futures, in that the format is BTC-USDT-210625; and supports contract type: BTC-USDT, BTC-USDT-CW, BTC-USDT-NW, BTC-USDT-CQ, BTC-USDT-NQ.
 
 ### Request Parameter：
-| Parameter Name    | Mandatory | Type | Description        | Default Value | Value Range                                 |
-| ----------- | -------- | ------ | ------------- | ------- | ---------------------------------------- |
-| contract_code      | true     | string | contract code         |         | swap: "BTC-USDT"... , future: "BTC-USDT-210625" ... or BTC-USDT-CW, BTC-USDT-NW, BTC-USDT-CQ, BTC-USDT-NQ |
-| period          | true     | string  | period               |         | 1min, 5min, 15min, 30min, 60min,4hour,1day, 1week,1mon     |
-| size  | true     | int    | size     |  | [1,2000] |
+| Parameter Name    | Mandatory | Type | Description        |  Value Range                                 |
+| ----------- | -------- | ------ | ------------- |  ---------------------------------------- |
+| contract_code      | true     | string | contract code or contract type        | swap: "BTC-USDT"... , future: "BTC-USDT-210625" ... or BTC-USDT-CW, BTC-USDT-NW, BTC-USDT-CQ, BTC-USDT-NQ |
+| period          | true     | string  | period            | 1min, 5min, 15min, 30min, 60min,4hour,1day, 1week,1mon     |
+| size  | true     | int    | size     |   [1,2000] |
 
 #### Note：
 
@@ -3712,9 +3712,9 @@ curl "https://api.hbdm.com/linear-swap-ex/market/detail/merged?contract_code=BTC
 
 ###  Request Parameter  
 
-|   Parameter Name   |   Mandatory   |   Type   |   Desc        |   Default   |   Value Range                                                |
-| ------------------ | ------------- | -------- | ------------- | ----------- | ------------------------------------------------------------ |
-| contract_code      | true           | string  | swap: "BTC-USDT"... , future: "BTC-USDT-220325" ... or BTC-USDT-CW, BTC-USDT-NW, BTC-USDT-CQ, BTC-USDT-NQ |
+|   Parameter Name   |   Mandatory   |   Type   |   Desc        |    Value Range                                                |
+| ------------------ | ------------- | -------- | ------------- |  ------------------------------------------------------------ |
+| contract_code      | true         | string  | contract code or contract type | swap: "BTC-USDT"... , future: "BTC-USDT-220325" ... or BTC-USDT-CW, BTC-USDT-NW, BTC-USDT-CQ, BTC-USDT-NQ |
 
 > Response:
 
@@ -3777,10 +3777,10 @@ curl "https://api.hbdm.com/linear-swap-ex/market/detail/merged?contract_code=BTC
 
 ### Request Parameter
 
-|   Parameter Name   |   Mandatory   |   Type   |   Desc        |   Default   |   Value Range                                                |
-| ------------------ | ------------- | -------- | ------------- | ----------- | ------------------------------------------------------------ |
-| contract_code      |  false        | string  | swap: "BTC-USDT"... , future: "BTC-USDT-210625" ... or BTC-USDT-CW, BTC-USDT-NW, BTC-USDT-CQ, BTC-USDT-NQ | if not filled in means all  |
-| business_type |  false(more see remarks) |  string | business type, default is swap |  futures, swap, all | |
+|   Parameter Name   |   Mandatory   |   Type   |   Desc        |     Value Range                                                |
+| ------------------ | ------------- | -------- | ------------- |  ------------------------------------------------------------ |
+| contract_code      |  false        | string  | contract code or contract type  | swap: "BTC-USDT"... , future: "BTC-USDT-210625" ... or BTC-USDT-CW, BTC-USDT-NW, BTC-USDT-CQ, BTC-USDT-NQ | 
+| business_type |  false(more see remarks) |  string | business type, default is swap |  futures, swap, all | 
 
 #### Note
 
@@ -3828,7 +3828,7 @@ curl "https://api.hbdm.com/linear-swap-ex/market/detail/merged?contract_code=BTC
 | ------ | ---- | ------ | ---------------------------------------- | -------------- |
 | status | true | string | status     | "ok" , "error" |
 | \<ticks\> |true  |  object array |           |                |
-| contract_code   | true | string  | contract code | swap: "BTC-USDT"... , future: "BTC-USDT-210625" ... or BTC-USDT-CW, BTC-USDT-NW, BTC-USDT-CQ, BTC-USDT-NQ  |
+| contract_code   | true | string  | contract code or contract type | swap: "BTC-USDT"... , future: "BTC-USDT-210625" ... or BTC-USDT-CW, BTC-USDT-NW, BTC-USDT-CQ, BTC-USDT-NQ  |
 | business_type | true |  string | business type |  futures, swap |
 | id   | true | long | id |                |
 | amount   | true | string | Trade Amount(Coin) ,from nowtime - 24 hours. Sum of both buy and sell sides    |                |
@@ -3868,7 +3868,7 @@ curl "https://api.hbdm.com/linear-swap-ex/market/trade?contract_code=BTC-USDT"
 
 |   Parameter Name   |   Mandatory   |   Type   |   Desc        |  
 | ------------------ | ------------- | -------- | ------------- | 
-| contract_code      | false      | string  | swap: "BTC-USDT"... , future: "BTC-USDT-210625" ... or BTC-USDT-CW, BTC-USDT-NW, BTC-USDT-CQ, BTC-USDT-NQ | 
+| contract_code      | false      | string  | contract code or contract type, swap: "BTC-USDT"... , future: "BTC-USDT-210625" ... or BTC-USDT-CW, BTC-USDT-NW, BTC-USDT-CQ, BTC-USDT-NQ | 
 | business_type |  false(more see remarks) |  string | business type, default is swap: futures, swap, all |
 
 > Response:
@@ -3902,10 +3902,10 @@ curl "https://api.hbdm.com/linear-swap-ex/market/trade?contract_code=BTC-USDT"
 
 ###  Returning Parameter  
 
-|   Parameter Name   |   Mandatory   |   Type   |   Desc                                                      |   Default   |   Value Range   |
-| ------------------ | ------------- | -------- | ----------------------------------------------------------- | ----------- | --------------- |
+|   Parameter Name   |   Mandatory   |   Type   |   Desc                                                      |      Value Range   |
+| ------------------ | ------------- | -------- | ----------------------------------------------------------- |  --------------- |
 | ch                 | true          | string   | Data belonged channel，Format： market.$contract_code.trade.detail |             |                 |
-| status             | true          | string   |               |             | "ok","error"    |
+| status             | true          | string   |               |        "ok","error"    |
 | ts                 | true          | long   | Sending time                                                |             |                 |
 |  \<tick\>    |               |    |      | 
 | id  |  true  |  long  |  Unique Order Id(symbol level).  |   |    
@@ -3917,7 +3917,7 @@ curl "https://api.hbdm.com/linear-swap-ex/market/trade?contract_code=BTC-USDT"
 | direction  |  true  |  string  |  The direction to buy or sell is the direction of the taker (active transaction)  |   |    
 | ts  |  true  |  long  |  Order Creation Time |   |    
 | quantity   | true | string |  trading quantity(coin)   |                |
-| contract_code   | true | string |  Contract Code   |  swap: "BTC-USDT"... , future: "BTC-USDT-210625" ... or BTC-USDT-CW, BTC-USDT-NW, BTC-USDT-CQ, BTC-USDT-NQ   |
+| contract_code   | true | string |   Contract Code or Contract type   |  swap: "BTC-USDT"... , future: "BTC-USDT-210625" ... or BTC-USDT-CW, BTC-USDT-NW, BTC-USDT-CQ, BTC-USDT-NQ   |
 | business_type | true |  string | business type |  futures, swap |
 | trade_turnover   | true | string |  trade turnover(quoted currency)  |                |
 | \</data\>    |               |    |      | 
@@ -3941,10 +3941,10 @@ curl "https://api.hbdm.com/linear-swap-ex/market/history/trade?contract_code=BTC
 
 ###  Request Parameter  
 
-|   Parameter Name   |   Mandatory   |   Data Type   |   Desc                                |   Default   |   Value Range                                                |
-| ------------------ | ------------- | ------------- | ------------------------------------- | ----------- | ------------------------------------------------------------ |
-| contract_code      | true             | string      | swap: "BTC-USDT"... , future: "BTC-USDT-210625" ... or BTC-USDT-CW, BTC-USDT-NW, BTC-USDT-CQ, BTC-USDT-NQ |  |   |
-| size               | true             | int        | Number of Trading Records Acquisition | 1           | [1, 2000]                                                    |
+|   Parameter Name   |   Mandatory   |   Data Type   |   Desc                                |     Value Range                                                |
+| ------------------ | ------------- | ------------- | ------------------------------------- |  ------------------------------------------------------------ |
+| contract_code      | true             | string      | contract code or contract type  | swap: "BTC-USDT"... , future: "BTC-USDT-210625" ... or BTC-USDT-CW, BTC-USDT-NW, BTC-USDT-CQ, BTC-USDT-NQ |  
+| size               | true             | int        | Number of Trading Records Acquisition |  [1, 2000]                                                    |
 
 > Response:
 
@@ -4021,7 +4021,7 @@ curl "https://api.hbdm.com/linear-swap-api/v1/swap_risk_info"
 |  Parameter Name                 |   Mandatory  |   Type   |   Desc              |   Value Range       |
 | ----------------------- | -------- | ------- | ------------------ | -------------- |
 | contract_code             | false   | string      |  contract code     | swap: "BTC-USDT"... , future: "BTC-USDT-FUTURES" ... |
-| business_type |  false(more see remarks) |  string | business type, default is swap |  futures, swap, all |
+| business_type |  false  |  string | business type, default is swap |  futures, swap, all |
 
 > Response:
 
@@ -4097,7 +4097,7 @@ curl "https://api.hbdm.com/linear-swap-api/v1/swap_insurance_fund?contract_code=
 | ----------------------- | -------- | ------- | ------------------ | -------------- |
 | contract_code   | true    | string       |  contract code | swap: "BTC-USDT"... , future: "BTC-USDT-FUTURES" ... |
 | page_index  | false    | int    | page index. 1 by default    | 1       |                                          |
-| page_size   | false    | int    | page size.100 by default. 100 at most | 100      |                                          |
+| page_size   | false    | int    | page size.100 by default. 100 at most | [1-100]      |                                          |
 
 > Response:
 
@@ -4367,7 +4367,7 @@ curl "https://api.hbdm.com/linear-swap-api/v1/swap_his_open_interest?contract_co
 
 |   Parameter Name                |   Mandatory   |   Type    |    Desc             |    Data Range       |
 | ----------------------- | -------- | ------- | ------------------ | -------------- |
-| contract_code   | false(more see remarks)  | string     | swap: "BTC-USDT"... , future: "BTC-USDT-210625" ... |
+| contract_code   | false(more see remarks)  | string   |  contract_code | swap: "BTC-USDT"... , future: "BTC-USDT-210625" ... |
 | pair | false(more see remarks) |  string | pair |   BTC-USDT   |
 | contract_type | false(more see remarks) |  string | contract type |  swap, this_week, next_week, quarter, next_ quarter |
 | period | true | string | Period Type | 1 hour:"60min"，4 hours:"4hour"，12 hours:"12hour"，1 day:"1day" |
@@ -4981,12 +4981,12 @@ curl "https://api.hbdm.com/linear-swap-api/v1/swap_liquidation_orders?contract_c
 
 ### Request Parameter 
 
-|   Parameter Name    |  Mandatory  |  Type   |    Desc          |    Default   |    Value Range                                |
-| ----------- | -------- | ------ | ------------- | ------- | ---------------------------------------- |
-| contract_code  | false(more see remarks)      | string     |   contract code    | | Case-Insenstive.e.g. swap: "BTC-USDT"... , future: "BTC-USDT-210625" ... |
-| pair | false(more see remarks) |  string | pair |   | BTC-USDT   |
-| trade_type      | true     | int  | trading types       |               | when “0”, request fully filled liquidated orders; when “5’, request liquidated close orders; when “6”, request liquidated open orders |
-| create_date | true     | int    | date        |         | 7，90（ 7 days or 90 days）        |
+|   Parameter Name    |  Mandatory  |  Type   |    Desc          |      Value Range                                |
+| ----------- | -------- | ------ | ------------- |  ---------------------------------------- |
+| contract_code  | false(more see remarks)      | string     |   contract code    |  Case-Insenstive.e.g. swap: "BTC-USDT"... , future: "BTC-USDT-210625" ... |
+| pair | false(more see remarks) |  string | pair |  BTC-USDT   |
+| trade_type      | true     | int  | trading types      | when “0”, request fully filled liquidated orders; when “5’, request liquidated close orders; when “6”, request liquidated open orders |
+| create_date | true     | int    | date          | 7，90（ 7 days or 90 days）        |
 | page_index | false     | int    | page, system sets page 1 by default without further instruction           |         |         |
 | page_size | false     | int    | system sets page 20 by default without further instruction. Max page size is 50.        |         |        |
 
@@ -5270,8 +5270,8 @@ curl "https://api.hbdm.com/linear-swap-api/v1/swap_historical_funding_rate?contr
   parameter name                 |  Required  |   Type   |   Desc              |   Value Range        |
 ----------------------- | -------- | ------- | ------------------ | -------------- |
 contract_code  |  true   |  string   |  contract code   |  Case-Insenstive.eg:"BTC-USDT" ...  |
-page_index  | false    | int    | page index. 1 by default    | 1       |                                          |
-page_size   | false    | int    | page size.20 by default. 50 at most | 20      |                                          |
+page_index  | false    | int    | page index. 1 by default    |         |                                          |
+page_size   | false    | int    | page size.20 by default. 50 at most | [1-50]      |                                          |
 
 > Response:
 
@@ -5310,7 +5310,7 @@ ts | long | response timestamp.unit:millionSeconds. |  |
 \<data\> |  |  |  |  |
 symbol | string | symbol | eg:"BTC","ETH"... |
 contract_code  |  string   |  contract code  | eg: "BTC-USDT
-fee_asset | string | fee asset | eg:"BTC","ETH"... |
+fee_asset | string | fee asset | eg:"USDT"   |
 funding_time | string | funding time |  |
 funding_rate | string | funding rate |  |
 realized_rate |string | realized funding rate |  |
@@ -5336,11 +5336,11 @@ curl "https://api.hbdm.com/index/market/history/linear_swap_premium_index_kline?
  - The interface supports cross margin mode and isolated margin mode.
 
 ### request parameters
-| **Parameter name**    | **Mandatory** | **Type** | **Desc**        | **Default** | **Value Range**                                 |
-| ----------- | -------- | ------ | ------------- | ------- | ---------------------------------------- |
-| contract_code      | true     | string |   contract code   |         | Case-Insenstive.Both uppercase and lowercase are supported.e.g. "BTC-USDT","ETH-USDT".                          |
-| period          | true     | string  | kline period               |         | 1min,5min, 15min, 30min, 60min,4hour,1day,1week,1mon     |
-| size  | true     | int    | kline size         | | [1,2000] |
+| **Parameter name**    | **Mandatory** | **Type** | **Desc**   | **Value Range**                                 |
+| ----------- | -------- | ------ | ------------- | ---------------------------------------- |
+| contract_code      | true     | string |   contract code   |    Case-Insenstive.Both uppercase and lowercase are supported.e.g. "BTC-USDT","ETH-USDT".                          |
+| period          | true     | string  | kline period         | 1min,5min, 15min, 30min, 60min,4hour,1day,1week,1mon     |
+| size  | true     | int    | kline size         | [1,2000] |
 
 > Response Example：
 
@@ -5369,10 +5369,10 @@ curl "https://api.hbdm.com/index/market/history/linear_swap_premium_index_kline?
 
 ### response parameters：
 
-| **Parameter Name**    | **Mandatory** | **Type** | **Desc**        | **Default** | **Value Range**                                 |
-| ----------- | -------- | ------ | ------------- | ------- | ---------------------------------------- |
-| ch      | true     | string | data channel          |         | eg： market.period                           |
-|  \<data\>    |               |    |  object    |            | 
+| **Parameter Name**    | **Mandatory** | **Type** | **Desc**        | **Value Range**                                 |
+| ----------- | -------- | ------ | ------------- |  ---------------------------------------- |
+| ch      | true     | string | data channel        | eg： market.period                           |
+|  \<data\>    |               |    |  object       | 
 |  id    |     true          | long   | index kline id,the same as kline timestamp, kline start timestamp  |            
 |  vol    |     true          | string   |  Trade Volume(Cont.) The value is 0   |            
 |  count    |     true          | string   |   Order Quantity The value is 0|            
@@ -5383,8 +5383,8 @@ curl "https://api.hbdm.com/index/market/history/linear_swap_premium_index_kline?
 |  amount    |     true          | string   |  Trade Amount(Coin), The value is 0. )   |  
 | trade_turnover     | true | string | Transaction amount, the value is 0.       |                |           
 |  \</data\>    |               |     |      |          
-| status  | true     | string    | process status          |   | "ok" , "error" |
-| ts  | true     | long    | timestamp of the response of the server          |  |  unit：millionseconds |
+| status  | true     | string    | process status          |   "ok" , "error" |
+| ts  | true     | long    | timestamp of the response of the server, unit：millionseconds | |
 
 
 
@@ -5435,9 +5435,9 @@ curl "https://api.hbdm.com/index/market/history/linear_swap_estimated_rate_kline
 ```
 
 ### response parameters：
-| **Parameter Name**    | **Mandatory** | **Type** | **Desc**        | **Default** | **Value Range**                                 |
-| ----------- | -------- | ------ | ------------- | ------- | ---------------------------------------- |
-| ch      | true     | string | data channel          |         | eg： market.period                           |
+| **Parameter Name**    | **Mandatory** | **Type** | **Desc**        |  **Value Range**                                 |
+| ----------- | -------- | ------ | ------------- | ---------------------------------------- |
+| ch      | true     | string | data channel            | eg： market.period                           |
 |  \<data\>    |               |    |  object    |            | 
 |  id    |     true          | long   |  kline ID     |            
 |  vol    |     true          | string   |  Trade Volume(Cont.) The value is 0   |            
@@ -5449,8 +5449,8 @@ curl "https://api.hbdm.com/index/market/history/linear_swap_estimated_rate_kline
 |  amount    |     true          | string   |  Trade Amount(Coin), The value is 0. )   |  
 | trade_turnover     | true | string | Transaction amount, the value is 0.       |                |                
 |  \</data\>    |               |     |      |          
-| status  | true     | string    | process status          |   | "ok" , "error" |
-| ts  | true     | long    | timestamp of the response of the server          |  |  unit：millionseconds |
+| status  | true     | string    | process status          | "ok" , "error" |
+| ts  | true     | long    | timestamp of the response of the server        |  unit：millionseconds |
 
 
 
@@ -5473,7 +5473,7 @@ curl "https://api.hbdm.com/index/market/history/linear_swap_basis?contract_code=
 ### request parameters
 | **Parameter name**    | **Mandatory** | **Type** | **Desc**        | **Default** | **Value Range**                                 |
 | ----------- | -------- | ------ | ------------- | ------- | ---------------------------------------- |
-| contract_code      | true     | string | contract code name          |         | swap: "BTC-USDT"... , future: "BTC-USDT-210625" ... or BTC-USDT-CW, BTC-USDT-NW, BTC-USDT-CQ, BTC-USDT-NQ |
+| contract_code      | true     | string | contract code or contract type          |         | swap: "BTC-USDT"... , future: "BTC-USDT-210625" ... or BTC-USDT-CW, BTC-USDT-NW, BTC-USDT-CQ, BTC-USDT-NQ |
 | period          | true     | string  | kline period               |         | 1min,5min, 15min, 30min, 60min,4hour,1day,1mon     |
 | basis_price_type          | false     | string  | use basis price type to calculate the basis data       |    Using open price default   |    open price："open"，close price："close"，highest price："high"，lowest price："low"，avg=（high price +low price）/2："average"   |
 | size  | true     | int    | data size         | 150 | [1,2000] |
@@ -5837,7 +5837,7 @@ curl "https://api.hbdm.com/index/market/history/linear_swap_basis?contract_code=
 | profit_unreal        | true   | decimal | unrealized profits and losses (summary of all contract)               |                |
 | withdraw_available   | true   | decimal | available transfer amount               |                |
 | risk_rate            | true   | decimal | margin rate                 |                |
-| \<contract_detail\> |    true    |  object array       ｜                   |                |
+| \<contract_detail\> |    true    |  object array                   |                |
 | symbol     | true   | string  | symbol                 | "BTC","ETH"... |
 | contract_code     | true   | string  | contract code                 | swap: "BTC-USDT"...  |
 | margin_position      | true   | decimal | position margin (the margin used by current positions)	 |                |
@@ -5851,7 +5851,7 @@ curl "https://api.hbdm.com/index/market/history/linear_swap_basis?contract_code=
 | pair |   true |  string | pair |   such as: “BTC-USDT”   |
 | business_type | true |  string | business type |  futures, swap |
 | \</contract_detail\>            |        |         |                      |                |
-| \<futures_contract_detail\> |    true    |  object array       ｜                   |                |
+| \<futures_contract_detail\> |    true    |  object array                   |                |
 | symbol     | true   | string  | symbol                 | "BTC","ETH"... |
 | contract_code     | true   | string  | contract code                 |  future: "BTC-USDT-210625" ... |
 | margin_position      | true   | decimal | position margin (the margin used by current positions)	 |                |
@@ -5957,7 +5957,7 @@ curl "https://api.hbdm.com/index/market/history/linear_swap_basis?contract_code=
 
  - The request parameter "contract_code" supports the contract code of futures, in that the format is BTC-USDT-211225.
  
- - one of (pair+contract_type) and contract_code must be filled in; when all filled in, the contract_code is the preferred; when no one filled in, return all contract type's data(swap and futures)
+ - When both of pair、contract_type and contract_code filled in, the contract_code is the preferred. when no one filled in, return all contract type's data(swap and futures)
 
 ### Request Parameter
 
@@ -7033,7 +7033,7 @@ contract_code | true | string | contract code	 |Case-Insenstive.Both uppercase a
 
  - The request parameter "contract_code" supports the contract code of futures, in that the format is BTC-USDT-211225.
 
- - one of (pair+contract_type) and contract_code must be filled in; when all filled in, the contract_code is the preferred; when no one filled in, return all contract type's data(swap and futures)
+ - When both of pair、contract_type and contract_code filled in, the contract_code is the preferred. when no one filled in, return all contract type's data(swap and futures)
 
 ### Request Parameter
 
@@ -7587,7 +7587,7 @@ contract_code | true | string | contract code	 |Case-Insenstive.Both uppercase a
 
 | **Parameter Name**      | **Mandatory** | **Type**  | **Desc**             | **Value Range**       |
 | ----------------------- | -------- | ------- | ------------------ | -------------- |	
-| contract_code | false | string | Contract code, if not filled in, the actual available leverage of all contracts will be returned by default	 |  “BTC-USDT”。。。 |
+| contract_code | false | string | Contract code, if not filled in, the actual available leverage of all contracts will be returned by default	 |  “BTC-USDT”... |
 
 ### Returning Parameter：
 
@@ -8429,10 +8429,10 @@ contract_code | true | string | contract code	 |Case-Insenstive.Both uppercase a
 |   Parameter Name                |   Mandatory    |   Type   |   Desc              |   Value Range       |
 | ------ | ----- | ------ | ---- | ---------------------------- |
 | margin_account | true | string | margin account	 |  "BTC-USDT","USDT"... |
-| transfer_type | false | string |  All by default【multiple types need to be joined with ';'】 | 34:transfer to sub account 35:transfer from sub account |
+| transfer_type | false | string |  All by default(multiple types need to be joined with ',') | 34:transfer to sub account 35:transfer from sub account |
 | create_date | true | int | days | days need to be less than or equal to 90 |
-| page_index | false | int | 1 by default | 1 |
-| page_size | false | int | 20 by default.less than or equal to 50. | 20 |
+| page_index | false | int | 1 by default |  |
+| page_size | false | int | 20 by default.less than or equal to 50. | [1-50] |
 
 > Response:
 
@@ -9307,17 +9307,15 @@ client_order_id, order status query is available for orders placed within 8 hour
 
  - The request parameter "contract_code" supports the contract code of futures, in that the format is BTC-USDT-210625.
  
- - When both of pair、contract_type and contract_code filled in, the contract_code is the preferred. if just pair filled in, it will cancel all open orders of this pair. if just contract_type, it will cancel all open orders of this contract_type.
-
- - supports none any parameter, and it will cancel all open orders.
+ - one of (pair+contract_type) and contract_code must be filled in(if all of them not filled in, will get 1014 error code); and all filled in, the contract_code is the preferred.
 
 ###  Request Parameter
 
 | Parameter Name  | Mandatory | Type | Desc  | Data Value |
 | ------------- | ------ | ----- | ---------------------------------------- | ---- |
-| contract_code | false |  string | contract code | swap: "BTC-USDT"... , future: "BTC-USDT-210625" ... |
-| pair | false |  string | pair |   BTC-USDT   |
-| contract_type | false |  string | contract type |  swap, this_week, next_week, quarter, next_ quarter |
+| contract_code | false(more see remarks) |  string | contract code | swap: "BTC-USDT"... , future: "BTC-USDT-210625" ... |
+| pair | false(more see remarks) |  string | pair |   BTC-USDT   |
+| contract_type | false(more see remarks) |  string | contract type |  swap, this_week, next_week, quarter, next_ quarter |
 | direction | false  | string | Transaction direction(if not filled in means all)    ["buy" , "sell"] |
 | offset | false  | string | offset direction（if not filled in means all）  ["open" , "close"] |
 
@@ -9613,7 +9611,7 @@ When getting information on order cancellation via get order Information interfa
 
 At least one of order_id and client_order_id must be filled in
 
-Both order_id and client_order_id can be used for order withdrawl，one of them needed at one time，if both of them are set，the default will be order id. The order completed( 5.partially fulfilled but cancelled by client; 6. Fully fulfilled; 7. Cancelled; ) will be deleted after the settlement of funding rate on 04:00(GMT+8), 12:00(GMT+8) and 20:00(GMT+8).
+Both order_id and client_order_id can be used for order withdrawl，one of them needed at one time，if both of them are set，the default will be order id. The order completed( 5.partially fulfilled but cancelled by client; 6. Fully fulfilled; 7. Cancelled; ) will be deleted after the settlement of funding rate on 00:00(GMT+8), 08:00(GMT+8) and 16:00(GMT+8).
 
 client_order_id，order status query is available for orders placed within 8 hours; Otherwise, clients cannot check orders placed beyond 8 hours.
 
@@ -9729,7 +9727,7 @@ client_order_id，order status query is available for orders placed within 8 hou
 
  - When getting information on order cancellation via get order Information interface, users can only query last 2-hour data
 
- - Both order_id and client_order_id can be used for order withdrawl，one of them needed at one time，if both of them are set，the default will be order id. The order completed( 5.partially fulfilled but cancelled by client; 6. Fully fulfilled; 7. Cancelled; ) will be deleted after the settlement of funding rate on 04:00(GMT+8), 12:00(GMT+8) and 20:00(GMT+8).
+ - Both order_id and client_order_id can be used for order withdrawl，one of them needed at one time，if both of them are set，the default will be order id. The order completed( 5.partially fulfilled but cancelled by client; 6. Fully fulfilled; 7. Cancelled; ) will be deleted after the settlement of funding rate on 00:00(GMT+8), 08:00(GMT+8) and 16:00(GMT+8).
 
  - client_order_id，order status query is available for orders placed within 8 hours; Otherwise, clients cannot check orders placed beyond 8 hours.
 
@@ -9850,8 +9848,6 @@ When getting information on order cancellation via query order detail interface,
 The return order_id is 18 bits, it will make  mistake when nodejs and JavaScript analysed 18 bits. Because the Json.parse in nodejs and JavaScript is int by default. so the number over 18 bits need be parsed by jaso-bigint package.
 
 created_at should use timestamp of long type as 13 bits (include Millisecond), if send the accurate timestamp for "created_at", query performance will be improved.
-
-eg. the timestamp "2019/10/18 10:26:22" can be changed：1571365582123.It can also directly obtain the timestamp（ts) from the returned ordering interface(swap_order) to query the corresponding orders.
 
 Please note that created_at can't be "0"
 
@@ -10010,8 +10006,6 @@ When getting information on order cancellation via query order detail interface,
 The return order_id is 18 bits, it will make  mistake when nodejs and JavaScript analysed 18 bits. Because the Json.parse in nodejs and JavaScript is int by default. so the number over 18 bits need be parsed by jaso-bigint package.
 
 created_at should use timestamp of long type as 13 bits (include Millisecond), if send the accurate timestamp for "created_at", query performance will be improved.
-
-eg. the timestamp "2019/10/18 10:26:22" can be changed：1571365582123.It can also directly obtain the timestamp（ts) from the returned ordering interface(swap_order) to query the corresponding orders.
 
 Please note that created_at can't be "0"
 
@@ -10271,7 +10265,7 @@ Please note that created_at can't be "0"
 
  - The request parameter "contract_code" supports the contract code of futures, in that the format is BTC-USDT-210625.
 
- - one of pair and contract_code must be filled in; and all filled in, the contract_code is the preferred. supports none any parameter filled in, it means all contract code in cross mode.
+ - When both of (pair, contract_type) and contract_code filled in, the contract_code is the preferred.  supports none any parameter filled in, it means all contract code in cross mode.
 
 ###  Request Parameter
 
@@ -11711,18 +11705,15 @@ Error：
 
  - The request parameter "contract_code" supports the contract code of futures, in that the format is BTC-USDT-210625.
  
- - When both of pair、contract_type and contract_code filled in, the contract_code is the preferred. if just pair filled in, it will cancel all open orders of this pair. if just contract_type, it will cancel all open orders of this contract_type.
- 
- - supports none any parameter, and it will cancel all open orders.
-
+ - one of (pair+contract_type) and contract_code must be filled in(if all of them not filled in, will get 1014 error code); and all filled in, the contract_code is the preferred.
  
 ### Request Parameter
 
 | Parameter Name            | Mandatory  | Type     | Desc                    | Data Value                                     |
 | --------------- | ----- | ------ | --------------------- | ---------------------------------------- |
-| contract_code | false | string | contract code | swap: "BTC-USDT"... , future: "BTC-USDT-210625" ... |
-| pair | false |  string | pair |   BTC-USDT   |
-| contract_type | false |  string | contract type |  swap, this_week, next_week, quarter, next_ quarter |
+| contract_code | false(more see remarks) | string | contract code | swap: "BTC-USDT"... , future: "BTC-USDT-210625" ... |
+| pair | false(more see remarks) |  string | pair |   BTC-USDT   |
+| contract_type | false(more see remarks) |  string | contract type |  swap, this_week, next_week, quarter, next_ quarter |
 | direction | false  | string | Transaction direction(if not filled in means all)  |  ["buy" , "sell"] |
 | offset | false  | string | offset direction（if not filled in means all）|  ["open" , "close"] |
 
@@ -12095,8 +12086,8 @@ Error：
 
 | Parameter Name            | Mandatory  | Type     | Desc                    | Value Range                                     |
 | --------------- | ----- | ------ | --------------------- | ---------------------------------------- |
-| contract_code | false        | string   | contract code | swap: "BTC-USDT"... , future: "BTC-USDT-210625" ... |
-| pair | false |  string | pair |   BTC-USDT   |
+| contract_code | false(more see remarks)        | string   | contract code | swap: "BTC-USDT"... , future: "BTC-USDT-210625" ... |
+| pair | false(more see remarks) |  string | pair |   BTC-USDT   |
 | trade_type        | true         | int      | trade type            | 0: All ,1: Open Long,2: Close Short,3: Open Short,4: Close Long；the system will transfer these parameters into offset and direction and query the requested data. Please note that no data can be requested with parameter out of this range. |
 | status        | true         | string      | order status           | data divided with several commas, trigger orders ready to be submitted：0: All (All filled orders),4: Trigger orders successfully submitted,5: Trigger orders failed being submitted, 6: Trigger orders cancelled |
 | create_date   | true         | int      | date           | any positive integer available. Requesting data beyond 90 will not be supported, otherwise, system will return trigger history data within the last 90 days by default.      |
@@ -12178,7 +12169,7 @@ Error：
 | lever_rate | true |int | leverage  | |
 | order_id | true |long  | order id | |
 | order_id_str | true |string  | order id  | |
-| **relation_order_id** | true | string  | **relation order ID is the string related to the limit orders The value is -1 before the trigger orders executed**| |
+| relation_order_id | true | string  | relation order ID is the string related to the limit orders The value is -1 before the trigger orders executed| |
 | order_price_type | true |string | order type "limit": Limit order price，"optimal_5": Optimal 5 price level，"optimal_10":Optimal 10 price level，"optimal_20": the Optimal 20 price level | |
 | status | true |int  | status (4:Orders accepted、5: Orders failing being placed、6: Orders canceled ) | |
 | order_source | true |string | order source |  system、web、api、m、risk、settlement、ios、android、windows、mac、trigger |
@@ -12302,9 +12293,7 @@ Error：
  - This interface only supports isolated margin mode.
  - The frequency limit of this interface is 5 times per second.
  - Fill in at least one of the take-profit trigger price(tp_trigger_price) and stop-loss trigger price(sl_trigger_price). If all the trigger price is not filled in, this type of take-profit and stop-loss order will not be placed.
-
  - The request parameter "contract_code" supports the contract code of futures, in that the format is BTC-USDT-210625.
-
  - one of (pair+contract_type) and contract_code must be filled in(if all of them not filled in, will get 1014 error code); and all filled in, the contract_code is the preferred.
 
 > Request
@@ -12554,17 +12543,15 @@ Error：
 
  - The request parameter "contract_code" supports the contract code of futures, in that the format is BTC-USDT-210625.
  
- - When both of pair、contract_type and contract_code filled in, the contract_code is the preferred. if just pair filled in, it will cancel all open orders of this pair. if just contract_type, it will cancel all open orders of this contract_type.
-
- - supports none any parameter, and it will cancel all open orders.
+ - one of (pair+contract_type) and contract_code must be filled in(if all of them not filled in, will get 1014 error code); and all filled in, the contract_code is the preferred.
 
 ### Request Parameter
 
 | Parameter Name          | Mandatory  | Type    | Description   | Value Range                                    |
 | ------------- | ----- | ------ | ------------- | ---------------------------------------- |
-| contract_code | false | string | contract code| swap: "BTC-USDT"... , future: "BTC-USDT-210625" ... |
-| pair | false |  string | pair |   BTC-USDT   |
-| contract_type | false |  string | contract type |  swap, this_week, next_week, quarter, next_ quarter |
+| contract_code | false(more see remarks) | string | contract code| swap: "BTC-USDT"... , future: "BTC-USDT-210625" ... |
+| pair | false(more see remarks) |  string | pair |   BTC-USDT   |
+| contract_type | false(more see remarks) |  string | contract type |  swap, this_week, next_week, quarter, next_ quarter |
 | direction  | false  | string | direction false string direction（if not filled in means all） | ["buy", "sell"] |
 
 > Response
@@ -13582,16 +13569,15 @@ Error：
  - The frequency limit of this interface is 5 times per second.
  - You can fill in only one of direction and offset to cancel the orders. (such as direction=buy, all buy orders will be cancelled, including "open" and "close" offset)
  - The request parameter "contract_code" supports the contract code of futures, in that the format is BTC-USDT-210625.
- - When both of pair、contract_type and contract_code filled in, the contract_code is the preferred. if just pair filled in, it will cancel all open orders of this pair. if just contract_type, it will cancel all open orders of this contract_type.
- - supports none any parameter, and it will cancel all open orders.
+ - one of (pair+contract_type) and contract_code must be filled in(if all of them not filled in, will get 1014 error code); and all filled in, the contract_code is the preferred.
 
 ### Request Parameter
 
 | Parameter Name          | Mandatory  | Type     | Description   | Value Range                                     |
 | ------------- | ----- | ------ | ------------- | ---------------------------------------- |
-| contract_code   | false | string | contract code    | swap: "BTC-USDT"... , future: "BTC-USDT-210625" ... |
-| pair | false |  string | pair |   BTC-USDT   |
-| contract_type | false |  string | contract type |  swap, this_week, next_week, quarter, next_ quarter |
+| contract_code   | false(more see remarks) | string | contract code    | swap: "BTC-USDT"... , future: "BTC-USDT-210625" ... |
+| pair | false(more see remarks) |  string | pair |   BTC-USDT   |
+| contract_type | false(more see remarks) |  string | contract type |  swap, this_week, next_week, quarter, next_ quarter |
 | direction | false  | string | direction(if not filled in, means all)  |  buy, sell |
 | offset | false  | string | offset (if not filled in, means all)  | open, close  |
 
@@ -14589,10 +14575,10 @@ Add computed value into the Signature parameter in API request. Please note  the
 
 ### sub Subscribe Parameter Rules
 
-  Parameter Name |   Mandatory   |     Type |   Description   |   Default  |   Value Range
---------------| -----------------| ---------- |----------| ------------  | --------------------------------------------------------------------------------  |
-  contract_code  |       true         |  string  |   swap code  |               | swap: "BTC-USDT"... , future: "BTC-USDT-210625" ... or BTC-USDT-CW, BTC-USDT-NW, BTC-USDT-CQ, BTC-USDT-NQ |
-  period    |     true          | string   |    Kline Period   |            |  1min, 5min, 15min, 30min, 60min,4hour,1day,1week, 1mon  |
+  Parameter Name |   Mandatory   |     Type |   Description   |    Value Range
+--------------| -----------------| ---------- |----------|  --------------------------------------------------------------------------------  |
+  contract_code  |       true         |  string  |   contract code or contract type |     swap: "BTC-USDT"... , future: "BTC-USDT-210625" ... or BTC-USDT-CW, BTC-USDT-NW, BTC-USDT-CQ, BTC-USDT-NQ |
+  period    |     true          | string   |    Kline Period   |     1min, 5min, 15min, 30min, 60min,4hour,1day,1week, 1mon  |
 
 > After subscription, clients can receive updates upon any change. Example:
 
@@ -14685,10 +14671,10 @@ Add computed value into the Signature parameter in API request. Please note  the
 
 ### req Subscribe Parameter Rules
 
-  Parameter Name |    Mandatory   |   Type  |  Description  |    Default   |   Value Range
--------- | -------- | ------ | ------ | ------- |---------------------------------------- 
-  contract_code  |       true         |  string  |   swap code  |               | swap: "BTC-USDT"... , future: "BTC-USDT-210625" ... or BTC-USDT-CW, BTC-USDT-NW, BTC-USDT-CQ, BTC-USDT-NQ |
-  period | true | string | Kline Period | | 1min, 5min, 15min, 30min, 60min,4hour,1day,1week, 1mon|
+  Parameter Name |    Mandatory   |   Type  |  Description  |     Value Range
+-------- | -------- | ------ | ------ | ---------------------------------------- 
+  contract_code  |       true         |  string  |   contract code or contract type  |    swap: "BTC-USDT"... , future: "BTC-USDT-210625" ... or BTC-USDT-CW, BTC-USDT-NW, BTC-USDT-CQ, BTC-USDT-NQ |
+  period | true | string | Kline Period |  1min, 5min, 15min, 30min, 60min,4hour,1day,1week, 1mon|
 
   
 #### Note
@@ -14809,10 +14795,10 @@ Clients can request 2000 Klines at most in one request
 
 ### sub Subscribe Parameter Rules
 
- Parameter Name   |  Mandatory   |  Type   |  Description      |    Default   |  Value Range  |
-  -------------- |   -------------- |  ---------- |  ------------ |  ------------ |  ---------------------------------------------------------------------------------  |
-  contract_code  |       true         |  string  |   swap code  |               | swap: "BTC-USDT"... , future: "BTC-USDT-210625" ... or BTC-USDT-CW, BTC-USDT-NW, BTC-USDT-CQ, BTC-USDT-NQ |
-  type           |  true           |  string     |    Depth Type      |        |  Get depth data within step 150, use step0, step1, step2, step3, step4, step5, step14, step15, step16, step17（merged depth data 0-5,14-17）；when step is 0，depth data will not be merged; Get depth data within step 20, use step6, step7, step8, step9, step10, step11, step12, step13, step18, step19(merged depth data 7-13,18-19); when step is 6, depth data will not be merged. |
+ Parameter Name   |  Mandatory   |  Type   |  Description      |    Value Range  |
+  -------------- |   -------------- |  ---------- |  ------------ |   ---------------------------------------------------------------------------------  |
+  contract_code  |       true         |  string  |  contract code or contract type  |  swap: "BTC-USDT"... , future: "BTC-USDT-210625" ... or BTC-USDT-CW, BTC-USDT-NW, BTC-USDT-CQ, BTC-USDT-NQ |
+  type           |  true           |  string     |    Depth Type      |     Get depth data within step 150, use step0, step1, step2, step3, step4, step5, step14, step15, step16, step17（merged depth data 0-5,14-17）；when step is 0，depth data will not be merged; Get depth data within step 20, use step6, step7, step8, step9, step10, step11, step12, step13, step18, step19(merged depth data 7-13,18-19); when step is 6, depth data will not be merged. |
 
 ### Note:
 
@@ -14933,10 +14919,10 @@ ch | true |  string | Data channel, Format： market.period | |
 
 ### sub Subscribe Parameter Rules
 
- Parameter Name   |  Mandatory   |  Type   |  Description      |    Default   |  Value Range  |
-  -------------- |   -------------- |  ---------- |  ------------ |  ------------ |  ---------------------------------------------------------------------------------  |
-  contract_code         |  true           |  string     |    contract code          |        | swap: "BTC-USDT"... , future: "BTC-USDT-210625" ... or BTC-USDT-CW, BTC-USDT-NW, BTC-USDT-CQ, BTC-USDT-NQ |
-  size           |  true           |  int     |    Depth size      |        |  `20`: stands for 20 unmerged data. `150`:stands for 150 unmerged data.|
+ Parameter Name   |  Mandatory   |  Type   |  Description      |      Value Range  |
+  -------------- |   -------------- |  ---------- |  ------------ |    ---------------------------------------------------------------------------------  |
+  contract_code         |  true           |  string     |   contract code or contract type     | swap: "BTC-USDT"... , future: "BTC-USDT-210625" ... or BTC-USDT-CW, BTC-USDT-NW, BTC-USDT-CQ, BTC-USDT-NQ |
+  size           |  true           |  int     |    Depth size   |  `20`: stands for 20 unmerged data. `150`:stands for 150 unmerged data.|
 
 > Response example:
 
@@ -15041,9 +15027,9 @@ ch | true |  string | Data channel, Format： `market.$contract_code.depth.size_
 
 ### sub Subscribe Parameter Rules
 
-Parameter Name  |  Mandatory  |    Type  |     Description   |  Default   |  Value Range |
--------------- |  -------------- |  ---------- |  ------------ |  ------------ |  --------------------------------------------------------------------------------  |
-  contract_code  |       true         |  string  |   swap code  |               | swap: "BTC-USDT"... , future: "BTC-USDT-210625" ... or BTC-USDT-CW, BTC-USDT-NW, BTC-USDT-CQ, BTC-USDT-NQ |
+Parameter Name  |  Mandatory  |    Type  |     Description   |   Value Range |
+-------------- |  -------------- |  ---------- |  ------------ |   --------------------------------------------------------------------------------  |
+  contract_code  |       true         |  string  | contract code or contract type    | swap: "BTC-USDT"... , future: "BTC-USDT-210625" ... or BTC-USDT-CW, BTC-USDT-NW, BTC-USDT-CQ, BTC-USDT-NQ |
 
 > Example of a successful return data：
 
@@ -15141,7 +15127,7 @@ bid |	true |	object  |	Buy,[price(Bid price), vol(Bid orders(Cont.))] |
 
 | Parameter Name | Mandotary| Type   | Desc  |   Value Range |
 | ------- | ----- | ----- | ------- | ------- | 
-| contract_code   |  true    |  string     |    Pairs         | swap: "BTC-USDT"... , future: "BTC-USDT-210625" ... or BTC-USDT-CW, BTC-USDT-NW, BTC-USDT-CQ, BTC-USDT-NQ |
+| contract_code   |  true    |  string     |   contract code or contract type   | swap: "BTC-USDT"... , future: "BTC-USDT-210625" ... or BTC-USDT-CW, BTC-USDT-NW, BTC-USDT-CQ, BTC-USDT-NQ |
 
 > **Return example**:
 
@@ -15236,9 +15222,9 @@ Return to the current trade detail data only
 
 ### req Subscribe Parameter Rules
 
-Parameter Name  |  Mandatory  |    Type  |     Description   |  Default   |  Value Range |
--------------- |  -------------- |  ---------- |  ------------ |  ------------ |  --------------------------------------------------------------------------------  |
-  contract_code  |       true         |  string  |   swap code  |               | swap: "BTC-USDT"... , future: "BTC-USDT-210625" ... or BTC-USDT-CW, BTC-USDT-NW, BTC-USDT-CQ, BTC-USDT-NQ |
+Parameter Name  |  Mandatory  |    Type  |     Description   |    Value Range |
+-------------- |  -------------- |  ---------- |  ------------ |    --------------------------------------------------------------------------------  |
+  contract_code  |       true         |  string  |  contract code or contract type     | swap: "BTC-USDT"... , future: "BTC-USDT-210625" ... or BTC-USDT-CW, BTC-USDT-NW, BTC-USDT-CQ, BTC-USDT-NQ |
 
 
 > Example of a successful return data：
@@ -15337,9 +15323,9 @@ ts  |  true  |  long  |  server response time |   |
 
 ### sub Subscribe Parameter Rules
 
-  Parameter Name    | Mandatory   |  Type    |   Description   |   Default     |   Value Range  |
--------------- |  -------------- |  ---------- |  ---------- |  ------------ |  --------------------------------------------------------------------------------|
-  contract_code  |       true         |  string  |   swap code  |               |  swap: "BTC-USDT"... , future: "BTC-USDT-210625" ... or BTC-USDT-CW, BTC-USDT-NW, BTC-USDT-CQ, BTC-USDT-NQ |
+  Parameter Name    | Mandatory   |  Type    |   Description   |   Value Range  |
+-------------- |  -------------- |  ---------- |  ---------- |    --------------------------------------------------------------------------------|
+  contract_code  |       true         |  string  |   contract code or contract type    |  swap: "BTC-USDT"... , future: "BTC-USDT-210625" ... or BTC-USDT-CW, BTC-USDT-NW, BTC-USDT-CQ, BTC-USDT-NQ |
 
 
 > When there is any update upon trade detail data, clients will receive notification from server. Example：
@@ -15429,10 +15415,10 @@ trade_turnover   | true | decimal |  trade turnover(quoted currency)  |         
 |  id |  false  |  string |  id automatically generated by the business party |
 
 ### sub Subscribe Parameter Rules
-| **Parameter Name**    | **Mandatory** | **Type** | **Desc**        | **Default** | **Value Range**                                 |
-| ----------- | -------- | ------ | ------------- | ------- | ---------------------------------------- |
-| contract_code      | true     | string | index symbol          |         | Case-Insenstive.Both uppercase and lowercase are supported.."BTC-USDT","ETH-USDT"...                           |
-| period          | true     | string  | kline type               |         | 1min, 5min, 15min, 30min, 60min,4hour,1day, 1mon     |
+| **Parameter Name**    | **Mandatory** | **Type** | **Desc**     | **Value Range**                                 |
+| ----------- | -------- | ------ | ------------- |   ---------------------------------------- |
+| contract_code      | true     | string | index symbol          | Case-Insenstive.Both uppercase and lowercase are supported.."BTC-USDT","ETH-USDT"...                           |
+| period          | true     | string  | kline type            | 1min, 5min, 15min, 30min, 60min,4hour,1day, 1mon     |
 
 ###  Note
  - Pushed once the index data is changed.
@@ -15521,10 +15507,10 @@ trade_turnover   | true | decimal |  trade turnover(quoted currency)  |         
 
 
 ### req Subscribe Parameter Rules：
-| **Parameter Name**    | **Mandotary** | **Type** | **Desc**        | **Default** | **Value Range**                                 |
-| ----------- | -------- | ------ | ------------- | ------- | ---------------------------------------- |
-| contract_code      | true     | string | contract code          |         | Case-Insenstive.Both uppercase and lowercase are supported.."BTC-USDT","ETH-USDT"...                           |
-| period          | true     | string  | kline type               |         | 1min, 5min, 15min, 30min, 60min,4hour,1day, 1mon     |
+| **Parameter Name**    | **Mandotary** | **Type** | **Desc**    | **Value Range**                                 |
+| ----------- | -------- | ------ | ------------- |   ---------------------------------------- |
+| contract_code      | true     | string | index symbol   | Case-Insenstive.Both uppercase and lowercase are supported.."BTC-USDT","ETH-USDT"...                           |
+| period          | true     | string  | kline type      | 1min, 5min, 15min, 30min, 60min,4hour,1day, 1mon     |
 
 ### Note：
 
@@ -15622,10 +15608,10 @@ trade_turnover   | true | decimal |  trade turnover(quoted currency)  |         
 |  id |  false  |  string |  id automatically generated by the business party |
 
 ### sub Subscribe Parameter Rules
-| **Parameter Name**    | **Mandatory** | **Type** | **Desc**        | **Default** | **Value Range**                                 |
-| ----------- | -------- | ------ | ------------- | ------- | ---------------------------------------- |
-| contract_code      | true     | string |     contract code        |         | Case-Insenstive.Both uppercase and lowercase are supported.."BTC-USDT","ETH-USDT"...                           |
-| period          | true     | string  | kline type               |         | 1min, 5min, 15min, 30min, 60min,4hour,1day, 1week, 1mon     |
+| **Parameter Name**    | **Mandatory** | **Type** | **Desc**     | **Value Range**                                 |
+| ----------- | -------- | ------ | ------------- |  ---------------------------------------- |
+| contract_code      | true     | string |     contract code       | Case-Insenstive.Both uppercase and lowercase are supported.."BTC-USDT","ETH-USDT"...                           |
+| period          | true     | string  | kline type         | 1min, 5min, 15min, 30min, 60min,4hour,1day, 1week, 1mon     |
 
 #### Note
  - Pushed once the index data is changed.
@@ -15713,10 +15699,10 @@ trade_turnover   | true | decimal |  trade turnover(quoted currency)  |         
 
 ### req Subscribe Parameter Rules：
 
-| **Parameter Name**    | **Mandotary** | **Type** | **Desc**        | **Default** | **Value Range**                                 |
-| ----------- | -------- | ------ | ------------- | ------- | ---------------------------------------- |
-| contract_code      | true     | string | contract code          |         | Case-Insenstive.Both uppercase and lowercase are supported.."BTC-USDT","ETH-USDT"...                           |
-| period          | true     | string  | kline type               |         | 1min, 5min, 15min, 30min, 60min,4hour,1day, 1week, 1mon     |
+| **Parameter Name**    | **Mandotary** | **Type** | **Desc**    | **Value Range**                                 |
+| ----------- | -------- | ------ | ------------- |   ---------------------------------------- |
+| contract_code      | true     | string | contract code    | Case-Insenstive.Both uppercase and lowercase are supported.."BTC-USDT","ETH-USDT"...                           |
+| period          | true     | string  | kline type     | 1min, 5min, 15min, 30min, 60min,4hour,1day, 1week, 1mon     |
 
 ### Note：
 - Pushed once the index data is updated.
@@ -15800,10 +15786,10 @@ trade_turnover   | true | decimal |  trade turnover(quoted currency)  |         
 |  id |  false  |  string |  id automatically generated by the business party |
 
 ### sub Subscribe Parameter Rules
-| **Parameter Name**    | **Mandatory** | **Type** | **Desc**        | **Default** | **Value Range**                                 |
-| ----------- | -------- | ------ | ------------- | ------- | ---------------------------------------- |
-| contract_code      | true     | string | contract code        |         | Case-Insenstive.Both uppercase and lowercase are supported.."BTC-USDT","ETH-USDT"...                           |
-| period          | true     | string  | kline type               |         | 1min, 5min, 15min, 30min, 60min,4hour,1day, 1week, 1mon     |
+| **Parameter Name**    | **Mandatory** | **Type** | **Desc**    | **Value Range**                                 |
+| ----------- | -------- | ------ | ------------- |  ---------------------------------------- |
+| contract_code      | true     | string | contract code     | Case-Insenstive.Both uppercase and lowercase are supported.."BTC-USDT","ETH-USDT"...                           |
+| period          | true     | string  | kline type       | 1min, 5min, 15min, 30min, 60min,4hour,1day, 1week, 1mon     |
 
 #### Note:
  - Pushed once the kline data is changed.
@@ -15893,10 +15879,10 @@ trade_turnover   | true | decimal |  trade turnover(quoted currency)  |         
 
 ### req Request Parameter：
 
-| **Parameter Name**    | **Mandotary** | **Type** | **Desc**        | **Default** | **Value Range**                                 |
-| ----------- | -------- | ------ | ------------- | ------- | ---------------------------------------- |
-| contract_code      | true     | string | contract code          |         | Case-Insenstive.Both uppercase and lowercase are supported.."BTC-USDT","ETH-USDT"...                           |
-| period          | true     | string  | kline type               |         | 1min, 5min, 15min, 30min, 60min,4hour,1day, 1week, 1mon     |
+| **Parameter Name**    | **Mandotary** | **Type** | **Desc**    | **Value Range**                                 |
+| ----------- | -------- | ------ | ------------- |   ---------------------------------------- |
+| contract_code      | true     | string | contract code     | Case-Insenstive.Both uppercase and lowercase are supported.."BTC-USDT","ETH-USDT"...                           |
+| period          | true     | string  | kline type       | 1min, 5min, 15min, 30min, 60min,4hour,1day, 1week, 1mon     |
 
 
 > response example：
@@ -16148,10 +16134,10 @@ trade_turnover   | true | decimal |  trade turnover(quoted currency)  |         
 | id | false | string | optional; unique ID in client side  |  |
 
 ### sub Subscribe Parameter Rules
-| Parameter Name    | Mandatory | Type | Description        | Default Value | Value Range                                 |
-| ----------- | -------- | ------ | ------------- | ------- | ---------------------------------------- |
-| contract_code      | true     | string | contract code         |         | swap: "BTC-USDT"... , future: "BTC-USDT-210625" ... or BTC-USDT-CW, BTC-USDT-NW, BTC-USDT-CQ, BTC-USDT-NQ |
-| period          | true     | string  | period               |         | 1min, 5min, 15min, 30min, 60min,4hour,1day, 1week, 1mon     |
+| Parameter Name    | Mandatory | Type | Description    | Value Range                                 |
+| ----------- | -------- | ------ | ------------- |   ---------------------------------------- |
+| contract_code      | true     | string | contract code    | swap: "BTC-USDT"... , future: "BTC-USDT-210625" ... or BTC-USDT-CW, BTC-USDT-NW, BTC-USDT-CQ, BTC-USDT-NQ |
+| period          | true     | string  | period            | 1min, 5min, 15min, 30min, 60min,4hour,1day, 1week, 1mon     |
 
 > When the marked price is updated, the client will receive the data, for example:
 
@@ -16238,10 +16224,10 @@ trade_turnover   | true | decimal |  trade turnover(quoted currency)  |         
 
 ### req Request Parameter Rules
 
-| Parameter Name    | Mandatory | Type | Description        | Default Value | Value Range                                 |
-| ----------- | -------- | ------ | ------------- | ------- | ---------------------------------------- |
-| contract_code      | true     | string | contract code         |         | swap: "BTC-USDT"... , future: "BTC-USDT-210625" ... or BTC-USDT-CW, BTC-USDT-NW, BTC-USDT-CQ, BTC-USDT-NQ |
-| period          | true     | string  | period               |         | 1min, 5min, 15min, 30min, 60min,4hour,1day, 1week, 1mon     |
+| Parameter Name    | Mandatory | Type | Description     | Value Range                                 |
+| ----------- | -------- | ------ | ------------- |   ---------------------------------------- |
+| contract_code      | true     | string | contract code      | swap: "BTC-USDT"... , future: "BTC-USDT-210625" ... or BTC-USDT-CW, BTC-USDT-NW, BTC-USDT-CQ, BTC-USDT-NQ |
+| period          | true     | string  | period         | 1min, 5min, 15min, 30min, 60min,4hour,1day, 1week, 1mon     |
 
 #### Note
 
@@ -16335,7 +16321,12 @@ To subscribe order data, Clients have to make connection to the Server and send 
 | ------- | ----- | ------------------------------------------ |
 | op       | string | Required； Operator Name，required subscribe value is  sub             |
 | cid      | string | Optional; ID Client requests unique ID                    |
-| topic    | string | Required；format: orders.$contract_code; contract_code is case-insenstive.Both uppercase and lowercase are supported.e.g. "BTC-USDT"  |
+| topic    | string | Required；format: orders.$contract_code; For parameter details please check req Subscribe Parameter  |
+
+### sub Subscribe Parameter Rules
+| **Parameter Name**    | **Mandatory** | **Type** | **Desc**     | **Value Range**                                 |
+| ----------- | -------- | ------ | ------------- |   ---------------------------------------- |
+| contract_code      | true     | string | contract code          |  "*" all(it means to subscribe the  all match orders) "BTC-USDT","ETH-USDT"...                           |
 
 
 > Illustration on detailed data format of orders Notification
@@ -16481,11 +16472,16 @@ To unsubscribe order data, the clients have to make connection to the server and
 
 ### Format illustration of unsubscribe order data
 
-| Filed  | Type   | Description                                              |
-| ------- | ----- | ------------------------------------------------- |
-| op       | string | Required;Operator Name，value for unsubscribe is unsub;                 |
-| cid      | string | Optional;  Client requests unique ID                        |
-| topic    | string | Optional; Unsubscribe Topic Name，format: orders.$contract_code; contract_code is case-insenstive.Both uppercase and lowercase are supported.e.g. "BTC-USDT"  |
+|Field Name | Type  |Description                                       |
+| ------- | ----- | ------------------------------------------ |
+| op       | string | Required； Operator Name，required subscribe value is  sub             |
+| cid      | string | Optional; ID Client requests unique ID                    |
+| topic    | string | Required；Unsubscribe Topic Name, format: orders.$contract_code; For parameter details please check req Subscribe Parameter  |
+
+### sub Subscribe Parameter Rules
+| **Parameter Name**    | **Mandatory** | **Type** | **Desc**     | **Value Range**                                 |
+| ----------- | -------- | ------ | ------------- |   ---------------------------------------- |
+| contract_code      | true     | string | contract code          |  "*" all(it means to unsubscribe the  all orders)  "BTC-USDT","ETH-USDT"...                           |
 
 
 ### Rules on Subscribe and Unsubscribe
@@ -16541,9 +16537,9 @@ To subscribe order data, Clients have to make connection to the Server and send 
 | topic    | string | Required；format: orders_cross.$contract_code; For parameter details please check req Subscribe Parameter  |
 
 ### Request Parameter：
-| **Parameter Name**    | **Mandotary** | **Type** | **Desc**        | **Default** | **Value Range**                                 |
-| ----------- | -------- | ------ | ------------- | ------- | ---------------------------------------- |
-| contract_code      | true     | string |  contract code          |         | all: * (swap and future), swap: "BTC-USDT"... , future: "BTC-USDT-210625" ... |
+| **Parameter Name**    | **Mandotary** | **Type** | **Desc**     | **Value Range**                                 |
+| ----------- | -------- | ------ | ------------- |   ---------------------------------------- |
+| contract_code      | true     | string |  contract code       | all: * (swap and future), swap: "BTC-USDT"... , future: "BTC-USDT-210625" ... |
 
 > Illustration on detailed data format of orders Notification
 
@@ -16702,12 +16698,12 @@ To unsubscribe order data, the clients have to make connection to the server and
 | ------- | ----- | ------------------------------------------------- |
 | op       | string | Required;Operator Name，value for unsubscribe is unsub;                 |
 | cid      | string | Optional;  Client requests unique ID                        |
-| topic    | string | Optional; Unsubscribe Topic Name，format: orders_cross.$contract_code; For parameter details please check req unsubscribe Parameter  |
+| topic    | string | Required; Unsubscribe Topic Name，format: orders_cross.$contract_code; For parameter details please check req unsubscribe Parameter  |
 
 ### Request Parameter：
-| **Parameter Name**    | **Mandotary** | **Type** | **Desc**        | **Default** | **Value Range**                                 |
-| ----------- | -------- | ------ | ------------- | ------- | ---------------------------------------- |
-| contract_code      | true     | string |  contract code          |         | all: *(swap and future), swap: "BTC-USDT"... , future: "BTC-USDT-210625" ... |
+| **Parameter Name**    | **Mandotary** | **Type** | **Desc**     | **Value Range**                                 |
+| ----------- | -------- | ------ | ------------- |   ---------------------------------------- |
+| contract_code      | true     | string |  contract code   | all: *(swap and future), swap: "BTC-USDT"... , future: "BTC-USDT-210625" ... |
 
 
 ### Rules on Subscribe and Unsubscribe
@@ -16759,7 +16755,13 @@ To subscribe order data, Clients have to make connection to the Server and send 
 | ------- | ----- | ------------------------------------------ |
 | op       | string | Required； Operator Name，required subscribe value is  sub             |
 | cid      | string | Optional; ID Client requests unique ID                    |
-| topic    | string | Required；format: matchOrders.$contract_code; contract_code is case-insenstive.Both uppercase and lowercase are supported.e.g. "BTC-USDT" |
+| topic    | string | Required; subscribe Topic Name，format: matchOrders.$contract_code; For parameter details please check req unsubscribe Parameter |
+
+### Request Parameter：
+| **Parameter Name**    | **Mandotary** | **Type** | **Desc**     | **Value Range**                                 |
+| ----------- | -------- | ------ | ------------- |   ---------------------------------------- |
+| contract_code      | true     | string |  contract code   | "*" all(it means to subscribe the  all match orders)  "BTC-USDT"...   |
+
 
 #### Note: 
 - The order status of 'post_only' type pushed by ws is ethier '7:canceled' or '3:submitted'.
@@ -16886,12 +16888,16 @@ To unsubscribe order data, the clients have to make connection to the server and
 
 ### Format illustration of unsubscribe order data
 
-| Filed  | Type   | Description                                              |
-| ------- | ----- | ------------------------------------------------- |
-| op       | string | Required;Operator Name，value for unsubscribe is unsub;                 |
-| cid      | string | Optional;  Client requests unique ID                        |
-| topic    | string | Optional; format: matchOrders.$contract_code; contract_code is case-insenstive.Both uppercase and lowercase are supported.e.g. "BTC-USDT" |
+| attr | type   | desc                                        |
+| ------- | ----- | ------------------------------------------ |
+| op       | string | Required； Operator Name，required subscribe value is  sub             |
+| cid      | string | Optional; ID Client requests unique ID                    |
+| topic    | string | Required; Unsubscribe Topic Name，format: matchOrders.$contract_code; For parameter details please check req unsubscribe Parameter |
 
+### Request Parameter：
+| **Parameter Name**    | **Mandotary** | **Type** | **Desc**     | **Value Range**                                 |
+| ----------- | -------- | ------ | ------------- |   ---------------------------------------- |
+| contract_code      | true     | string |  contract code   | "*" all(it means to unsubscribe the  all match orders)  "BTC-USDT"...   |
 
 ### Rules on Subscribe and Unsubscribe
 
@@ -16946,9 +16952,9 @@ To subscribe order data, Clients have to make connection to the Server and send 
 | topic    | string | Required；format: matchOrders_cross.$contract_code; For parameter details please check req Subscribe Parameter |
 
 ### Request Parameter：
-| **Parameter Name**    | **Mandotary** | **Type** | **Desc**        | **Default** | **Value Range**                                 |
-| ----------- | -------- | ------ | ------------- | ------- | ---------------------------------------- |
-| contract_code      | true     | string |  contract code          |         | all: *(swap and future), swap: "BTC-USDT"... , future: "BTC-USDT-210625" ... |
+| **Parameter Name**    | **Mandotary** | **Type** | **Desc**    | **Value Range**                                 |
+| ----------- | -------- | ------ | ------------- |   ---------------------------------------- |
+| contract_code      | true     | string |  contract code      | all: *(swap and future), swap: "BTC-USDT"... , future: "BTC-USDT-210625" ... |
 
 
 #### Note: 
@@ -17086,12 +17092,12 @@ To unsubscribe order data, the clients have to make connection to the server and
 | ------- | ----- | ------------------------------------------------- |
 | op       | string | Required;Operator Name，value for unsubscribe is unsub;                 |
 | cid      | string | Optional;  Client requests unique ID                        |
-| topic    | string | Optional; format: matchOrders_cross.$contract_code; For parameter details please check req Subscribe Parameter |
+| topic    | string | Required;Unsubscribe Topic Name, format: matchOrders_cross.$contract_code; For parameter details please check req Subscribe Parameter |
 
 ### Request Parameter：
-| **Parameter Name**    | **Mandotary** | **Type** | **Desc**        | **Default** | **Value Range**                                 |
-| ----------- | -------- | ------ | ------------- | ------- | ---------------------------------------- |
-| contract_code      | true     | string |  contract code          |         | all: *(swap and future), swap: "BTC-USDT"... , future: "BTC-USDT-210625" ... |
+| **Parameter Name**    | **Mandotary** | **Type** | **Desc**     | **Value Range**                                 |
+| ----------- | -------- | ------ | ------------- |   ---------------------------------------- |
+| contract_code      | true     | string |  contract code        | all: *(swap and future), swap: "BTC-USDT"... , future: "BTC-USDT-210625" ... |
 
 ### Rules on Subscribe and Unsubscribe
 
@@ -17138,11 +17144,17 @@ To subscribe accounts equity data updates, the client has to make connection to 
 
 ### Format illustration on request subscribe account equity updates data
 
-| Field Name | Type   | Description                                       |
-| ------- | ----- | ------------------------------------------ |
-| op       | string | Required； Operator Name，Subscribe value is sub             |
-| cid      | string | Optional;  Client requests unique ID                  |
-| topic    | string | Required； Subscribe Topic Name，Required subscribe accounts.$contract_code   Subscribe/unsubscribe the balance change of a given coin，when the value of $contract_code is “*”, it means to subscribe/unsubscribe the balance change of all coins; contract_code is case-insenstive.Both uppercase and lowercase are supported.e.g. "BTC-USDT" |
+| Filed  | Type   | Description                                              |
+| ------- | ----- | ------------------------------------------------- |
+| op       | string | Required;Operator Name，value for unsubscribe is unsub;                 |
+| cid      | string | Optional;  Client requests unique ID                        |
+| topic    | string | Required;subscribe Topic Name, format: accounts.$contract_code; For parameter details please check req Subscribe Parameter |
+
+### Request Parameter：
+| **Parameter Name**    | **Mandotary** | **Type** | **Desc**       | **Value Range**                                 |
+| ----------- | -------- | ------ | ------------- |   ---------------------------------------- |
+| contract_code      | true     | string |  contract code       | "*" all(it means to subscribe the balance change of all coins), "BTC-USDT"...  |
+
 
 ### Note:
  - A regular push of account is performed every 5 sedconds.The event field of the reponse is "snapshot".If there is a push in 5 seconds, snapshot push will be skipped.
@@ -17246,11 +17258,16 @@ To unsubscribe account equity updates data, the client has to make connection to
 
 ### Format Illustration on Unsubscribe Account Equity Updates
 
-| Filed Name | Type | Description                                               |
+| Filed  | Type   | Description                                              |
 | ------- | ----- | ------------------------------------------------- |
-| op       | string | Required; Operator Name，Subscribe value is unsub;                 |
-| cid      | string | Optional; Client requests unique ID                          |
-| topic    | string | Required;Required； Required； Subscribe Topic，Subscribe accounts.$contract_code required  unsubscribe/unsubscribe account equity change of a given coin，when the $contract_code value is *, it stands for subscribing/unsubscribing data of all coins; contract_code is case-insenstive.Both uppercase and lowercase are supported.e.g. "BTC-USDT" |
+| op       | string | Required;Operator Name，value for unsubscribe is unsub;                 |
+| cid      | string | Optional;  Client requests unique ID                        |
+| topic    | string | Required;unsubscribe Topic Name, format: accounts.$contract_code; For parameter details please check req Subscribe Parameter |
+
+### Request Parameter：
+| **Parameter Name**    | **Mandotary** | **Type** | **Desc**       | **Value Range**                                 |
+| ----------- | -------- | ------ | ------------- |   ---------------------------------------- |
+| contract_code      | true     | string |  contract code       | "*" all(it means to unsubscribe the balance change of all coins), "BTC-USDT"...  |
 
 
 ### Rules on Subscribe and Unsubscribe
@@ -17299,11 +17316,17 @@ To subscribe accounts equity data updates, the client has to make connection to 
 
 #### Subscribe Request Parameter
 
-| Field Name| Type   | Description                                        |
-| ------- | ----- | ------------------------------------------ |
-| op       | string | Mandatory；Operator Name，required subscribe value is sub             |
-| cid      | string | Optional; Client requests unique ID                     |
-| topic    | string | Mandatory；topic name: accounts_cross.$margin_account，$margin_account now only（USDT） |
+| Filed  | Type   | Description                                              |
+| ------- | ----- | ------------------------------------------------- |
+| op       | string | Required;Operator Name，value for unsubscribe is unsub;                 |
+| cid      | string | Optional;  Client requests unique ID                        |
+| topic    | string | Required;subscribe Topic Name, format: accounts_cross.$margin_account; For parameter details please check req Subscribe Parameter |
+
+### Request Parameter：
+| **Parameter Name**    | **Mandotary** | **Type** | **Desc**       | **Value Range**                                 |
+| ----------- | -------- | ------ | ------------- |   ---------------------------------------- |
+| margin_account      | true     | string |  margin account        | "*" all(it means to subscribe the balance change of all coins), "USDT"...  |
+
 
 ### Note:
 
@@ -17359,7 +17382,7 @@ To subscribe accounts equity data updates, the client has to make connection to 
 | topic   | true | string  | topic   |   |
 | ts   | true | long  | server response timestamp   |   |
 | uid   | true | string  | uid  |    |
-| event   | true | string  | event of margin account update |  order.open 、order.match)、settlement、order.liquidation、order.cancel)、contract.transfer、ontract.system、other)、init、napshot |
+| event   | true | string  | event of margin account update |  order.open 、order.match 、settlement、order.liquidation、order.cancel 、contract.transfer、ontract.system、other 、init、napshot |
 | \<data\>   | true | object array |     |   |
 | margin_mode | true | string | margin mode  | cross: cross margin mode  |
 | margin_account | true | string | margin account  | "USDT"... |
@@ -17437,11 +17460,17 @@ To unsubscribe account equity updates data, the client has to make connection to
                              
 #### Unsubscribe Request Parameter
 
-| Field Name| Type   | Description                                               |
+| Filed  | Type   | Description                                              |
 | ------- | ----- | ------------------------------------------------- |
-| op       | string | Mandatory;Operator Name，required subscribe value is unsub                 |
-| cid      | string | Optional; Client requests unique ID                            |
-| topic    | string | Mandatory;topic name: accounts_cross.$margin_account，$margin_account now only（USDT） |
+| op       | string | Required;Operator Name，value for unsubscribe is unsub;                 |
+| cid      | string | Optional;  Client requests unique ID                        |
+| topic    | string | Required;unsubscribe Topic Name, format: accounts_cross.$margin_account; For parameter details please check req Subscribe Parameter |
+
+### Request Parameter：
+| **Parameter Name**    | **Mandotary** | **Type** | **Desc**       | **Value Range**                                 |
+| ----------- | -------- | ------ | ------------- |   ---------------------------------------- |
+| margin_account      | true     | string |  margin account        | "*" all(it means to unsubscribe the balance change of all coins), "USDT"...  |
+
 
 ### Rules on Subscribe and Unsubscribe
 
@@ -17488,11 +17517,16 @@ To subscribe position updates data, the client has to make connection to the ser
 
 ### Format Illustration of Subscribe Position Updates
 
-| Filed Name |Type   | Description                                       |
-| ------- | :----- | :------------------------------------------ |
-| op       | string | Required；Operator Name，Subscribe value is sub             |
-| cid      | string | Optional ; Client requests unique ID                 |
-| topic    | string | Required； Subscribe Topic, Subscribe (positions.$contract_code) Required  Subscribe/unsubscribe the position data of a single coin, when the $contract_code value is *, it stands for subscribing the data of all coins. contract_code is case-insenstive.Both uppercase and lowercase are supported.e.g. "BTC-USDT" |
+| Filed Name | type   | desc                                        |
+| ------- | ----- | ------------------------------------------ |
+| op       | string | Required； Operator Name，required subscribe value is  sub             |
+| cid      | string | Optional; ID Client requests unique ID                    |
+| topic    | string | Required; subscribe Topic Name，format: positions.$contract_code; For parameter details please check req unsubscribe Parameter |
+
+### Request Parameter：
+| **Parameter Name**    | **Mandotary** | **Type** | **Desc**     | **Value Range**                                 |
+| ----------- | -------- | ------ | ------------- |   ---------------------------------------- |
+| contract_code      | true     | string |  contract code   | "*" all(it means to subscribe the  all positions)  "BTC-USDT"...   |
 
 
 > When there is any position update, the server will send notification with return parameter. For example:
@@ -17601,11 +17635,16 @@ To unsubscribe, the client has to make connection to the server and send unsubsc
 
 ### Format Illustration of Unsubscribe Position Updates
 
-| Field Name | Type   | Description                                              |
-| ------- | ------- | ------------------------------------------------- |
-| op       | string | Required; Operator Name，Subscribe value is unsub;                 |
-| cid      | string | Optional;  Client requests unique ID                        |
-| topic    | string | Required;Required；Required；Subscribe topic，Subscribe positions.$contract_code required  Subscribe or unsubscribe the position updates of a single coin; when $contract_code value is *, it stands for subscribing the data of all coins; contract_code is case-insenstive.Both uppercase and lowercase are supported.e.g. "BTC-USDT" |
+| Filed Name | type   | desc                                        |
+| ------- | ----- | ------------------------------------------ |
+| op       | string | Required； Operator Name，required subscribe value is  sub             |
+| cid      | string | Optional; ID Client requests unique ID                    |
+| topic    | string | Required; unsubscribe Topic Name，format: positions.$contract_code; For parameter details please check req unsubscribe Parameter |
+
+### Request Parameter：
+| **Parameter Name**    | **Mandotary** | **Type** | **Desc**     | **Value Range**                                 |
+| ----------- | -------- | ------ | ------------- |   ---------------------------------------- |
+| contract_code      | true     | string |  contract code   | "*" all(it means to unsubscribe the  all positions)  "BTC-USDT"...   |
 
 ### Rules on Subscribe and Unsubscribe
 
@@ -17846,9 +17885,9 @@ To unsubscribe, the client has to make connection to the server and send unsubsc
 | business_type | string | business type, default is swap: futures, swap, all |
 
 ### Request Parameter：
-| **Parameter Name**    | **Mandotary** | **Type** | **Desc**        | **Default** | **Value Range**                                 |
-| ----------- | -------- | ------ | ------------- | ------- | ---------------------------------------- |
-| contract_code      | true     | string |  contract code          |         | all: *(swap and future), swap: "BTC-USDT"... , future: "BTC-USDT-210625" ... or BTC-USDT-CW, BTC-USDT-NW, BTC-USDT-CQ, BTC-USDT-NQ |
+| **Parameter Name**    | **Mandotary** | **Type** | **Desc**    | **Value Range**                                 |
+| ----------- | -------- | ------ | ------------- |   ---------------------------------------- |
+| contract_code      | true     | string |  contract code       | all: *(more see remarks), swap: "BTC-USDT"... , future: "BTC-USDT-210625" ...  |
 
 #### Remarks
 - subscripting * is ok under business_type filled in. when business_type is swap, subscripting * returns all swap contracts; when business_type is futures, subscripting * returns all futures contracts; when business_type is all, subscripting * returns all swap contracts and all futures contracts.
@@ -17947,9 +17986,9 @@ To unsubscribe, the client has to make connection to the server and send unsubsc
 | business_type | string | business type, default swap: futures,swap,all |
 
 ### Request Parameter：
-| **Parameter Name**    | **Mandotary** | **Type** | **Desc**        | **Default** | **Value Range**                                 |
-| ----------- | -------- | ------ | ------------- | ------- | ---------------------------------------- |
-| contract_code      | true     | string |  contract code          |         | all: *(swap and future), swap: "BTC-USDT"... , future: "BTC-USDT-210625" ... |
+| **Parameter Name**    | **Mandotary** | **Type** | **Desc**     | **Value Range**                                 |
+| ----------- | -------- | ------ | ------------- |   ---------------------------------------- |
+| contract_code      | true     | string |  contract code     | all: *(more see remarks), swap: "BTC-USDT"... , future: "BTC-USDT-210625" ... |
 
 #### Note
  - The request parameter "contract_code" supports the contract code of futures, in that the format is BTC-USDT-210625.
@@ -18002,11 +18041,17 @@ To subscribe funding rate data, the client has to make connection to the server 
 
 ### Data format illustration of orders subscription
 
-|Field Name | Type  |Description                                       |
+| Filed Name | type   | desc                                        |
 | ------- | ----- | ------------------------------------------ |
 | op       | string | Required； Operator Name，required subscribe value is  sub             |
 | cid      | string | Optional; ID Client requests unique ID                    |
-| topic    | string | Required；Topic name format: public.$contract_code.funding_rate.; contract_code is case-insenstive.Both uppercase and lowercase are supported.e.g. "BTC-USDT"  |
+| topic    | string | Required; subscribe Topic Name，format: public.$contract_code.funding_rate; For parameter details please check req unsubscribe Parameter |
+
+### Request Parameter：
+| **Parameter Name**    | **Mandotary** | **Type** | **Desc**     | **Value Range**                                 |
+| ----------- | -------- | ------ | ------------- |   ---------------------------------------- |
+| contract_code      | true     | string |  contract code   | "*" all(it means to subscribe the  all funding rate)  "BTC-USDT"...   |
+
 
 > Response example when funding_rate is updated:
 
@@ -18082,11 +18127,16 @@ To unsubscribe funding rate data, the client has to make connection to the serve
  
 ### request field desc of unsubscrbing funding rate
 
-| field | datatype  | desc                                               |
-| :------- | :----- | :------------------------------------------------- |
-| op       | string | Required; Operator Name，subscribe value is unsub;                 |
-| cid      | string | Optional;   Client requests unique ID                        |
-| topic    | string | Subscribe topic name，Require subscribe public.$contract_code.funding_rate Subscribe/unsubscribe the data of a given contract code; when the $contract_code value is *, it stands for subscribing/unsubscribing all the funding rates of contract codes，; |
+| Filed Name | type   | desc                                        |
+| ------- | ----- | ------------------------------------------ |
+| op       | string | Required； Operator Name，required subscribe value is  sub             |
+| cid      | string | Optional; ID Client requests unique ID                    |
+| topic    | string | Required; unsubscribe Topic Name，format: public.$contract_code.funding_rate; For parameter details please check req unsubscribe Parameter |
+
+### Request Parameter：
+| **Parameter Name**    | **Mandotary** | **Type** | **Desc**     | **Value Range**                                 |
+| ----------- | -------- | ------ | ------------- |   ---------------------------------------- |
+| contract_code      | true     | string |  contract code   | "*" all(it means to unsubscribe the  all funding rate)  "BTC-USDT"...   |
 
 ### Data format of subscription and unsubscription of funding rate
 
@@ -18101,7 +18151,6 @@ To unsubscribe funding rate data, the client has to make connection to the serve
 ### Note
 
  - Funding rate will be pushed every 60 seconds by default.Funding rate will not be calculated under conditions below:
-
  - the contract can't be traded.eg:Pending Listing、Suspension、Delisting、In settlement、Delivering、Settlement Completed、Delivered,etc.  
  - the 'update_time' field of index data hasn't been changed over 5 minutes.
  - the 'update_time' field of orderbook data hasn't been changed over 5 minutes.
@@ -18330,11 +18379,17 @@ To unsubscribe contract info data, the client has to make connection to the serv
 
 ### Request Parameter
 
-| Parameter Name    | Mandotary | Type     | Desc   | Value Range           |
-| ------ | ---- | ------ | -------- | -------------- |
-| op | true | string | Required； Operator Name，required subscribe value is  sub	 |  |
-| cid | false| string | Optional; ID Client requests unique ID	 | |
-| topic | true| string | Required；format: trigger_order.$contract_code; contract_code is case-insenstive.Both uppercase and lowercase are supported.e.g. "BTC-USDT" | |
+| Filed Name | type   | desc                                        |
+| ------- | ----- | ------------------------------------------ |
+| op       | string | Required； Operator Name，required subscribe value is  sub             |
+| cid      | string | Optional; ID Client requests unique ID                    |
+| topic    | string | Required; subscribe Topic Name，format: trigger_order.$contract_code; For parameter details please check req unsubscribe Parameter |
+
+### Request Parameter：
+| **Parameter Name**    | **Mandotary** | **Type** | **Desc**     | **Value Range**                                 |
+| ----------- | -------- | ------ | ------------- |   ---------------------------------------- |
+| contract_code      | true     | string |  contract code   | "*" all(it means to subscribe the  all trigger order)  "BTC-USDT"...   |
+
 
 > **Return example**:
 
@@ -18459,11 +18514,16 @@ To subscribe basis data, the Client has to make connection to the Server and sen
  
 ### Format illustration of unsubscribe order data
 
-| Filed | Type   | Description                                               |
-| :------- | :----- | :------------------------------------------------- |
-| op       | string | Required;Operator Name，value for unsubscribe is unsub;                 |
-| cid      | string | Optional;  Client requests unique ID                           |
-| topic    | string | Optional; Unsubscribe Topic Name，format: trigger_order.$contract_code; contract_code is case-insenstive.Both uppercase and lowercase are supported.e.g. "BTC-USDT" |
+| Filed Name | type   | desc                                        |
+| ------- | ----- | ------------------------------------------ |
+| op       | string | Required； Operator Name，required subscribe value is  sub             |
+| cid      | string | Optional; ID Client requests unique ID                    |
+| topic    | string | Required; unsubscribe Topic Name，format: trigger_order.$contract_code; For parameter details please check req unsubscribe Parameter |
+
+### Request Parameter：
+| **Parameter Name**    | **Mandotary** | **Type** | **Desc**     | **Value Range**                                 |
+| ----------- | -------- | ------ | ------------- |   ---------------------------------------- |
+| contract_code      | true     | string |  contract code   | "*" all(it means to unsubscribe the  all trigger order)  "BTC-USDT"...   |
 
 ### Rules on Subscribe and Unsubscribe
 
