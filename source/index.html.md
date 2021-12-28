@@ -3017,7 +3017,7 @@ curl "https://api.hbdm.com/linear-swap-api/v1/swap_contract_info"
 
  - The request parameter "support_margin_mode" should be "all" when querying the contract information which supports the cross margin mode and the isolated margin mode both. The value of "cross" or "isolated" just can query the contract information which only supports the cross margin mode or the isolated margin mode. Please keep attention.
 
- - The request parameter "contract_code" supports the contract code of futures, in that the format is BTC-USDT-201101; When both of (pair, contract_type) and contract_code filled in, the contract_code is the preferred.
+ - The request parameter "contract_code" supports the contract code of futures, in that the format is BTC-USDT-201101; When both of pair, contract_type and contract_code filled in, the contract_code is the preferred.
 
  - business_type is a required parameter when query info of futures contract, and its value must be futures or all.
 
@@ -3194,7 +3194,7 @@ curl "https://api.hbdm.com/linear-swap-api/v1/swap_price_limit?contract_code=BTC
 
  - The interface supports cross margin mode and isolated margin mode.
 
- - The request parameter "contract_code" supports the contract code of futures, in that the format is BTC-USDT-201101; When both of (pair, contract_type) and contract_code filled in, the contract_code is the preferred.
+ - The request parameter "contract_code" supports the contract code of futures, in that the format is BTC-USDT-201101; When both of pair, contract_type and contract_code filled in, the contract_code is the preferred.
 
  - business_type is a required parameter when query info of futures contract, and its value must be futures or all.
 
@@ -3259,7 +3259,7 @@ curl "https://api.hbdm.com/linear-swap-api/v1/swap_open_interest?contract_code=B
 
  - The interface supports cross margin mode and isolated margin mode.
 
- - The request parameter "contract_code" supports the contract code of futures, in that the format is BTC-USDT-201101; When both of (pair, contract_type) and contract_code filled in, the contract_code is the preferred.
+ - The request parameter "contract_code" supports the contract code of futures, in that the format is BTC-USDT-201101; When both of pair, contract_type and contract_code filled in, the contract_code is the preferred.
 
  - business_type is a required parameter when query info of futures contract, and its value must be futures or all.
 
@@ -4096,7 +4096,7 @@ curl "https://api.hbdm.com/linear-swap-api/v1/swap_insurance_fund?contract_code=
 |  Parameter Name                |   Mandatory  |   Type  |     Desc             |    Value Range      |
 | ----------------------- | -------- | ------- | ------------------ | -------------- |
 | contract_code   | true    | string       |  contract code | swap: "BTC-USDT"... , future: "BTC-USDT-FUTURES" ... |
-| page_index  | false    | int    | page index. 1 by default    | 1       |                                          |
+| page_index  | false    | int    | page index. 1 by default    |        |                                          |
 | page_size   | false    | int    | page size.100 by default. 100 at most | [1-100]      |                                          |
 
 > Response:
@@ -4251,7 +4251,7 @@ curl "https://api.hbdm.com/linear-swap-api/v1/swap_adjustfactor"
 
  - The request parameter "contract_code" supports the contract code of futures, in that the format is BTC-USDT-210625.
  
- - When both of (pair, contract_type) and contract_code filled in, the contract_code is the preferred.
+ - When both of pair, contract_type and contract_code filled in, the contract_code is the preferred.
  
  - business_type is a required parameter when query info of futures contract, and its value must be futures or all.
 
@@ -4522,7 +4522,7 @@ curl "https://api.hbdm.com/linear-swap-api/v1/swap_his_open_interest?contract_co
 
  - The request parameter "contract_code" supports the contract code of futures, in that the format is BTC-USDT-210625.
  
- - When both of (pair, contract_type) and contract_code filled in, the contract_code is the preferred.
+ - When both of pair, contract_type and contract_code filled in, the contract_code is the preferred.
  
  - business_type is a required parameter when query info of futures contract, and its value must be futures or all.
 
@@ -4741,7 +4741,7 @@ curl "https://api.hbdm.com/linear-swap-api/v1/swap_api_state"
 
  - The interface only supports cross margin mode.
 
- - The request parameter "contract_code" supports the contract code of futures, in that the format is BTC-USDT-210625. When both of (pair, contract_type) and contract_code filled in, the contract_code is the preferred.
+ - The request parameter "contract_code" supports the contract code of futures, in that the format is BTC-USDT-210625. When both of pair, contract_type and contract_code filled in, the contract_code is the preferred.
  
  - business_type is a required parameter when query info of futures contract, and its value must be futures or all.
 
@@ -5524,7 +5524,7 @@ curl "https://api.hbdm.com/index/market/history/linear_swap_basis?contract_code=
 
  - The request parameter "contract_code" supports the contract code of futures, in that the format is BTC-USDT-210625.
  
- - When both of (pair, contract_type) and contract_code filled in, the contract_code is the preferred.
+ - When both of pair, contract_type and contract_code filled in, the contract_code is the preferred.
  
  - business_type is a required parameter when query info of futures contract, and its value must be futures or all.
 
@@ -7589,18 +7589,6 @@ contract_code | true | string | contract code	 |Case-Insenstive.Both uppercase a
 | ----------------------- | -------- | ------- | ------------------ | -------------- |	
 | contract_code | false | string | Contract code, if not filled in, the actual available leverage of all contracts will be returned by default	 |  “BTC-USDT”... |
 
-### Returning Parameter：
-
-| **Parameter Name**                | **Mandatory** | **Type**  | **Desc**             | **Value Range**       |
-| ----------------------- | -------- | ------- | ------------------ | -------------- |
-| status | true | string | Request Processing Result	 | "ok" , "error" |
-| \<data\> | true  | object array |  |   |
-| contract_code | true  | string |  contract code |  "BTC-USDT"|
-| margin_mode    |   true   | string | margin mode  | isolated : "isolated" |
-| available_level_rate | true  | string |  available level rate,splited by ','  | "1,5,10" |
-| \</data\> |  |  |  |  |
-| ts | true  | long | Response generation time point, unit: millisecond |  |
-
 > Response：
 
 ```json
@@ -7619,6 +7607,19 @@ contract_code | true | string | contract code	 |Case-Insenstive.Both uppercase a
 
 ```
 
+### Returning Parameter：
+
+| **Parameter Name**                | **Mandatory** | **Type**  | **Desc**             | **Value Range**       |
+| ----------------------- | -------- | ------- | ------------------ | -------------- |
+| status | true | string | Request Processing Result	 | "ok" , "error" |
+| \<data\> | true  | object array |  |   |
+| contract_code | true  | string |  contract code |  "BTC-USDT"|
+| margin_mode    |   true   | string | margin mode  | isolated : "isolated" |
+| available_level_rate | true  | string |  available level rate,splited by ','  | "1,5,10" |
+| \</data\> |  |  |  |  |
+| ts | true  | long | Response generation time point, unit: millisecond |  |
+
+
 
 ## [Cross] Query User’s Available Leverage
 
@@ -7630,7 +7631,7 @@ contract_code | true | string | contract code	 |Case-Insenstive.Both uppercase a
 
  - The request parameter "contract_code" supports the contract code of futures, in that the format is BTC-USDT-210625.
  
- - When both of (pair, contract_type) and contract_code filled in, the contract_code is the preferred.
+ - When both of pair, contract_type and contract_code filled in, the contract_code is the preferred.
  
  - business_type is a required parameter when query info of futures contract, and its value must be futures or all.
 
@@ -7714,7 +7715,7 @@ contract_code | true | string | contract code	 |Case-Insenstive.Both uppercase a
 
  - The request parameter "contract_code" supports the contract code of futures, in that the format is BTC-USDT-210625.
  
- - When both of (pair, contract_type) and contract_code filled in, the contract_code is the preferred.
+ - When both of pair, contract_type and contract_code filled in, the contract_code is the preferred.
  
  - business_type is a required parameter when query info of futures contract, and its value must be futures or all.
 
@@ -7809,7 +7810,7 @@ contract_code | true | string | contract code	 |Case-Insenstive.Both uppercase a
 
  - The request parameter "contract_code" supports the contract code of futures, in that the format is BTC-USDT-210625.
  
- - When both of (pair, contract_type) and contract_code filled in, the contract_code is the preferred.
+ - When both of pair, contract_type and contract_code filled in, the contract_code is the preferred.
  
  - business_type is a required parameter when query info of futures contract, and its value must be futures or all.
 
@@ -8096,7 +8097,7 @@ contract_code | true | string | contract code	 |Case-Insenstive.Both uppercase a
 
  - The request parameter "contract_code" supports the contract code of futures, in that the format is BTC-USDT-210625.
  
- - When both of (pair, contract_type) and contract_code filled in, the contract_code is the preferred.
+ - When both of pair, contract_type and contract_code filled in, the contract_code is the preferred.
  
  - business_type is a required parameter when query info of futures contract, and its value must be futures or all.
 
@@ -9033,7 +9034,7 @@ The return order_id is 18 bits, it will make  mistake when nodejs and JavaScript
 | Parameter Name            | Mandatory | Type     | Desc                     | Data Value           |
 | --------------- | ---- | ------ | ---------------------- | -------------- |
 | \<orders_data\>   | true | object array |     |  |
-| contract_code(more see remarks)        | false | string   | contract code      | swap: "BTC-USDT"... , future: "BTC-USDT-210625" ... |
+| contract_code   | false(more see remarks) | string   | contract code      | swap: "BTC-USDT"... , future: "BTC-USDT-210625" ... |
 | pair | false(more see remarks) |  string | pair |   BTC-USDT   |
 | contract_type | false(more see remarks) |  string | contract type |  swap, this_week, next_week, quarter, next_ quarter |
 | client_order_id       |  false   |  long| Clients fill and maintain themselves.must be Less or Equal than 9223372036854775807                          |      |
@@ -10265,7 +10266,7 @@ Please note that created_at can't be "0"
 
  - The request parameter "contract_code" supports the contract code of futures, in that the format is BTC-USDT-210625.
 
- - When both of (pair, contract_type) and contract_code filled in, the contract_code is the preferred.  supports none any parameter filled in, it means all contract code in cross mode.
+ - When both of pair and contract_code filled in, the contract_code is the preferred.  supports none any parameter filled in, it means all contract code in cross mode.
 
 ###  Request Parameter
 
@@ -12802,7 +12803,7 @@ Error：
 
 | Parameter Name          | Mandatory  | Type    | Description   | Value Range                                    |
 | ------------- | ----- | ------ | ------------- | ---------------------------------------- |
-| contract_code | true | string | contract code,"BTC-USDT" ...|    |
+| contract_code | true | string | contract code |  "BTC-USDT" ...|    |
 | status | true | string | status| Multiple orders are separated by English commas, and the status of stop-profit and stop-loss orders is: 0:all(representing all orders in the end state), 4:Have sumbmitted the orders, 5:orders failed, 6:orders canceled, 11:expired   |
 | create_date | true | long | days | any positive integer available. Requesting data beyond 90 will not be supported, otherwise, system will return trigger history data within the last 90 days by default.   |
 | page_index | false | int | page index. 1 by default |    |
@@ -12907,7 +12908,7 @@ Error：
 
 | Parameter Name          | Mandatory  | Type    | Description   | Value Range                                    |
 | ------------- | ----- | ------ | ------------- | ---------------------------------------- |
-| contract_code | false(more see remarks) | string | swap: "BTC-USDT"... , future: "BTC-USDT-210625" ... |
+| contract_code | false(more see remarks) | string | contract code | swap: "BTC-USDT"... , future: "BTC-USDT-210625" ... |
 | pair | false(more see remarks) |  string | pair |   BTC-USDT   |
 | status | true | string | status| Multiple orders are separated by English commas, and the status of stop-profit and stop-loss orders is: 0:all(representing all orders in the end state), 4:Have sumbmitted the orders, 5:orders failed, 6:orders canceled, 11:expired  |
 | create_date | true | long | days | any positive integer available. Requesting data beyond 90 will not be supported, otherwise, system will return trigger history data within the last 90 days by default.   |
@@ -16326,7 +16327,7 @@ To subscribe order data, Clients have to make connection to the Server and send 
 ### sub Subscribe Parameter Rules
 | **Parameter Name**    | **Mandatory** | **Type** | **Desc**     | **Value Range**                                 |
 | ----------- | -------- | ------ | ------------- |   ---------------------------------------- |
-| contract_code      | true     | string | contract code          |  "*" all(it means to subscribe the  all match orders) "BTC-USDT","ETH-USDT"...                           |
+| contract_code      | true     | string | contract code          |  "*" all(it means to subscribe the all orders) "BTC-USDT","ETH-USDT"...                           |
 
 
 > Illustration on detailed data format of orders Notification
@@ -16474,14 +16475,14 @@ To unsubscribe order data, the clients have to make connection to the server and
 
 |Field Name | Type  |Description                                       |
 | ------- | ----- | ------------------------------------------ |
-| op       | string | Required； Operator Name，required subscribe value is  sub             |
+| op       | string | Required； Operator Name，value for unsubscribe is unsub;            |
 | cid      | string | Optional; ID Client requests unique ID                    |
 | topic    | string | Required；Unsubscribe Topic Name, format: orders.$contract_code; For parameter details please check req Subscribe Parameter  |
 
 ### sub Subscribe Parameter Rules
 | **Parameter Name**    | **Mandatory** | **Type** | **Desc**     | **Value Range**                                 |
 | ----------- | -------- | ------ | ------------- |   ---------------------------------------- |
-| contract_code      | true     | string | contract code          |  "*" all(it means to unsubscribe the  all orders)  "BTC-USDT","ETH-USDT"...                           |
+| contract_code      | true     | string | contract code          |  "*" all(it means to unsubscribe the all orders)  "BTC-USDT","ETH-USDT"...                           |
 
 
 ### Rules on Subscribe and Unsubscribe
@@ -16890,7 +16891,7 @@ To unsubscribe order data, the clients have to make connection to the server and
 
 | attr | type   | desc                                        |
 | ------- | ----- | ------------------------------------------ |
-| op       | string | Required； Operator Name，required subscribe value is  sub             |
+| op       | string | Required； Operator Name，value for unsubscribe is unsub;          |
 | cid      | string | Optional; ID Client requests unique ID                    |
 | topic    | string | Required; Unsubscribe Topic Name，format: matchOrders.$contract_code; For parameter details please check req unsubscribe Parameter |
 
@@ -17146,7 +17147,7 @@ To subscribe accounts equity data updates, the client has to make connection to 
 
 | Filed  | Type   | Description                                              |
 | ------- | ----- | ------------------------------------------------- |
-| op       | string | Required;Operator Name，value for unsubscribe is unsub;                 |
+| op       | string | Required;Operator Name，Operator Name，Subscribe value is sub                |
 | cid      | string | Optional;  Client requests unique ID                        |
 | topic    | string | Required;subscribe Topic Name, format: accounts.$contract_code; For parameter details please check req Subscribe Parameter |
 
@@ -17318,7 +17319,7 @@ To subscribe accounts equity data updates, the client has to make connection to 
 
 | Filed  | Type   | Description                                              |
 | ------- | ----- | ------------------------------------------------- |
-| op       | string | Required;Operator Name，value for unsubscribe is unsub;                 |
+| op       | string | Required;Operator Name，Subscribe value is sub                |
 | cid      | string | Optional;  Client requests unique ID                        |
 | topic    | string | Required;subscribe Topic Name, format: accounts_cross.$margin_account; For parameter details please check req Subscribe Parameter |
 
@@ -17462,7 +17463,7 @@ To unsubscribe account equity updates data, the client has to make connection to
 
 | Filed  | Type   | Description                                              |
 | ------- | ----- | ------------------------------------------------- |
-| op       | string | Required;Operator Name，value for unsubscribe is unsub;                 |
+| op       | string | Required;Operator Name，Unsubscribe value is unsub                 |
 | cid      | string | Optional;  Client requests unique ID                        |
 | topic    | string | Required;unsubscribe Topic Name, format: accounts_cross.$margin_account; For parameter details please check req Subscribe Parameter |
 
@@ -17519,7 +17520,7 @@ To subscribe position updates data, the client has to make connection to the ser
 
 | Filed Name | type   | desc                                        |
 | ------- | ----- | ------------------------------------------ |
-| op       | string | Required； Operator Name，required subscribe value is  sub             |
+| op       | string | Required； Operator Name，Subscribe value is sub;             |
 | cid      | string | Optional; ID Client requests unique ID                    |
 | topic    | string | Required; subscribe Topic Name，format: positions.$contract_code; For parameter details please check req unsubscribe Parameter |
 
@@ -17637,7 +17638,7 @@ To unsubscribe, the client has to make connection to the server and send unsubsc
 
 | Filed Name | type   | desc                                        |
 | ------- | ----- | ------------------------------------------ |
-| op       | string | Required； Operator Name，required subscribe value is  sub             |
+| op       | string | Required； Operator Name，unsubscribe value is unsub;             |
 | cid      | string | Optional; ID Client requests unique ID                    |
 | topic    | string | Required; unsubscribe Topic Name，format: positions.$contract_code; For parameter details please check req unsubscribe Parameter |
 
@@ -17700,9 +17701,9 @@ To subscribe position updates data, the client has to make connection to the ser
 | topic    | string | Required； Subscribe Topic, Subscribe (positions_cross.$contract_code) Required  Subscribe/unsubscribe the position data of a single coin, For parameter details please check req Subscribe Parameter |
 
 ### Request Parameter：
-| **Parameter Name**    | **Mandotary** | **Type** | **Desc**        | **Default** | **Value Range**                                 |
-| ----------- | -------- | ------ | ------------- | ------- | ---------------------------------------- |
-| contract_code      | true     | string |  contract code          |         | all: *(swap and future), swap: "BTC-USDT"... , future: "BTC-USDT-210625" ... |
+| **Parameter Name**    | **Mandotary** | **Type** | **Desc**     | **Value Range**                                 |
+| ----------- | -------- | ------ | ------------- |   ---------------------------------------- |
+| contract_code      | true     | string |  contract code      | all: *(swap and future), swap: "BTC-USDT"... , future: "BTC-USDT-210625" ... |
 
 > When there is any position update, the server will send notification with return parameter. For example:
 
@@ -17826,9 +17827,9 @@ To unsubscribe, the client has to make connection to the server and send unsubsc
 | topic    | string | Required;Required；Required；Subscribe topic，Subscribe positions_cross.$contract_code required  Subscribe or unsubscribe the position updates of a single coin; For parameter details please check req Subscribe Parameter |
 
 ### Request Parameter：
-| **Parameter Name**    | **Mandotary** | **Type** | **Desc**        | **Default** | **Value Range**                                 |
-| ----------- | -------- | ------ | ------------- | ------- | ---------------------------------------- |
-| contract_code      | true     | string |  contract code          |         | all: *(swap and future), swap: "BTC-USDT"... , future: "BTC-USDT-210625" ... |
+| **Parameter Name**    | **Mandotary** | **Type** | **Desc**    | **Value Range**                                 |
+| ----------- | -------- | ------ | ------------- |   ---------------------------------------- |
+| contract_code      | true     | string |  contract code     | all: *(swap and future), swap: "BTC-USDT"... , future: "BTC-USDT-210625" ... |
 
 
 ### Rules on Subscribe and Unsubscribe
@@ -18129,7 +18130,7 @@ To unsubscribe funding rate data, the client has to make connection to the serve
 
 | Filed Name | type   | desc                                        |
 | ------- | ----- | ------------------------------------------ |
-| op       | string | Required； Operator Name，required subscribe value is  sub             |
+| op       | string | Required； Operator Name，required unsubscribe value is unsub             |
 | cid      | string | Optional; ID Client requests unique ID                    |
 | topic    | string | Required; unsubscribe Topic Name，format: public.$contract_code.funding_rate; For parameter details please check req unsubscribe Parameter |
 
@@ -18320,7 +18321,7 @@ To unsubscribe contract info data, the client has to make connection to the serv
 
 | field | datatype  | desc                                               |
 | :------- | :----- | :------------------------------------------------- |
-| op       | string | Required; Operator Name，subscribe value is unsub;                 |
+| op       | string | Required; Operator Name，unsubscribe value is unsub;                 |
 | cid      | string | Optional;   Client requests unique ID                        |
 | topic    | string | Subscribe topic name，Require subscribe public.$contract_code.contract_info Subscribe/unsubscribe the data of a given contract code; For parameter details please check req Subscribe Parameter |
 
@@ -18516,7 +18517,7 @@ To subscribe basis data, the Client has to make connection to the Server and sen
 
 | Filed Name | type   | desc                                        |
 | ------- | ----- | ------------------------------------------ |
-| op       | string | Required； Operator Name，required subscribe value is  sub             |
+| op       | string | Required； Operator Name，required unsubscribe value is unsub             |
 | cid      | string | Optional; ID Client requests unique ID                    |
 | topic    | string | Required; unsubscribe Topic Name，format: trigger_order.$contract_code; For parameter details please check req unsubscribe Parameter |
 
