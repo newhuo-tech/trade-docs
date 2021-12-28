@@ -5694,7 +5694,7 @@ It will be pushed only when position event is updated.</p>
 <ul>
 <li><p>The interface supports cross margin mode and isolated margin mode.</p></li>
 <li><p>The request parameter &quot;support_margin_mode&quot; should be &quot;all&quot; when querying the contract information which supports the cross margin mode and the isolated margin mode both. The value of &quot;cross&quot; or &quot;isolated&quot; just can query the contract information which only supports the cross margin mode or the isolated margin mode. Please keep attention.</p></li>
-<li><p>The request parameter &quot;contract_code&quot; supports the contract code of futures, in that the format is BTC-USDT-201101; When both of (pair, contract_type) and contract_code filled in, the contract_code is the preferred.</p></li>
+<li><p>The request parameter &quot;contract_code&quot; supports the contract code of futures, in that the format is BTC-USDT-201101; When both of pair, contract_type and contract_code filled in, the contract_code is the preferred.</p></li>
 <li><p>business_type is a required parameter when query info of futures contract, and its value must be futures or all.</p></li>
 <li><p>When support_margin_mode is isolated，contract_type, business_type should not be futures type. And when support_margin_mode is cross, the return data is future&#39;s data</p></li>
 </ul>
@@ -6048,7 +6048,7 @@ It will be pushed only when position event is updated.</p>
 </code></pre><h4 id='remarks-3'>Remarks</h4>
 <ul>
 <li><p>The interface supports cross margin mode and isolated margin mode.</p></li>
-<li><p>The request parameter &quot;contract_code&quot; supports the contract code of futures, in that the format is BTC-USDT-201101; When both of (pair, contract_type) and contract_code filled in, the contract_code is the preferred.</p></li>
+<li><p>The request parameter &quot;contract_code&quot; supports the contract code of futures, in that the format is BTC-USDT-201101; When both of pair, contract_type and contract_code filled in, the contract_code is the preferred.</p></li>
 <li><p>business_type is a required parameter when query info of futures contract, and its value must be futures or all.</p></li>
 </ul>
 <h3 id='request-parameter-3'>Request Parameter</h3>
@@ -6201,7 +6201,7 @@ It will be pushed only when position event is updated.</p>
 </code></pre><h4 id='remarks-4'>Remarks</h4>
 <ul>
 <li><p>The interface supports cross margin mode and isolated margin mode.</p></li>
-<li><p>The request parameter &quot;contract_code&quot; supports the contract code of futures, in that the format is BTC-USDT-201101; When both of (pair, contract_type) and contract_code filled in, the contract_code is the preferred.</p></li>
+<li><p>The request parameter &quot;contract_code&quot; supports the contract code of futures, in that the format is BTC-USDT-201101; When both of pair, contract_type and contract_code filled in, the contract_code is the preferred.</p></li>
 <li><p>business_type is a required parameter when query info of futures contract, and its value must be futures or all.</p></li>
 </ul>
 <h3 id='request-parameter-4'>Request Parameter</h3>
@@ -8133,7 +8133,7 @@ It will be pushed only when position event is updated.</p>
 <td>false</td>
 <td>int</td>
 <td>page index. 1 by default</td>
-<td>1</td>
+<td></td>
 </tr>
 <tr>
 <td>page_size</td>
@@ -8495,7 +8495,7 @@ It will be pushed only when position event is updated.</p>
 <ul>
 <li><p>The interface only supports cross margin mode.</p></li>
 <li><p>The request parameter &quot;contract_code&quot; supports the contract code of futures, in that the format is BTC-USDT-210625.</p></li>
-<li><p>When both of (pair, contract_type) and contract_code filled in, the contract_code is the preferred.</p></li>
+<li><p>When both of pair, contract_type and contract_code filled in, the contract_code is the preferred.</p></li>
 <li><p>business_type is a required parameter when query info of futures contract, and its value must be futures or all.</p></li>
 </ul>
 <h3 id='request-parameter-16'>Request Parameter</h3>
@@ -9163,7 +9163,7 @@ It will be pushed only when position event is updated.</p>
 <ul>
 <li><p>The interface only supports cross margin mode.</p></li>
 <li><p>The request parameter &quot;contract_code&quot; supports the contract code of futures, in that the format is BTC-USDT-210625.</p></li>
-<li><p>When both of (pair, contract_type) and contract_code filled in, the contract_code is the preferred.</p></li>
+<li><p>When both of pair, contract_type and contract_code filled in, the contract_code is the preferred.</p></li>
 <li><p>business_type is a required parameter when query info of futures contract, and its value must be futures or all.</p></li>
 </ul>
 <h3 id='request-parameter-19'>Request Parameter</h3>
@@ -9786,7 +9786,7 @@ It will be pushed only when position event is updated.</p>
 <h4 id='remarks-17'>Remarks</h4>
 <ul>
 <li><p>The interface only supports cross margin mode.</p></li>
-<li><p>The request parameter &quot;contract_code&quot; supports the contract code of futures, in that the format is BTC-USDT-210625. When both of (pair, contract_type) and contract_code filled in, the contract_code is the preferred.</p></li>
+<li><p>The request parameter &quot;contract_code&quot; supports the contract code of futures, in that the format is BTC-USDT-210625. When both of pair, contract_type and contract_code filled in, the contract_code is the preferred.</p></li>
 <li><p>business_type is a required parameter when query info of futures contract, and its value must be futures or all.</p></li>
 </ul>
 <h3 id='request-parameter-22'>Request Parameter</h3>
@@ -11753,7 +11753,7 @@ It will be pushed only when position event is updated.</p>
 <ul>
 <li><p>The interface supports cross margin mode and isolated margin mode.</p></li>
 <li><p>The request parameter &quot;contract_code&quot; supports the contract code of futures, in that the format is BTC-USDT-210625.</p></li>
-<li><p>When both of (pair, contract_type) and contract_code filled in, the contract_code is the preferred.</p></li>
+<li><p>When both of pair, contract_type and contract_code filled in, the contract_code is the preferred.</p></li>
 <li><p>business_type is a required parameter when query info of futures contract, and its value must be futures or all.</p></li>
 </ul>
 <h3 id='request-parameter-28'>Request Parameter</h3>
@@ -17567,7 +17567,24 @@ It will be pushed only when position event is updated.</p>
 <td>“BTC-USDT”...</td>
 </tr>
 </tbody></table>
-<h3 id='returning-parameter-44'>Returning Parameter：</h3>
+
+<blockquote>
+<p>Response：</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="w">
+</span><span class="p">{</span><span class="w">
+    </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ok"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"contract_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BTC-USDT"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"margin_mode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"isolated"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"available_level_rate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1,2,3,5,10,20,30,50,75,100,125"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+    </span><span class="s2">"ts"</span><span class="p">:</span><span class="w"> </span><span class="mi">1603699467348</span><span class="w">
+</span><span class="p">}</span><span class="w">
+
+</span></code></pre><h3 id='returning-parameter-44'>Returning Parameter：</h3>
 <table><thead>
 <tr>
 <th><strong>Parameter Name</strong></th>
@@ -17627,24 +17644,7 @@ It will be pushed only when position event is updated.</p>
 <td></td>
 </tr>
 </tbody></table>
-
-<blockquote>
-<p>Response：</p>
-</blockquote>
-<pre class="highlight json tab-json"><code><span class="w">
-</span><span class="p">{</span><span class="w">
-    </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ok"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-        </span><span class="p">{</span><span class="w">
-            </span><span class="s2">"contract_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BTC-USDT"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"margin_mode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"isolated"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"available_level_rate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1,2,3,5,10,20,30,50,75,100,125"</span><span class="w">
-        </span><span class="p">}</span><span class="w">
-    </span><span class="p">],</span><span class="w">
-    </span><span class="s2">"ts"</span><span class="p">:</span><span class="w"> </span><span class="mi">1603699467348</span><span class="w">
-</span><span class="p">}</span><span class="w">
-
-</span></code></pre><h2 id='cross-query-user-s-available-leverage'>[Cross] Query User’s Available Leverage</h2>
+<h2 id='cross-query-user-s-available-leverage'>[Cross] Query User’s Available Leverage</h2>
 <ul>
 <li>POST <code>/linear-swap-api/v1/swap_cross_available_level_rate</code></li>
 </ul>
@@ -17652,7 +17652,7 @@ It will be pushed only when position event is updated.</p>
 <ul>
 <li><p>The interface only supports cross margin mode.</p></li>
 <li><p>The request parameter &quot;contract_code&quot; supports the contract code of futures, in that the format is BTC-USDT-210625.</p></li>
-<li><p>When both of (pair, contract_type) and contract_code filled in, the contract_code is the preferred.</p></li>
+<li><p>When both of pair, contract_type and contract_code filled in, the contract_code is the preferred.</p></li>
 <li><p>business_type is a required parameter when query info of futures contract, and its value must be futures or all.</p></li>
 </ul>
 <h3 id='request-parameter-45'>Request Parameter</h3>
@@ -17827,7 +17827,7 @@ It will be pushed only when position event is updated.</p>
 <ul>
 <li><p>The interface supports cross margin mode and isolated margin mode.</p></li>
 <li><p>The request parameter &quot;contract_code&quot; supports the contract code of futures, in that the format is BTC-USDT-210625.</p></li>
-<li><p>When both of (pair, contract_type) and contract_code filled in, the contract_code is the preferred.</p></li>
+<li><p>When both of pair, contract_type and contract_code filled in, the contract_code is the preferred.</p></li>
 <li><p>business_type is a required parameter when query info of futures contract, and its value must be futures or all.</p></li>
 </ul>
 <h3 id='request-parameter-46'>Request Parameter</h3>
@@ -18044,7 +18044,7 @@ It will be pushed only when position event is updated.</p>
 <ul>
 <li><p>The interface supports cross margin mode and isolated margin mode.</p></li>
 <li><p>The request parameter &quot;contract_code&quot; supports the contract code of futures, in that the format is BTC-USDT-210625.</p></li>
-<li><p>When both of (pair, contract_type) and contract_code filled in, the contract_code is the preferred.</p></li>
+<li><p>When both of pair, contract_type and contract_code filled in, the contract_code is the preferred.</p></li>
 <li><p>business_type is a required parameter when query info of futures contract, and its value must be futures or all.</p></li>
 </ul>
 <h3 id='request-parameter-47'>Request Parameter</h3>
@@ -18750,7 +18750,7 @@ It will be pushed only when position event is updated.</p>
 <ul>
 <li><p>The interface only supports cross margin mode.</p></li>
 <li><p>The request parameter &quot;contract_code&quot; supports the contract code of futures, in that the format is BTC-USDT-210625.</p></li>
-<li><p>When both of (pair, contract_type) and contract_code filled in, the contract_code is the preferred.</p></li>
+<li><p>When both of pair, contract_type and contract_code filled in, the contract_code is the preferred.</p></li>
 <li><p>business_type is a required parameter when query info of futures contract, and its value must be futures or all.</p></li>
 </ul>
 <h3 id='request-parameter-51'>Request Parameter</h3>
@@ -20950,8 +20950,8 @@ transfer currency from sub-account to  master account using client_order_id=1).<
 <td></td>
 </tr>
 <tr>
-<td>contract_code(more see remarks)</td>
-<td>false</td>
+<td>contract_code</td>
+<td>false(more see remarks)</td>
 <td>string</td>
 <td>contract code</td>
 <td>swap: &quot;BTC-USDT&quot;... , future: &quot;BTC-USDT-210625&quot; ...</td>
@@ -24546,7 +24546,7 @@ transfer currency from sub-account to  master account using client_order_id=1).<
 <ul>
 <li><p>The interface only supports cross margin mode.</p></li>
 <li><p>The request parameter &quot;contract_code&quot; supports the contract code of futures, in that the format is BTC-USDT-210625.</p></li>
-<li><p>When both of (pair, contract_type) and contract_code filled in, the contract_code is the preferred.  supports none any parameter filled in, it means all contract code in cross mode.</p></li>
+<li><p>When both of pair and contract_code filled in, the contract_code is the preferred.  supports none any parameter filled in, it means all contract code in cross mode.</p></li>
 </ul>
 <h3 id='request-parameter-72'>Request Parameter</h3>
 <table><thead>
@@ -32461,8 +32461,8 @@ transfer currency from sub-account to  master account using client_order_id=1).<
 <td>contract_code</td>
 <td>true</td>
 <td>string</td>
-<td>contract code,&quot;BTC-USDT&quot; ...</td>
-<td></td>
+<td>contract code</td>
+<td>&quot;BTC-USDT&quot; ...</td>
 </tr>
 <tr>
 <td>status</td>
@@ -32815,8 +32815,8 @@ transfer currency from sub-account to  master account using client_order_id=1).<
 <td>contract_code</td>
 <td>false(more see remarks)</td>
 <td>string</td>
+<td>contract code</td>
 <td>swap: &quot;BTC-USDT&quot;... , future: &quot;BTC-USDT-210625&quot; ...</td>
-<td></td>
 </tr>
 <tr>
 <td>pair</td>
@@ -41421,7 +41421,7 @@ Details are below:</p></li>
 <td>true</td>
 <td>string</td>
 <td>contract code</td>
-<td>&quot;*&quot; all(it means to subscribe the  all match orders) &quot;BTC-USDT&quot;,&quot;ETH-USDT&quot;...</td>
+<td>&quot;*&quot; all(it means to subscribe the all orders) &quot;BTC-USDT&quot;,&quot;ETH-USDT&quot;...</td>
 </tr>
 </tbody></table>
 
@@ -41759,7 +41759,7 @@ Details are below:</p></li>
 <tr>
 <td>op</td>
 <td>string</td>
-<td>Required； Operator Name，required subscribe value is  sub</td>
+<td>Required； Operator Name，value for unsubscribe is unsub;</td>
 </tr>
 <tr>
 <td>cid</td>
@@ -41787,7 +41787,7 @@ Details are below:</p></li>
 <td>true</td>
 <td>string</td>
 <td>contract code</td>
-<td>&quot;*&quot; all(it means to unsubscribe the  all orders)  &quot;BTC-USDT&quot;,&quot;ETH-USDT&quot;...</td>
+<td>&quot;*&quot; all(it means to unsubscribe the all orders)  &quot;BTC-USDT&quot;,&quot;ETH-USDT&quot;...</td>
 </tr>
 </tbody></table>
 <h3 id='rules-on-subscribe-and-unsubscribe'>Rules on Subscribe and Unsubscribe</h3>
@@ -42809,7 +42809,7 @@ Details are below:</p></li>
 <tr>
 <td>op</td>
 <td>string</td>
-<td>Required； Operator Name，required subscribe value is  sub</td>
+<td>Required； Operator Name，value for unsubscribe is unsub;</td>
 </tr>
 <tr>
 <td>cid</td>
@@ -43395,7 +43395,7 @@ Details are below:</p></li>
 <tr>
 <td>op</td>
 <td>string</td>
-<td>Required;Operator Name，value for unsubscribe is unsub;</td>
+<td>Required;Operator Name，Operator Name，Subscribe value is sub</td>
 </tr>
 <tr>
 <td>cid</td>
@@ -43734,7 +43734,7 @@ Details are below:</p></li>
 <tr>
 <td>op</td>
 <td>string</td>
-<td>Required;Operator Name，value for unsubscribe is unsub;</td>
+<td>Required;Operator Name，Subscribe value is sub</td>
 </tr>
 <tr>
 <td>cid</td>
@@ -44181,7 +44181,7 @@ Details are below:</p></li>
 <tr>
 <td>op</td>
 <td>string</td>
-<td>Required;Operator Name，value for unsubscribe is unsub;</td>
+<td>Required;Operator Name，Unsubscribe value is unsub</td>
 </tr>
 <tr>
 <td>cid</td>
@@ -44284,7 +44284,7 @@ Details are below:</p></li>
 <tr>
 <td>op</td>
 <td>string</td>
-<td>Required； Operator Name，required subscribe value is  sub</td>
+<td>Required； Operator Name，Subscribe value is sub;</td>
 </tr>
 <tr>
 <td>cid</td>
@@ -44522,7 +44522,7 @@ Details are below:</p></li>
 <tr>
 <td>op</td>
 <td>string</td>
-<td>Required； Operator Name，required subscribe value is  sub</td>
+<td>Required； Operator Name，unsubscribe value is unsub;</td>
 </tr>
 <tr>
 <td>cid</td>
@@ -44646,7 +44646,6 @@ Details are below:</p></li>
 <th><strong>Mandotary</strong></th>
 <th><strong>Type</strong></th>
 <th><strong>Desc</strong></th>
-<th><strong>Default</strong></th>
 <th><strong>Value Range</strong></th>
 </tr>
 </thead><tbody>
@@ -44655,7 +44654,6 @@ Details are below:</p></li>
 <td>true</td>
 <td>string</td>
 <td>contract code</td>
-<td></td>
 <td>all: *(swap and future), swap: &quot;BTC-USDT&quot;... , future: &quot;BTC-USDT-210625&quot; ...</td>
 </tr>
 </tbody></table>
@@ -44959,7 +44957,6 @@ Details are below:</p></li>
 <th><strong>Mandotary</strong></th>
 <th><strong>Type</strong></th>
 <th><strong>Desc</strong></th>
-<th><strong>Default</strong></th>
 <th><strong>Value Range</strong></th>
 </tr>
 </thead><tbody>
@@ -44968,7 +44965,6 @@ Details are below:</p></li>
 <td>true</td>
 <td>string</td>
 <td>contract code</td>
-<td></td>
 <td>all: *(swap and future), swap: &quot;BTC-USDT&quot;... , future: &quot;BTC-USDT-210625&quot; ...</td>
 </tr>
 </tbody></table>
@@ -45514,7 +45510,7 @@ Details are below:</p></li>
 <tr>
 <td>op</td>
 <td>string</td>
-<td>Required； Operator Name，required subscribe value is  sub</td>
+<td>Required； Operator Name，required unsubscribe value is unsub</td>
 </tr>
 <tr>
 <td>cid</td>
@@ -45856,7 +45852,7 @@ Details are below:</p></li>
 <tr>
 <td style="text-align: left">op</td>
 <td style="text-align: left">string</td>
-<td style="text-align: left">Required; Operator Name，subscribe value is unsub;</td>
+<td style="text-align: left">Required; Operator Name，unsubscribe value is unsub;</td>
 </tr>
 <tr>
 <td style="text-align: left">cid</td>
@@ -46322,7 +46318,7 @@ Details are below:</p></li>
 <tr>
 <td>op</td>
 <td>string</td>
-<td>Required； Operator Name，required subscribe value is  sub</td>
+<td>Required； Operator Name，required unsubscribe value is unsub</td>
 </tr>
 <tr>
 <td>cid</td>
