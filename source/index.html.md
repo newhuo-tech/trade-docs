@@ -328,8 +328,8 @@ search: True
  - 接口类型: 私有接口
  - 接口URL: /swap-api/v1/swap_trigger_hisorders
 
-### 18、修改获取当前可用合约总持仓量（在返回参数data中新增trade_volume：最近24小时成交量（张），trade_amount：最近24小时成交量（币），trade_turnover：最近24小时成交额。这三个字段 ）
- - 接口名称: 获取当前可用合约总持仓量
+### 18、修改获取当前合约总持仓量（在返回参数data中新增trade_volume：最近24小时成交量（张），trade_amount：最近24小时成交量（币），trade_turnover：最近24小时成交额。这三个字段 ）
+ - 接口名称: 获取当前合约总持仓量
  - 接口类型: 公共接口
  - 接口URL: /swap-api/v1/swap_open_interest
 
@@ -859,7 +859,7 @@ search: True
 读取     |  基础行情接口           |  /swap-api/v1/swap_contract_info  |                 GET        |  获取合约信息                 |  否  |
 读取     |  基础行情接口           |  /swap-api/v1/swap_index  |                         GET        |  获取合约指数信息             |  否  |
 读取     |  基础行情接口           |  /swap-api/v1/swap_price_limit  |                 GET         |  获取合约最高限价和最低限价   |  否  |
-读取     |  基础行情接口           |  /swap-api/v1/swap_open_interest  |                  GET        |  获取当前可用合约总持仓量     |  否  |
+读取     |  基础行情接口           |  /swap-api/v1/swap_open_interest  |                  GET        |  获取当前合约总持仓量     |  否  |
 读取     |  市场行情接口           |  /swap-ex/market/depth  |                  GET        |  获取行情深度数据     |  否  |
 读取     |  市场行情接口           |  /swap-ex/market/bbo |        GET        | 获取市场最优挂单            |  否  |
 读取     |  市场行情接口           |  /swap-ex/market/history/kline  |                  GET        |  获取K线数据     |  否  |
@@ -870,7 +870,7 @@ search: True
 读取     |  市场行情接口           |  /swap-api/v1/swap_risk_info  |                  GET        |  查询合约风险准备金余额和预估分摊比例     |  否  |
 读取     |  市场行情接口           |   /swap-api/v1/swap_insurance_fund  |                  GET        |  查询合约风险准备金余额历史数据     |  否  |
 读取     |  市场行情接口           |   /swap-api/v1/swap_adjustfactor  |                  GET        |  查询平台阶梯调整系数     |  否  |
-读取     |  市场行情接口           |   /swap-api/v1/swap_his_open_interest  |                  GET        |  平台持仓量的查询     |  否  |
+读取     |  市场行情接口           |   /swap-api/v1/swap_his_open_interest  |                  GET        |  平台历史持仓量查询     |  否  |
 读取     |  市场行情接口        |  /swap-api/v1/swap_ladder_margin           |    GET       |       获取平台阶梯保证金       |  否  |
 读取     |  市场行情接口           |   /swap-api/v1/swap_elite_account_ratio  |                  GET        |  精英账户多空持仓对比-账户数     |  否  |
 读取     |  市场行情接口           |   /swap-api/v1/swap_elite_position_ratio  |                  GET        |  精英账户多空持仓对比-持仓量     |  否  |
@@ -2408,7 +2408,7 @@ contract_code   |  true      |  string     |  合约代码      |  "BTC-USD" ...
 ts  |    true  |  long  |  响应生成时间点，单位：毫秒              |            |
 
 
-## 获取当前可用合约总持仓量 
+## 获取当前合约总持仓量 
 
 ###  示例
 
@@ -3254,7 +3254,7 @@ curl "https://api.hbdm.com/swap-api/v1/swap_adjustfactor?contract_code=BTC-USD"
  \</list\> |  |  |  |  |
  \</data\> |  |  |  |  |
 
-## 平台持仓量的查询
+## 平台历史持仓量查询
 
 ### 实例
 
