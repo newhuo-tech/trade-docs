@@ -404,7 +404,7 @@
                     <a href="#025c787500" class="toc-h2 toc-link" data-title="获取合约最高限价和最低限价">获取合约最高限价和最低限价</a>
                   </li>
                   <li>
-                    <a href="#e30aaa2765" class="toc-h2 toc-link" data-title="获取当前可用合约总持仓量">获取当前可用合约总持仓量</a>
+                    <a href="#5ce889461b" class="toc-h2 toc-link" data-title="获取当前合约总持仓量">获取当前合约总持仓量</a>
                   </li>
                   <li>
                     <a href="#1716b8327e" class="toc-h2 toc-link" data-title="获取行情深度数据">获取行情深度数据</a>
@@ -440,7 +440,7 @@
                     <a href="#6f611742ac" class="toc-h2 toc-link" data-title="查询平台阶梯调整系数">查询平台阶梯调整系数</a>
                   </li>
                   <li>
-                    <a href="#7846b9b81a" class="toc-h2 toc-link" data-title="平台持仓量的查询">平台持仓量的查询</a>
+                    <a href="#e27e96d9c3" class="toc-h2 toc-link" data-title="平台历史持仓量查询">平台历史持仓量查询</a>
                   </li>
                   <li>
                     <a href="#7337170697" class="toc-h2 toc-link" data-title="获取平台阶梯保证金">获取平台阶梯保证金</a>
@@ -1187,9 +1187,9 @@
 <li>接口类型: 私有接口</li>
 <li>接口URL: /swap-api/v1/swap_trigger_hisorders</li>
 </ul>
-<h3 id='18-data-trade_volume-24-trade_amount-24-trade_turnover-24'>18、修改获取当前可用合约总持仓量（在返回参数data中新增trade_volume：最近24小时成交量（张），trade_amount：最近24小时成交量（币），trade_turnover：最近24小时成交额。这三个字段 ）</h3>
+<h3 id='18-data-trade_volume-24-trade_amount-24-trade_turnover-24'>18、修改获取当前合约总持仓量（在返回参数data中新增trade_volume：最近24小时成交量（张），trade_amount：最近24小时成交量（币），trade_turnover：最近24小时成交额。这三个字段 ）</h3>
 <ul>
-<li>接口名称: 获取当前可用合约总持仓量</li>
+<li>接口名称: 获取当前合约总持仓量</li>
 <li>接口类型: 公共接口</li>
 <li>接口URL: /swap-api/v1/swap_open_interest</li>
 </ul>
@@ -1623,7 +1623,7 @@
 <td>基础行情接口</td>
 <td>/swap-api/v1/swap_open_interest</td>
 <td>GET</td>
-<td>获取当前可用合约总持仓量</td>
+<td>获取当前合约总持仓量</td>
 <td>否</td>
 </tr>
 <tr>
@@ -1711,7 +1711,7 @@
 <td>市场行情接口</td>
 <td>/swap-api/v1/swap_his_open_interest</td>
 <td>GET</td>
-<td>平台持仓量的查询</td>
+<td>平台历史持仓量查询</td>
 <td>否</td>
 </tr>
 <tr>
@@ -4516,7 +4516,7 @@ curl <span class="s2">"https://api.hbdm.com/swap-api/v1/swap_price_limit?contrac
 <td></td>
 </tr>
 </tbody></table>
-<h2 id='e30aaa2765'>获取当前可用合约总持仓量</h2><h3 id='30fd4ed55b-4'>示例</h3>
+<h2 id='5ce889461b'>获取当前合约总持仓量</h2><h3 id='30fd4ed55b-4'>示例</h3>
 <ul>
 <li>GET <code>/swap-api/v1/swap_open_interest</code></li>
 </ul>
@@ -6599,7 +6599,7 @@ curl <span class="s2">"https://api.hbdm.com/swap-api/v1/swap_adjustfactor?contra
 <td></td>
 </tr>
 </tbody></table>
-<h2 id='7846b9b81a'>平台持仓量的查询</h2><h3 id='69fffaf196'>实例</h3>
+<h2 id='e27e96d9c3'>平台历史持仓量查询</h2><h3 id='69fffaf196'>实例</h3>
 <ul>
 <li>GET <code>/swap-api/v1/swap_his_open_interest</code></li>
 </ul>
