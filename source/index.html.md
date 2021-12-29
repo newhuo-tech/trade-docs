@@ -48,8 +48,8 @@ search: true
  - 接口类型：公共接口
  - 接口URL：/linear-swap-api/v1/swap_price_limit
 
-### 3、修改获取当前可用合约总持仓量接口（新增选填入参：business_type（业务类型）、contract_type（合约类型）、pair（交易对）。返回参数data下新增字段：business_type（业务类型）、contract_type（合约类型）、pair（交易对）。）
- - 接口名称：【通用】获取当前可用合约总持仓量
+### 3、修改获取当前合约总持仓量接口（新增选填入参：business_type（业务类型）、contract_type（合约类型）、pair（交易对）。返回参数data下新增字段：business_type（业务类型）、contract_type（合约类型）、pair（交易对）。）
+ - 接口名称：【通用】获取当前合约总持仓量
  - 接口类型：公共接口
  - 接口URL：/linear-swap-api/v1/swap_open_interest
 
@@ -68,8 +68,8 @@ search: true
  - 接口类型：公共接口
  - 接口URL：/linear-swap-api/v1/swap_cross_adjustfactor
 
-### 7、修改获取平台持仓量接口（新增选填入参：contract_type（合约类型）、pair（交易对）。返回参数data下新增字段：business_type（业务类型）、contract_type（合约类型）、pair（交易对）。）
- - 接口名称：【通用】获取平台持仓量
+### 7、修改获取平台历史持仓量接口（新增选填入参：contract_type（合约类型）、pair（交易对）。返回参数data下新增字段：business_type（业务类型）、contract_type（合约类型）、pair（交易对）。）
+ - 接口名称：【通用】获取平台历史持仓量
  - 接口类型：公共接口
  - 接口URL：/linear-swap-api/v1/swap_his_open_interest
 
@@ -956,8 +956,8 @@ search: true
  - 接口类型: 私有接口
  - 接口URL: /linear-swap-api/v1/swap_cross_trigger_hisorders
 
-### 32、修改获取当前可用合约总持仓量（在返回参数data中新增trade_volume：最近24小时成交量（张），trade_amount：最近24小时成交量（币）trade_turnover：最近24小时成交额、这三个字段 ）
- - 接口名称: 【通用】获取当前可用合约总持仓量
+### 32、修改获取当前合约总持仓量（在返回参数data中新增trade_volume：最近24小时成交量（张），trade_amount：最近24小时成交量（币）trade_turnover：最近24小时成交额、这三个字段 ）
+ - 接口名称: 【通用】获取当前合约总持仓量
  - 接口类型: 公共接口
  - 接口URL: /linear-swap-api/v1/swap_open_interest
 
@@ -1541,11 +1541,11 @@ search: true
 读取  | 基础信息接口 |  通用   | /linear-swap-api/v1/swap_contract_info                             | GET    |      【通用】获取合约信息                        |       否          |
 读取  | 基础信息接口 |  通用   | /linear-swap-api/v1/swap_index                                     | GET    |      【通用】获取合约指数信息                    |       否          |                     
 读取  | 基础信息接口 |  通用   | /linear-swap-api/v1/swap_price_limit                               | GET    |      【通用】获取合约最高限价和最低限价          |       否          |           
-读取  | 基础信息接口 |  通用   | /linear-swap-api/v1/swap_open_interest                             | GET    |      【通用】获取当前可用合约总持仓量            |       否          |            
+读取  | 基础信息接口 |  通用   | /linear-swap-api/v1/swap_open_interest                             | GET    |      【通用】获取当前合约总持仓量            |       否          |            
 读取  | 基础信息接口 |  通用   | /linear-swap-api/v1/swap_risk_info                                 | GET    |      【通用】查询合约风险准备金和预估分摊比例    |       否          |
 读取  | 基础信息接口 |  通用   | /linear-swap-api/v1/swap_insurance_fund                            | GET    |      【通用】获取风险准备金历史数据              |       否          |
 读取  | 基础信息接口 |  逐仓   | /linear-swap-api/v1/swap_adjustfactor                              | GET    |      【逐仓】查询平台阶梯调整系数                |       否          |
-读取  | 基础信息接口 |  通用   | /linear-swap-api/v1/swap_his_open_interest                         | GET    |      【通用】获取平台持仓量                      |       否          |
+读取  | 基础信息接口 |  通用   | /linear-swap-api/v1/swap_his_open_interest                         | GET    |      【通用】获取平台历史持仓量                      |       否          |
 读取  | 基础信息接口 |  通用   | /linear-swap-api/v1/swap_elite_account_ratio                       | GET    |      【通用】精英账户多空持仓对比-账户数         |       否          |
 读取  | 基础信息接口 |  通用   | /linear-swap-api/v1/swap_elite_position_ratio                      | GET    |      【通用】精英账户多空持仓对比-持仓量         |       否          |
 读取  | 基础信息接口 |  通用   | /linear-swap-api/v1/swap_liquidation_orders                        | GET    |      【通用】获取强平订单                        |       否          |
@@ -3254,11 +3254,11 @@ curl "https://api.hbdm.com/linear-swap-api/v1/swap_price_limit?contract_code=BTC
 | \<data\>   |      |         |     |   |
 | ts                   | true | long    | 响应生成时间点，单位：毫秒 |  |
 
-## 【通用】获取当前可用合约总持仓量 
+## 【通用】获取当前合约总持仓量 
 
 ###  示例
 
-- GET `/linear-swap-api/v1/swap_open_interest`
+- GET `/linear-swap-api/v1/swap_open_interest`
 
 ```shell
 
@@ -4447,7 +4447,7 @@ curl "https://api.hbdm.com/linear-swap-api/v1/swap_adjustfactor?contract_code=BT
 - 每6秒计算并更新一次预估结算价。
 
 
-## 【通用】平台持仓量的查询
+## 【通用】平台历史持仓量查询
 
 ### 实例
 
