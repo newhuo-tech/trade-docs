@@ -6671,7 +6671,7 @@ contract_code | true | string | contract code	 |Case-Insenstive.Both uppercase a
         "total_size": 1,
         "sub_list": [
             {
-                "sub_uid": 146190163,
+                "sub_uid": 12345678,
                 "account_info_list": [
                     {
                         "margin_balance": 2,
@@ -16592,7 +16592,7 @@ To subscribe order data, Clients have to make connection to the Server and send 
     "canceled_at":0,
     "fee_asset":"USDT",
     "margin_asset":"USDT",
-    "uid":"273461172",
+    "uid":"123456789",
     "liquidation_type":"0",
     "margin_mode":"cross",
     "margin_account":"USDT",
@@ -16978,7 +16978,7 @@ To subscribe order data, Clients have to make connection to the Server and send 
     "op":"notify",
     "topic":"matchOrders_cross.btc-usdt",
     "ts":1639705640671,
-    "uid":"301352683",
+    "uid":"123456789",
     "symbol":"BTC",
     "contract_code":"BTC-USDT",
     "status":6,
@@ -17339,33 +17339,52 @@ To subscribe accounts equity data updates, the client has to make connection to 
 
 {
     "op":"notify",
-    "topic":"accounts_cross.usdt",
-    "ts":1606878438415,
-    "event":"order.liquidation",
+    "topic":"accounts_cross",
+    "ts":1640756528985,
+    "event":"snapshot",
     "data":[
         {
             "margin_mode":"cross",
             "margin_account":"USDT",
             "margin_asset":"USDT",
-            "margin_balance":1591.122082549410817836,
-            "margin_static":1591.122082549410817836,
-            "margin_position":47.99916,
+            "margin_balance":20.60340161555383535,
+            "margin_static":20.47570161555383535,
+            "margin_position":19.30352,
             "margin_frozen":0,
-            "profit_real":-1866.704,
-            "profit_unreal":0,
-            "withdraw_available":1543.122922549410817836,
-            "risk_rate":59.270830593679738555,
+            "profit_real":-0.01911684,
+            "profit_unreal":0.1277,
+            "withdraw_available":1.17218161555383535,
+            "risk_rate":25.683477437733940947,
             "contract_detail":[
                 {
                     "symbol":"BTC",
                     "contract_code":"BTC-USDT",
-                    "margin_position":47.99916,
+                    "margin_position":9.55638,
                     "margin_frozen":0,
-                    "margin_available":1497.561881274705408918,
-                    "profit_unreal":0,
-                    "liquidation_price":42160.036464495601721318,
-                    "lever_rate":100,
-                    "adjust_factor":0.55
+                    "margin_available":1.29988161555383535,
+                    "profit_unreal":-0.0102,
+                    "liquidation_price":27790.709661740085332661,
+                    "lever_rate":5,
+                    "adjust_factor":0.04,
+                    "contract_type":"swap",
+                    "pair":"BTC-USDT",
+                    "business_type":"swap"
+                }
+            ],
+            "futures_contract_detail":[
+                {
+                    "symbol":"BTC",
+                    "contract_code":"BTC-USDT-220325",
+                    "margin_position":9.74714,
+                    "margin_frozen":0,
+                    "margin_available":1.29988161555383535,
+                    "profit_unreal":0.1379,
+                    "liquidation_price":28744.509661740085332661,
+                    "lever_rate":5,
+                    "adjust_factor":0.04,
+                    "contract_type":"quarter",
+                    "pair":"BTC-USDT",
+                    "business_type":"futures"
                 }
             ]
         }
@@ -17738,7 +17757,7 @@ To subscribe position updates data, the client has to make connection to the ser
             "margin_account":"USDT"
         }
     ],
-    "uid":"273461172"
+    "uid":"123456789"
 }
 
 ```
@@ -18592,7 +18611,7 @@ To subscribe basis data, the Client has to make connection to the Server and sen
     "topic":"trigger_order_cross.*",
     "ts":1639123353369,
     "event":"order",
-    "uid":"273461172",
+    "uid":"123456789",
     "data":[
         {
             "contract_type":"swap",
