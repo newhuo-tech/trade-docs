@@ -7801,9 +7801,9 @@ Suggested downstream data processing:<br>
 7)	Once received a "size=0" at existing price level from incremental message, that price level should be removed from MBP book;<br>
 8)	If one incremental message includes updates of multiple price levels, all of those levels should be updated simultaneously in MBP book.<br>
 
-Currently Huobi Global only supports 5-level/20-level MBP incremental channel and 150-level incremental channel, the differences between them are -<br>
+Currently Huobi Global only supports 5-level/20-level MBP incremental channel and 150-level/400-level incremental channel, the differences between them are -<br>
 1) Different depth of market.<br>
-2) 5-level/20-level incremental MBP is a tick by tick feed, which means whenever there is an order book change at that level, it pushes an update; 150 levels incremental MBP feed is based on the gap between two snapshots at 100ms interval.<br>
+2) 5-level/20-level incremental MBP is a tick by tick feed, which means whenever there is an order book change at that level, it pushes an update; 150-levels/400-level incremental MBP feed is based on the gap between two snapshots at 100ms interval.<br>
 3) While there is single side order book update, either bid or ask, the incremental message sent from 5-level/20-level MBP feed only contains that side update. <br>
 
 ```json
@@ -7822,7 +7822,7 @@ Currently Huobi Global only supports 5-level/20-level MBP incremental channel an
     }
 }
 ```
-But the incremental message from 150 levels MBP feed contains not only that side update and also a blank object for another side.
+But the incremental message from 150-levels/400-level MBP feed contains not only that side update and also a blank object for another side.
 
 ```json
 {
@@ -7838,8 +7838,8 @@ But the incremental message from 150 levels MBP feed contains not only that side
     }
 }
 ```
-In the near future, Huobi Global will align the update behavior of 150-level incremental channel with 5-level/20-level, which means while single side order book changed (either bid or ask), the update message will be no longer including a blank object for another side.<br>
-4) While there is nothing change between two snapshots in past 100ms, the 150 levels incremental MBP feed still sends out a message which contains two blank objects – bids & asks. <br>
+In the near future, Huobi Global will align the update behavior of 150-level//400-level incremental channel with 5-level/20-level, which means while single side order book changed (either bid or ask), the update message will be no longer including a blank object for another side.<br>
+4) While there is nothing change between two snapshots in past 100ms, the 150-levels/400-level incremental MBP feed still sends out a message which contains two blank objects – bids & asks. <br>
 
 ```json
 {
@@ -7854,8 +7854,8 @@ In the near future, Huobi Global will align the update behavior of 150-level inc
 }
 ```
 But 5-level/20-level incremental channel won’t disseminate any update in such a case.<br>
-In the future, Huobi Global will align the update behavior of 150-level incremental channel with 5-level/20-level, which means while there is no order book change at all, the channel will be no longer disseminating messages of blank object any more.<br>
-5) 5-level/20-level incremental channel only supports the following symbols at this stage: btcusdt, ethusdt, xrpusdt, eosusdt, ltcusdt, etcusdt, adausdt, dashusdt, bsvusdt, htusdt, dotusdt, linkusdt, iotausdt, zecusdt, trxusdt, xmrusdt, arusdt, dfausdt, nftusdt, uniusdt, dogeusdt, solusdt, xecusdt, lunausdt, bchusdt, maticusdt, vetusdt, xlmusdt, filusdt, thetausdt. while 150-level incremental channel supports all symbols.
+In the future, Huobi Global will align the update behavior of 150-level/400-level incremental channel with 5-level/20-level, which means while there is no order book change at all, the channel will be no longer disseminating messages of blank object any more.<br>
+5) 5-level/20-level incremental channel only supports the following symbols at this stage: btcusdt, ethusdt, xrpusdt, eosusdt, ltcusdt, etcusdt, adausdt, dashusdt, bsvusdt, htusdt, dotusdt, linkusdt, iotausdt, zecusdt, trxusdt, xmrusdt, arusdt, dfausdt, nftusdt, uniusdt, dogeusdt, solusdt, xecusdt, lunausdt, bchusdt, maticusdt, vetusdt, xlmusdt, filusdt, thetausdt. while 150-level/400-level incremental channel supports all symbols.
 
 REQ channel supports refreshing message for 5-level, 20-level, and 150-level.
 
