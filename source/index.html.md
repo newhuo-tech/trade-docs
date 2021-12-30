@@ -7838,9 +7838,9 @@ Websocket服务器同时支持一次性请求数据（pull）。
 7）	如果收到增量数据某price档位的size为0值，须将该price档位从MBP订单簿中删除；<br>
 8）	如果收到单条增量数据中包含两个及以上price档位的更新，这些price档位须在MBP订单簿中被同时更新。<br>
 
-当前仅支持5档/20档MBP逐笔增量以及150档MBP快照增量的推送，二者的区别为 -<br>
+当前仅支持5档/20档MBP逐笔增量以及150档/400档MBP快照增量的推送，二者的区别为 -<br>
 1） 深度不同；<br>
-2） 5档/20档为逐笔增量MBP行情，150档为100毫秒定时快照增量MBP行情；<br>
+2） 5档/20档为逐笔增量MBP行情，150档/400档为100毫秒定时快照增量MBP行情；<br>
 3） 当5档/20档订单簿仅发生单边行情变化时，增量推送仅包含单边行情更新，比如，推送消息中包含数组asks，但不含数组bids；<br>
 
 ```json
@@ -7859,7 +7859,7 @@ Websocket服务器同时支持一次性请求数据（pull）。
     }
 }
 ```
-当150档订单簿仅发生单边行情变化时，增量推送包含双边行情更新，但其中一边行情为空，比如，推送消息中包含数组asks更新的同时，也包含bids空数组；<br>
+当150档/400档订单簿仅发生单边行情变化时，增量推送包含双边行情更新，但其中一边行情为空，比如，推送消息中包含数组asks更新的同时，也包含bids空数组；<br>
 
 ```json
 {
@@ -7875,8 +7875,8 @@ Websocket服务器同时支持一次性请求数据（pull）。
     }
 }
 ```
-未来，150档增量推送的数据行为将与5档/20档增量保持一致，即，单边深度行情变更时，推送消息中将不包含另一边行情深度行情；<br>
-4） 当150档订单簿在100毫秒时间间隔内未发生变化时，增量推送包含bids和asks空数组；<br>
+未来，150档/400档增量推送的数据行为将与5档/20档增量保持一致，即，单边深度行情变更时，推送消息中将不包含另一边行情深度行情；<br>
+4） 当150档/400档订单簿在100毫秒时间间隔内未发生变化时，增量推送包含bids和asks空数组；<br>
 
 ```json
 {
@@ -7892,7 +7892,7 @@ Websocket服务器同时支持一次性请求数据（pull）。
 ```
 而5档/20档MBP逐笔增量，在订单簿未发生变化时，不推送数据；<br>
 未来，150档增量推送的数据行为将与5档增量保持一致，即，在订单簿未发生变化时，不再推送空消息；<br>
-5）5档/20档逐笔增量行情仅支持部分交易对: btcusdt, ethusdt, xrpusdt, eosusdt, ltcusdt, etcusdt, adausdt, dashusdt, bsvusdt, htusdt, dotusdt, linkusdt, iotausdt, zecusdt, trxusdt, xmrusdt, arusdt, dfausdt, nftusdt, uniusdt, dogeusdt, solusdt, xecusdt, lunausdt, bchusdt, maticusdt, vetusdt, xlmusdt, filusdt, thetausdt 。150档快照增量支持全部交易对。
+5）5档/20档逐笔增量行情和400档快照增量行情仅支持部分交易对: btcusdt, ethusdt, xrpusdt, eosusdt, ltcusdt, etcusdt, adausdt, dashusdt, bsvusdt, htusdt, dotusdt, linkusdt, iotausdt, zecusdt, trxusdt, xmrusdt, arusdt, dfausdt, nftusdt, uniusdt, dogeusdt, solusdt, xecusdt, lunausdt, bchusdt, maticusdt, vetusdt, xlmusdt, filusdt, thetausdt 。150档快照增量支持全部交易对。
 
 REQ频道支持5档/20档/150档全量数据的获取。<br>
 
