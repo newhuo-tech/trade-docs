@@ -7934,17 +7934,18 @@ contract_code | true | string | contract code	 |Case-Insenstive.Both uppercase a
             "symbol": "BTC",
             "contract_code": "BTC-USDT",
             "transfer_in_max_each": 100000000.000000000000000000,
-            "transfer_in_min_each": 1.000000000000000000,
+            "transfer_in_min_each": 1.0000000000E-8,
             "transfer_out_max_each": 10000000.000000000000000000,
-            "transfer_out_min_each": 0.000001000000000000,
+            "transfer_out_min_each": 1.0000000000E-8,
             "transfer_in_max_daily": 1000000000.000000000000000000,
             "transfer_out_max_daily": 200000000.000000000000000000,
             "net_transfer_in_max_daily": 500000000.000000000000000000,
             "net_transfer_out_max_daily": 100000000.000000000000000000,
+            "margin_account": "BTC-USDT",
             "margin_mode": "isolated"
         }
     ],
-    "ts": 1603699803580
+    "ts": 1640852376293
 }
 ```
 
@@ -7966,6 +7967,7 @@ contract_code | true | string | contract code	 |Case-Insenstive.Both uppercase a
 | net_transfer_in_max_daily | true | decimal | Max daily limit of net total deposits |  |
 | net_transfer_out_max_daily | true | decimal | Max daily limit of net total withdrawals |  |
 | margin_mode    |   true   | string | margin mode  | isolated : "isolated" |
+| margin_account  | true | string | margin account  | e.g: "BTC-USDT" ... |
 | \</data\> |  |  |  |  |
 
 
