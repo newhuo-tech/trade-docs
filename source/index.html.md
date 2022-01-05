@@ -8385,7 +8385,7 @@ contract_code | true | string | contract code	 |Case-Insenstive.Both uppercase a
 | to_margin_account | true | string | to margin account	 |  "BTC-USDT","USDT"... |
 | amount | true | decimal | transfer amount ||
 | type | true | string | transfer type | "master_to_sub" or "sub_to_master" |
-| client_order_id | false | long | Clients fill and maintain themselves. | must be Less or Equal than 9223372036854775807 |
+| client_order_id | false | long | Clients fill and maintain themselves. | [1, 9223372036854775807] |
 
 #### Note：
 - When from_margin_account or to_margin_account is USDT, it means the transfer in or transfer out from cross margin account
@@ -8656,7 +8656,7 @@ contract_code | true | string | contract code	 |Case-Insenstive.Both uppercase a
 |   Parameter Name   |   Parameter Type   |   Mandatory   |   Desc                                                       |
 | ------------------ | ------------------ | ------------- | ------------------------------------------------------------ |
 | contract_code      | string             | true         | Case-Insenstive.Both uppercase and lowercase are supported.e.g. "BTC-USDT"  |
-| client_order_id    | long               | false         | Clients fill and maintain themselves.must be Less or Equal than 9223372036854775807 |
+| client_order_id    | long               | false         | Clients fill and maintain themselves. the value must be in [1, 9223372036854775807] |
 | price              | decimal            | false          | Price                                                        |
 | volume             | long               | true          | Numbers of orders (volume)                                   |
 | direction          | string             | true          | Transaction direction                                        |
@@ -8766,7 +8766,7 @@ The return order_id is 18 bits, it will make  mistake when nodejs and JavaScript
 | contract_code    | false(more see remarks)  | string   | contract code                                         | swap: "BTC-USDT"... , future: "BTC-USDT-210625" ... |
 | pair | false(more see remarks) |  string | pair |   BTC-USDT   |
 | contract_type | false(more see remarks) |  string | contract type |  swap, this_week, next_week, quarter, next_ quarter |
-| client_order_id  | false | long     | Clients fill and maintain themselves.must be Less or Equal than 9223372036854775807                   |                                                              |
+| client_order_id  | false | long     | Clients fill and maintain themselves. | [1, 9223372036854775807] |
 | price            | false | decimal  | price                                            |                                                              |
 | volume           | true  | long     | Numbers of orders (volume)                                    |                                                              |
 | direction        | true  | string   | Transaction direction                                         | "buy"/"sell"                                           |
@@ -8898,7 +8898,7 @@ No need to transfer BBO order price(ask 1 and bid 1) parameter, optimal_5: top 5
 |   Parameter Name                      |   Parameter Type   |   Mandatory   |   Desc                                                       |
 | ------------------------------------- | ------------------ | ------------- | ------------------------------------------------------------ |
 | contract_code      | string             | true       | Case-Insenstive.Both uppercase and lowercase are supported.e.g. "BTC-USDT"                                                   |
-| client_order_id                       | long               | false          | Clients fill and maintain themselves.must be Less or Equal than 9223372036854775807 |
+| client_order_id                       | long               | false          | Clients fill and maintain themselves. the value must be in [1, 9223372036854775807] |
 | price                                 | decimal            | false          | Price                                                        |
 | volume                                | long               | true          | Numbers of orders (volume)                                   |
 | direction                             | string             | true          | Transaction direction                                        |
@@ -9039,7 +9039,7 @@ The return order_id is 18 bits, it will make  mistake when nodejs and JavaScript
 | contract_code   | false(more see remarks) | string   | contract code      | swap: "BTC-USDT"... , future: "BTC-USDT-210625" ... |
 | pair | false(more see remarks) |  string | pair |   BTC-USDT   |
 | contract_type | false(more see remarks) |  string | contract type |  swap, this_week, next_week, quarter, next_ quarter |
-| client_order_id       |  false   |  long| Clients fill and maintain themselves.must be Less or Equal than 9223372036854775807                          |      |
+| client_order_id       |  false   |  long| Clients fill and maintain themselves. |   [1, 9223372036854775807]   |
 | price       |false  | decimal | price|      |
 | volume   | true    |  long | Numbers of orders (volume) |      |
 | direction   |true   |  string | Transaction direction   | "buy"/"sell"    |
@@ -9489,7 +9489,7 @@ No：
 | contract_code      | true             | string       | Case-Insenstive.Both uppercase and lowercase are supported.e.g. "BTC-USDT"                                                    |
 | volume | true | long | Order Quantity(Cont) |  |
 | direction | true | string | “buy”:Open，“sell”:Close |  |
-| client_order_id | false | long | Client needs to provide unique API and have to maintain the API themselves afterwards.must be Less or Equal than 9223372036854775807 |  |
+| client_order_id | false | long | Client needs to provide unique API and have to maintain the API themselves afterwards. | [1, 9223372036854775807] |
 | order_price_type | false  | string | "lightning" by default. "lightning_fok": lightning FOK type,"lightning_ioc": lightning IOC type|  |
 
 ###  Note:
@@ -9557,7 +9557,7 @@ No：
 | contract_type | false(more detail see the note) |  string | contract type |  swap, this_week, next_week, quarter, next_ quarter |
 | volume          | true  | decimal | place volume               |                                          |
 | direction       | true  | string | direction      |        “buy”/“sell” |
-| client_order_id | false | long | client order ID | unique ID |
+| client_order_id | false | long | client order ID | [1, 9223372036854775807] |
 | order_price_type | false | string | type of order price | "lightning" by default. "lightning_fok": lightning FOK type,"lightning_ioc": lightning IOC type |
 
 #### Note
