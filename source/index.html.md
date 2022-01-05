@@ -8371,7 +8371,7 @@ Add computed value into the Signature parameter in API request. Please note  the
 
 
 
-#  WebSocket Market Interface
+#  WebSocket Market Interface 
 
 ## Subscribe Kline data
 
