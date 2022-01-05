@@ -5250,7 +5250,7 @@ sell_limit | true | decimal | 合约空仓持仓的最大值，单位为张 |  |
 | contract_code | true | string | 品种代码 | 支持大小写,"BTC-USD"... |
 | amount | true | decimal | 划转金额 ||
 | type | true | string | 划转类型 | master_to_sub：母账户划转到子账户， sub_to_master：子账户划转到母账户 |
-| client_order_id | false | long | 客户自己填写和维护的订单号 | 必须为数字,请注意必须小于等于9223372036854775807 |
+| client_order_id | false | long | 客户自己填写和维护的订单号，必须为数字 | [1-9223372036854775807] |
 
 ### 备注：
  - 母账户与每个子账户相互划转限频10次/分钟。
@@ -5467,7 +5467,7 @@ sell_limit | true | decimal | 合约空仓持仓的最大值，单位为张 |  |
 参数名  |  参数类型    |  必填   |  描述  |
 -------------------- |  -------------- |  ----------  | ---------------------------------------------------------------  |
 contract_code  |  string   |  true   |  合约代码,支持大小写,"BTC-USD"  |
-client_order_id |   long  |  false  |  客户自己填写和维护，必须为数字, 请注意必须小于等于9223372036854775807  |
+client_order_id |   long  |  false  |  客户自己填写和维护，必须为数字, 取值范围：[1-9223372036854775807]  |
 price  |  decimal  |   false  |  价格  |
 volume  |    long  |  true  |  委托数量(张)  |
 direction  |  string  |    true  |  "buy":买 "sell":卖  |
@@ -5588,7 +5588,7 @@ orders_data  | List\<Object\>   |    |    |
 参数名  |    参数类型   |  必填   |  描述  |
 ---------------------------------- | -------------- |  ---------- | -------------------------------------------------------------- |
 contract_code  |  string   |  true   |  合约代码,支持大小写,"BTC-USD"  |
-client_order_id  |  long  |  false  |  客户自己填写和维护，必须为数字, 请注意必须小于等于9223372036854775807  |
+client_order_id  |  long  |  false  |  客户自己填写和维护，必须为数字,取值范围: [1-9223372036854775807]  |
 price  |  decimal  |   false  |  价格  |
 volume  |  long  |  true  |  委托数量(张)  |
 direction  |  string  |    true  |  "buy":买 "sell":卖  |
@@ -6645,7 +6645,7 @@ ts  |  true  |  long  |  时间戳  |    |
  contract_code  |  true   |  string   |  合约代码   |  支持大小写,"BTC-USD" ...  |
  volume | true | long | 委托数量（张） |  |
  direction | true | string | “buy”:买，“sell”:卖 |  |
- client_order_id | false | long | （API）客户自己填写和维护，必须保持唯一 |  |
+ client_order_id | false | long | （API）客户自己填写和维护，必须为数字，取值范围: [1-9223372036854775807] |  |
  order_price_type | false | string | 订单报价类型 |不填，默认为“闪电平仓”，"lightning"：闪电平仓，"lightning_fok"：闪电平仓-FOK,"lightning_ioc"：闪电平仓-IOC |
 
 #### 备注：
