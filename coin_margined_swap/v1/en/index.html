@@ -11970,7 +11970,7 @@ It will be pushed only when position event is updated.</p>
 <td>false</td>
 <td>long</td>
 <td>Clients fill and maintain themselves.</td>
-<td>must be Less or Equal than 9223372036854775807</td>
+<td>[1, 9223372036854775807]</td>
 </tr>
 </tbody></table>
 <h3 id='note-12'>Note：</h3>
@@ -12524,7 +12524,7 @@ transfer currency from sub-account to  master account using client_order_id=1).<
 <td>client_order_id</td>
 <td>long</td>
 <td>false</td>
-<td>Clients fill and maintain themselves.must be Less or Equal than 9223372036854775807</td>
+<td>Clients fill and maintain themselves. the value must be in [1, 9223372036854775807]</td>
 </tr>
 <tr>
 <td>price</td>
@@ -12776,7 +12776,7 @@ transfer currency from sub-account to  master account using client_order_id=1).<
 <td>client_order_id</td>
 <td>long</td>
 <td>false</td>
-<td>Clients fill and maintain themselves.must be Less or Equal than 9223372036854775807</td>
+<td>Clients fill and maintain themselves. the value must be in [1, 9223372036854775807]</td>
 </tr>
 <tr>
 <td>price</td>
@@ -13315,8 +13315,8 @@ transfer currency from sub-account to  master account using client_order_id=1).<
 <td>client_order_id</td>
 <td>false</td>
 <td>long</td>
-<td>Client needs to provide unique API and have to maintain the API themselves afterwards.must be Less or Equal than 9223372036854775807</td>
-<td></td>
+<td>Client needs to provide unique API and have to maintain the API themselves afterwards.</td>
+<td>[1, 9223372036854775807]</td>
 </tr>
 <tr>
 <td>order_price_type</td>
