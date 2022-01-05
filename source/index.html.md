@@ -5452,7 +5452,7 @@ last_price | decimal  | true  | 最新价                                       
 | symbol | true | string | 品种代码 | 支持大小写,"BTC","ETH"... |
 | amount | true | decimal | 划转金额 ||
 | type | true | string | 划转类型 | 仅支持小写,master_to_sub：母账户划转到子账户， sub_to_master：子账户划转到母账户 |
-| client_order_id | false | long | 客户自己填写和维护的订单号 | 必须为数字,请注意必须小于等于9223372036854775807 |
+| client_order_id | false | long | 客户自己填写和维护的订单号，必须为数字 | [1-9223372036854775807] |
 
 ### 备注：
  - 母账户与每个子账户相互划转限频10次/分钟。
@@ -5701,7 +5701,7 @@ last_price | decimal  | true  | 最新价                                       
 symbol  |    string  |    false  | 支持大小写,"BTC","ETH"...  |
 contract_type  |  string  |    false  | 合约类型 ("this_week":当周 "next_week":下周 "quarter":当季 "next_quarter":次季)  |
 contract_code  |  string  |    false  |  BTC180914  |
-client_order_id |   long  |  false  |  客户自己填写和维护，必须为数字,请注意必须小于等于9223372036854775807  |
+client_order_id |   long  |  false  |  客户自己填写和维护，必须为数字: [1-9223372036854775807]  |
 price  |  decimal  |   false  |  价格  |
 volume  |    long  |  true  |  委托数量(张)  |
 direction  |  string  |    true  |  "buy":买 "sell":卖  |
@@ -5826,7 +5826,7 @@ order_id返回是18位，nodejs和javascript默认解析18有问题，nodejs和j
 symbol  |   string  |    false  | 支持大小写,"BTC","ETH"...  |
 contract_type  |  string  |    false  | 合约类型: "this_week":当周 "next_week":下周 "quarter":当季 "next_quarter":次季  |
 contract_code  |  string  |    false  | BTC180914  |
-client_order_id  |  long  |  false  |  客户自己填写和维护，必须为数字,请注意必须小于等于9223372036854775807   |
+client_order_id  |  long  |  false  |  客户自己填写和维护，必须为数字: [1-9223372036854775807]   |
 price  |  decimal  |   false  |  价格  |
 volume  |  long  |  true  |  委托数量(张)  |
 direction  |  string  |    true  |  "buy":买 "sell":卖  |
@@ -6967,7 +6967,7 @@ ts  |  true  |  long  |  时间戳  |    |
  contract_code | false | string | 合约代码 | BTC190903 |
  volume | true | long | 委托数量（张） |  |
  direction | true | string | “buy”:买，“sell”:卖 |  |
- client_order_id | false | long | （API）客户自己填写和维护，必须保持唯一,请注意必须小于等于9223372036854775807  |  |
+ client_order_id | false | long | （API）客户自己填写和维护，必须为数字。  | [1-9223372036854775807] |
  order_price_type | false | string | 订单报价类型 |不填，默认为“闪电平仓”，"lightning"：闪电平仓，"lightning_fok"：闪电平仓-FOK,"lightning_ioc"：闪电平仓-IOC |
 
 ### 说明
