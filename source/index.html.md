@@ -8507,7 +8507,7 @@ contract_code | true | string | contract code	 |Case-Insenstive.Both uppercase a
 | from_margin_account | true | string | from margin account	 |  "BTC-USDT","USDT"... |
 | to_margin_account | true | string | to margin account	 |  "ETH-USDT","USDT"... |
 | amount | true | decimal | amount（The unit is the denominated currency of the contract.）	 |  |
-| client_order_id | false | long | Clients fill and maintain themselves. | must be Less or Equal than 9223372036854775807 |
+| client_order_id | false | long | Clients fill and maintain themselves. | [1, 9223372036854775807] |
 
 #### **Note:**
 - When from_margin_account or to_margin_account is USDT, it means the transfer in or transfer out from cross margin account
