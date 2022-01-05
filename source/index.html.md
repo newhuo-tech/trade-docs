@@ -5701,7 +5701,7 @@ last_price | decimal  | true  | 最新价                                       
 symbol  |    string  |    false  | 支持大小写,"BTC","ETH"...  |
 contract_type  |  string  |    false  | 合约类型 ("this_week":当周 "next_week":下周 "quarter":当季 "next_quarter":次季)  |
 contract_code  |  string  |    false  |  BTC180914  |
-client_order_id |   long  |  false  |  客户自己填写和维护，必须为数字: [1-9223372036854775807]  |
+client_order_id |   long  |  false  |  客户自己填写和维护，必须为数字，取值范围： [1-9223372036854775807]  |
 price  |  decimal  |   false  |  价格  |
 volume  |    long  |  true  |  委托数量(张)  |
 direction  |  string  |    true  |  "buy":买 "sell":卖  |
@@ -5826,7 +5826,7 @@ order_id返回是18位，nodejs和javascript默认解析18有问题，nodejs和j
 symbol  |   string  |    false  | 支持大小写,"BTC","ETH"...  |
 contract_type  |  string  |    false  | 合约类型: "this_week":当周 "next_week":下周 "quarter":当季 "next_quarter":次季  |
 contract_code  |  string  |    false  | BTC180914  |
-client_order_id  |  long  |  false  |  客户自己填写和维护，必须为数字: [1-9223372036854775807]   |
+client_order_id  |  long  |  false  |  客户自己填写和维护，必须为数字，取值范围： [1-9223372036854775807]   |
 price  |  decimal  |   false  |  价格  |
 volume  |  long  |  true  |  委托数量(张)  |
 direction  |  string  |    true  |  "buy":买 "sell":卖  |
