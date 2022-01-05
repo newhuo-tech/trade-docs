@@ -5180,7 +5180,7 @@ curl "https://api.hbdm.com/index/market/history/basis?symbol=BTC-USD&period=1min
 
 - POST `/api/v1/contract_position_limit`
 
-### Request Parameter 
+### Request Parameter
 
 |  Parameter Name                |   Mandatory  |   Type   |   Desc             |   Value Range      |
 | ----------------------- | -------- | ------- | ------------------ | -------------- |
