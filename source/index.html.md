@@ -5361,7 +5361,7 @@ last_price | decimal  | true  | Last Price                                      
 | symbol | true | string | symbol | Case-Insenstive.Both uppercase and lowercase are supported."BTC","ETH"... |
 | amount | true | decimal | transfer amount ||
 | type | true | string | transfer type | "master_to_sub" or "sub_to_master" |
-| client_order_id | false | long | Clients fill and maintain themselves. | must be Less or Equal than 9223372036854775807 |
+| client_order_id | false | long | Clients fill and maintain themselves. | [1, 9223372036854775807] |
 
 #### Note：
  - the rate limit between the master account and each subaccount is 10 times/ minute
@@ -5614,7 +5614,7 @@ last_price | decimal  | true  | Last Price                                      
 | symbol             | string             | false         |Case-Insenstive.Both uppercase and lowercase are supported. "BTC","ETH"...                                               |
 | contract_type      | string             | false         | Contract Type ("this_week": "next_week": "quarter": "next_quarter")         |
 | contract_code      | string             | false         | BTC180914                                                    |
-| client_order_id    | long               | false         | Clients fill and maintain themselves.must be Less or Equal than 9223372036854775807 |
+| client_order_id    | long               | false         | Clients fill and maintain themselves. the value must be in [1, 9223372036854775807] |
 | price              | decimal            | false          | Price                                                        |
 | volume             | long               | true          | Numbers of orders (volume)                                   |
 | direction          | string             | true          | Transaction direction                                        |
@@ -5745,7 +5745,7 @@ No need to transfer BBO order price(ask 1 and bid 1) parameter, optimal_5: top 5
 | symbol                                | string             | false         |Case-Insenstive.Both uppercase and lowercase are supported. "BTC","ETH"...                                               |
 | contract_type                         | string             | false         | Contract Type: "this_week": "next_week": "quarter": "next_quarter"          |
 | contract_code                         | string             | false         | BTC180914                                                     |
-| client_order_id                       | long              | false          | Clients fill and maintain themselves.Must be Less or Equal than 9223372036854775807 |
+| client_order_id                       | long              | false          | Clients fill and maintain themselves. the value must be in [1, 9223372036854775807] |
 | price                                 | decimal            | false          | Price                                                        |
 | volume                                | long               | true          | Numbers of orders (volume)                                   |
 | direction                             | string             | true          | Transaction direction                                        |
@@ -6023,7 +6023,7 @@ No：
 | contract_code | false | string | Contract Code | BTC190903 |
 | volume | true | long | Order Quantity(volume) |  |
 | direction | true | string | “buy”:Open，“sell”:Close |  |
-| client_order_id | false | long | Client order ID.must be Less or Equal than 9223372036854775807 |  |
+| client_order_id | false | long | Client order ID | [1, 9223372036854775807] |
 | order_price_type | false  | string | order price type  | "lightning" by default. "lightning_fok": lightning FOK type,"lightning_ioc": lightning IOC type| 
 
 ###  Note:
