@@ -8335,7 +8335,7 @@ curl "https://api.hbdm.com/index/market/history/linear_swap_basis?contract_code=
 | to_margin_account | true | string | 转入的保证金账户	 |  "BTC-USDT"，"USDT"... |
 | amount | true | decimal | 划转金额 ||
 | type | true | string | 划转类型 | master_to_sub：母账户划转到子账户， sub_to_master：子账户划转到母账户 |
-| client_order_id | false | long | 客户自己填写和维护的订单号 | 必须为数字,请注意必须小于等于9223372036854775807 |
+| client_order_id | false | long | 客户自己填写和维护的订单号，必须为数字 | [1-9223372036854775807] |
 
 #### 备注：
  - 当from_margin_account或to_margin_account 为USDT时，代表是从全仓保证金中转入或划出。
@@ -8453,7 +8453,7 @@ curl "https://api.hbdm.com/index/market/history/linear_swap_basis?contract_code=
 | from_margin_account | true | string | 转出的保证金账户	 |  "BTC-USDT"，"USDT"... |
 | to_margin_account | true | string | 转入的保证金账户	 |  "ETH-USDT"，"USDT"... |
 | amount | true | decimal | 划转数额（单位为合约的计价币种）	 |  |
-| client_order_id | false | long | 客户自己填写和维护的订单号 | 必须为数字,请注意必须小于等于9223372036854775807 |
+| client_order_id | false | long | 客户自己填写和维护的订单号,必须为数字 | [1-9223372036854775807] |
 
 #### 备注：
 - 当from_margin_account或to_margin_account 为USDT时，代表是从全仓保证金中转入或划出。
@@ -8598,7 +8598,7 @@ curl "https://api.hbdm.com/index/market/history/linear_swap_basis?contract_code=
 | 参数名              | 参数类型    | 必填    | 描述    | 取值范围 |
 | ---------------- | ------- | ----- | ---------------------------------------- | -----------|
 | contract_code     | string <img width=250/>  | true  <img width=250/> | 合约代码 <img width=1000/> | "BTC-USDT"...                           |
-| client_order_id  | long    | false | 客户自己填写和维护，必须为数字,请注意必须小于等于9223372036854775807   | |
+| client_order_id  | long    | false | 客户自己填写和维护，必须为数字  |[1-9223372036854775807] |
 | price            | decimal | false | 价格                                       | |
 | volume           | long    | true  | 委托数量(张)                                  | |
 | direction        | string  | true  | 仓位方向 | "buy":买 "sell":卖 |
@@ -8699,7 +8699,7 @@ curl "https://api.hbdm.com/index/market/history/linear_swap_basis?contract_code=
 | contract_code    | false（请看备注）  | string   | 合约代码   | 永续："BTC-USDT"... ，交割："BTC-USDT-210625"...              |
 | pair             | false（请看备注） |  string | 交易对 |   BTC-USDT   |
 | contract_type    | false（请看备注） |  string | 合约类型 |  swap（永续）、this_week（当周）、next_week（次周）、quarter（当季）、next_ quarter（次季）   |
-| client_order_id  | false | long     | 客户自己填写和维护，必须为数字,请注意必须小于等于9223372036854775807 |                                                              |
+| client_order_id  | false | long     | 客户自己填写和维护，必须为数字  |     [1-9223372036854775807]                            |
 | price            | false | decimal  | 价格                                             |                                                              |
 | volume           | true  | long     | 委托数量(张)                                     |                                                              |
 | direction        | true  | string   | 仓位方向                                         | "buy":买 "sell":卖                                           |
@@ -8823,7 +8823,7 @@ orders_data  | List\<Object\>   |    |    |
 | 参数名  |    参数类型   |  必填   |  描述  |   取值范围   |
 | -------- | -------------- |  ---------- | ---------- | ---------- |
 | contract_code        | true <img width=250/> | string <img width=250/>  |  合约代码 <img width=1000/>  |        "BTC-USDT"...          |
-| client_order_id       |  false   |  long| 客户自己填写和维护，必须为数字,请注意必须小于等于9223372036854775807  |      |
+| client_order_id       |  false   |  long| 客户自己填写和维护，必须为数字  |  [1-9223372036854775807]    |
 | price       |false  | decimal | 价格 |      |
 | volume   | true    |  long | 委托数量(张)  |      |
 | direction   |true   |  string | 仓位方向   |  "buy":买 "sell":卖    |
@@ -8958,7 +8958,7 @@ orders_data  | List\<Object\>   |    |    |
 | contract_code        | false（请看备注） | string   |  合约代码      | 永续："BTC-USDT"... ， 交割："BTC-USDT-210625"...       |
 | pair                 | false（请看备注） |  string | 交易对 |   BTC-USDT   |
 | contract_type        | false（请看备注） |  string | 合约类型 |  swap（永续）、this_week（当周）、next_week（次周）、quarter（当季）、next_ quarter（次季）   |
-| client_order_id       |  false   |  long| 客户自己填写和维护，必须为数字,请注意必须小于等于9223372036854775807  |      |
+| client_order_id       |  false   |  long| 客户自己填写和维护，必须为数字  |  [1-9223372036854775807]    |
 | price       |false  | decimal | 价格 |      |
 | volume   | true    |  long | 委托数量(张)  |      |
 | direction   |true   |  string | 仓位方向   |  "buy":买 "sell":卖    |
@@ -11142,7 +11142,7 @@ sort_by | false  | string | 排序字段（降序），不填默认按照create_
 | contract_code          | true | string | 合约代码                  | "BTC-USDT"...                           |
 | volume          | true  | long | 委托数量（张）               |                                          |
 | direction       | true  | string | 买卖方向      |        “buy”:买，“sell”:卖       |
-| client_order_id | false | long | （API）客户自己填写和维护，必须保持唯一,请注意必须小于等于9223372036854775807 | |
+| client_order_id | false | long | （API）客户自己填写和维护，必须为数字 | [1-9223372036854775807] |
 | order_price_type | false | string | 订单报价类型 |不填，默认为“闪电平仓”，"lightning"：闪电平仓，"lightning_ioc"：闪电平仓-IOC，"lightning_fok"：闪电平仓-FOK |
 
 #### 备注
@@ -11209,7 +11209,7 @@ sort_by | false  | string | 排序字段（降序），不填默认按照create_
 | contract_type | false（请看备注） |  string | 合约类型 |  swap（永续）、this_week（当周）、next_week（次周）、quarter（当季）、next_ quarter（次季）   |
 | volume          | true  | decimal | 委托数量（张）               |                                          |
 | direction       | true  | string | 买卖方向      |        “buy”:买，“sell”:卖       |
-| client_order_id | false | long | （API）客户自己填写和维护，必须保持唯一,请注意必须小于等于9223372036854775807 | |
+| client_order_id | false | long | （API）客户自己填写和维护，必须为数字 | [1-9223372036854775807] |
 | order_price_type | false | string | 订单报价类型 |不填，默认为“闪电平仓”，"lightning"：闪电平仓，"lightning_ioc"：闪电平仓-IOC，"lightning_fok"：闪电平仓-FOK |
 
 #### 备注
