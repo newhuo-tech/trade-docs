@@ -850,6 +850,12 @@ table th {
 </tr>
 </thead><tbody>
 <tr>
+<td>2022.01.08</td>
+<td><code>POST /v1/order/batch-orders</code>,<br><code>POST /v1/order/orders/place</code></td>
+<td>优化</td>
+<td>新增请求参数&quot;self-match-prevent&quot;</td>
+</tr>
+<tr>
 <td>2021.11.30</td>
 <td><code>POST /v1/dw/withdraw/api/create</code></td>
 <td>优化</td>
@@ -11958,6 +11964,13 @@ endTime缺省值：当前时间<br></p>
 <td>用户自编订单号（最大长度64个字符，须在8小时内保持唯一性）</td>
 </tr>
 <tr>
+<td>self-match-prevent</td>
+<td>int</td>
+<td>false</td>
+<td>0</td>
+<td>自成交 ，0：表示允许自成交; 1：表示不允许自成交</td>
+</tr>
+<tr>
 <td>stop-price</td>
 <td>string</td>
 <td>false</td>
@@ -12087,6 +12100,13 @@ endTime缺省值：当前时间<br></p>
 <td>false</td>
 <td>NA</td>
 <td>用户自编订单号（最大长度64个字符，须在8小时内保持唯一性）</td>
+</tr>
+<tr>
+<td>self-match-prevent</td>
+<td>int</td>
+<td>false</td>
+<td>0</td>
+<td>自成交 ，0：表示允许自成交; 1：表示不允许自成交</td>
 </tr>
 <tr>
 <td>stop-price</td>
@@ -19829,33 +19849,46 @@ Response:</p>
 <p>注：JSON请求中的数据不需要URL编码。</p>
 <h3 id='65cd7614bc-2'>订阅主题</h3>
 <p>成功建立与Websocket服务器的连接后，Websocket客户端发送如下请求以订阅特定主题：</p>
-<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-    </span><span class="s2">"action"</span><span class="p">:</span><span class="w"> </span><span class="s2">"sub"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"ch"</span><span class="p">:</span><span class="w"> </span><span class="s2">"accounts.update"</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre>
+
+<p><code>{</code>
+    <code>&quot;action&quot;: &quot;sub&quot;,</code>
+    <code>&quot;ch&quot;: &quot;accounts.update&quot;</code>
+<code>}</code></p>
+
 <p>订阅成功Websocket客户端会接收到如下消息：</p>
-<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-    </span><span class="s2">"action"</span><span class="p">:</span><span class="w"> </span><span class="s2">"sub"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="mi">200</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"ch"</span><span class="p">:</span><span class="w"> </span><span class="s2">"accounts.update#0"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{}</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre><h3 id='db08fc8dfe-2'>请求数据</h3>
+
+<p><code>{</code>
+    <code>&quot;action&quot;: &quot;sub&quot;,</code>
+    <code>&quot;code&quot;: 200,</code>
+    <code>&quot;ch&quot;: &quot;accounts.update#0&quot;,</code>
+    <code>&quot;data&quot;: {}</code>
+<code>}</code></p>
+<h3 id='db08fc8dfe-2'>请求数据</h3>
 <p>成功建立Websocket服务器的连接后，Websocket客户端发送如下请求用以获取一次性数据：</p>
-<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-    </span><span class="s2">"action"</span><span class="p">:</span><span class="w"> </span><span class="s2">"req"</span><span class="p">,</span><span class="w"> 
-    </span><span class="s2">"ch"</span><span class="p">:</span><span class="w"> </span><span class="s2">"topic"</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre>
+
+<p><code>{</code>
+    <code>&quot;action&quot;: &quot;req&quot;,</code> 
+    <code>&quot;ch&quot;: &quot;topic&quot;</code>
+<code>}</code></p>
+
 <p>请求成功后Websocket客户端会收到如下消息：</p>
-<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-    </span><span class="s2">"action"</span><span class="p">:</span><span class="w"> </span><span class="s2">"req"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"ch"</span><span class="p">:</span><span class="w"> </span><span class="s2">"topic"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="mi">200</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{}</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">请求数据体</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre><h2 id='f810bc2ca6'>订阅订单更新</h2>
+
+<p><code>{</code>
+    <code>&quot;action&quot;: &quot;req&quot;,</code>
+    <code>&quot;ch&quot;: &quot;topic&quot;,</code>
+    <code>&quot;code&quot;: 200,</code>
+   <code>&quot;data&quot;: {}</code> // 请求数据体
+<code>}</code></p>
+<h3 id='f1fbbd66b5'>首笔推送失败返回</h3>
+<p><code>{</code>
+    <code>&quot;action&quot;:&quot;sub&quot;,</code>
+    <code>&quot;code&quot;:500,</code>
+    <code>&quot;ch&quot;:&quot;accounts.update#2&quot;,</code>
+    <code>&quot;message&quot;:&quot;系统异常:&quot;</code>
+<code>}</code></p>
+
+<p>备注：当首笔推送失败后，会返回系统异常（异常后，后面的资产变动就不会再推送了），需重新订阅。</p>
+<h2 id='f810bc2ca6'>订阅订单更新</h2>
 <p>API Key 权限：读取</p>
 
 <p>订单的更新推送由任一以下事件触发：<br>
