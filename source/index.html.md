@@ -30,6 +30,7 @@ table th {
 
 | Release Time <br>(UTC +8) | API  | New / Update    | Description     |
 | ------------------------ | ---------------------- | --------------- | ------------------------------------- |
+| 2022.01.08 | `POST /v1/order/batch-orders`,<br>`POST /v1/order/orders/place` | update | Add Request Parameters "self-match-prevent" |
 | 2021.11.30 | `GET /v1/query/withdraw/client-order-id` | Add | Add "Query withdrawal order by client order id" |
 | 2021.11.30 | `POST /v1/dw/withdraw/api/create` | update | Add Request Parameters "client-order-id" |
 | 2021.8.19 | `accounts.update#${mode}` | Update | Add "Serial Number of Account Change" parameter："seqNum" |
@@ -4747,6 +4748,7 @@ This endpoint places a new order and sends to the exchange to be matched.
 | price           | string    | false    | NA       | The order price (not available for market order)             | NA                                                           |
 | source          | string    | false    | spot-api | When trade with spot use 'spot-api';When trade with isolated margin use 'margin-api'; When trade with cross margin use 'super-margin-api';When trade with c2c-margin use 'c2c-margin-api'; | api, margin-api,super-margin-api,c2c-margin-api              |
 | client-order-id | string    | false    | NA       | Client order ID (maximum 64-character length, to be unique within 8 hours) |                                                              |
+| self-match-prevent | int   | false    | 0       | self match prevent. 0: no, means allowing self-trading; 1: yes, means not allowing self-trading |
 | stop-price      | string    | false    | NA       | Trigger price of stop limit order                            |                                                              |
 | operator        | string    | false    | NA       | operation charactor of stop price                            | gte – greater than and equal (>=), lte – less than and equal (<=) |
 
@@ -4821,6 +4823,7 @@ A batch contains at most 10 orders.
 | price           | string    | false    | NA       | The order price (not available for market order)             |
 | source          | string    | false    | spot-api | When trade with spot use 'spot-api';When trade with margin use 'margin-api'; When trade with super-margin use 'super-margin-api';When trade with c2c-margin use 'c2c-margin-api' |
 | client-order-id | string    | false    | NA       | Client order ID (maximum 64-character length)                |
+| self-match-prevent | int   | false    | 0       | self match prevent. 0: no, means allowing self-trading; 1: yes, means not allowing self-trading |
 | stop-price      | string    | false    | NA       | Trigger price of stop limit order                            |
 | operator}]      | string    | false    | NA       | Operation character of stop price, use 'gte' for greater than and equal (>=), use 'lte' for less than and equal (<=) |
 
@@ -8462,29 +8465,33 @@ Note: The data in JSON request doesn't require URL encode
 
 ### Subscribe a Topic to Continuously Receive Updates
 
-> Sub request:
-
-```json
-{
-	"action": "sub",
-	"ch": "accounts.update"
-}
-```
-
 Once the Websocket connection is established, Websocket client could send following request to subscribe a topic:
 
-> Sub respose:
-
-```json
-{
-	"action": "sub",
-	"code": 200,
-	"ch": "accounts.update#0",
-	"data": {}
-}
-```
+`{`<br>
+	`"action": "sub",`<br>
+	`"ch": "accounts.update"`<br>
+`}`
 
 Upon success, Websocket client should receive a response below:
+
+`{`<br>
+	`"action": "sub",`<br>
+	`"code": 200,`<br>
+	`"ch": "accounts.update#0",`<br>
+	`"data": {}`<br>
+`}`
+
+### first push msg of accounts update exception
+
+`{`<br>
+    `"action":"sub",`<br>
+    `"code":500,`<br>
+    `"ch":"accounts.update#2",`<br>
+    `"message":"系统异常:"` <br>
+`}`
+
+When the first push msg is "message":"系统异常:", accounts update infotmation will not be pushed any more, and you need to re-subscribe accounts update topic
+
 
 ## Subscribe Order Updates
 
