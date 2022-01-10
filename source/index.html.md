@@ -8520,48 +8520,48 @@ Rest接口签名步骤,您可以点击 <a href='https://huobiapi.github.io/docs/
 
 成功建立与Websocket服务器的连接后，Websocket客户端发送如下请求以订阅特定主题：
 
-`{`
-	`"action": "sub",`
-	`"ch": "accounts.update"`
+`{`<br>
+	`"action": "sub",`<br>
+	`"ch": "accounts.update"`<br>
 `}`
 
 订阅成功Websocket客户端会接收到如下消息：
 
-`{`
-	`"action": "sub",`
-	`"code": 200,`
-	`"ch": "accounts.update#0",`
-	`"data": {}`
+`{`<br>
+	`"action": "sub",`<br>
+	`"code": 200,`<br>
+	`"ch": "accounts.update#0",`<br>
+	`"data": {}`<br>
 `}`
 
 ### 请求数据
 
 成功建立Websocket服务器的连接后，Websocket客户端发送如下请求用以获取一次性数据：
 
-`{`
-    `"action": "req",` 
-    `"ch": "topic"`
+`{`<br>
+    `"action": "req",` <br>
+    `"ch": "topic"`<br>
 `}`
 
 请求成功后Websocket客户端会收到如下消息：
 
 `{`
-    `"action": "req",`
-    `"ch": "topic",`
-    `"code": 200,`
-   ` "data": {}` // 请求数据体
+    `"action": "req",`<br>
+    `"ch": "topic",`<br>
+    `"code": 200,`<br>
+   ` "data": {}` // 请求数据体<br>
 `}`
 
-### 首笔推送失败返回
+### 首笔账户变更推送信息异常
 
-`{`
-    `"action":"sub",`
-    `"code":500,`
-    `"ch":"accounts.update#2",`
-    `"message":"系统异常:"`
+`{`<br>
+    `"action":"sub",`<br>
+    `"code":500,`<br>
+    `"ch":"accounts.update#2",`<br>
+    `"message":"系统异常:"`<br>
 `}`
 
-备注：当首笔推送失败后，会返回系统异常（异常后，后面的资产变动就不会再推送了），需重新订阅。
+当首笔账户变更推送 `"message":"系统异常:"`,  后续的资产变动是不会再推送了. 出现此消息后, 需重新订阅账户变更
 
 ## 订阅订单更新
 
