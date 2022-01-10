@@ -19850,44 +19850,44 @@ Response:</p>
 <h3 id='65cd7614bc-2'>订阅主题</h3>
 <p>成功建立与Websocket服务器的连接后，Websocket客户端发送如下请求以订阅特定主题：</p>
 
-<p><code>{</code>
-    <code>&quot;action&quot;: &quot;sub&quot;,</code>
-    <code>&quot;ch&quot;: &quot;accounts.update&quot;</code>
+<p><code>{</code><br>
+    <code>&quot;action&quot;: &quot;sub&quot;,</code><br>
+    <code>&quot;ch&quot;: &quot;accounts.update&quot;</code><br>
 <code>}</code></p>
 
 <p>订阅成功Websocket客户端会接收到如下消息：</p>
 
-<p><code>{</code>
-    <code>&quot;action&quot;: &quot;sub&quot;,</code>
-    <code>&quot;code&quot;: 200,</code>
-    <code>&quot;ch&quot;: &quot;accounts.update#0&quot;,</code>
-    <code>&quot;data&quot;: {}</code>
+<p><code>{</code><br>
+    <code>&quot;action&quot;: &quot;sub&quot;,</code><br>
+    <code>&quot;code&quot;: 200,</code><br>
+    <code>&quot;ch&quot;: &quot;accounts.update#0&quot;,</code><br>
+    <code>&quot;data&quot;: {}</code><br>
 <code>}</code></p>
 <h3 id='db08fc8dfe-2'>请求数据</h3>
 <p>成功建立Websocket服务器的连接后，Websocket客户端发送如下请求用以获取一次性数据：</p>
 
-<p><code>{</code>
-    <code>&quot;action&quot;: &quot;req&quot;,</code> 
-    <code>&quot;ch&quot;: &quot;topic&quot;</code>
+<p><code>{</code><br>
+    <code>&quot;action&quot;: &quot;req&quot;,</code> <br>
+    <code>&quot;ch&quot;: &quot;topic&quot;</code><br>
 <code>}</code></p>
 
 <p>请求成功后Websocket客户端会收到如下消息：</p>
 
 <p><code>{</code>
-    <code>&quot;action&quot;: &quot;req&quot;,</code>
-    <code>&quot;ch&quot;: &quot;topic&quot;,</code>
-    <code>&quot;code&quot;: 200,</code>
-   <code>&quot;data&quot;: {}</code> // 请求数据体
+    <code>&quot;action&quot;: &quot;req&quot;,</code><br>
+    <code>&quot;ch&quot;: &quot;topic&quot;,</code><br>
+    <code>&quot;code&quot;: 200,</code><br>
+   <code>&quot;data&quot;: {}</code> // 请求数据体<br>
 <code>}</code></p>
-<h3 id='f1fbbd66b5'>首笔推送失败返回</h3>
-<p><code>{</code>
-    <code>&quot;action&quot;:&quot;sub&quot;,</code>
-    <code>&quot;code&quot;:500,</code>
-    <code>&quot;ch&quot;:&quot;accounts.update#2&quot;,</code>
-    <code>&quot;message&quot;:&quot;系统异常:&quot;</code>
+<h3 id='9497cc7084'>首笔账户变更推送信息异常</h3>
+<p><code>{</code><br>
+    <code>&quot;action&quot;:&quot;sub&quot;,</code><br>
+    <code>&quot;code&quot;:500,</code><br>
+    <code>&quot;ch&quot;:&quot;accounts.update#2&quot;,</code><br>
+    <code>&quot;message&quot;:&quot;系统异常:&quot;</code><br>
 <code>}</code></p>
 
-<p>备注：当首笔推送失败后，会返回系统异常（异常后，后面的资产变动就不会再推送了），需重新订阅。</p>
+<p>当首笔账户变更推送 <code>&quot;message&quot;:&quot;系统异常:&quot;</code>,  后续的资产变动是不会再推送了. 出现此消息后, 需重新订阅账户变更</p>
 <h2 id='f810bc2ca6'>订阅订单更新</h2>
 <p>API Key 权限：读取</p>
 
