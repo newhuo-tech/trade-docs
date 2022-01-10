@@ -851,6 +851,12 @@ table th {
 </tr>
 </thead><tbody>
 <tr>
+<td>2022.01.08</td>
+<td><code>POST /v1/order/batch-orders</code>,<br><code>POST /v1/order/orders/place</code></td>
+<td>update</td>
+<td>Add Request Parameters &quot;self-match-prevent&quot;</td>
+</tr>
+<tr>
 <td>2021.11.30</td>
 <td><code>GET /v1/query/withdraw/client-order-id</code></td>
 <td>Add</td>
@@ -11336,6 +11342,14 @@ Rate Limit (NEW): 100times/2s</p>
 <td></td>
 </tr>
 <tr>
+<td>self-match-prevent</td>
+<td>int</td>
+<td>false</td>
+<td>0</td>
+<td>self match prevent. 0: no, means allowing self-trading; 1: yes, means not allowing self-trading</td>
+<td></td>
+</tr>
+<tr>
 <td>stop-price</td>
 <td>string</td>
 <td>false</td>
@@ -11462,6 +11476,13 @@ Rate Limit (NEW): 50times/2s</p>
 <td>false</td>
 <td>NA</td>
 <td>Client order ID (maximum 64-character length)</td>
+</tr>
+<tr>
+<td>self-match-prevent</td>
+<td>int</td>
+<td>false</td>
+<td>0</td>
+<td>self match prevent. 0: no, means allowing self-trading; 1: yes, means not allowing self-trading</td>
 </tr>
 <tr>
 <td>stop-price</td>
@@ -18816,27 +18837,30 @@ By comparing to api.huobi.pro, the network latency to api-aws.huobi.pro is lower
 
 <p>Note: The data in JSON request doesn&#39;t require URL encode</p>
 <h3 id='subscribe-a-topic-to-continuously-receive-updates'>Subscribe a Topic to Continuously Receive Updates</h3>
-<blockquote>
-<p>Sub request:</p>
-</blockquote>
-<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-    </span><span class="s2">"action"</span><span class="p">:</span><span class="w"> </span><span class="s2">"sub"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"ch"</span><span class="p">:</span><span class="w"> </span><span class="s2">"accounts.update"</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre>
 <p>Once the Websocket connection is established, Websocket client could send following request to subscribe a topic:</p>
 
-<blockquote>
-<p>Sub respose:</p>
-</blockquote>
-<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-    </span><span class="s2">"action"</span><span class="p">:</span><span class="w"> </span><span class="s2">"sub"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="mi">200</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"ch"</span><span class="p">:</span><span class="w"> </span><span class="s2">"accounts.update#0"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{}</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre>
+<p><code>{</code><br>
+    <code>&quot;action&quot;: &quot;sub&quot;,</code><br>
+    <code>&quot;ch&quot;: &quot;accounts.update&quot;</code><br>
+<code>}</code></p>
+
 <p>Upon success, Websocket client should receive a response below:</p>
+
+<p><code>{</code><br>
+    <code>&quot;action&quot;: &quot;sub&quot;,</code><br>
+    <code>&quot;code&quot;: 200,</code><br>
+    <code>&quot;ch&quot;: &quot;accounts.update#0&quot;,</code><br>
+    <code>&quot;data&quot;: {}</code><br>
+<code>}</code></p>
+<h3 id='first-push-msg-of-accounts-update-exception'>first push msg of accounts update exception</h3>
+<p><code>{</code><br>
+    <code>&quot;action&quot;:&quot;sub&quot;,</code><br>
+    <code>&quot;code&quot;:500,</code><br>
+    <code>&quot;ch&quot;:&quot;accounts.update#2&quot;,</code><br>
+    <code>&quot;message&quot;:&quot;系统异常:&quot;</code> <br>
+<code>}</code></p>
+
+<p>When the first push msg is &quot;message&quot;:&quot;系统异常:&quot;, accounts update infotmation will not be pushed any more, and you need to re-subscribe accounts update topic</p>
 <h2 id='subscribe-order-updates'>Subscribe Order Updates</h2>
 <p>API Key Permission: Read</p>
 
