@@ -26,6 +26,7 @@ table th {
 
 | 生效时间<br>(UTC +8) | 接口     | 变化      | 摘要         |
 | ---------- | --------- | --------- | --------------- |
+| 2022.01.08 | `POST /v1/order/batch-orders`,<br>`POST /v1/order/orders/place` | 优化 | 新增请求参数"self-match-prevent" |
 | 2021.11.30 | `POST /v1/dw/withdraw/api/create` | 优化 | 新增请求参数"client-order-id" |
 | 2021.11.30 | `GET /v1/query/withdraw/client-order-id` | 新增 | 通过clientOrderId查询提币订单 |
 | 2021.8.19 | `accounts.update#${mode}` | 优化 | 增加“账户变更的序号”参数“seqNum” |
@@ -4779,6 +4780,7 @@ API Key 权限：交易
 | price           | string   | false    | NA       | 订单价格（对市价单无效）                                     |
 | source          | string   | false    | spot-api | 现货交易填写“spot-api”，逐仓杠杆交易填写“margin-api”，全仓杠杆交易填写“super-margin-api”, C2C杠杆交易填写"c2c-margin-api" |
 | client-order-id | string   | false    | NA       | 用户自编订单号（最大长度64个字符，须在8小时内保持唯一性）    |
+| self-match-prevent | int   | false    | 0       | 自成交 ，0：表示允许自成交; 1：表示不允许自成交    |
 | stop-price      | string   | false    | NA       | 止盈止损订单触发价格                                         |
 | operator        | string   | false    | NA       | 止盈止损订单触发价运算符 gte – greater than and equal (>=), lte – less than and equal (<=) |
 
@@ -4858,6 +4860,7 @@ API Key 权限：交易<br>
 | price           | string   | false    | NA       | 订单价格（对市价单无效）                                     |
 | source          | string   | false    | spot-api | 现货交易填写“spot-api”，逐仓杠杆交易填写“margin-api”，全仓杠杆交易填写“super-margin-api”, C2C杠杆交易填写"c2c-margin-api" |
 | client-order-id | string   | false    | NA       | 用户自编订单号（最大长度64个字符，须在8小时内保持唯一性）    |
+| self-match-prevent | int   | false    | 0       | 自成交 ，0：表示允许自成交; 1：表示不允许自成交    |
 | stop-price      | string   | false    | NA       | 止盈止损订单触发价格                                         |
 | operator }]     | string   | false    | NA       | 止盈止损订单触发价运算符 gte – greater than and equal (>=), lte – less than and equal (<=) |
 
@@ -8517,45 +8520,48 @@ Rest接口签名步骤,您可以点击 <a href='https://huobiapi.github.io/docs/
 
 成功建立与Websocket服务器的连接后，Websocket客户端发送如下请求以订阅特定主题：
 
-```json
-{
-	"action": "sub",
-	"ch": "accounts.update"
-}
-```
+`{`
+	`"action": "sub",`
+	`"ch": "accounts.update"`
+`}`
+
 订阅成功Websocket客户端会接收到如下消息：
 
-```json
-{
-	"action": "sub",
-	"code": 200,
-	"ch": "accounts.update#0",
-	"data": {}
-}
-```
+`{`
+	`"action": "sub",`
+	`"code": 200,`
+	`"ch": "accounts.update#0",`
+	`"data": {}`
+`}`
 
 ### 请求数据
 
 成功建立Websocket服务器的连接后，Websocket客户端发送如下请求用以获取一次性数据：
 
-
-```json
-{
-    "action": "req", 
-    "ch": "topic"
-}
-```
+`{`
+    `"action": "req",` 
+    `"ch": "topic"`
+`}`
 
 请求成功后Websocket客户端会收到如下消息：
 
-```json
-{
-    "action": "req",
-    "ch": "topic",
-    "code": 200,
-    "data": {} // 请求数据体
-}
-```
+`{`
+    `"action": "req",`
+    `"ch": "topic",`
+    `"code": 200,`
+   ` "data": {}` // 请求数据体
+`}`
+
+### 首笔推送失败返回
+
+`{`
+    `"action":"sub",`
+    `"code":500,`
+    `"ch":"accounts.update#2",`
+    `"message":"系统异常:"`
+`}`
+
+备注：当首笔推送失败后，会返回系统异常（异常后，后面的资产变动就不会再推送了），需重新订阅。
 
 ## 订阅订单更新
 
