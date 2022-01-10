@@ -8534,23 +8534,6 @@ Rest接口签名步骤,您可以点击 <a href='https://huobiapi.github.io/docs/
 	`"data": {}`<br>
 `}`
 
-### 请求数据
-
-成功建立Websocket服务器的连接后，Websocket客户端发送如下请求用以获取一次性数据：
-
-`{`<br>
-    `"action": "req",` <br>
-    `"ch": "topic"`<br>
-`}`
-
-请求成功后Websocket客户端会收到如下消息：
-
-`{`
-    `"action": "req",`<br>
-    `"ch": "topic",`<br>
-    `"code": 200,`<br>
-   ` "data": {}` // 请求数据体<br>
-`}`
 
 ### 首笔账户变更推送信息异常
 
