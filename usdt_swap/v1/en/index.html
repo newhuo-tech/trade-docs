@@ -260,6 +260,9 @@
                   <li>
                     <a href="#market-maker-program" class="toc-h2 toc-link" data-title="Market Maker Program">Market Maker Program</a>
                   </li>
+                  <li>
+                    <a href="#colocation" class="toc-h2 toc-link" data-title="Colocation">Colocation</a>
+                  </li>
               </ul>
           </li>
           <li>
@@ -1017,6 +1020,12 @@ Market makers will not be able to use point cards, VIP rate, rebate or any other
 <li>Huobi UIDs (not linked to any rebate program in any accounts) </li>
 <li>Provide screenshot of trading volume for the past 30 days or VIP/corporate status with other Exchanges</li>
 </ol>
+<h2 id='colocation'>Colocation</h2><h3 id='solution-architecture'>Solution Architecture</h3>
+<p>Huobi spot API colocation solution is built on AWS infrastructure. Client will connect via AWS “PrivateLink” to access Huobi’s services directly through fast AWS connection without being routed to public networks. </p>
+<h3 id='performance-improvement'>Performance Improvement</h3>
+<p>The network delay of colocation solution is estimated to be 10ms to 50ms faster than the ordinary connection. This improvement estimated should be used as a guidance only as the actual improvement depends on many factors.</p>
+<h3 id='eligibility'>Eligibility</h3>
+<p>Colocation is only available to higher tier market makers. To check if your account is eligible please talk to your dedicated account manager.</p>
 <h1 id='changelog'>Changelog</h1><h2 id='1-1-4-2021-12-22-added-the-content-about-usdt-margined-futures-interfaces'>1.1.4 2021-12-22 【Added the content about USDT Margined Futures interfaces】</h2><h3 id='1-modified-query-swap-info-interface-add-optional-parameters-in-request-business_type-contract_type-pair-add-fields-in-return-parameter-quot-data-quot-contract_type-pair-business_type-delivery_date-contract-delivery-date-this-field-is-an-empty-string-when-it-is-swap-contract'>1. Modified Query Swap Info interface(Add optional parameters in request: business_type, contract_type, pair. Add fields in return parameter &quot;data&quot;: contract_type, pair, business_type, delivery_date(contract delivery date, this field is an empty string when it is swap contract))</h3>
 <ul>
 <li>Interface Name: [General]Query Swap Info </li>
