@@ -346,8 +346,8 @@ search: True
  - 接口类型: 公共接口
  - 订阅主题: market.$symbol.kline.$period
 
-### 20、修改获取当前可用合约总持仓量（在返回参数data中新增trade_volume：最近24小时成交量（张），trade_amount：最近24小时成交量（币），trade_turnover：最近24小时成交额。这三个字段 ）
- - 接口名称: 获取当前可用合约总持仓量
+### 20、修改获取当前合约总持仓量（在返回参数data中新增trade_volume：最近24小时成交量（张），trade_amount：最近24小时成交量（币），trade_turnover：最近24小时成交额。这三个字段 ）
+ - 接口名称: 获取当前合约总持仓量
  - 接口类型: 公共接口
  - 接口URL: /api/v1/contract_open_interest
 
@@ -1168,7 +1168,7 @@ rest接口获取用户的持仓信息接口api/v1/contract_position_info增加�
 读取     |  基础信息接口           |  /api/v1/contract_contract_info  |                 GET        |  获取合约信息                 |  否  |
 读取     |  基础信息接口           |  /api/v1/contract_index  |                         GET        |  获取合约指数信息             |  否  |
 读取     |  基础信息接口           |  /api/v1/contract_price_limit  |                 GET         |  获取合约最高限价和最低限价   |  否  |
-读取     |  基础信息接口           |   /api/v1/contract_open_interest  |                  GET        |  获取当前可用合约总持仓量     |  否  |
+读取     |  基础信息接口           |   /api/v1/contract_open_interest  |                  GET        |  获取当前合约总持仓量     |  否  |
 读取     |  基础信息接口           |   /api/v1/contract_delivery_price  |                  GET        |  获取预估交割价    |  否  |
 读取     |  基础信息接口           |   /api/v1/contract_api_state   |                  GET        |  查询系统状态    |  否  |
 读取     |  市场行情接口           | /market/depth |                                GET        |  获取行情深度数据            |  否  |
@@ -1182,7 +1182,7 @@ rest接口获取用户的持仓信息接口api/v1/contract_position_info增加�
 读取     |  市场行情接口           |  /api/v1/contract_risk_info |    GET       |  查询合约风险准备金余额和预估分摊比例            |  否  |
 读取     |  市场行情接口           |  /api/v1/contract_insurance_fund |  GET       |  查询合约风险准备金余额历史数据            |  否  |
 读取     |  市场行情接口           |  /api/v1/contract_adjustfactor |   GET       |  查询平台阶梯调整系数            |  否  |
-读取     |  市场行情接口           |  /api/v1/contract_his_open_interest |   GET       |  平台持仓量的查询            |  否  |
+读取     |  市场行情接口           |  /api/v1/contract_his_open_interest |   GET       |  平台历史持仓量查询            |  否  |
 读取     |  市场行情接口        |  /api/v1/contract_ladder_margin           |    GET       |       获取平台阶梯保证金       |  否  |
 读取     |  市场行情接口           |  /api/v1/contract_elite_account_ratio |   GET       |  精英账户多空持仓对比-账户数            |  否  |
 读取     |  市场行情接口           |  /api/v1/contract_elite_position_ratio |   GET       |  精英账户多空持仓对比-持仓量            |  否  |
@@ -2224,7 +2224,7 @@ b.如何判断是否是停机维护
 
 通过"查询系统是否可用”接口: https://api.hbdm.com/heartbeat/
 
-或者"订阅系统状态更新”接口: "topic ": "public.$service.heartbeat"
+或者"订阅系统状态更新”接口: "topic": "public.$service.heartbeat"
 
 在推送值中的 heartbeat 来判断, 如果值为 1 表示系统为可用, 可以正常连接了
 
@@ -2767,7 +2767,7 @@ contract_type  |  true  |  string  |  合约类型  |  当周:"this_week", 次�
 ts  |    true  |  long  |  响应生成时间点，单位：毫秒              |            |
 
 
-## 获取当前可用合约总持仓量 
+## 获取当前合约总持仓量 
 
 ###  示例
 
@@ -3776,7 +3776,7 @@ curl "https://api.hbdm.com/api/v1/contract_adjustfactor"
  \</list\> |  |  |  |  |
  \</data\> |  |  |  |  |
  
-## 平台持仓量的查询
+## 平台历史持仓量查询
 
 ### 实例
 
@@ -5462,7 +5462,7 @@ last_price | decimal  | true  | 最新价                                       
 | symbol | true | string | 品种代码 | 支持大小写,"BTC","ETH"... |
 | amount | true | decimal | 划转金额 ||
 | type | true | string | 划转类型 | 仅支持小写,master_to_sub：母账户划转到子账户， sub_to_master：子账户划转到母账户 |
-| client_order_id | false | long | 客户自己填写和维护的订单号 | 必须为数字,请注意必须小于等于9223372036854775807 |
+| client_order_id | false | long | 客户自己填写和维护的订单号，必须为数字 | [1-9223372036854775807] |
 
 ### 备注：
  - 母账户与每个子账户相互划转限频10次/分钟。
@@ -5711,7 +5711,7 @@ last_price | decimal  | true  | 最新价                                       
 symbol  |    string  |    false  | 支持大小写,"BTC","ETH"...  |
 contract_type  |  string  |    false  | 合约类型 ("this_week":当周 "next_week":下周 "quarter":当季 "next_quarter":次季)  |
 contract_code  |  string  |    false  |  BTC180914  |
-client_order_id |   long  |  false  |  客户自己填写和维护，必须为数字,请注意必须小于等于9223372036854775807  |
+client_order_id |   long  |  false  |  客户自己填写和维护，必须为数字，取值范围： [1-9223372036854775807]  |
 price  |  decimal  |   false  |  价格  |
 volume  |    long  |  true  |  委托数量(张)  |
 direction  |  string  |    true  |  "buy":买 "sell":卖  |
@@ -5836,7 +5836,7 @@ order_id返回是18位，nodejs和javascript默认解析18有问题，nodejs和j
 symbol  |   string  |    false  | 支持大小写,"BTC","ETH"...  |
 contract_type  |  string  |    false  | 合约类型: "this_week":当周 "next_week":下周 "quarter":当季 "next_quarter":次季  |
 contract_code  |  string  |    false  | BTC180914  |
-client_order_id  |  long  |  false  |  客户自己填写和维护，必须为数字,请注意必须小于等于9223372036854775807   |
+client_order_id  |  long  |  false  |  客户自己填写和维护，必须为数字，取值范围： [1-9223372036854775807]   |
 price  |  decimal  |   false  |  价格  |
 volume  |  long  |  true  |  委托数量(张)  |
 direction  |  string  |    true  |  "buy":买 "sell":卖  |
@@ -6977,7 +6977,7 @@ ts  |  true  |  long  |  时间戳  |    |
  contract_code | false | string | 合约代码 | BTC190903 |
  volume | true | long | 委托数量（张） |  |
  direction | true | string | “buy”:买，“sell”:卖 |  |
- client_order_id | false | long | （API）客户自己填写和维护，必须保持唯一,请注意必须小于等于9223372036854775807  |  |
+ client_order_id | false | long | （API）客户自己填写和维护，必须为数字。  | [1-9223372036854775807] |
  order_price_type | false | string | 订单报价类型 |不填，默认为“闪电平仓”，"lightning"：闪电平仓，"lightning_fok"：闪电平仓-FOK,"lightning_ioc"：闪电平仓-IOC |
 
 ### 说明
@@ -11151,7 +11151,7 @@ quantity  |  true  |  decimal  |  成交量（币）  |   |
   
       `"cid": "id generated by client",`
   
-      `"topic ": "public.$service.heartbeat"`
+      `"topic": "public.$service.heartbeat"`
   
   `} `
 
