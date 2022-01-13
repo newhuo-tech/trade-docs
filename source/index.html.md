@@ -38,6 +38,16 @@ Welcome users, who are dedicated to maker strategy and have created large tradin
 1. Huobi UIDs (not linked to any rebate program in any accounts)
 2. Provide screenshot of trading volume for the past 30 days or VIP/corporate status with other Exchanges
 
+## Colocation
+### Solution Architecture
+Huobi spot API colocation solution is built on AWS infrastructure. Client will connect via AWS “PrivateLink” to access Huobi’s services directly through fast AWS connection without being routed to public networks. 
+
+### Performance Improvement
+The network delay of colocation solution is estimated to be 10ms to 50ms faster than the ordinary connection. This improvement estimated should be used as a guidance only as the actual improvement depends on many factors.
+
+### Eligibility
+Colocation is only available to higher tier market makers. To check if your account is eligible please talk to your dedicated account manager.
+
 # Changelog
 
 ## 1.2.9 2021-5-17 【Transfer between master and sub account（Added parameters in request: client_order_id）】
