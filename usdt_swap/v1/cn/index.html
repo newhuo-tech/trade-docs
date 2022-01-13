@@ -260,6 +260,9 @@
                   <li>
                     <a href="#6ac6895b3f" class="toc-h2 toc-link" data-title="做市商项目">做市商项目</a>
                   </li>
+                  <li>
+                    <a href="#colocation" class="toc-h2 toc-link" data-title="直连专线（Colocation）简介">直连专线（Colocation）简介</a>
+                  </li>
               </ul>
           </li>
           <li>
@@ -1016,6 +1019,12 @@
 <li>提供火币 UID （需不存在返佣关系的 UID）；</li>
 <li>提供其他交易平台 maker 交易量截图证明（比如30天内成交量，或者 VIP 等级等）；</li>
 </ol>
+<h2 id='colocation'>直连专线（Colocation）简介</h2><h3 id='f7cb30ada3'>解决方案架构</h3>
+<p>火币现货 API 直连专线解决方案是基于 AWS 基础架构构建的。客户端将通过 AWS “PrivateLink”进行连接，通过快速的 AWS 网络连接直接访问 Huobi 的 API 服务，而无需路由到公共网络进行访问。</p>
+<h3 id='982fa0933c'>性能提升</h3>
+<p>直连专线解决方案的网络延迟比普通外网连接预计低 10ms 至 50ms。实际的性能提升取决于很多因素。</p>
+<h3 id='8ae536d5fa'>符合条件的客戶</h3>
+<p>直连专线仅适用于更高级别的做市商。要确认您的帐户是否符合条件，请咨询您的专属客户经理。</p>
 <h1 id='185368440e'>更新日志</h1><h2 id='1-1-4-2021-12-22-usdt'>1.1.4 2021年12月22日 【新增USDT交割合约接口内容】</h2><h3 id='1-business_type-contract_type-pair-data-contract_type-pair-business_type-delivery_date'>1、修改获取合约信息接口（新增选填入参：business_type（业务类型）、contract_type（合约类型）、pair（交易对）。返回参数data下新增字段：contract_type（合约类型），pair（交易对），business_type（业务类型），delivery_date（合约交割日期，永续无需交割时该字段为空字符串））</h3>
 <ul>
 <li>接口名称：【通用】获取合约信息</li>
