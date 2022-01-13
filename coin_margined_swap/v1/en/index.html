@@ -260,6 +260,9 @@
                   <li>
                     <a href="#market-maker-program" class="toc-h2 toc-link" data-title="Market Maker Program">Market Maker Program</a>
                   </li>
+                  <li>
+                    <a href="#colocation" class="toc-h2 toc-link" data-title="Colocation">Colocation</a>
+                  </li>
               </ul>
           </li>
           <li>
@@ -858,6 +861,12 @@ Market makers will not be able to use point cards, VIP rate, rebate or any other
 <li>Huobi UIDs (not linked to any rebate program in any accounts).</li>
 <li>Provide screenshot of trading volume for the past 30 days or VIP/corporate status with other Exchanges.</li>
 </ol>
+<h2 id='colocation'>Colocation</h2><h3 id='solution-architecture'>Solution Architecture</h3>
+<p>Huobi spot API colocation solution is built on AWS infrastructure. Client will connect via AWS “PrivateLink” to access Huobi’s services directly through fast AWS connection without being routed to public networks. </p>
+<h3 id='performance-improvement'>Performance Improvement</h3>
+<p>The network delay of colocation solution is estimated to be 10ms to 50ms faster than the ordinary connection. This improvement estimated should be used as a guidance only as the actual improvement depends on many factors.</p>
+<h3 id='eligibility'>Eligibility</h3>
+<p>Colocation is only available to higher tier market makers. To check if your account is eligible please talk to your dedicated account manager.</p>
 <h1 id='changelog'>Changelog</h1><h2 id='1-2-0-2021-5-17-transfer-between-master-and-sub-account-added-parameters-in-request-client_order_id'>1.2.0 2021-5-17 【Transfer between master and sub account（Added parameters in request: client_order_id）】</h2><h3 id='1-transfer-between-master-and-sub-account-added-parameters-in-request-client_order_id'>1、Transfer between master and sub account（Added parameters in request: client_order_id）</h3>
 <ul>
 <li>Interface Name：Transfer between master and sub account</li>
