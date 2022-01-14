@@ -263,6 +263,9 @@
                   <li>
                     <a href="#colocation" class="toc-h2 toc-link" data-title="Colocation">Colocation</a>
                   </li>
+                  <li>
+                    <a href="#risk-mechanism" class="toc-h2 toc-link" data-title="Risk Mechanism">Risk Mechanism</a>
+                  </li>
               </ul>
           </li>
           <li>
@@ -1020,12 +1023,27 @@ Market makers will not be able to use point cards, VIP rate, rebate or any other
 <li>Huobi UIDs (not linked to any rebate program in any accounts) </li>
 <li>Provide screenshot of trading volume for the past 30 days or VIP/corporate status with other Exchanges</li>
 </ol>
+
+<p>More detail in here: <a href='https://www.huobi.com/support/en-us/detail/900003272306'>Huobi USDT-Margined Contracts Market Maker Preferential Policy</a></p>
 <h2 id='colocation'>Colocation</h2><h3 id='solution-architecture'>Solution Architecture</h3>
 <p>Huobi spot API colocation solution is built on AWS infrastructure. Client will connect via AWS “PrivateLink” to access Huobi’s services directly through fast AWS connection without being routed to public networks. </p>
 <h3 id='performance-improvement'>Performance Improvement</h3>
 <p>The network delay of colocation solution is estimated to be 10ms to 50ms faster than the ordinary connection. This improvement estimated should be used as a guidance only as the actual improvement depends on many factors.</p>
 <h3 id='eligibility'>Eligibility</h3>
 <p>Colocation is only available to higher tier market makers. To check if your account is eligible please talk to your dedicated account manager.</p>
+<h2 id='risk-mechanism'>Risk Mechanism</h2><h3 id='partial-liquidation'>Partial Liquidation</h3>
+<p>Margin ratio is an indicator to estimate the risk of users’assets. When the margin ratio is less than or equal to 0%, liquidation will be triggered. <br/>
+It is recommended that you pay close attention to margin ratio changes, so as to avoid your positions from liquidation.<br/>
+Huobi contracts implement a partial liquidation mechanism, in which the system will lower the corresponding tier of an adjustment factor to avoid your positions from being liquidated at one time.<br/>
+More detail to see: <a href='https://www.huobi.com/support/en-us/detail/900001325083'>Partial Liquidation</a></p>
+<h3 id='insurance-funds-and-clawback-mechanism'>Insurance Funds and Clawback Mechanism</h3>
+<p>Insurance funds are designed to cover the losses from forced liquidation.<br/>
+In a fluctuating market, users’ positions may be liquidated. When the order cannot be filled at the takeover price, resulting in huge losses that are greater than the part insurance funds can undertake, the platform will implement the “clawback” mechanism. Each profitable account in the current period compensates the over loss of liquidation according to its profit ratio.<br/>
+More detail in here: <a href='https://www.huobi.com/support/en-us/detail/900001325083'>Partial Liquidation</a></p>
+<h3 id='tiered-adjustment-factor'>Tiered Adjustment Factor</h3>
+<p>The adjustment factor is designed to prevent users from extended margin call loss. Huobi Contracts use a tiered adjustment factor mechanism, which supports up to five tiers based on the position amount.<br/>
+For contracts with different expirations under the different account modes, they are separately calculated. The larger the use’s net positions, the higher the tier, and the greater the risk.<br/>
+More detail in here: <a href='https://www.huobi.com/support/en-us/detail/900001326606'>Tiered Adjustment Factor of USDT-margined Contract</a></p>
 <h1 id='changelog'>Changelog</h1><h2 id='1-1-4-2021-12-22-added-the-content-about-usdt-margined-futures-interfaces'>1.1.4 2021-12-22 【Added the content about USDT Margined Futures interfaces】</h2><h3 id='1-modified-query-swap-info-interface-add-optional-parameters-in-request-business_type-contract_type-pair-add-fields-in-return-parameter-quot-data-quot-contract_type-pair-business_type-delivery_date-contract-delivery-date-this-field-is-an-empty-string-when-it-is-swap-contract'>1. Modified Query Swap Info interface(Add optional parameters in request: business_type, contract_type, pair. Add fields in return parameter &quot;data&quot;: contract_type, pair, business_type, delivery_date(contract delivery date, this field is an empty string when it is swap contract))</h3>
 <ul>
 <li>Interface Name: [General]Query Swap Info </li>
