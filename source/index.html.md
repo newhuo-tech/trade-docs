@@ -36,6 +36,8 @@ Welcome users, who are dedicated to maker strategy and have created large tradin
 1. Huobi UIDs (not linked to any rebate program in any accounts) 
 2. Provide screenshot of trading volume for the past 30 days or VIP/corporate status with other Exchanges
 
+More detail in here: <a href='https://www.huobi.com/support/en-us/detail/900003272306'>Huobi USDT-Margined Contracts Market Maker Preferential Policy</a>
+
 ## Colocation
 ### Solution Architecture
 Huobi spot API colocation solution is built on AWS infrastructure. Client will connect via AWS “PrivateLink” to access Huobi’s services directly through fast AWS connection without being routed to public networks. 
@@ -45,6 +47,23 @@ The network delay of colocation solution is estimated to be 10ms to 50ms faster 
 
 ### Eligibility
 Colocation is only available to higher tier market makers. To check if your account is eligible please talk to your dedicated account manager.
+
+## Risk Mechanism
+### Partial Liquidation
+Margin ratio is an indicator to estimate the risk of users’assets. When the margin ratio is less than or equal to 0%, liquidation will be triggered. <br/>
+It is recommended that you pay close attention to margin ratio changes, so as to avoid your positions from liquidation.<br/>
+Huobi contracts implement a partial liquidation mechanism, in which the system will lower the corresponding tier of an adjustment factor to avoid your positions from being liquidated at one time.<br/>
+More detail to see: <a href='https://www.huobi.com/support/en-us/detail/900001325083'>Partial Liquidation</a>
+
+### Insurance Funds and Clawback Mechanism
+Insurance funds are designed to cover the losses from forced liquidation.<br/>
+In a fluctuating market, users’ positions may be liquidated. When the order cannot be filled at the takeover price, resulting in huge losses that are greater than the part insurance funds can undertake, the platform will implement the “clawback” mechanism. Each profitable account in the current period compensates the over loss of liquidation according to its profit ratio.<br/>
+More detail in here: <a href='https://www.huobi.com/support/en-us/detail/900001325083'>Partial Liquidation</a>
+
+### Tiered Adjustment Factor
+The adjustment factor is designed to prevent users from extended margin call loss. Huobi Contracts use a tiered adjustment factor mechanism, which supports up to five tiers based on the position amount.<br/>
+For contracts with different expirations under the different account modes, they are separately calculated. The larger the use’s net positions, the higher the tier, and the greater the risk.<br/>
+More detail in here: <a href='https://www.huobi.com/support/en-us/detail/900001326606'>Tiered Adjustment Factor of USDT-margined Contract</a>
 
 # Changelog
 
