@@ -259,10 +259,13 @@
                     <a href="#api" class="toc-h2 toc-link" data-title="API 简介">API 简介</a>
                   </li>
                   <li>
-                    <a href="#cc4b988593" class="toc-h2 toc-link" data-title="做市商项目">做市商项目</a>
+                    <a href="#6ac6895b3f" class="toc-h2 toc-link" data-title="做市商项目">做市商项目</a>
                   </li>
                   <li>
                     <a href="#colocation" class="toc-h2 toc-link" data-title="直连专线（Colocation）简介">直连专线（Colocation）简介</a>
+                  </li>
+                  <li>
+                    <a href="#2f71e410f8" class="toc-h2 toc-link" data-title="风险机制说明">风险机制说明</a>
                   </li>
               </ul>
           </li>
@@ -862,7 +865,7 @@
 <p>在文档的右侧是代码示例，目前我们仅提供针对 <code>shell</code> 的代码示例。</p>
 
 <p>你可以通过选择上方下拉菜单的版本号来切换文档对应的 API 版本，也可以通过点击右上方的语言按钮来切换文档语言。</p>
-<h2 id='cc4b988593'>做市商项目</h2>
+<h2 id='6ac6895b3f'>做市商项目</h2>
 <aside class="notice">
 做市商项目不支持点卡抵扣、VIP、交易量相关活动以及任何形式的返佣活动。
 </aside>
@@ -873,12 +876,26 @@
 <li>提供火币UID （需不存在返佣关系的 UID）；</li>
 <li>提供其他交易平台 maker 交易量截图证明（比如30天内成交量，或者 VIP 等级等）；</li>
 </ol>
+
+<p>具体的做市商权益政策内容您可以通过：<a href='https://www.huobi.com/support/zh-cn/detail/360000224641'>币本位交割合约做市商权益政策</a>  来了解。</p>
 <h2 id='colocation'>直连专线（Colocation）简介</h2><h3 id='f7cb30ada3'>解决方案架构</h3>
 <p>火币现货 API 直连专线解决方案是基于 AWS 基础架构构建的。客户端将通过 AWS “PrivateLink”进行连接，通过快速的 AWS 网络连接直接访问 Huobi 的 API 服务，而无需路由到公共网络进行访问。</p>
 <h3 id='982fa0933c'>性能提升</h3>
 <p>直连专线解决方案的网络延迟比普通外网连接预计低 10ms 至 50ms。实际的性能提升取决于很多因素。</p>
 <h3 id='8ae536d5fa'>符合条件的客戶</h3>
 <p>直连专线仅适用于更高级别的做市商。要确认您的帐户是否符合条件，请咨询您的专属客户经理。</p>
+<h2 id='2f71e410f8'>风险机制说明</h2><h3 id='55bde65f98'>阶梯强制平仓</h3>
+<p>担保资产率是衡量用户资产风险的指标，当担保资产率 ≤ 0%时，用户的仓位将会被系统强制平仓。<br>
+建议用户密切关注担保资产率的变动，避免其仓位被强平。<br>
+火币合约实行阶梯强平机制，即系统会尝试降低调整系数对应的档位，从而避免仓位被一次性强平。<br>
+具体的币本位交割合约阶梯强制平仓规则您可以通过: <a href='https://www.huobi.com/support/zh-cn/detail/360000143042'>阶梯强制平仓说明</a>  来了解。</p>
+<h3 id='4276e83ef8'>风险准备金和分摊机制</h3>
+<p>风险准备金，用于应付因强平单未能平出而产生的穿仓损失。<br>
+当市场行情波动较大，用户强制平仓后，按照接管价格无法成交时，导致亏损范围大于风险准备金。平台采用“分摊”制度，从本期盈利的账户中，每个账户按盈利等比分摊穿仓部分的损失。<br>
+具体的币本位交割合约风险准备金和分摊机制您可以通过: <a href='https://www.huobi.com/support/zh-cn/detail/360000143042'>阶梯强制平仓说明</a>  来了解。</p>
+<h3 id='5e35bdbebf'>阶梯调整系数</h3>
+<p>调整系数，为防止用户穿仓而设计。根据持仓张数设定最高五个档位，用户的净持仓量越大，档位越高，风险越大。<br>
+具体的币本位交割合约阶梯调整系数您可以通过: <a href='https://www.huobi.com/support/zh-cn/detail/360000293121'>币本位交割合约阶梯调整系数</a>  来了解。</p>
 <h1 id='185368440e'>更新日志</h1><h2 id='1-2-9-2021-5-17-client_order_id'>1.2.9 2021年5月17日 【修改：母子账户划转（新增选填入参：client_order_id）】</h2><h3 id='1-client_order_id'>1、修改母子账户划转接口（新增选填入参：client_order_id）</h3>
 <ul>
 <li>接口名称：母子账户划转</li>
