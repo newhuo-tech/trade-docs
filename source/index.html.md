@@ -5,7 +5,7 @@ language_tabs: # must be one of https://git.io/vQNgJ
 - json
 
 toc_footers:
-- <a href='https://www.huobihktrust.com/zh-hk/user/api/'>創建 API Key </a>
+- <a href='https://www.huobi-brokerage.com/zh-hk/user/api/'>創建 API Key </a>
   includes:
 
 search: true
@@ -37,7 +37,7 @@ language_tabs: # must be one of https://git.io/vQNgJ
 - json
 
 toc_footers:
-- <a href='https://www.huobihktrust.com/zh-hk/user/api/'>創建 API Key </a>
+- <a href='https://www.huobi-brokerage.com/zh-hk/user/api/'>創建 API Key </a>
   includes:
 
 search: true
@@ -58,21 +58,21 @@ table th {
 
 | 生效時間<br>(UTC +8) | 接口     | 變化      | 摘要         |
 | ---------- | --------- | --------- | --------------- |
-| 2021.9.16 | - | - | - |
+| 2022.01.17 | - | - | - |
 
 
 # 簡介
 
-歡迎使用Huobi Trust API！
+歡迎使用Huobi Brokerage API！
 
-此文檔是Huobi Trust API的唯一官方文檔，Huobi Trust API提供的功能和服務會在此文檔持續更新。
+此文檔是Huobi Brokerage API的唯一官方文檔，Huobi Brokerage API提供的功能和服務會在此文檔持續更新。
 
 以下是現貨API文檔各章節主要內容
 
 第一部分是概要介紹：
 
-- **快速入門**：該章節對Huobi Trust API做了簡單且全方位的介紹，適合第一次使用Huobi Trust API的用戶。
-- **常見問題**：該章節列舉了使用Huobi Trust API時常見的、和具體API無關的通用問題。
+- **快速入門**：該章節對Huobi Brokerage API做了簡單且全方位的介紹，適合第一次使用Huobi Brokerage API的用戶。
+- **常見問題**：該章節列舉了使用Huobi Brokerage API時常見的、和具體API無關的通用問題。
 - **聯系我們**：該章節介紹了針對不同問題，如何聯系我們。
 
 第二部分是每個接口類的詳細介紹，每個接口類一個章節，每個章節分為如下內容：
@@ -88,7 +88,7 @@ table th {
 
 如需使用API ，請先登錄網頁端，完成API key的申請和權限配置，再據此文檔詳情進行開發和交易。
 
-您可以點擊 <a href='https://www.huobihktrust.com/zh-hk/user/api/ '>這裏 </a> 創建 API Key。
+您可以點擊 <a href='https://www.huobi-brokerage.com/zh-hk/user/api/ '>這裏 </a> 創建 API Key。
 
 每個用戶可創建20組Api Key，每個Api Key可對應設置讀取權限。
 
@@ -119,40 +119,30 @@ table th {
 
 ## 接口類型
 
-香港信托為用戶提供兩種接口，您可根據自己的使用場景和偏好來選擇適合的方式進行查詢資產。
+Brokerage OTC 目前為用戶提供RESTFUL接口，您可根據自己的使用場景進行對接。
 
 ### REST API
 
 REST，即Representational State Transfer的縮寫，是目前較為流行的基於HTTP的一種通信機製，每一個URL代表一種資源。
 
-使用API進行資產查詢，建議開發者使用REST API進行操作。
-
-### WebSocket API
-
-WebSocket是HTML5一種新的協議（Protocol）。它實現了客戶端與服務器全雙工通信，通過一次簡單的握手就可以建立客戶端和服務器連接，服務器可以根據業務規則主動推送信息給客戶端。
-
-市場行情和買賣深度等信息，建議開發者使用WebSocket API進行獲取。
+建議開發者使用REST API進行操作。
 
 **接口鑒權**
 
-以上兩種接口均包含公共接口和私有接口兩種類型。
-
-公共接口可用於獲取基礎信息和行情數據。公共接口無需認證即可調用。
-
-私有接口可用於交易管理和賬戶管理。每個私有請求必須使用您的API Key進行簽名驗證。
+目前只提供私有接口，私有接口可用於交易管理和賬戶管理。每個私有請求必須使用您的API Key進行簽名驗證。
 
 ## 接入URLs
-您可以使用api.huobihktrust.com域名。
+您可以使用api.huobi-brokerage.com域名。
 
 **REST API**
 
-**`https://api.huobihktrust.com`**
+**`https://api.huobi-brokerage.com`**
 
 <aside class="notice">
-請使用中國大陸以外的 IP 訪問Huobi Trust API。
+請使用中國大陸以外的 IP 訪問Huobi Brokerage API。
 </aside>
 <aside class="notice">
-鑒於延遲高和穩定性差等原因，不建議通過代理的方式訪問Huobi Trust API。
+鑒於延遲高和穩定性差等原因，不建議通過代理的方式訪問Huobi Brokerage API。
 </aside>
 <aside class="notice">
 為保證API服務的穩定性，建議使用日本AWS雲服務器進行訪問。如使用中國大陸境內的客戶端服務器，連接的穩定性將難以保證。
@@ -167,7 +157,7 @@ API 請求在通過 internet 傳輸的過程中極有可能被篡改，為了確
 
 一個合法的請求由以下幾部分組成：
 
-- 方法請求地址：即訪問服務器地址 api.huobihktrust.com，比如 api.huobihktrust.com/v1/open/apiKeyDemo。
+- 方法請求地址：即訪問服務器地址 api.huobi-brokerage.com，比如 api.huobi-brokerage.com/v1/open/apiKeyDemo。
 - API 訪問Id（AccessKeyId）：您申請的 API Key 中的 Access Key。
 - 簽名方法（SignatureMethod）：用戶計算簽名的基於哈希的協議，此處使用 HmacSHA256。
 - 簽名版本（SignatureVersion）：簽名協議的版本，此處使用2。
@@ -183,7 +173,7 @@ API 請求在通過 internet 傳輸的過程中極有可能被篡改，為了確
 
 查詢某訂單詳情時完整的請求URL
 
-`https://api.huobihktrust.com/v1/open/apiKeyDemo?`
+`https://api.huobi-brokerage.com/v1/open/apiKeyDemo?`
 
 `AccessKeyId=e2xxxxxx-99xxxxxx-84xxxxxx-7xxxx`
 
@@ -195,7 +185,7 @@ API 請求在通過 internet 傳輸的過程中極有可能被篡改，為了確
 
 `&order-id=1234567890`
 
-**1. 請求方法（GET 或 POST，WebSocket用GET），後面添加換行符 「\n」**
+**1. 請求方法（GET 或 POST），後面添加換行符 「\n」**
 
 例如：
 `GET\n`
@@ -204,7 +194,7 @@ API 請求在通過 internet 傳輸的過程中極有可能被篡改，為了確
 
 例如：
 `
-api.huobihktrust.com\n
+api.huobi-brokerage.com\n
 `
 
 **3. 訪問方法的路徑，後面添加換行符 「\n」**
@@ -262,7 +252,7 @@ api.huobihktrust.com\n
 
 `GET\n`
 
-`api.huobihktrust.com\n`
+`api.huobi-brokerage.com\n`
 
 `v1/open/apiKeyDemo\n`
 
@@ -286,7 +276,7 @@ api.huobihktrust.com\n
 
 最終，發送到服務器的 API 請求應該為
 
-`https://api.huobihktrust.com/v1/open/apiKeyDemo?AccessKeyId=e2xxxxxx-99xxxxxx-84xxxxxx-7xxxx&demo-id=1234567890&SignatureMethod=HmacSHA256&SignatureVersion=2&Timestamp=2017-05-11T15%3A19%3A30&Signature=4F65x5A2bLyMWVQj3Aqp%2BB4w%2BivaA7n5Oi2SuYtCJ9o%3D`
+`https://api.huobi-brokerage.com/v1/open/apiKeyDemo?AccessKeyId=e2xxxxxx-99xxxxxx-84xxxxxx-7xxxx&demo-id=1234567890&SignatureMethod=HmacSHA256&SignatureVersion=2&Timestamp=2017-05-11T15%3A19%3A30&Signature=4F65x5A2bLyMWVQj3Aqp%2BB4w%2BivaA7n5Oi2SuYtCJ9o%3D`
 
 
 # 接入說明
@@ -370,7 +360,7 @@ api.huobihktrust.com\n
 
 - 不建議在中國大陸境內使用臨時域名以及代理的方式訪問Huobi Trust API，此類方式訪問API連接的穩定性很難保證。
 - 建議使用日本AWS雲服務器進行訪問。
-- 官方域名api.huobihktrust.com。
+- 官方域名api.huobi-brokerage.com。
 
 
 **新限頻規則**
@@ -448,7 +438,7 @@ api.huobihktrust.com\n
 
 如果您使用了代理，代理可能會改變請求Host，可以嘗試去掉代理；
 
-或者，您使用的網絡連接庫可能會把端口包含在Host內，可以嘗試在簽名用到的Host中包含端口，如「api.huobihktrust.com:443"
+或者，您使用的網絡連接庫可能會把端口包含在Host內，可以嘗試在簽名用到的Host中包含端口，如「api.huobi-brokerage.com:443"
 
 8、Access Key 與 Secret Key中是否存在隱藏特殊字符，影響簽名
 
@@ -490,7 +480,7 @@ api.huobihktrust.com\n
 
 使用過程中如有問題或者建議，您可選擇以下任一方式聯系我們：
 
-- 通過官網的「幫助中心」或者發送郵件至support@huobihktrust.com聯系客服。
+- 通過官網的「幫助中心」或者發送郵件至support@huobi-brokerage.com聯系客服。
 
 如您遇到API錯誤，請按照如下模板向我們反饋問題。
 
@@ -507,13 +497,13 @@ api.huobihktrust.com\n
 
 `1. 問題簡要說明：簽名錯誤`
 `2. UID：123456`
-`3. 完整的URL請求：GET https://api.huobihktrust.com/v1/open/apiKeyDemo/forRead?&SignatureVersion=2&SignatureMethod=HmacSHA256&Timestamp=2019-11-06T03%3A25%3A39&AccessKeyId=rfhxxxxx-950000847-boooooo3-432c0&Signature=HhJwApXKpaLPewiYLczwfLkoTPnFPHgyF61iq0iTFF8%3D`
+`3. 完整的URL請求：GET https://api.huobi-brokerage.com/v1/open/apiKeyDemo/forRead?&SignatureVersion=2&SignatureMethod=HmacSHA256&Timestamp=2019-11-06T03%3A25%3A39&AccessKeyId=rfhxxxxx-950000847-boooooo3-432c0&Signature=HhJwApXKpaLPewiYLczwfLkoTPnFPHgyF61iq0iTFF8%3D`
 `4. 完整的JSON格式的參數：無`
 `5. 完整的JSON格式的返回：{"status":"error","err-code":"api-signature-not-valid","err-msg":"Signature not valid: Incorrect Access key [Access key錯誤]","data":null}`
 `6. 問題出現頻率：每次都會出現`
 `7. 簽名前字符串`
 `GET\n`
-`api.huobihktrust.com\n`
+`api.huobi-brokerage.com\n`
 `/v1/open/apiKeyDemo/forRead\n`
 `AccessKeyId=rfhxxxxx-950000847-boooooo3-432c0&SignatureMethod=HmacSHA256&SignatureVersion=2&Timestamp=2019-11-06T03%3A26%3A13`
 
