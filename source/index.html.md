@@ -588,3 +588,164 @@ data字段說明
 | -------- | -------- | -------------- | ------------------------------------------------------------ |
 | outerUserId  | string   | 外部系統用戶標識           |                                                            |
 | outerUid   | string   | 外部uid           |                                                            |
+
+
+# 清结算接口
+
+## 授信用戶提交結算
+
+支持用户单次提交多笔订单进行结算，或单笔订单进行部分清算<br> 1）如果提交多笔订单进行结算，此时amount要求为空<br> 2）如果选中单笔订单进行结算，此时运行进行部分清算(amount不为空)
+
+
+### HTTP 請求
+
+- POST `/open/otc/api/clearing/manual/clearing`
+
+API Key 权限：交易<br>
+
+限频值：2次/1秒<br>
+
+| 參數名稱   | 是否必須 | 類型   | 描述                                                         | 默認值  | 取值範圍
+| ---------- | -------- | ------ | ------------------------------------------------------------ | ------ | -------- |
+| tradeIds | true     | Intege | 成交Id列表 |        |          |
+| amount | false     | string | 當用戶選擇單筆結算的時候，需要制定歸還的金額。如果選擇多筆結算，此時該選項為空 |        |          |
+
+
+
+
+> Response
+
+
+### 響應數據
+
+| 參數名稱 | 是否必須 | 數據類型 | 描述     | 取值範圍                                                     |
+| -------- | -------- | -------- | -------- | ------------------------------------------------------------ |
+| code         | true    | integer     | 狀態碼  | |
+| message      | false   | string    | 錯誤描述（如有）| |
+| data         | false   | object    | 業務數據 ||
+
+## 獲取用戶結算歷史
+
+支持用户单次提交多笔订单进行结算，或单笔订单进行部分清算<br> 1）如果提交多笔订单进行结算，此时amount要求为空<br> 2）如果选中单笔订单进行结算，此时运行进行部分清算(amount不为空)
+
+
+### HTTP 請求
+
+- POST `/open/otc/api/clearing/history`
+
+API Key 权限：讀取<br>
+
+限频值：2次/1秒<br>
+
+<table>
+  <thead class="ant-table-thead">
+    <tr>
+      <th key=name>參數名稱</th><th key=type>類型</th><th key=required>是否必須</th><th key=default>默认值</th><th key=desc>描述</th><th key=sub>取值範圍</th>
+    </tr>
+  </thead><tbody className="ant-table-tbody"><tr key=0-0><td key=0><span style="padding-left: 0px"><span></span> page</span></td><td key=1><span>object</span></td><td key=2>true</td><td key=3></td><td key=4><span style="white-space: pre-wrap">分页查询参数</span></td><td key=5></td></tr><tr key=0-0-0><td key=0><span style="padding-left: 20px"><span >size</span></td><td key=1><span>integer</span></td><td key=2>true</td><td key=3></td><td key=4><span style="white-space: pre-wrap">number of item for each page.</span></td><td key=5></td></tr><tr key=0-0-3><td key=0><span style="padding-left: 20px"><span >page</span></td><td key=1><span>integer</span></td><td key=2>true</td><td key=3></td><td key=4><span style="white-space: pre-wrap">current page index, start from 1.</span></td><td key=5></td></tr><tr key=0-1><td key=0><span style="padding-left: 0px"><span ></span> startTime</span></td><td key=1><span>integer</span></td><td key=2>false</td><td key=3></td><td key=4><span style="white-space: pre-wrap">訂單時間-查詢開始時間</span></td><td key=5></td></tr><tr key=0-2><td key=0><span style="padding-left: 0px"><span ></span> endTime</span></td><td key=1><span>integer</span></td><td key=2>false</td><td key=3></td><td key=4><span style="white-space: pre-wrap">訂單時間-查詢結束時間</span></td><td key=5></td></tr>
+               </tbody>
+              </table>
+
+
+
+
+> Response
+
+
+### 響應數據
+
+<table>
+  <thead class="ant-table-thead">
+    <tr>
+      <th key=name>參數名稱</th><th key=type>類型</th><th key=required>是否必須</th><th key=default>默認值</th><th key=desc>描述</th><th key=sub>取值範圍</th>
+    </tr>
+  </thead><tbody className="ant-table-tbody"><tr key=0-0><td key=0><span style="padding-left: 0px"> code</span></td><td key=1><span>integer</span></td><td key=2>非必须</td><td key=3></td><td key=4><span style="white-space: pre-wrap"></span></td><td key=5></td></tr><tr key=0-1><td key=0><span style="padding-left: 0px"> message</span></td><td key=1><span>string</span></td><td key=2>非必须</td><td key=3></td><td key=4><span style="white-space: pre-wrap"></span></td><td key=5></td></tr><tr key=0-2><td key=0><span style="padding-left: 0px"> data</span></td><td key=1><span>object</span></td><td key=2>非必须</td><td key=3></td><td key=4><span style="white-space: pre-wrap"></span></td><td key=5></td></tr><tr key=0-2-0><td key=0><span style="padding-left: 20px"> items</span></td><td key=1><span>object []</span></td><td key=2>非必须</td><td key=3></td><td key=4><span style="white-space: pre-wrap">item list for page.</span></td><td key=5><p key=3><span style="font-weight: '700'">item 类型: </span><span>object</span></p></td></tr><tr key=0-2-0-0><td key=0><span style="padding-left: 40px"> id</span></td><td key=1><span>integer</span></td><td key=2>非必须</td><td key=3></td><td key=4><span style="white-space: pre-wrap">id</span></td><td key=5></td></tr><tr key=0-2-0-1><td key=0><span style="padding-left: 40px"> time</span></td><td key=1><span>integer</span></td><td key=2>非必须</td><td key=3></td><td key=4><span style="white-space: pre-wrap">时间</span></td><td key=5></td></tr><tr key=0-2-0-2><td key=0><span style="padding-left: 40px"> tradeCount</span></td><td key=1><span>integer</span></td><td key=2>非必须</td><td key=3></td><td key=4><span style="white-space: pre-wrap">交易数量</span></td><td key=5></td></tr><tr key=0-2-0-3><td key=0><span style="padding-left: 40px"> tradeSymbols</span></td><td key=1><span>string []</span></td><td key=2>非必须</td><td key=3></td><td key=4><span style="white-space: pre-wrap">交易对</span></td><td key=5><p key=3><span style="font-weight: '700'">item 类型: </span><span>string</span></p></td></tr><tr key=array-111><td key=0><span style="padding-left: 60px"> </span></td><td key=1><span></span></td><td key=2>非必须</td><td key=3></td><td key=4><span style="white-space: pre-wrap"></span></td><td key=5></td></tr><tr key=0-2-0-4><td key=0><span style="padding-left: 40px"> tradeSides</span></td><td key=1><span>integer []</span></td><td key=2>非必须</td><td key=3></td><td key=4><span style="white-space: pre-wrap">交易方向</span></td><td key=5><p key=3><span style="font-weight: '700'">item 类型: </span><span>integer</span></p></td></tr><tr key=array-112><td key=0><span style="padding-left: 60px"> </span></td><td key=1><span></span></td><td key=2>非必须</td><td key=3></td><td key=4><span style="white-space: pre-wrap"></span></td><td key=5></td></tr><tr key=0-2-1><td key=0><span style="padding-left: 20px"> total</span></td><td key=1><span>integer</span></td><td key=2>非必须</td><td key=3></td><td key=4><span style="white-space: pre-wrap">total records of item for all page.</span></td><td key=5></td></tr><tr key=0-2-2><td key=0><span style="padding-left: 20px"> size</span></td><td key=1><span>integer</span></td><td key=2>非必须</td><td key=3></td><td key=4><span style="white-space: pre-wrap">number of item for each page.</span></td><td key=5></td></tr><tr key=0-2-3><td key=0><span style="padding-left: 20px"> page</span></td><td key=1><span>integer</span></td><td key=2>非必须</td><td key=3></td><td key=4><span style="white-space: pre-wrap">current page index, start from 1.</span></td><td key=5></td></tr><tr key=0-3><td key=0><span style="padding-left: 0px"> success</span></td><td key=1><span>boolean</span></td><td key=2>非必须</td><td key=3></td><td key=4><span style="white-space: pre-wrap"></span></td><td key=5></td></tr><tr key=0-4><td key=0><span style="padding-left: 0px"> messageArgs</span></td><td key=1><span>object []</span></td><td key=2>非必须</td><td key=3>new ArrayList<>()</td><td key=4><span style="white-space: pre-wrap"></span></td><td key=5><p key=3><span style="font-weight: '700'">item 类型: </span><span>object</span></p></td></tr>
+               </tbody>
+              </table>
+
+
+## 獲取用戶結算記錄詳情
+
+該接口支持守信用戶查詢結算記錄詳情
+
+### HTTP 請求
+
+- GET `/open/otc/api/clearing/details/{clearingId}`
+
+API Key 权限：讀取<br>
+
+限频值：2次/1秒<br>
+### 请求参数
+
+| 参数名称 | 示例  | 备注  |
+| ------------ | ------------ | ------------ |
+| clearingId |   |   |
+
+### 返回数据
+
+<table>
+  <thead class="ant-table-thead">
+    <tr>
+      <th key=name>名称</th><th key=type>类型</th><th key=required>是否必须</th><th key=default>默认值</th><th key=desc>备注</th><th key=sub>其他信息</th>
+    </tr>
+  </thead><tbody className="ant-table-tbody"><tr key=0-0><td key=0><span style="padding-left: 0px"> code</span></td><td key=1><span>integer</span></td><td key=2>非必须</td><td key=3></td><td key=4><span style="white-space: pre-wrap"></span></td><td key=5></td></tr><tr key=0-1><td key=0><span style="padding-left: 0px"> message</span></td><td key=1><span>string</span></td><td key=2>非必须</td><td key=3></td><td key=4><span style="white-space: pre-wrap"></span></td><td key=5></td></tr><tr key=0-2><td key=0><span style="padding-left: 0px"> data</span></td><td key=1><span>object</span></td><td key=2>非必须</td><td key=3></td><td key=4><span style="white-space: pre-wrap"></span></td><td key=5></td></tr><tr key=0-2-0><td key=0><span style="padding-left: 20px"> id</span></td><td key=1><span>integer</span></td><td key=2>非必须</td><td key=3></td><td key=4><span style="white-space: pre-wrap">结算id</span></td><td key=5></td></tr><tr key=0-2-1><td key=0><span style="padding-left: 20px"> time</span></td><td key=1><span>integer</span></td><td key=2>非必须</td><td key=3></td><td key=4><span style="white-space: pre-wrap">结算时间</span></td><td key=5></td></tr><tr key=0-2-2><td key=0><span style="padding-left: 20px"> tradeCount</span></td><td key=1><span>integer</span></td><td key=2>非必须</td><td key=3></td><td key=4><span style="white-space: pre-wrap">含有的交易的笔数</span></td><td key=5></td></tr><tr key=0-2-3><td key=0><span style="padding-left: 20px"> tradeSymbols</span></td><td key=1><span>string []</span></td><td key=2>非必须</td><td key=3></td><td key=4><span style="white-space: pre-wrap">含有的交易对</span></td><td key=5><p key=3><span style="font-weight: '700'">item 类型: </span><span>string</span></p></td></tr><tr key=array-113><td key=0><span style="padding-left: 40px"> </span></td><td key=1><span></span></td><td key=2>非必须</td><td key=3></td><td key=4><span style="white-space: pre-wrap"></span></td><td key=5></td></tr><tr key=0-2-4><td key=0><span style="padding-left: 20px"> tradeSides</span></td><td key=1><span>integer []</span></td><td key=2>非必须</td><td key=3></td><td key=4><span style="white-space: pre-wrap">含有的交易方向</span></td><td key=5><p key=3><span style="font-weight: '700'">item 类型: </span><span>integer</span></p></td></tr><tr key=array-114><td key=0><span style="padding-left: 40px"> </span></td><td key=1><span></span></td><td key=2>非必须</td><td key=3></td><td key=4><span style="white-space: pre-wrap"></span></td><td key=5></td></tr><tr key=0-2-5><td key=0><span style="padding-left: 20px"> payouts</span></td><td key=1><span>object</span></td><td key=2>非必须</td><td key=3></td><td key=4><span style="white-space: pre-wrap">应付</span></td><td key=5></td></tr><tr key=0-2-5-0><td key=0><span style="padding-left: 40px"> key</span></td><td key=1><span>number</span></td><td key=2>非必须</td><td key=3></td><td key=4><span style="white-space: pre-wrap"></span></td><td key=5></td></tr><tr key=0-2-6><td key=0><span style="padding-left: 20px"> receivables</span></td><td key=1><span>object</span></td><td key=2>非必须</td><td key=3></td><td key=4><span style="white-space: pre-wrap">应收</span></td><td key=5></td></tr><tr key=0-2-6-0><td key=0><span style="padding-left: 40px"> key</span></td><td key=1><span>number</span></td><td key=2>非必须</td><td key=3></td><td key=4><span style="white-space: pre-wrap"></span></td><td key=5></td></tr><tr key=0-2-7><td key=0><span style="padding-left: 20px"> trades</span></td><td key=1><span>object []</span></td><td key=2>非必须</td><td key=3></td><td key=4><span style="white-space: pre-wrap">交易记录</span></td><td key=5><p key=3><span style="font-weight: '700'">item 类型: </span><span>object</span></p></td></tr><tr key=0-2-7-0><td key=0><span style="padding-left: 40px"> tradeId</span></td><td key=1><span>integer</span></td><td key=2>非必须</td><td key=3></td><td key=4><span style="white-space: pre-wrap">id</span></td><td key=5></td></tr><tr key=0-2-7-1><td key=0><span style="padding-left: 40px"> time</span></td><td key=1><span>integer</span></td><td key=2>非必须</td><td key=3></td><td key=4><span style="white-space: pre-wrap">成交时间</span></td><td key=5></td></tr><tr key=0-2-7-2><td key=0><span style="padding-left: 40px"> symbol</span></td><td key=1><span>string</span></td><td key=2>非必须</td><td key=3></td><td key=4><span style="white-space: pre-wrap">交易</span></td><td key=5></td></tr><tr key=0-2-7-3><td key=0><span style="padding-left: 40px"> baseCurrency</span></td><td key=1><span>string</span></td><td key=2>非必须</td><td key=3></td><td key=4><span style="white-space: pre-wrap">币种</span></td><td key=5></td></tr><tr key=0-2-7-4><td key=0><span style="padding-left: 40px"> quoteCurrency</span></td><td key=1><span>string</span></td><td key=2>非必须</td><td key=3></td><td key=4><span style="white-space: pre-wrap">币种</span></td><td key=5></td></tr><tr key=0-2-7-5><td key=0><span style="padding-left: 40px"> side</span></td><td key=1><span>integer</span></td><td key=2>非必须</td><td key=3></td><td key=4><span style="white-space: pre-wrap">方向</span></td><td key=5></td></tr><tr key=0-2-7-6><td key=0><span style="padding-left: 40px"> avgPx</span></td><td key=1><span>number</span></td><td key=2>非必须</td><td key=3></td><td key=4><span style="white-space: pre-wrap">成交价</span></td><td key=5></td></tr><tr key=0-2-7-7><td key=0><span style="padding-left: 40px"> cumQuantity</span></td><td key=1><span>number</span></td><td key=2>非必须</td><td key=3></td><td key=4><span style="white-space: pre-wrap">成交数</span></td><td key=5></td></tr><tr key=0-2-7-8><td key=0><span style="padding-left: 40px"> cumTurnover</span></td><td key=1><span>number</span></td><td key=2>非必须</td><td key=3></td><td key=4><span style="white-space: pre-wrap">成交额</span></td><td key=5></td></tr><tr key=0-2-7-9><td key=0><span style="padding-left: 40px"> clearedQty</span></td><td key=1><span>number</span></td><td key=2>非必须</td><td key=3></td><td key=4><span style="white-space: pre-wrap">本次结算数</span></td><td key=5></td></tr><tr key=0-2-7-10><td key=0><span style="padding-left: 40px"> clearedTurnover</span></td><td key=1><span>number</span></td><td key=2>非必须</td><td key=3></td><td key=4><span style="white-space: pre-wrap">本次结算金</span></td><td key=5></td></tr><tr key=0-3><td key=0><span style="padding-left: 0px"> success</span></td><td key=1><span>boolean</span></td><td key=2>非必须</td><td key=3></td><td key=4><span style="white-space: pre-wrap"></span></td><td key=5></td></tr><tr key=0-4><td key=0><span style="padding-left: 0px"> messageArgs</span></td><td key=1><span>object []</span></td><td key=2>非必须</td><td key=3>new ArrayList<>()</td><td key=4><span style="white-space: pre-wrap"></span></td><td key=5><p key=3><span style="font-weight: '700'">item 类型: </span><span>object</span></p></td></tr>
+               </tbody>
+              </table>
+
+
+## 授信用戶提交結算
+
+
+
+### HTTP 請求
+
+- GET `/open/otc/api/clearing/query-account-summary`
+
+API Key 权限：交易<br>
+
+限频值：2次/1秒<br>
+### 请求参数
+
+### 返回数据
+
+<table>
+  <thead class="ant-table-thead">
+    <tr>
+      <th key=name>名称</th><th key=type>类型</th><th key=required>是否必须</th><th key=default>默认值</th><th key=desc>备注</th><th key=sub>其他信息</th>
+    </tr>
+  </thead><tbody className="ant-table-tbody"><tr key=0-0><td key=0><span style="padding-left: 0px"> code</span></td><td key=1><span>integer</span></td><td key=2>非必须</td><td key=3></td><td key=4><span style="white-space: pre-wrap"></span></td><td key=5></td></tr><tr key=0-1><td key=0><span style="padding-left: 0px"> message</span></td><td key=1><span>string</span></td><td key=2>非必须</td><td key=3></td><td key=4><span style="white-space: pre-wrap"></span></td><td key=5></td></tr><tr key=0-2><td key=0><span style="padding-left: 0px"> data</span></td><td key=1><span>object</span></td><td key=2>非必须</td><td key=3></td><td key=4><span style="white-space: pre-wrap"></span></td><td key=5></td></tr><tr key=0-2-0><td key=0><span style="padding-left: 20px"> totalCredit</span></td><td key=1><span>string</span></td><td key=2>非必须</td><td key=3></td><td key=4><span style="white-space: pre-wrap">总授信额度</span></td><td key=5></td></tr><tr key=0-2-1><td key=0><span style="padding-left: 20px"> spentCredit</span></td><td key=1><span>string</span></td><td key=2>非必须</td><td key=3></td><td key=4><span style="white-space: pre-wrap">总已使用授信额度</span></td><td key=5></td></tr><tr key=0-2-2><td key=0><span style="padding-left: 20px"> availableCredit</span></td><td key=1><span>string</span></td><td key=2>非必须</td><td key=3></td><td key=4><span style="white-space: pre-wrap">可用授信额度</span></td><td key=5></td></tr><tr key=0-2-3><td key=0><span style="padding-left: 20px"> payouts</span></td><td key=1><span>object []</span></td><td key=2>非必须</td><td key=3></td><td key=4><span style="white-space: pre-wrap">应还币种信息</span></td><td key=5><p key=3><span style="font-weight: '700'">item 类型: </span><span>object</span></p></td></tr><tr key=0-2-3-0><td key=0><span style="padding-left: 40px"> id</span></td><td key=1><span>string</span></td><td key=2>非必须</td><td key=3></td><td key=4><span style="white-space: pre-wrap">id</span></td><td key=5></td></tr><tr key=0-2-3-1><td key=0><span style="padding-left: 40px"> currency</span></td><td key=1><span>string</span></td><td key=2>非必须</td><td key=3></td><td key=4><span style="white-space: pre-wrap">币种</span></td><td key=5></td></tr><tr key=0-2-3-2><td key=0><span style="padding-left: 40px"> amount</span></td><td key=1><span>number</span></td><td key=2>非必须</td><td key=3></td><td key=4><span style="white-space: pre-wrap">应还金额</span></td><td key=5></td></tr><tr key=0-2-3-3><td key=0><span style="padding-left: 40px"> total</span></td><td key=1><span>string</span></td><td key=2>非必须</td><td key=3></td><td key=4><span style="white-space: pre-wrap">折合USD金额</span></td><td key=5></td></tr><tr key=0-3><td key=0><span style="padding-left: 0px"> success</span></td><td key=1><span>boolean</span></td><td key=2>非必须</td><td key=3></td><td key=4><span style="white-space: pre-wrap"></span></td><td key=5></td></tr><tr key=0-4><td key=0><span style="padding-left: 0px"> messageArgs</span></td><td key=1><span>object []</span></td><td key=2>非必须</td><td key=3>new ArrayList<>()</td><td key=4><span style="white-space: pre-wrap"></span></td><td key=5><p key=3><span style="font-weight: '700'">item 类型: </span><span>object</span></p></td></tr>
+               </tbody>
+              </table>
+## 查詢用戶待結算交易記錄
+
+
+
+### HTTP 請求
+
+- POST `/open/otc/api/clearing/query`
+
+API Key 权限：交易<br>
+
+限频值：2次/1秒<br>
+
+### 请求参数
+
+<table>
+  <thead class="ant-table-thead">
+    <tr>
+      <th key=name>名称</th><th key=type>类型</th><th key=required>是否必须</th><th key=default>默认值</th><th key=desc>备注</th><th key=sub>其他信息</th>
+    </tr>
+  </thead><tbody className="ant-table-tbody"><tr key=0-0><td key=0><span style="padding-left: 0px"> page</span></td><td key=1><span>object</span></td><td key=2>非必须</td><td key=3></td><td key=4><span style="white-space: pre-wrap">分页查询参数</span></td><td key=5></td></tr><tr key=0-0-0><td key=0><span style="padding-left: 20px"> items</span></td><td key=1><span>object []</span></td><td key=2>非必须</td><td key=3></td><td key=4><span style="white-space: pre-wrap">item list for page.</span></td><td key=5><p key=3><span style="font-weight: '700'">item 类型: </span><span>object</span></p></td></tr><tr key=0-0-1><td key=0><span style="padding-left: 20px"> total</span></td><td key=1><span>integer</span></td><td key=2>非必须</td><td key=3></td><td key=4><span style="white-space: pre-wrap">total records of item for all page.</span></td><td key=5></td></tr><tr key=0-0-2><td key=0><span style="padding-left: 20px"> size</span></td><td key=1><span>integer</span></td><td key=2>非必须</td><td key=3></td><td key=4><span style="white-space: pre-wrap">number of item for each page.</span></td><td key=5></td></tr><tr key=0-0-3><td key=0><span style="padding-left: 20px"> page</span></td><td key=1><span>integer</span></td><td key=2>非必须</td><td key=3></td><td key=4><span style="white-space: pre-wrap">current page index, start from 1.</span></td><td key=5></td></tr><tr key=0-1><td key=0><span style="padding-left: 0px"> side</span></td><td key=1><span>string</span></td><td key=2>非必须</td><td key=3></td><td key=4><span style="white-space: pre-wrap">交易方向</span></td><td key=5></td></tr><tr key=0-2><td key=0><span style="padding-left: 0px"> baseCurrency</span></td><td key=1><span>string</span></td><td key=2>非必须</td><td key=3></td><td key=4><span style="white-space: pre-wrap">基础币种</span></td><td key=5></td></tr><tr key=0-3><td key=0><span style="padding-left: 0px"> quoteCurrency</span></td><td key=1><span>string</span></td><td key=2>非必须</td><td key=3></td><td key=4><span style="white-space: pre-wrap">计价币种</span></td><td key=5></td></tr><tr key=0-4><td key=0><span style="padding-left: 0px"> timeInForce</span></td><td key=1><span>integer</span></td><td key=2>非必须</td><td key=3></td><td key=4><span style="white-space: pre-wrap"></span></td><td key=5></td></tr><tr key=0-5><td key=0><span style="padding-left: 0px"> startTime</span></td><td key=1><span>integer</span></td><td key=2>非必须</td><td key=3></td><td key=4><span style="white-space: pre-wrap">订单时间查询开始时间</span></td><td key=5></td></tr><tr key=0-6><td key=0><span style="padding-left: 0px"> endTime</span></td><td key=1><span>integer</span></td><td key=2>非必须</td><td key=3></td><td key=4><span style="white-space: pre-wrap">订单时间-查询结束时间</span></td><td key=5></td></tr><tr key=0-7><td key=0><span style="padding-left: 0px"> orderId</span></td><td key=1><span>string</span></td><td key=2>非必须</td><td key=3></td><td key=4><span style="white-space: pre-wrap">订单id</span></td><td key=5></td></tr><tr key=0-8><td key=0><span style="padding-left: 0px"> clearingStatus</span></td><td key=1><span>integer</span></td><td key=2>非必须</td><td key=3></td><td key=4><span style="white-space: pre-wrap">清算状态{@linkplain com.huobi.hbt.brokerage.rfqbase.common.enums.order.TradeClearingStatusEnum}</span></td><td key=5></td></tr><tr key=0-9><td key=0><span style="padding-left: 0px"> tradeStatusList</span></td><td key=1><span>integer []</span></td><td key=2>非必须</td><td key=3></td><td key=4><span style="white-space: pre-wrap">交易状态集合</span></td><td key=5><p key=3><span style="font-weight: '700'">item 类型: </span><span>integer</span></p></td></tr><tr key=array-109><td key=0><span style="padding-left: 20px"> </span></td><td key=1><span></span></td><td key=2>非必须</td><td key=3></td><td key=4><span style="white-space: pre-wrap"></span></td><td key=5></td></tr><tr key=0-10><td key=0><span style="padding-left: 0px"> clearingStatusList</span></td><td key=1><span>integer []</span></td><td key=2>非必须</td><td key=3></td><td key=4><span style="white-space: pre-wrap">清算状态集合</span></td><td key=5><p key=3><span style="font-weight: '700'">item 类型: </span><span>integer</span></p></td></tr><tr key=array-110><td key=0><span style="padding-left: 20px"> </span></td><td key=1><span></span></td><td key=2>非必须</td><td key=3></td><td key=4><span style="white-space: pre-wrap"></span></td><td key=5></td></tr><tr key=0-11><td key=0><span style="padding-left: 0px"> ascending</span></td><td key=1><span>string</span></td><td key=2>非必须</td><td key=3></td><td key=4><span style="white-space: pre-wrap">正序("asc")还是倒序("desc")，默认是倒序</span></td><td key=5></td></tr>
+               </tbody>
+              </table>
+
+### 返回数据
+
+<table>
+  <thead class="ant-table-thead">
+    <tr>
+      <th key=name>名称</th><th key=type>类型</th><th key=required>是否必须</th><th key=default>默认值</th><th key=desc>备注</th><th key=sub>其他信息</th>
+    </tr>
+  </thead><tbody className="ant-table-tbody"><tr key=0-0><td key=0><span style="padding-left: 0px"> code</span></td><td key=1><span>integer</span></td><td key=2>非必须</td><td key=3></td><td key=4><span style="white-space: pre-wrap"></span></td><td key=5></td></tr><tr key=0-1><td key=0><span style="padding-left: 0px"> message</span></td><td key=1><span>string</span></td><td key=2>非必须</td><td key=3></td><td key=4><span style="white-space: pre-wrap"></span></td><td key=5></td></tr><tr key=0-2><td key=0><span style="padding-left: 0px"> data</span></td><td key=1><span>object</span></td><td key=2>非必须</td><td key=3></td><td key=4><span style="white-space: pre-wrap"></span></td><td key=5></td></tr><tr key=0-2-0><td key=0><span style="padding-left: 20px"> items</span></td><td key=1><span>object []</span></td><td key=2>非必须</td><td key=3></td><td key=4><span style="white-space: pre-wrap">item list for page.</span></td><td key=5><p key=3><span style="font-weight: '700'">item 类型: </span><span>object</span></p></td></tr><tr key=0-2-0-0><td key=0><span style="padding-left: 40px"> id</span></td><td key=1><span>integer</span></td><td key=2>非必须</td><td key=3></td><td key=4><span style="white-space: pre-wrap">id</span></td><td key=5></td></tr><tr key=0-2-0-1><td key=0><span style="padding-left: 40px"> orderId</span></td><td key=1><span>integer</span></td><td key=2>非必须</td><td key=3></td><td key=4><span style="white-space: pre-wrap">订单id</span></td><td key=5></td></tr><tr key=0-2-0-2><td key=0><span style="padding-left: 40px"> side</span></td><td key=1><span>integer</span></td><td key=2>非必须</td><td key=3></td><td key=4><span style="white-space: pre-wrap">交易方向：1 buy, 2 sell</span></td><td key=5></td></tr><tr key=0-2-0-3><td key=0><span style="padding-left: 40px"> timeInForce</span></td><td key=1><span>integer</span></td><td key=2>非必须</td><td key=3></td><td key=4><span style="white-space: pre-wrap">交易类型</span></td><td key=5></td></tr><tr key=0-2-0-4><td key=0><span style="padding-left: 40px"> baseCurrency</span></td><td key=1><span>string</span></td><td key=2>非必须</td><td key=3></td><td key=4><span style="white-space: pre-wrap">基础币种</span></td><td key=5></td></tr><tr key=0-2-0-5><td key=0><span style="padding-left: 40px"> quoteCurrency</span></td><td key=1><span>string</span></td><td key=2>非必须</td><td key=3></td><td key=4><span style="white-space: pre-wrap">计价币种</span></td><td key=5></td></tr><tr key=0-2-0-6><td key=0><span style="padding-left: 40px"> quantity</span></td><td key=1><span>string</span></td><td key=2>非必须</td><td key=3></td><td key=4><span style="white-space: pre-wrap">订单数量</span></td><td key=5></td></tr><tr key=0-2-0-7><td key=0><span style="padding-left: 40px"> cumQuantity</span></td><td key=1><span>string</span></td><td key=2>非必须</td><td key=3></td><td key=4><span style="white-space: pre-wrap">累计已交易订单数量</span></td><td key=5></td></tr><tr key=0-2-0-8><td key=0><span style="padding-left: 40px"> avgPx</span></td><td key=1><span>string</span></td><td key=2>非必须</td><td key=3></td><td key=4><span style="white-space: pre-wrap">累计已交易订单平均成交价格</span></td><td key=5></td></tr><tr key=0-2-0-9><td key=0><span style="padding-left: 40px"> lastPx</span></td><td key=1><span>string</span></td><td key=2>非必须</td><td key=3></td><td key=4><span style="white-space: pre-wrap">本次交易价格</span></td><td key=5></td></tr><tr key=0-2-0-10><td key=0><span style="padding-left: 40px"> lastQty</span></td><td key=1><span>string</span></td><td key=2>非必须</td><td key=3></td><td key=4><span style="white-space: pre-wrap">本次交易数量</span></td><td key=5></td></tr><tr key=0-2-0-11><td key=0><span style="padding-left: 40px"> lastTurnover</span></td><td key=1><span>string</span></td><td key=2>非必须</td><td key=3></td><td key=4><span style="white-space: pre-wrap">本次交易金额 =lastPx*lastQty</span></td><td key=5></td></tr><tr key=0-2-0-12><td key=0><span style="padding-left: 40px"> commission</span></td><td key=1><span>string</span></td><td key=2>非必须</td><td key=3></td><td key=4><span style="white-space: pre-wrap">交易手续费/佣金</span></td><td key=5></td></tr><tr key=0-2-0-13><td key=0><span style="padding-left: 40px"> transactionTime</span></td><td key=1><span>integer</span></td><td key=2>非必须</td><td key=3></td><td key=4><span style="white-space: pre-wrap">时间戳</span></td><td key=5></td></tr><tr key=0-2-0-14><td key=0><span style="padding-left: 40px"> userId</span></td><td key=1><span>integer</span></td><td key=2>非必须</td><td key=3></td><td key=4><span style="white-space: pre-wrap">UserId</span></td><td key=5></td></tr><tr key=0-2-0-15><td key=0><span style="padding-left: 40px"> status</span></td><td key=1><span>integer</span></td><td key=2>非必须</td><td key=3></td><td key=4><span style="white-space: pre-wrap">订单 Status</span></td><td key=5></td></tr><tr key=0-2-0-16><td key=0><span style="padding-left: 40px"> symbolDisplayName</span></td><td key=1><span>string</span></td><td key=2>非必须</td><td key=3></td><td key=4><span style="white-space: pre-wrap">交易对展示名称</span></td><td key=5></td></tr><tr key=0-2-0-17><td key=0><span style="padding-left: 40px"> clearingStatus</span></td><td key=1><span>integer</span></td><td key=2>非必须</td><td key=3></td><td key=4><span style="white-space: pre-wrap">结算状态</span></td><td key=5></td></tr><tr key=0-2-0-18><td key=0><span style="padding-left: 40px"> clearingAt</span></td><td key=1><span>integer</span></td><td key=2>非必须</td><td key=3></td><td key=4><span style="white-space: pre-wrap">结算时间</span></td><td key=5></td></tr><tr key=0-2-0-19><td key=0><span style="padding-left: 40px"> clearingSourceId</span></td><td key=1><span>string</span></td><td key=2>非必须</td><td key=3></td><td key=4><span style="white-space: pre-wrap">结算批次ID</span></td><td key=5></td></tr><tr key=0-2-0-20><td key=0><span style="padding-left: 40px"> clearedQty</span></td><td key=1><span>string</span></td><td key=2>非必须</td><td key=3></td><td key=4><span style="white-space: pre-wrap">已结算的数量</span></td><td key=5></td></tr><tr key=0-2-0-21><td key=0><span style="padding-left: 40px"> clearedTurnover</span></td><td key=1><span>string</span></td><td key=2>非必须</td><td key=3></td><td key=4><span style="white-space: pre-wrap">已结算的金额</span></td><td key=5></td></tr><tr key=0-2-0-22><td key=0><span style="padding-left: 40px"> unClearedQty</span></td><td key=1><span>string</span></td><td key=2>非必须</td><td key=3></td><td key=4><span style="white-space: pre-wrap">待结算的数量</span></td><td key=5></td></tr><tr key=0-2-0-23><td key=0><span style="padding-left: 40px"> unClearedTurnover</span></td><td key=1><span>string</span></td><td key=2>非必须</td><td key=3></td><td key=4><span style="white-space: pre-wrap">待结算的金额</span></td><td key=5></td></tr><tr key=0-2-0-24><td key=0><span style="padding-left: 40px"> quantityPrecision</span></td><td key=1><span>integer</span></td><td key=2>非必须</td><td key=3></td><td key=4><span style="white-space: pre-wrap">数量精度 (base)</span></td><td key=5></td></tr><tr key=0-2-0-25><td key=0><span style="padding-left: 40px"> amountPrecision</span></td><td key=1><span>integer</span></td><td key=2>非必须</td><td key=3></td><td key=4><span style="white-space: pre-wrap">金额精度 (quote)</span></td><td key=5></td></tr><tr key=0-2-1><td key=0><span style="padding-left: 20px"> total</span></td><td key=1><span>integer</span></td><td key=2>非必须</td><td key=3></td><td key=4><span style="white-space: pre-wrap">total records of item for all page.</span></td><td key=5></td></tr><tr key=0-2-2><td key=0><span style="padding-left: 20px"> size</span></td><td key=1><span>integer</span></td><td key=2>非必须</td><td key=3></td><td key=4><span style="white-space: pre-wrap">number of item for each page.</span></td><td key=5></td></tr><tr key=0-2-3><td key=0><span style="padding-left: 20px"> page</span></td><td key=1><span>integer</span></td><td key=2>非必须</td><td key=3></td><td key=4><span style="white-space: pre-wrap">current page index, start from 1.</span></td><td key=5></td></tr><tr key=0-3><td key=0><span style="padding-left: 0px"> success</span></td><td key=1><span>boolean</span></td><td key=2>非必须</td><td key=3></td><td key=4><span style="white-space: pre-wrap"></span></td><td key=5></td></tr><tr key=0-4><td key=0><span style="padding-left: 0px"> messageArgs</span></td><td key=1><span>object []</span></td><td key=2>非必须</td><td key=3>new ArrayList<>()</td><td key=4><span style="white-space: pre-wrap"></span></td><td key=5><p key=3><span style="font-weight: '700'">item 类型: </span><span>object</span></p></td></tr>
+               </tbody>
+              </table>
