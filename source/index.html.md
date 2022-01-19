@@ -111,11 +111,11 @@ table th {
 
 ## SDK與代碼示例
 
-[Java](https://github.com/huobitrustapi/huobi_Java) | [Python3](https://github.com/huobitrustapi/huobi_Python) | [C++](https://github.com/huobitrustapi/huobi_Cpp) | [C#](https://github.com/huobitrustapi/huobi_CSharp) | [Go](https://github.com/huobitrustapi/huobi_golang)
+[Java](https://github.com/huobitech/huobi_Java) | [Python3](https://github.com/huobitech/huobi_Python) | [C++](https://github.com/huobitech/huobi_Cpp) | [C#](https://github.com/huobitech/huobi_CSharp) | [Go](https://github.com/huobitech/huobi_golang)
 
 **其它代碼示例**
 
-[https://github.com/huobitrustapi?tab=repositories](https://github.com/huobitrustapi?tab=repositories)
+[https://github.com/huobitech?tab=repositories](https://github.com/huobitech?tab=repositories)
 
 ## 接口類型
 
@@ -154,7 +154,7 @@ REST，即Representational State Transfer的縮寫，是目前較為流行的基
 
 API 請求在通過 internet 傳輸的過程中極有可能被篡改，為了確保請求未被更改，除公共接口（基礎信息，行情數據）外的私有接口均必須使用您的 API Key 做簽名認證，以校驗參數或參數值在傳輸途中是否發生了更改。
 每一個API Key需要有適當的權限才能訪問相應的接口，每個新創建的API Key都需要分配權限。在使用接口前，請查看每個接口的權限類型，並確認你的API Key有相應的權限。
-
+805
 一個合法的請求由以下幾部分組成：
 
 - 方法請求地址：即訪問服務器地址 api.huobi-brokerage.com，比如 api.huobi-brokerage.com/v1/open/apiKeyDemo。
