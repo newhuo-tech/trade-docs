@@ -358,7 +358,7 @@ api.huobi-brokerage.com\n
 ###公共類
 **API訪問建議**
 
-- 不建議在中國大陸境內使用臨時域名以及代理的方式訪問Huobi Trust API，此類方式訪問API連接的穩定性很難保證。
+- 不建議在中國大陸境內使用臨時域名以及代理的方式訪問Huobi Brokerage API，此類方式訪問API連接的穩定性很難保證。
 - 建議使用日本AWS雲服務器進行訪問。
 - 官方域名api.huobi-brokerage.com。
 
@@ -442,9 +442,9 @@ api.huobi-brokerage.com\n
 
 8、Access Key 與 Secret Key中是否存在隱藏特殊字符，影響簽名
 
-當前官方已支持多種語言的[SDK](https://github.com/huobitrustapi)，可以參考SDK的簽名實現，或者以下三種語言的簽名樣例代碼
+當前官方已支持多種語言的[SDK](https://github.com/huobitech)，可以參考SDK的簽名實現，或者以下三種語言的簽名樣例代碼
 
-<a href='https://github.com/huobitrustapi/huobi_Java/blob/master/java_signature_demo.md'>JAVA簽名樣例代碼</a> | <a href='https://github.com/huobitrustapi/huobi_Python/blob/master/example/python_signature_demo.md'>Python簽名樣例代碼</a>   | <a href='https://github.com/huobitrustapi/huobi_Cpp/blob/master/examples/cpp_signature_demo.md'>C++簽名樣例代碼 </a>
+<a href='https://github.com/huobitech/huobi_Java/blob/master/java_signature_demo.md'>JAVA簽名樣例代碼</a> | <a href='https://github.com/huobitech/huobi_Python/blob/master/example/python_signature_demo.md'>Python簽名樣例代碼</a>   | <a href='https://github.com/huobitech/huobi_Cpp/blob/master/examples/cpp_signature_demo.md'>C++簽名樣例代碼 </a>
 
 ### Q7：調用接口返回Incorrect Access Key 錯誤是什麼原因？
 
