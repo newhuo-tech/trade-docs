@@ -1945,7 +1945,7 @@ API Key 權限：讀取<br>
      <td key="0"><span style="padding-left: 20px"> financeAccounts</span></td>
      <td key="1"><span>object []</span></td>
      <td key="2">非必須</td>
-     <td key="3">new ArrayList&lt;&gt;()</td>
+     <td key="3"></td>
      <td key="4"><span style="white-space: pre-wrap">賬戶列表</span></td>
      <td key="5"></td>
     </tr>
@@ -2010,7 +2010,7 @@ API Key 權限：讀取<br>
      <td key="1"><span>string</span></td>
      <td key="2">非必須</td>
      <td key="3"></td>
-     <td key="4"><span style="white-space: pre-wrap">應收授信</span></td>
+     <td key="4"><span style="white-space: pre-wrap">應收金額</span></td>
      <td key="5"></td>
     </tr>
     <tr key="0-2-0-8">
@@ -2177,6 +2177,328 @@ API Key 權限：讀取<br>
      <td key="0"><span style="padding-left: 0px"><span style="color: #8c8a8a"></span> success</span></td>
      <td key="1"><span>boolean</span></td>
      <td key="2">必須</td>
+     <td key="3"></td>
+     <td key="4"><span style="white-space: pre-wrap">執行結果</span></td>
+     <td key="5"></td>
+    </tr>
+    <tr key="0-4">
+     <td key="0"><span style="padding-left: 0px"><span style="color: #8c8a8a"></span> messageArgs</span></td>
+     <td key="1"><span>object []</span></td>
+     <td key="2">非必須</td>
+     <td key="3"></td>
+     <td key="4"><span style="white-space: pre-wrap"></span></td>
+     <td key="5"></td>
+    </tr> 
+   </tbody> 
+  </table>
+ </body>
+</html>
+
+# 交易對相關
+
+## 獲取全部上線交易對
+用戶可以通過該接口查詢到已上線的全部交易對
+
+### HTTP 請求
+
+- GET `/open/otc/api/symbol`
+
+API Key 權限：讀取<br>
+
+限頻值：2次/1s<br>
+> Response:
+
+```json
+{
+  "code":200,
+  "message":"success",
+  "data":[
+    {
+      "symbol":"btcusdt",
+      "baseCurrency":"BTC",
+      "quoteCurrency":"USDT",
+      "pricePrecision":6,
+      "quantityPrecision":6,
+      "amountPrecision":6,
+      "fokEligible":1,
+      "iocEligible":0,
+      "gtcEligible":0
+    },
+    {
+      "symbol":"ethusd",
+      "baseCurrency":"ETH",
+      "quoteCurrency":"USD",
+      "pricePrecision":8,
+      "quantityPrecision":8,
+      "amountPrecision":8,
+      "fokEligible":1,
+      "iocEligible":0,
+      "gtcEligible":0
+    }
+  ],
+  "success":true,
+  "messageArgs":[
+
+  ]
+}
+```
+### 返回数据
+<html>
+ <head></head>
+ <body>
+  <table> 
+   <thead class="ant-table-thead"> 
+    <tr> 
+     <th key="name">名稱</th>
+     <th key="type">類型</th>
+     <th key="required">是否必須</th>
+     <th key="default">默認值</th>
+     <th key="desc">备注</th>
+     <th key="sub">其他信息</th> 
+    </tr> 
+   </thead>
+   <tbody classname="ant-table-tbody">
+    <tr key="0-0">
+     <td key="0"><span style="padding-left: 0px"><span style="color: #8c8a8a"></span> code</span></td>
+     <td key="1"><span>integer</span></td>
+     <td key="2">非必須</td>
+     <td key="3"></td>
+     <td key="4"><span style="white-space: pre-wrap">業務狀態碼</span></td>
+     <td key="5"></td>
+    </tr>
+    <tr key="0-1">
+     <td key="0"><span style="padding-left: 0px"><span style="color: #8c8a8a"></span> message</span></td>
+     <td key="1"><span>string</span></td>
+     <td key="2">非必須</td>
+     <td key="3"></td>
+     <td key="4"><span style="white-space: pre-wrap">错误信息（英文）</span></td>
+     <td key="5"></td>
+    </tr>
+    <tr key="0-2">
+     <td key="0"><span style="padding-left: 0px"><span style="color: #8c8a8a"></span> data</span></td>
+     <td key="1"><span>object []</span></td>
+     <td key="2">非必須</td>
+     <td key="3"></td>
+     <td key="4"><span style="white-space: pre-wrap">業務數據</span></td>
+     <td key="5"><p key="3"><span style="font-weight: '700'">item 類型: </span><span>object</span></p></td>
+    </tr>
+    <tr key="0-2-0">
+     <td key="0"><span style="padding-left: 20px"> symbol</span></td>
+     <td key="1"><span>string</span></td>
+     <td key="2">非必須</td>
+     <td key="3"></td>
+     <td key="4"><span style="white-space: pre-wrap">交易對id, 例如 btcusdt</span></td>
+     <td key="5"></td>
+    </tr>
+    <tr key="0-2-1">
+     <td key="0"><span style="padding-left: 20px"> baseCurrency</span></td>
+     <td key="1"><span>string</span></td>
+     <td key="2">非必須</td>
+     <td key="3"></td>
+     <td key="4"><span style="white-space: pre-wrap">基礎幣種，例如 BTC</span></td>
+     <td key="5"></td>
+    </tr>
+    <tr key="0-2-2">
+     <td key="0"><span style="padding-left: 20px"> quoteCurrency</span></td>
+     <td key="1"><span>string</span></td>
+     <td key="2">非必須</td>
+     <td key="3"></td>
+     <td key="4"><span style="white-space: pre-wrap">計價幣種，例如 USDT</span></td>
+     <td key="5"></td>
+    </tr>
+    <tr key="0-2-3">
+     <td key="0"><span style="padding-left: 20px"> pricePrecision</span></td>
+     <td key="1"><span>integer</span></td>
+     <td key="2">非必須</td>
+     <td key="3"></td>
+     <td key="4"><span style="white-space: pre-wrap">交易對 下單價格精度</span></td>
+     <td key="5"></td>
+    </tr>
+    <tr key="0-2-4">
+     <td key="0"><span style="padding-left: 20px"> quantityPrecision</span></td>
+     <td key="1"><span>integer</span></td>
+     <td key="2">非必須</td>
+     <td key="3"></td>
+     <td key="4"><span style="white-space: pre-wrap">交易對 下單數量精度</span></td>
+     <td key="5"></td>
+    </tr>
+    <tr key="0-2-5">
+     <td key="0"><span style="padding-left: 20px"> amountPrecision</span></td>
+     <td key="1"><span>integer</span></td>
+     <td key="2">非必須</td>
+     <td key="3"></td>
+     <td key="4"><span style="white-space: pre-wrap">交易對 下單金額精度</span></td>
+     <td key="5"></td>
+    </tr>
+    <tr key="0-2-6">
+     <td key="0"><span style="padding-left: 20px"> fokEligible</span></td>
+     <td key="1"><span>integer</span></td>
+     <td key="2">非必須</td>
+     <td key="3"></td>
+     <td key="4"><span style="white-space: pre-wrap">支持fok標誌，1支持，0不支持</span></td>
+     <td key="5"></td>
+    </tr>
+    <tr key="0-2-7">
+     <td key="0"><span style="padding-left: 20px"> iocEligible</span></td>
+     <td key="1"><span>integer</span></td>
+     <td key="2">非必須</td>
+     <td key="3"></td>
+     <td key="4"><span style="white-space: pre-wrap">支持ioc標誌，1支持，0不支持</span></td>
+     <td key="5"></td>
+    </tr>
+    <tr key="0-2-8">
+     <td key="0"><span style="padding-left: 20px"> gtcEligible</span></td>
+     <td key="1"><span>integer</span></td>
+     <td key="2">非必須</td>
+     <td key="3"></td>
+     <td key="4"><span style="white-space: pre-wrap">*支持gtc標誌，1支持，0不支持</span></td>
+     <td key="5"></td>
+    </tr>
+    <tr key="0-3">
+     <td key="0"><span style="padding-left: 0px"><span style="color: #8c8a8a"></span> success</span></td>
+     <td key="1"><span>boolean</span></td>
+     <td key="2">非必須</td>
+     <td key="3"></td>
+     <td key="4"><span style="white-space: pre-wrap">執行結果</span></td>
+     <td key="5"></td>
+    </tr>
+    <tr key="0-4">
+     <td key="0"><span style="padding-left: 0px"><span style="color: #8c8a8a"></span> messageArgs</span></td>
+     <td key="1"><span>object []</span></td>
+     <td key="2">非必須</td>
+     <td key="3">new ArrayList&lt;&gt;()</td>
+     <td key="4"><span style="white-space: pre-wrap"></span></td>
+     <td key="5"></td>
+    </tr> 
+   </tbody> 
+  </table>
+ </body>
+</html>
+
+## 獲取交易對規則
+用戶可以通過該接口查詢到交易對規則
+
+### HTTP 請求
+
+- GET `/open/otc/api/symbol/{symbol}/setting`
+
+API Key 權限：讀取<br>
+
+限頻值：2次/1s<br>
+> Response:
+
+```json
+{
+  "code":200,
+  "message":"success",
+  "data":[
+    {
+      "symbol":"btcusdt",
+      "ruleName":"FOK_AMOUNT",
+      "ruleType":"MIN_VALUE",
+      "ruleValue":"0.01"
+    },
+    {
+      "symbol":"btcusdt",
+      "ruleName":"FOK_QUANTITY",
+      "ruleType":"MAX_VALUE",
+      "ruleValue":"10"
+    },
+    {
+      "symbol":"btcusdt",
+      "ruleName":"FOK_QUANTITY",
+      "ruleType":"MIN_VALUE",
+      "ruleValue":"0.01"
+    },
+    {
+      "symbol":"btcusdt",
+      "ruleName":"FOK_AMOUNT",
+      "ruleType":"MAX_VALUE",
+      "ruleValue":"1000"
+    }
+  ],
+  "success":true,
+  "messageArgs":[
+
+  ]
+}
+```
+### 返回数据
+<html>
+ <head></head>
+ <body>
+  <table> 
+   <thead class="ant-table-thead"> 
+    <tr> 
+     <th key="name">名稱</th>
+     <th key="type">類型</th>
+     <th key="required">是否必須</th>
+     <th key="default">默認值</th>
+     <th key="desc">備註</th>
+     <th key="sub">其他信息</th> 
+    </tr> 
+   </thead>
+   <tbody classname="ant-table-tbody">
+    <tr key="0-0">
+     <td key="0"><span style="padding-left: 0px"><span style="color: #8c8a8a"></span> code</span></td>
+     <td key="1"><span>integer</span></td>
+     <td key="2">非必須</td>
+     <td key="3"></td>
+     <td key="4"><span style="white-space: pre-wrap">业务状态码</span></td>
+     <td key="5"></td>
+    </tr>
+    <tr key="0-1">
+     <td key="0"><span style="padding-left: 0px"><span style="color: #8c8a8a"></span> message</span></td>
+     <td key="1"><span>string</span></td>
+     <td key="2">非必須</td>
+     <td key="3"></td>
+     <td key="4"><span style="white-space: pre-wrap">錯誤信息（英文）</span></td>
+     <td key="5"></td>
+    </tr>
+    <tr key="0-2">
+     <td key="0"><span style="padding-left: 0px"><span style="color: #8c8a8a"></span> data</span></td>
+     <td key="1"><span>object []</span></td>
+     <td key="2">非必須</td>
+     <td key="3"></td>
+     <td key="4"><span style="white-space: pre-wrap">業務數據</span></td>
+     <td key="5"></td>
+    </tr>
+    <tr key="0-2-0">
+     <td key="0"><span style="padding-left: 20px"> symbol</span></td>
+     <td key="1"><span>string</span></td>
+     <td key="2">非必須</td>
+     <td key="3"></td>
+     <td key="4"><span style="white-space: pre-wrap">交易對id，小写, 例如 btcusdt</span></td>
+     <td key="5"></td>
+    </tr>
+    <tr key="0-2-1">
+     <td key="0"><span style="padding-left: 20px"> ruleName</span></td>
+     <td key="1"><span>string</span></td>
+     <td key="2">非必須</td>
+     <td key="3"></td>
+     <td key="4"><span style="white-space: pre-wrap">規則名稱</span></td>
+     <td key="5"></td>
+    </tr>
+    <tr key="0-2-2">
+     <td key="0"><span style="padding-left: 20px"> ruleType</span></td>
+     <td key="1"><span>string</span></td>
+     <td key="2">非必須</td>
+     <td key="3"></td>
+     <td key="4"><span style="white-space: pre-wrap">規則子類型</span></td>
+     <td key="5"></td>
+    </tr>
+    <tr key="0-2-3">
+     <td key="0"><span style="padding-left: 20px"> ruleValue</span></td>
+     <td key="1"><span>string</span></td>
+     <td key="2">非必須</td>
+     <td key="3"></td>
+     <td key="4"><span style="white-space: pre-wrap">規則值</span></td>
+     <td key="5"></td>
+    </tr>
+    <tr key="0-3">
+     <td key="0"><span style="padding-left: 0px"><span style="color: #8c8a8a"></span> success</span></td>
+     <td key="1"><span>boolean</span></td>
+     <td key="2">非必須</td>
      <td key="3"></td>
      <td key="4"><span style="white-space: pre-wrap">執行結果</span></td>
      <td key="5"></td>
