@@ -1782,6 +1782,7 @@ API Key 权限：讀取<br>
 API Key 權限：讀取<br>
 
 限頻值：2次/1s<br>
+### 請求參數
 
 > Response:
 
@@ -1952,6 +1953,8 @@ API Key 權限：讀取<br>
 API Key 權限：讀取<br>
 
 限頻值：2次/1s<br>
+### 請求參數
+
 > Response:
 
 ```json
@@ -2336,6 +2339,8 @@ API Key 權限：讀取<br>
 API Key 權限：讀取<br>
 
 限頻值：2次/1s<br>
+### 請求參數
+
 > Response:
 
 ```json
@@ -2515,6 +2520,8 @@ API Key 權限：讀取<br>
 API Key 權限：讀取<br>
 
 限頻值：2次/1s<br>
+### 請求參數
+
 > Response:
 
 ```json
@@ -2682,7 +2689,7 @@ API Key 權限：讀取<br>
      <td key="1"><span>string</span></td>
      <td key="2">必須</td>
      <td key="3"></td>
-     <td key="4"><span style="white-space: pre-wrap">基础币种</span></td>
+     <td key="4"><span style="white-space: pre-wrap">基礎幣種</span></td>
      <td key="5"></td>
     </tr>
     <tr key="0-1">
@@ -2690,7 +2697,7 @@ API Key 權限：讀取<br>
      <td key="1"><span>string</span></td>
      <td key="2">必須</td>
      <td key="3"></td>
-     <td key="4"><span style="white-space: pre-wrap">计价币种</span></td>
+     <td key="4"><span style="white-space: pre-wrap">計價幣種</span></td>
      <td key="5"></td>
     </tr>
     <tr key="0-2">
@@ -2706,7 +2713,7 @@ API Key 權限：讀取<br>
      <td key="1"><span>number</span></td>
      <td key="2">非必須</td>
      <td key="3"></td>
-     <td key="4"><span style="white-space: pre-wrap">基础币种数值 (null或大于0的数值) 注：基础币种数值和计价币种数值不能并存。 RFQ下单方式有两种，只能取其一： a) 按baseCurrency數量下单 b) 按quoteCurrency金额下单</span></td>
+     <td key="4"><span style="white-space: pre-wrap">基礎幣種数值 (null或大于0的数值) 注：基礎幣種数值和計價幣種数值不能并存。 RFQ下单方式有两种，只能取其一： a) 按baseCurrency數量下单 b) 按quoteCurrency金额下单</span></td>
      <td key="5"><p key="5"><span style="font-weight: '700'">mock: </span><span>@float(0,2)</span></p></td>
     </tr>
     <tr key="0-4">
@@ -2714,13 +2721,14 @@ API Key 權限：讀取<br>
      <td key="1"><span>number</span></td>
      <td key="2">非必須</td>
      <td key="3"></td>
-     <td key="4"><span style="white-space: pre-wrap">计价币种数值(null或大于0的数值) 注：基础币种数值和计价币种数值不能并存。 RFQ下单方式有两种，只能取其一： a) 按baseCurrency數量下单 b) 按quoteCurrency金额下单 （同时有baseCurrencySize优先用baseCurrencySize）</span></td>
+     <td key="4"><span style="white-space: pre-wrap">計價幣種数值(null或大于0的数值) 注：基礎幣種数值和計價幣種数值不能并存。 RFQ下单方式有两种，只能取其一： a) 按baseCurrency數量下单 b) 按quoteCurrency金额下单 （同时有baseCurrencySize优先用baseCurrencySize）</span></td>
      <td key="5"><p key="5"><span style="font-weight: '700'">mock: </span><span>@float(0,2)</span></p></td>
     </tr> 
    </tbody> 
   </table>
  </body>
 </html>
+
 > Response:
 
 ```json
@@ -2837,7 +2845,7 @@ API Key 權限：寫入<br>
 
 限頻值：2次/1s<br>
 
-請求參數
+### 請求參數
 <html>
  <head></head>
  <body>
@@ -2865,6 +2873,8 @@ API Key 權限：寫入<br>
   </table> 
  </body>
 </html>
+
+> Response:
 
 ```json
 {"code":200,"message":"success","data":1459564954255424,"success":true,"messageArgs":[]}
@@ -2941,7 +2951,7 @@ API Key 權限：寫入<br>
 API Key 權限：讀取<br>
 
 限頻值：2次/1s<br>
-
+### 請求參數
 <html>
  <head></head>
  <body>
@@ -2965,28 +2975,12 @@ API Key 權限：讀取<br>
      <td key="4"><span style="white-space: pre-wrap">分页查询参数</span></td>
      <td key="5"></td>
     </tr>
-    <tr key="0-0-0">
-     <td key="0"><span style="padding-left: 20px"> items</span></td>
-     <td key="1"><span>object []</span></td>
-     <td key="2">非必須</td>
-     <td key="3"></td>
-     <td key="4"><span style="white-space: pre-wrap">item list for page.</span></td>
-     <td key="5"></td>
-    </tr>
-    <tr key="0-0-1">
-     <td key="0"><span style="padding-left: 20px"> total</span></td>
-     <td key="1"><span>integer</span></td>
-     <td key="2">非必須</td>
-     <td key="3"></td>
-     <td key="4"><span style="white-space: pre-wrap">total records of item for all page.</span></td>
-     <td key="5"></td>
-    </tr>
     <tr key="0-0-2">
      <td key="0"><span style="padding-left: 20px"> size</span></td>
      <td key="1"><span>integer</span></td>
      <td key="2">非必須</td>
      <td key="3"></td>
-     <td key="4"><span style="white-space: pre-wrap">number of item for each page.</span></td>
+     <td key="4"><span style="white-space: pre-wrap">每頁數量.</span></td>
      <td key="5"></td>
     </tr>
     <tr key="0-0-3">
@@ -2994,7 +2988,7 @@ API Key 權限：讀取<br>
      <td key="1"><span>integer</span></td>
      <td key="2">非必須</td>
      <td key="3"></td>
-     <td key="4"><span style="white-space: pre-wrap">current page index, start from 1.</span></td>
+     <td key="4"><span style="white-space: pre-wrap">當前頁數</span></td>
      <td key="5"></td>
     </tr>
     <tr key="0-1">
@@ -3010,7 +3004,7 @@ API Key 權限：讀取<br>
      <td key="1"><span>string</span></td>
      <td key="2">非必須</td>
      <td key="3"></td>
-     <td key="4"><span style="white-space: pre-wrap">基础币种</span></td>
+     <td key="4"><span style="white-space: pre-wrap">基礎幣種</span></td>
      <td key="5"></td>
     </tr>
     <tr key="0-3">
@@ -3018,7 +3012,7 @@ API Key 權限：讀取<br>
      <td key="1"><span>string</span></td>
      <td key="2">非必須</td>
      <td key="3"></td>
-     <td key="4"><span style="white-space: pre-wrap">计价币种</span></td>
+     <td key="4"><span style="white-space: pre-wrap">計價幣種</span></td>
      <td key="5"></td>
     </tr>
     <tr key="0-4">
@@ -3106,6 +3100,8 @@ API Key 權限：讀取<br>
  </body>
 </html>
 
+> Response:
+
 ```json
 {
   "code":200,
@@ -3167,65 +3163,9 @@ API Key 權限：讀取<br>
         "unClearedTurnover":"0.000000",
         "quantityPrecision":6,
         "amountPrecision":6
-      },
-      {
-        "id":2103,
-        "orderId":1458994340167744,
-        "side":1,
-        "timeInForce":4,
-        "baseCurrency":"BTC",
-        "quoteCurrency":"USDT",
-        "quantity":"0.010000",
-        "cumQuantity":"0.010000",
-        "avgPx":"42912.272377",
-        "lastPx":"42912.272377",
-        "lastQty":"0.010000",
-        "lastTurnover":"429.122724",
-        "commission":"0 BTC",
-        "transactionTime":1642387515709,
-        "userId":11433560,
-        "status":"2",
-        "symbolDisplayName":"BTCUSDT",
-        "clearingStatus":1,
-        "clearingAt":1642387515709,
-        "clearingSourceId":"",
-        "clearedQty":"0.010000",
-        "clearedTurnover":"429.122724",
-        "unClearedQty":"0.000000",
-        "unClearedTurnover":"0.000000",
-        "quantityPrecision":6,
-        "amountPrecision":6
-      },
-      {
-        "id":2097,
-        "orderId":1458485533343808,
-        "side":1,
-        "timeInForce":4,
-        "baseCurrency":"BTC",
-        "quoteCurrency":"USDT",
-        "quantity":"0.010000",
-        "cumQuantity":"0.010000",
-        "avgPx":"42870.861888",
-        "lastPx":"42870.861888",
-        "lastQty":"0.010000",
-        "lastTurnover":"428.708619",
-        "commission":"0 BTC",
-        "transactionTime":1642144897727,
-        "userId":11433560,
-        "status":"2",
-        "symbolDisplayName":"BTCUSDT",
-        "clearingStatus":1,
-        "clearingAt":1642144897727,
-        "clearingSourceId":"",
-        "clearedQty":"0.010000",
-        "clearedTurnover":"428.708619",
-        "unClearedQty":"0.000000",
-        "unClearedTurnover":"0.000000",
-        "quantityPrecision":6,
-        "amountPrecision":6
       }
     ],
-    "total":4,
+    "total":2,
     "size":10,
     "page":1
   },
@@ -3321,7 +3261,7 @@ API Key 權限：讀取<br>
      <td key="1"><span>string</span></td>
      <td key="2">非必須</td>
      <td key="3"></td>
-     <td key="4"><span style="white-space: pre-wrap">*基础币种</span></td>
+     <td key="4"><span style="white-space: pre-wrap">*基礎幣種</span></td>
      <td key="5"></td>
     </tr>
     <tr key="0-2-0-5">
@@ -3329,7 +3269,7 @@ API Key 權限：讀取<br>
      <td key="1"><span>string</span></td>
      <td key="2">非必須</td>
      <td key="3"></td>
-     <td key="4"><span style="white-space: pre-wrap">*计价币种</span></td>
+     <td key="4"><span style="white-space: pre-wrap">*計價幣種</span></td>
      <td key="5"></td>
     </tr>
     <tr key="0-2-0-6">
@@ -3497,7 +3437,7 @@ API Key 權限：讀取<br>
      <td key="1"><span>integer</span></td>
      <td key="2">非必須</td>
      <td key="3"></td>
-     <td key="4"><span style="white-space: pre-wrap">total records of item for all page.</span></td>
+     <td key="4"><span style="white-space: pre-wrap">總頁數.</span></td>
      <td key="5"></td>
     </tr>
     <tr key="0-2-2">
@@ -3505,7 +3445,7 @@ API Key 權限：讀取<br>
      <td key="1"><span>integer</span></td>
      <td key="2">非必須</td>
      <td key="3"></td>
-     <td key="4"><span style="white-space: pre-wrap">number of item for each page.</span></td>
+     <td key="4"><span style="white-space: pre-wrap">每頁數量.</span></td>
      <td key="5"></td>
     </tr>
     <tr key="0-2-3">
@@ -3513,7 +3453,7 @@ API Key 權限：讀取<br>
      <td key="1"><span>integer</span></td>
      <td key="2">非必須</td>
      <td key="3"></td>
-     <td key="4"><span style="white-space: pre-wrap">current page index, start from 1.</span></td>
+     <td key="4"><span style="white-space: pre-wrap">當前頁數</span></td>
      <td key="5"></td>
     </tr>
     <tr key="0-3">
@@ -3545,6 +3485,7 @@ API Key 權限：讀取<br>
 - GET `/open/otc/api/order/rfq/queryHistoryOrder`
 
 API Key 權限：讀取<br>
+### 請求參數
 
 <html>
  <head></head>
@@ -3582,7 +3523,7 @@ API Key 權限：讀取<br>
      <td key="1"><span>integer</span></td>
      <td key="2">非必須</td>
      <td key="3"></td>
-     <td key="4"><span style="white-space: pre-wrap">total records of item for all page.</span></td>
+     <td key="4"><span style="white-space: pre-wrap">總頁數.</span></td>
      <td key="5"></td>
     </tr>
     <tr key="0-0-2">
@@ -3590,7 +3531,7 @@ API Key 權限：讀取<br>
      <td key="1"><span>integer</span></td>
      <td key="2">非必須</td>
      <td key="3"></td>
-     <td key="4"><span style="white-space: pre-wrap">number of item for each page.</span></td>
+     <td key="4"><span style="white-space: pre-wrap">每頁數量.</span></td>
      <td key="5"></td>
     </tr>
     <tr key="0-0-3">
@@ -3598,7 +3539,7 @@ API Key 權限：讀取<br>
      <td key="1"><span>integer</span></td>
      <td key="2">非必須</td>
      <td key="3"></td>
-     <td key="4"><span style="white-space: pre-wrap">current page index, start from 1.</span></td>
+     <td key="4"><span style="white-space: pre-wrap">當前頁數</span></td>
      <td key="5"></td>
     </tr>
     <tr key="0-1">
@@ -3622,7 +3563,7 @@ API Key 權限：讀取<br>
      <td key="1"><span>string</span></td>
      <td key="2">非必須</td>
      <td key="3"></td>
-     <td key="4"><span style="white-space: pre-wrap">*基础币种</span></td>
+     <td key="4"><span style="white-space: pre-wrap">*基礎幣種</span></td>
      <td key="5"></td>
     </tr>
     <tr key="0-4">
@@ -3630,7 +3571,7 @@ API Key 權限：讀取<br>
      <td key="1"><span>string</span></td>
      <td key="2">非必須</td>
      <td key="3"></td>
-     <td key="4"><span style="white-space: pre-wrap">*计价币种</span></td>
+     <td key="4"><span style="white-space: pre-wrap">*計價幣種</span></td>
      <td key="5"></td>
     </tr>
     <tr key="0-5">
@@ -3685,6 +3626,7 @@ API Key 權限：讀取<br>
   </table> 
  </body>
 </html>
+> Response:
 
 ```json
 {
@@ -3761,79 +3703,9 @@ API Key 權限：讀取<br>
         "timeInForceStr":null,
         "statusStr":null,
         "orderIdStr":"1459028332904512"
-      },
-      {
-        "orderId":1458994340167744,
-        "userId":11433560,
-        "timeInForce":4,
-        "symbol":"BTCUSDT",
-        "baseCurrency":"BTC",
-        "quoteCurrency":"USDT",
-        "side":1,
-        "cumTurnover":429.122724,
-        "quantity":0.01,
-        "price":42912.272377,
-        "createAt":1642387515205,
-        "lastQty":0.01,
-        "lastPx":42912.272377,
-        "cumQuantity":0.01,
-        "avgPx":42912.272377,
-        "commissionFee":0,
-        "updatedAt":1642387515785,
-        "status":2,
-        "clOrdId":"1458994340167712",
-        "orderType":null,
-        "source":1,
-        "accountOperateType":1,
-        "amount":"429.122723",
-        "unComQuantity":"0.000000",
-        "quantityStr":"0.010000",
-        "priceStr":"42912.272377",
-        "comQuantityStr":"0.010000",
-        "avgPxStr":"42912.272377",
-        "commissionFeeStr":null,
-        "sideStr":null,
-        "timeInForceStr":null,
-        "statusStr":null,
-        "orderIdStr":"1458994340167744"
-      },
-      {
-        "orderId":1458485533343808,
-        "userId":11433560,
-        "timeInForce":4,
-        "symbol":"BTCUSDT",
-        "baseCurrency":"BTC",
-        "quoteCurrency":"USDT",
-        "side":1,
-        "cumTurnover":428.708619,
-        "quantity":0.01,
-        "price":42870.861888,
-        "createAt":1642144897326,
-        "lastQty":0.01,
-        "lastPx":42870.861888,
-        "cumQuantity":0.01,
-        "avgPx":42870.861888,
-        "commissionFee":0,
-        "updatedAt":1642144897823,
-        "status":2,
-        "clOrdId":"1458485533343776",
-        "orderType":null,
-        "source":1,
-        "accountOperateType":1,
-        "amount":"428.708618",
-        "unComQuantity":"0.000000",
-        "quantityStr":"0.010000",
-        "priceStr":"42870.861888",
-        "comQuantityStr":"0.010000",
-        "avgPxStr":"42870.861888",
-        "commissionFeeStr":null,
-        "sideStr":null,
-        "timeInForceStr":null,
-        "statusStr":null,
-        "orderIdStr":"1458485533343808"
       }
     ],
-    "total":4,
+    "total":2,
     "size":10,
     "page":1
   },
@@ -4160,7 +4032,7 @@ API Key 權限：讀取<br>
      <td key="1"><span>integer</span></td>
      <td key="2">非必須</td>
      <td key="3"></td>
-     <td key="4"><span style="white-space: pre-wrap">total records of item for all page.</span></td>
+     <td key="4"><span style="white-space: pre-wrap">總頁數.</span></td>
      <td key="5"></td>
     </tr>
     <tr key="0-2-2">
@@ -4168,7 +4040,7 @@ API Key 權限：讀取<br>
      <td key="1"><span>integer</span></td>
      <td key="2">非必須</td>
      <td key="3"></td>
-     <td key="4"><span style="white-space: pre-wrap">number of item for each page.</span></td>
+     <td key="4"><span style="white-space: pre-wrap">每頁數量.</span></td>
      <td key="5"></td>
     </tr>
     <tr key="0-2-3">
@@ -4176,7 +4048,7 @@ API Key 權限：讀取<br>
      <td key="1"><span>integer</span></td>
      <td key="2">非必須</td>
      <td key="3"></td>
-     <td key="4"><span style="white-space: pre-wrap">current page index, start from 1.</span></td>
+     <td key="4"><span style="white-space: pre-wrap">當前頁數</span></td>
      <td key="5"></td>
     </tr>
     <tr key="0-3">
