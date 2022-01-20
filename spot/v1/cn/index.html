@@ -342,6 +342,20 @@
               </ul>
           </li>
           <li>
+            <a href="#215045ded7" class="toc-h1 toc-link" data-title="用戶相關">用戶相關</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#297c83151c" class="toc-h2 toc-link" data-title="是否為授信用戶">是否為授信用戶</a>
+                  </li>
+                  <li>
+                    <a href="#eba2e7aad7" class="toc-h2 toc-link" data-title="是否為白名單用戶">是否為白名單用戶</a>
+                  </li>
+                  <li>
+                    <a href="#0e6554beeb" class="toc-h2 toc-link" data-title="用戶鑒權信息查詢">用戶鑒權信息查詢</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
             <a href="#7df49247bb" class="toc-h1 toc-link" data-title="授信用戶相關">授信用戶相關</a>
               <ul class="toc-list-h2">
                   <li>
@@ -377,6 +391,23 @@
                   </li>
                   <li>
                     <a href="#dafbe4dde9" class="toc-h2 toc-link" data-title="獲取交易對規則">獲取交易對規則</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#f63449692c" class="toc-h1 toc-link" data-title="询价交易">询价交易</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#e6d7611d89" class="toc-h2 toc-link" data-title="发起询价请求">发起询价请求</a>
+                  </li>
+                  <li>
+                    <a href="#a90953ab28" class="toc-h2 toc-link" data-title="发起鎖價下單请求">发起鎖價下單请求</a>
+                  </li>
+                  <li>
+                    <a href="#6d6f703aa5" class="toc-h2 toc-link" data-title="獲取用戶所有成交記錄">獲取用戶所有成交記錄</a>
+                  </li>
+                  <li>
+                    <a href="#769553a3da" class="toc-h2 toc-link" data-title="獲取用戶歷史訂單">獲取用戶歷史訂單</a>
                   </li>
               </ul>
           </li>
@@ -908,9 +939,256 @@ api.huobi-brokerage.com\n
 <code>AccessKeyId=rfhxxxxx-950000847-boooooo3-432c0&amp;SignatureMethod=HmacSHA256&amp;SignatureVersion=2&amp;Timestamp=2019-11-06T03%3A26%3A13</code></p>
 
 <p>註意：Access Key僅能證明您的身份，不會影響您賬戶的安全。切記<strong>不</strong>要將Secret Key信息分享給任何人，若您不小心將Secret Key暴露，請盡快<a href="https://www.hbg.com/zh-cn/apikey/">刪除</a>其對應的API Key，以免造成您的賬戶損失。</p>
+<h1 id='215045ded7'>用戶相關</h1><h2 id='297c83151c'>是否為授信用戶</h2>
+<p>用戶可以通過該接口查詢自己是否為授信用戶</p>
+<h3 id='http'>HTTP 請求</h3>
+<ul>
+<li>POST <code>/open/otc/api/user/isCreditUser</code></li>
+</ul>
+
+<p>API Key 權限：讀取<br></p>
+
+<p>限頻值：2次/1s<br></p>
+<h3 id='ba05bab92e'>請求參數</h3>
+<blockquote>
+<p>Response:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="s2">"code"</span><span class="p">:</span><span class="mi">200</span><span class="p">,</span><span class="s2">"message"</span><span class="p">:</span><span class="s2">"success"</span><span class="p">,</span><span class="s2">"data"</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span><span class="s2">"success"</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span><span class="s2">"messageArgs"</span><span class="p">:[]}</span><span class="w">
+</span></code></pre><h3 id='8cee0e29db'>響應數據</h3>
+<p><html>
+ <head></head>
+ <body>
+  <table> 
+   <thead class="ant-table-thead"> 
+    <tr> 
+     <th key="name">名稱</th>
+     <th key="type">類型</th>
+     <th key="required">是否必須</th>
+     <th key="default">默認值</th>
+     <th key="desc">備註</th>
+     <th key="sub">其他信息</th> 
+    </tr> 
+   </thead>
+   <tbody classname="ant-table-tbody">
+    <tr key="0-0">
+     <td key="0"><span style="padding-left: 0px"><span style="color: #8c8a8a"></span> code</span></td>
+     <td key="1"><span>integer</span></td>
+     <td key="2">非必須</td>
+     <td key="3"></td>
+     <td key="4"><span style="white-space: pre-wrap">业务状态码</span></td>
+     <td key="5"></td>
+    </tr>
+    <tr key="0-1">
+     <td key="0"><span style="padding-left: 0px"><span style="color: #8c8a8a"></span> message</span></td>
+     <td key="1"><span>string</span></td>
+     <td key="2">非必須</td>
+     <td key="3"></td>
+     <td key="4"><span style="white-space: pre-wrap">错误信息（英文）</span></td>
+     <td key="5"></td>
+    </tr>
+    <tr key="0-2">
+     <td key="0"><span style="padding-left: 0px"><span style="color: #8c8a8a"></span> data</span></td>
+     <td key="1"><span>boolean</span></td>
+     <td key="2">非必須</td>
+     <td key="3"></td>
+     <td key="4"><span style="white-space: pre-wrap">返回数据-泛型，支持各种返回的数据格式類型</span></td>
+     <td key="5"></td>
+    </tr>
+    <tr key="0-3">
+     <td key="0"><span style="padding-left: 0px"><span style="color: #8c8a8a"></span> success</span></td>
+     <td key="1"><span>boolean</span></td>
+     <td key="2">非必須</td>
+     <td key="3"></td>
+     <td key="4"><span style="white-space: pre-wrap">执行结果</span></td>
+     <td key="5"></td>
+    </tr>
+    <tr key="0-4">
+     <td key="0"><span style="padding-left: 0px"><span style="color: #8c8a8a"></span> messageArgs</span></td>
+     <td key="1"><span>object []</span></td>
+     <td key="2">非必須</td>
+     <td key="3">new ArrayList&lt;&gt;()</td>
+     <td key="4"><span style="white-space: pre-wrap"></span></td>
+     <td key="5"></td>
+    </tr> 
+   </tbody> 
+  </table>
+ </body>
+</html></p>
+<h2 id='eba2e7aad7'>是否為白名單用戶</h2>
+<p>用戶可以通過該接口查詢自己是否為白名單用戶</p>
+<h3 id='http-2'>HTTP 請求</h3>
+<ul>
+<li>POST <code>/open/otc/api/user/isWhiteUser</code></li>
+</ul>
+
+<p>API Key 權限：讀取<br></p>
+
+<p>限頻值：2次/1s<br></p>
+<h3 id='ba05bab92e-2'>請求參數</h3>
+<blockquote>
+<p>Response:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="s2">"code"</span><span class="p">:</span><span class="mi">200</span><span class="p">,</span><span class="s2">"message"</span><span class="p">:</span><span class="s2">"success"</span><span class="p">,</span><span class="s2">"data"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="s2">"success"</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span><span class="s2">"messageArgs"</span><span class="p">:[]}</span><span class="w">
+</span></code></pre><h3 id='8cee0e29db-2'>響應數據</h3>
+<p><html>
+ <head></head>
+ <body>
+  <table> 
+   <thead class="ant-table-thead"> 
+    <tr> 
+     <th key="name">名稱</th>
+     <th key="type">類型</th>
+     <th key="required">是否必須</th>
+     <th key="default">默認值</th>
+     <th key="desc">備註</th>
+     <th key="sub">其他信息</th> 
+    </tr> 
+   </thead>
+   <tbody classname="ant-table-tbody">
+    <tr key="0-0">
+     <td key="0"><span style="padding-left: 0px"><span style="color: #8c8a8a"></span> code</span></td>
+     <td key="1"><span>integer</span></td>
+     <td key="2">非必須</td>
+     <td key="3"></td>
+     <td key="4"><span style="white-space: pre-wrap">业务状态码</span></td>
+     <td key="5"></td>
+    </tr>
+    <tr key="0-1">
+     <td key="0"><span style="padding-left: 0px"><span style="color: #8c8a8a"></span> message</span></td>
+     <td key="1"><span>string</span></td>
+     <td key="2">非必須</td>
+     <td key="3"></td>
+     <td key="4"><span style="white-space: pre-wrap">错误信息（英文）</span></td>
+     <td key="5"></td>
+    </tr>
+    <tr key="0-2">
+     <td key="0"><span style="padding-left: 0px"><span style="color: #8c8a8a"></span> data</span></td>
+     <td key="1"><span>boolean</span></td>
+     <td key="2">非必須</td>
+     <td key="3"></td>
+     <td key="4"><span style="white-space: pre-wrap">返回数据-泛型，支持各种返回的数据格式類型</span></td>
+     <td key="5"></td>
+    </tr>
+    <tr key="0-3">
+     <td key="0"><span style="padding-left: 0px"><span style="color: #8c8a8a"></span> success</span></td>
+     <td key="1"><span>boolean</span></td>
+     <td key="2">非必須</td>
+     <td key="3"></td>
+     <td key="4"><span style="white-space: pre-wrap">执行结果</span></td>
+     <td key="5"></td>
+    </tr>
+    <tr key="0-4">
+     <td key="0"><span style="padding-left: 0px"><span style="color: #8c8a8a"></span> messageArgs</span></td>
+     <td key="1"><span>object []</span></td>
+     <td key="2">非必須</td>
+     <td key="3">new ArrayList&lt;&gt;()</td>
+     <td key="4"><span style="white-space: pre-wrap"></span></td>
+     <td key="5"></td>
+    </tr> 
+   </tbody> 
+  </table>
+ </body>
+</html></p>
+<h2 id='0e6554beeb'>用戶鑒權信息查詢</h2>
+<p>API Key 權限：讀取<br>
+限頻值（NEW）：100次/2s</p>
+<h3 id='http-3'>HTTP 請求</h3>
+<ul>
+<li>GET <code>/v1/open/merchant/user/getAuthInfo</code></li>
+</ul>
+<h3 id='ba05bab92e-3'>請求參數</h3>
+<table><thead>
+<tr>
+<th>參數名稱</th>
+<th>是否必須</th>
+<th>類型</th>
+<th>描述</th>
+<th>默認值</th>
+<th>取值範圍</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>outerUserId</td>
+<td>true</td>
+<td>string</td>
+<td>（外部系統用戶id）外部系統用戶唯一標識</td>
+<td></td>
+<td></td>
+</tr>
+</tbody></table>
+
+<blockquote>
+<p>Response:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="mi">200</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"outerUserId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"213123D1231"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"outerUid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12312317263123"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">],</span><span class="w">
+  </span><span class="s2">"success"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre><h3 id='8cee0e29db-3'>響應數據</h3>
+<table><thead>
+<tr>
+<th>參數名稱</th>
+<th>是否必須</th>
+<th>數據類型</th>
+<th>描述</th>
+<th>取值範圍</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>code</td>
+<td>true</td>
+<td>integer</td>
+<td>狀態碼</td>
+<td></td>
+</tr>
+<tr>
+<td>message</td>
+<td>false</td>
+<td>string</td>
+<td>錯誤描述（如有）</td>
+<td></td>
+</tr>
+<tr>
+<td>data</td>
+<td>false</td>
+<td>object</td>
+<td>業務數據</td>
+<td></td>
+</tr>
+</tbody></table>
+
+<p>data字段說明</p>
+
+<table><thead>
+<tr>
+<th>參數名稱</th>
+<th>數據類型</th>
+<th>描述</th>
+<th>取值範圍</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>outerUserId</td>
+<td>string</td>
+<td>外部系統用戶標識</td>
+<td></td>
+</tr>
+<tr>
+<td>outerUid</td>
+<td>string</td>
+<td>外部uid</td>
+<td></td>
+</tr>
+</tbody></table>
 <h1 id='7df49247bb'>授信用戶相關</h1><h2 id='0be5293f3b'>获取用戶待結算交易記錄</h2>
 <p>用戶可以通過該接口查詢自己待結算的交易記錄</p>
-<h3 id='http'>HTTP 請求</h3>
+<h3 id='http-4'>HTTP 請求</h3>
 <ul>
 <li>POST <code>/open/otc/api/clearing/query</code></li>
 </ul>
@@ -918,7 +1196,7 @@ api.huobi-brokerage.com\n
 <p>API Key 權限：讀取<br></p>
 
 <p>限頻值：2次/1s<br></p>
-<h3 id='1f9ac54b15'>请求参数</h3>
+<h3 id='ba05bab92e-4'>請求參數</h3>
 <p><html>
  <head></head>
  <body>
@@ -1126,7 +1404,7 @@ api.huobi-brokerage.com\n
 
     </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre><h3 id='8cee0e29db'>響應數據</h3>
+</span></code></pre><h3 id='8cee0e29db-4'>響應數據</h3>
 <p><html>
  <head></head>
  <body>
@@ -1429,7 +1707,7 @@ api.huobi-brokerage.com\n
 <h2 id='575e728ffe'>授信用戶提交結算</h2>
 <p>支持用戶單次提交多筆訂單進行結算，或單筆訂單進行部分結算<BR>1)如果提交多筆訂單進行結算，此時amount要求為空<br>
 2)如果選中單筆訂單進行結算，此時進行部分結算</p>
-<h3 id='http-2'>HTTP 請求</h3>
+<h3 id='http-5'>HTTP 請求</h3>
 <ul>
 <li>POST <code>/open/otc/api/clearing/manual/clearing</code></li>
 </ul>
@@ -1470,7 +1748,7 @@ api.huobi-brokerage.com\n
 <p>Response:</p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="s2">"code"</span><span class="p">:</span><span class="mi">200</span><span class="p">,</span><span class="s2">"message"</span><span class="p">:</span><span class="s2">"success"</span><span class="p">,</span><span class="s2">"data"</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span><span class="s2">"success"</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span><span class="s2">"messageArgs"</span><span class="p">:[]}</span><span class="w">
-</span></code></pre><h3 id='8cee0e29db-2'>響應數據</h3>
+</span></code></pre><h3 id='8cee0e29db-5'>響應數據</h3>
 <table><thead>
 <tr>
 <th>參數名稱</th>
@@ -1504,7 +1782,7 @@ api.huobi-brokerage.com\n
 </tbody></table>
 <h2 id='be4608a8d0'>獲取用戶結算歷史</h2>
 <p>該接口可以查詢到用戶的結算歷史</p>
-<h3 id='http-3'>HTTP 請求</h3>
+<h3 id='http-6'>HTTP 請求</h3>
 <ul>
 <li>POST <code>/open/otc/api/clearing/history</code></li>
 </ul>
@@ -1562,7 +1840,7 @@ api.huobi-brokerage.com\n
 
     </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre><h3 id='8cee0e29db-3'>響應數據</h3>
+</span></code></pre><h3 id='8cee0e29db-6'>響應數據</h3>
 <p><html>
  <head></head>
  <body>
@@ -1696,7 +1974,7 @@ api.huobi-brokerage.com\n
 </html></p>
 <h2 id='f503fe3bda'>獲取用戶結算記錄詳情</h2>
 <p>該接口支持守信用戶查詢結算記錄詳情</p>
-<h3 id='http-4'>HTTP 請求</h3>
+<h3 id='http-7'>HTTP 請求</h3>
 <ul>
 <li>GET <code>/open/otc/api/clearing/details/{clearingId}</code></li>
 </ul>
@@ -1704,7 +1982,7 @@ api.huobi-brokerage.com\n
 <p>API Key 权限：讀取<br></p>
 
 <p>限频值：2次/1秒<br></p>
-<h3 id='1f9ac54b15-2'>请求参数</h3>
+<h3 id='ba05bab92e-5'>請求參數</h3>
 <table><thead>
 <tr>
 <th>参数名稱</th>
@@ -1989,7 +2267,7 @@ api.huobi-brokerage.com\n
 </html></p>
 <h2 id='ef1dc8851c'>获取用户授信汇总信息</h2>
 <p>用戶可以通過該接口查詢到自己賬戶的授信匯總信息</p>
-<h3 id='http-5'>HTTP 請求</h3>
+<h3 id='http-8'>HTTP 請求</h3>
 <ul>
 <li>GET <code>/open/otc/api/clearing/query-account-summary</code></li>
 </ul>
@@ -2154,7 +2432,7 @@ api.huobi-brokerage.com\n
 </html> </p>
 <h1 id='3994670fd3'>用戶賬戶相關</h1><h2 id='eaa6054797'>獲取用戶資產信息</h2>
 <p>用戶可以通過該接口查詢自己賬戶的資產信息</p>
-<h3 id='http-6'>HTTP 請求</h3>
+<h3 id='http-9'>HTTP 請求</h3>
 <ul>
 <li>GET <code>/open/otc/api/user/accountSummary</code></li>
 </ul>
@@ -2534,7 +2812,7 @@ api.huobi-brokerage.com\n
 </html></p>
 <h1 id='f27baa84e9'>交易對相關</h1><h2 id='28e605fd8c'>獲取全部上線交易對</h2>
 <p>用戶可以通過該接口查詢到已上線的全部交易對</p>
-<h3 id='http-7'>HTTP 請求</h3>
+<h3 id='http-10'>HTTP 請求</h3>
 <ul>
 <li>GET <code>/open/otc/api/symbol</code></li>
 </ul>
@@ -2589,7 +2867,7 @@ api.huobi-brokerage.com\n
      <th key="type">類型</th>
      <th key="required">是否必須</th>
      <th key="default">默認值</th>
-     <th key="desc">备注</th>
+     <th key="desc">備註</th>
      <th key="sub">其他信息</th> 
     </tr> 
    </thead>
@@ -2712,7 +2990,7 @@ api.huobi-brokerage.com\n
 </html></p>
 <h2 id='dafbe4dde9'>獲取交易對規則</h2>
 <p>用戶可以通過該接口查詢到交易對規則</p>
-<h3 id='http-8'>HTTP 請求</h3>
+<h3 id='http-11'>HTTP 請求</h3>
 <ul>
 <li>GET <code>/open/otc/api/symbol/{symbol}/setting</code></li>
 </ul>
@@ -2836,6 +3114,1539 @@ api.huobi-brokerage.com\n
      <td key="2">非必須</td>
      <td key="3"></td>
      <td key="4"><span style="white-space: pre-wrap">執行結果</span></td>
+     <td key="5"></td>
+    </tr>
+    <tr key="0-4">
+     <td key="0"><span style="padding-left: 0px"><span style="color: #8c8a8a"></span> messageArgs</span></td>
+     <td key="1"><span>object []</span></td>
+     <td key="2">非必須</td>
+     <td key="3">new ArrayList&lt;&gt;()</td>
+     <td key="4"><span style="white-space: pre-wrap"></span></td>
+     <td key="5"></td>
+    </tr> 
+   </tbody> 
+  </table>
+ </body>
+</html></p>
+<h1 id='f63449692c'>询价交易</h1><h2 id='e6d7611d89'>发起询价请求</h2>
+<p>用戶可以通過該接口發起詢價請求</p>
+<h3 id='http-12'>HTTP 請求</h3>
+<ul>
+<li>GET <code>/open/otc/api/order/rfq/quote/request</code></li>
+</ul>
+
+<p>API Key 權限：讀取<br></p>
+
+<p>限頻值：7次/1s<br></p>
+
+<p>請求參數</p>
+
+<p><html>
+ <head></head>
+ <body>
+  <table> 
+   <thead class="ant-table-thead"> 
+    <tr> 
+     <th key="name">名稱</th>
+     <th key="type">類型</th>
+     <th key="required">是否必須</th>
+     <th key="default">默認值</th>
+     <th key="desc">備註</th>
+     <th key="sub">其他信息</th> 
+    </tr> 
+   </thead>
+   <tbody classname="ant-table-tbody">
+    <tr key="0-0">
+     <td key="0"><span style="padding-left: 0px"><span style="color: #8c8a8a"></span> baseCurrency</span></td>
+     <td key="1"><span>string</span></td>
+     <td key="2">必須</td>
+     <td key="3"></td>
+     <td key="4"><span style="white-space: pre-wrap">基础币种</span></td>
+     <td key="5"></td>
+    </tr>
+    <tr key="0-1">
+     <td key="0"><span style="padding-left: 0px"><span style="color: #8c8a8a"></span> quoteCurrency</span></td>
+     <td key="1"><span>string</span></td>
+     <td key="2">必須</td>
+     <td key="3"></td>
+     <td key="4"><span style="white-space: pre-wrap">计价币种</span></td>
+     <td key="5"></td>
+    </tr>
+    <tr key="0-2">
+     <td key="0"><span style="padding-left: 0px"><span style="color: #8c8a8a"></span> side</span></td>
+     <td key="1"><span>integer</span></td>
+     <td key="2">必須</td>
+     <td key="3"></td>
+     <td key="4"><span style="white-space: pre-wrap">买卖方向 1-买BUY 2-卖SELL</span></td>
+     <td key="5"></td>
+    </tr>
+    <tr key="0-3">
+     <td key="0"><span style="padding-left: 0px"><span style="color: #8c8a8a"></span> baseCurrencySize</span></td>
+     <td key="1"><span>number</span></td>
+     <td key="2">非必須</td>
+     <td key="3"></td>
+     <td key="4"><span style="white-space: pre-wrap">基础币种数值 (null或大于0的数值) 注：基础币种数值和计价币种数值不能并存。 RFQ下单方式有两种，只能取其一： a) 按baseCurrency數量下单 b) 按quoteCurrency金额下单</span></td>
+     <td key="5"><p key="5"><span style="font-weight: '700'">mock: </span><span>@float(0,2)</span></p></td>
+    </tr>
+    <tr key="0-4">
+     <td key="0"><span style="padding-left: 0px"><span style="color: #8c8a8a"></span> quoteCurrencySize</span></td>
+     <td key="1"><span>number</span></td>
+     <td key="2">非必須</td>
+     <td key="3"></td>
+     <td key="4"><span style="white-space: pre-wrap">计价币种数值(null或大于0的数值) 注：基础币种数值和计价币种数值不能并存。 RFQ下单方式有两种，只能取其一： a) 按baseCurrency數量下单 b) 按quoteCurrency金额下单 （同时有baseCurrencySize优先用baseCurrencySize）</span></td>
+     <td key="5"><p key="5"><span style="font-weight: '700'">mock: </span><span>@float(0,2)</span></p></td>
+    </tr> 
+   </tbody> 
+  </table>
+ </body>
+</html></p>
+
+<blockquote>
+<p>Response:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"code"</span><span class="p">:</span><span class="mi">200</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"message"</span><span class="p">:</span><span class="s2">"success"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"data"</span><span class="p">:{</span><span class="w">
+    </span><span class="s2">"requestId"</span><span class="p">:</span><span class="s2">"98cdbcfbce2e7ff7d14786a1c8ed409040a1e9f1"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"price"</span><span class="p">:</span><span class="mf">41944.861407</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"timestamp"</span><span class="p">:</span><span class="mi">1642658651145</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="s2">"success"</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"messageArgs"</span><span class="p">:[</span><span class="w">
+
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre><h3 id='8cee0e29db-7'>響應數據</h3>
+<p><html>
+ <head></head>
+ <body>
+  <table> 
+   <thead class="ant-table-thead"> 
+    <tr> 
+     <th key="name">名稱</th>
+     <th key="type">類型</th>
+     <th key="required">是否必須</th>
+     <th key="default">默認值</th>
+     <th key="desc">備註</th>
+     <th key="sub">其他信息</th> 
+    </tr> 
+   </thead>
+   <tbody classname="ant-table-tbody">
+    <tr key="0-0">
+     <td key="0"><span style="padding-left: 0px"><span style="color: #8c8a8a"></span> code</span></td>
+     <td key="1"><span>integer</span></td>
+     <td key="2">非必須</td>
+     <td key="3"></td>
+     <td key="4"><span style="white-space: pre-wrap"></span></td>
+     <td key="5"></td>
+    </tr>
+    <tr key="0-1">
+     <td key="0"><span style="padding-left: 0px"><span style="color: #8c8a8a"></span> message</span></td>
+     <td key="1"><span>string</span></td>
+     <td key="2">非必須</td>
+     <td key="3"></td>
+     <td key="4"><span style="white-space: pre-wrap"></span></td>
+     <td key="5"></td>
+    </tr>
+    <tr key="0-2">
+     <td key="0"><span style="padding-left: 0px"><span style="color: #8c8a8a"></span> data</span></td>
+     <td key="1"><span>object</span></td>
+     <td key="2">非必須</td>
+     <td key="3"></td>
+     <td key="4"><span style="white-space: pre-wrap"></span></td>
+     <td key="5"></td>
+    </tr>
+    <tr key="0-2-0">
+     <td key="0"><span style="padding-left: 20px"> requestId</span></td>
+     <td key="1"><span>string</span></td>
+     <td key="2">非必須</td>
+     <td key="3"></td>
+     <td key="4"><span style="white-space: pre-wrap"></span></td>
+     <td key="5"></td>
+    </tr>
+    <tr key="0-2-1">
+     <td key="0"><span style="padding-left: 20px"> price</span></td>
+     <td key="1"><span>number</span></td>
+     <td key="2">非必須</td>
+     <td key="3"></td>
+     <td key="4"><span style="white-space: pre-wrap"></span></td>
+     <td key="5"></td>
+    </tr>
+    <tr key="0-2-2">
+     <td key="0"><span style="padding-left: 20px"> timestamp</span></td>
+     <td key="1"><span>integer</span></td>
+     <td key="2">非必須</td>
+     <td key="3"></td>
+     <td key="4"><span style="white-space: pre-wrap"></span></td>
+     <td key="5"></td>
+    </tr>
+    <tr key="0-3">
+     <td key="0"><span style="padding-left: 0px"><span style="color: #8c8a8a"></span> success</span></td>
+     <td key="1"><span>boolean</span></td>
+     <td key="2">非必須</td>
+     <td key="3"></td>
+     <td key="4"><span style="white-space: pre-wrap"></span></td>
+     <td key="5"></td>
+    </tr>
+    <tr key="0-4">
+     <td key="0"><span style="padding-left: 0px"><span style="color: #8c8a8a"></span> messageArgs</span></td>
+     <td key="1"><span>object []</span></td>
+     <td key="2">非必須</td>
+     <td key="3">new ArrayList&lt;&gt;()</td>
+     <td key="4"><span style="white-space: pre-wrap"></span></td>
+     <td key="5"></td>
+    </tr> 
+   </tbody> 
+  </table>
+ </body>
+</html></p>
+<h2 id='a90953ab28'>发起鎖價下單请求</h2>
+<p>用戶可以通過該接口發起鎖價下單請求</p>
+<h3 id='http-13'>HTTP 請求</h3>
+<ul>
+<li>GET <code>/open/otc/api/order/rfq/quote/accept</code></li>
+</ul>
+
+<p>API Key 權限：寫入<br></p>
+
+<p>限頻值：2次/1s<br></p>
+
+<p>請求參數
+<html>
+ <head></head>
+ <body>
+  <table> 
+   <thead class="ant-table-thead"> 
+    <tr> 
+     <th key="name">名稱</th>
+     <th key="type">類型</th>
+     <th key="required">是否必須</th>
+     <th key="default">默認值</th>
+     <th key="desc">備註</th>
+     <th key="sub">其他信息</th> 
+    </tr> 
+   </thead>
+   <tbody classname="ant-table-tbody">
+    <tr key="0-0">
+     <td key="0"><span style="padding-left: 0px"><span style="color: #8c8a8a"></span> rfqQuotationId</span></td>
+     <td key="1"><span>string</span></td>
+     <td key="2">必須</td>
+     <td key="3"></td>
+     <td key="4"><span style="white-space: pre-wrap"></span></td>
+     <td key="5"></td>
+    </tr> 
+   </tbody> 
+  </table> 
+ </body>
+</html></p>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="s2">"code"</span><span class="p">:</span><span class="mi">200</span><span class="p">,</span><span class="s2">"message"</span><span class="p">:</span><span class="s2">"success"</span><span class="p">,</span><span class="s2">"data"</span><span class="p">:</span><span class="mi">1459564954255424</span><span class="p">,</span><span class="s2">"success"</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span><span class="s2">"messageArgs"</span><span class="p">:[]}</span><span class="w">
+</span></code></pre><h3 id='8cee0e29db-8'>響應數據</h3>
+<p><html>
+ <head></head>
+ <body>
+  <table> 
+   <thead class="ant-table-thead"> 
+    <tr> 
+     <th key="name">名稱</th>
+     <th key="type">類型</th>
+     <th key="required">是否必須</th>
+     <th key="default">默認值</th>
+     <th key="desc">備註</th>
+     <th key="sub">其他信息</th> 
+    </tr> 
+   </thead>
+   <tbody classname="ant-table-tbody">
+    <tr key="0-0">
+     <td key="0"><span style="padding-left: 0px"><span style="color: #8c8a8a"></span> code</span></td>
+     <td key="1"><span>integer</span></td>
+     <td key="2">非必須</td>
+     <td key="3"></td>
+     <td key="4"><span style="white-space: pre-wrap"></span></td>
+     <td key="5"></td>
+    </tr>
+    <tr key="0-1">
+     <td key="0"><span style="padding-left: 0px"><span style="color: #8c8a8a"></span> message</span></td>
+     <td key="1"><span>string</span></td>
+     <td key="2">非必須</td>
+     <td key="3"></td>
+     <td key="4"><span style="white-space: pre-wrap"></span></td>
+     <td key="5"></td>
+    </tr>
+    <tr key="0-2">
+     <td key="0"><span style="padding-left: 0px"><span style="color: #8c8a8a"></span> data</span></td>
+     <td key="1"><span>integer</span></td>
+     <td key="2">非必須</td>
+     <td key="3"></td>
+     <td key="4"><span style="white-space: pre-wrap"></span></td>
+     <td key="5"></td>
+    </tr>
+    <tr key="0-3">
+     <td key="0"><span style="padding-left: 0px"><span style="color: #8c8a8a"></span> success</span></td>
+     <td key="1"><span>boolean</span></td>
+     <td key="2">非必須</td>
+     <td key="3"></td>
+     <td key="4"><span style="white-space: pre-wrap"></span></td>
+     <td key="5"></td>
+    </tr>
+    <tr key="0-4">
+     <td key="0"><span style="padding-left: 0px"><span style="color: #8c8a8a"></span> messageArgs</span></td>
+     <td key="1"><span>object []</span></td>
+     <td key="2">非必須</td>
+     <td key="3">new ArrayList&lt;&gt;()</td>
+     <td key="4"><span style="white-space: pre-wrap"></span></td>
+     <td key="5"></td>
+    </tr> 
+   </tbody> 
+  </table>
+ </body>
+</html></p>
+<h2 id='6d6f703aa5'>獲取用戶所有成交記錄</h2>
+<p>用戶可以通過該接口獲取訂單成交記錄</p>
+<h3 id='http-14'>HTTP 請求</h3>
+<ul>
+<li>POST <code>/open/otc/api/order/rfq/query</code></li>
+</ul>
+
+<p>API Key 權限：讀取<br></p>
+
+<p>限頻值：2次/1s<br></p>
+
+<p><html>
+ <head></head>
+ <body>
+  <table> 
+   <thead class="ant-table-thead"> 
+    <tr> 
+     <th key="name">名稱</th>
+     <th key="type">類型</th>
+     <th key="required">是否必須</th>
+     <th key="default">默認值</th>
+     <th key="desc">備註</th>
+     <th key="sub">其他信息</th> 
+    </tr> 
+   </thead>
+   <tbody classname="ant-table-tbody">
+    <tr key="0-0">
+     <td key="0"><span style="padding-left: 0px"><span style="color: #8c8a8a"></span> page</span></td>
+     <td key="1"><span>object</span></td>
+     <td key="2">非必須</td>
+     <td key="3"></td>
+     <td key="4"><span style="white-space: pre-wrap">分页查询参数</span></td>
+     <td key="5"></td>
+    </tr>
+    <tr key="0-0-0">
+     <td key="0"><span style="padding-left: 20px"> items</span></td>
+     <td key="1"><span>object []</span></td>
+     <td key="2">非必須</td>
+     <td key="3"></td>
+     <td key="4"><span style="white-space: pre-wrap">item list for page.</span></td>
+     <td key="5"></td>
+    </tr>
+    <tr key="0-0-1">
+     <td key="0"><span style="padding-left: 20px"> total</span></td>
+     <td key="1"><span>integer</span></td>
+     <td key="2">非必須</td>
+     <td key="3"></td>
+     <td key="4"><span style="white-space: pre-wrap">total records of item for all page.</span></td>
+     <td key="5"></td>
+    </tr>
+    <tr key="0-0-2">
+     <td key="0"><span style="padding-left: 20px"> size</span></td>
+     <td key="1"><span>integer</span></td>
+     <td key="2">非必須</td>
+     <td key="3"></td>
+     <td key="4"><span style="white-space: pre-wrap">number of item for each page.</span></td>
+     <td key="5"></td>
+    </tr>
+    <tr key="0-0-3">
+     <td key="0"><span style="padding-left: 20px"> page</span></td>
+     <td key="1"><span>integer</span></td>
+     <td key="2">非必須</td>
+     <td key="3"></td>
+     <td key="4"><span style="white-space: pre-wrap">current page index, start from 1.</span></td>
+     <td key="5"></td>
+    </tr>
+    <tr key="0-1">
+     <td key="0"><span style="padding-left: 0px"><span style="color: #8c8a8a"></span> side</span></td>
+     <td key="1"><span>string</span></td>
+     <td key="2">非必須</td>
+     <td key="3"></td>
+     <td key="4"><span style="white-space: pre-wrap">交易方向</span></td>
+     <td key="5"></td>
+    </tr>
+    <tr key="0-2">
+     <td key="0"><span style="padding-left: 0px"><span style="color: #8c8a8a"></span> baseCurrency</span></td>
+     <td key="1"><span>string</span></td>
+     <td key="2">非必須</td>
+     <td key="3"></td>
+     <td key="4"><span style="white-space: pre-wrap">基础币种</span></td>
+     <td key="5"></td>
+    </tr>
+    <tr key="0-3">
+     <td key="0"><span style="padding-left: 0px"><span style="color: #8c8a8a"></span> quoteCurrency</span></td>
+     <td key="1"><span>string</span></td>
+     <td key="2">非必須</td>
+     <td key="3"></td>
+     <td key="4"><span style="white-space: pre-wrap">计价币种</span></td>
+     <td key="5"></td>
+    </tr>
+    <tr key="0-4">
+     <td key="0"><span style="padding-left: 0px"><span style="color: #8c8a8a"></span> timeInForce</span></td>
+     <td key="1"><span>integer</span></td>
+     <td key="2">非必須</td>
+     <td key="3"></td>
+     <td key="4"><span style="white-space: pre-wrap"></span></td>
+     <td key="5"></td>
+    </tr>
+    <tr key="0-5">
+     <td key="0"><span style="padding-left: 0px"><span style="color: #8c8a8a"></span> startTime</span></td>
+     <td key="1"><span>integer</span></td>
+     <td key="2">非必須</td>
+     <td key="3"></td>
+     <td key="4"><span style="white-space: pre-wrap">订单时间查询开始时间</span></td>
+     <td key="5"></td>
+    </tr>
+    <tr key="0-6">
+     <td key="0"><span style="padding-left: 0px"><span style="color: #8c8a8a"></span> endTime</span></td>
+     <td key="1"><span>integer</span></td>
+     <td key="2">非必須</td>
+     <td key="3"></td>
+     <td key="4"><span style="white-space: pre-wrap">订单时间-查询结束时间</span></td>
+     <td key="5"></td>
+    </tr>
+    <tr key="0-7">
+     <td key="0"><span style="padding-left: 0px"><span style="color: #8c8a8a"></span> orderId</span></td>
+     <td key="1"><span>string</span></td>
+     <td key="2">非必須</td>
+     <td key="3"></td>
+     <td key="4"><span style="white-space: pre-wrap">订单id</span></td>
+     <td key="5"></td>
+    </tr>
+    <tr key="0-8">
+     <td key="0"><span style="padding-left: 0px"><span style="color: #8c8a8a"></span> clearingStatus</span></td>
+     <td key="1"><span>integer</span></td>
+     <td key="2">非必須</td>
+     <td key="3"></td>
+     <td key="4"><span style="white-space: pre-wrap">清算状态{@linkplain com.huobi.hbt.brokerage.rfqbase.common.enums.order.TradeClearingStatusEnum}</span></td>
+     <td key="5"></td>
+    </tr>
+    <tr key="0-9">
+     <td key="0"><span style="padding-left: 0px"><span style="color: #8c8a8a"></span> tradeStatusList</span></td>
+     <td key="1"><span>integer []</span></td>
+     <td key="2">非必須</td>
+     <td key="3"></td>
+     <td key="4"><span style="white-space: pre-wrap">交易状态集合</span></td>
+     <td key="5"><p key="3"><span style="font-weight: '700'">item 類型: </span><span>integer</span></p></td>
+    </tr>
+    <tr key="array-117">
+     <td key="0"><span style="padding-left: 20px"> </span></td>
+     <td key="1"><span></span></td>
+     <td key="2">非必須</td>
+     <td key="3"></td>
+     <td key="4"><span style="white-space: pre-wrap"></span></td>
+     <td key="5"></td>
+    </tr>
+    <tr key="0-10">
+     <td key="0"><span style="padding-left: 0px"><span style="color: #8c8a8a"></span> clearingStatusList</span></td>
+     <td key="1"><span>integer []</span></td>
+     <td key="2">非必須</td>
+     <td key="3"></td>
+     <td key="4"><span style="white-space: pre-wrap">清算状态集合</span></td>
+     <td key="5"><p key="3"><span style="font-weight: '700'">item 類型: </span><span>integer</span></p></td>
+    </tr>
+    <tr key="array-118">
+     <td key="0"><span style="padding-left: 20px"> </span></td>
+     <td key="1"><span></span></td>
+     <td key="2">非必須</td>
+     <td key="3"></td>
+     <td key="4"><span style="white-space: pre-wrap"></span></td>
+     <td key="5"></td>
+    </tr>
+    <tr key="0-11">
+     <td key="0"><span style="padding-left: 0px"><span style="color: #8c8a8a"></span> ascending</span></td>
+     <td key="1"><span>string</span></td>
+     <td key="2">非必須</td>
+     <td key="3"></td>
+     <td key="4"><span style="white-space: pre-wrap">正序(&quot;asc&quot;)还是倒序(&quot;desc&quot;)，默认是倒序</span></td>
+     <td key="5"></td>
+    </tr> 
+   </tbody> 
+  </table> 
+ </body>
+</html></p>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"code"</span><span class="p">:</span><span class="mi">200</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"message"</span><span class="p">:</span><span class="s2">"success"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"data"</span><span class="p">:{</span><span class="w">
+    </span><span class="s2">"items"</span><span class="p">:[</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"id"</span><span class="p">:</span><span class="mi">2107</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"orderId"</span><span class="p">:</span><span class="mi">1459028660060224</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"side"</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"timeInForce"</span><span class="p">:</span><span class="mi">4</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"baseCurrency"</span><span class="p">:</span><span class="s2">"BTC"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"quoteCurrency"</span><span class="p">:</span><span class="s2">"USDT"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"quantity"</span><span class="p">:</span><span class="s2">"0.010000"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"cumQuantity"</span><span class="p">:</span><span class="s2">"0.010000"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"avgPx"</span><span class="p">:</span><span class="s2">"42763.112689"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"lastPx"</span><span class="p">:</span><span class="s2">"42763.112689"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"lastQty"</span><span class="p">:</span><span class="s2">"0.010000"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"lastTurnover"</span><span class="p">:</span><span class="s2">"427.631127"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"commission"</span><span class="p">:</span><span class="s2">"0 USDT"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"transactionTime"</span><span class="p">:</span><span class="mi">1642403881442</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"userId"</span><span class="p">:</span><span class="mi">11433560</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"status"</span><span class="p">:</span><span class="s2">"2"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"symbolDisplayName"</span><span class="p">:</span><span class="s2">"BTCUSDT"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"clearingStatus"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"clearingAt"</span><span class="p">:</span><span class="mi">1642403881442</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"clearingSourceId"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"clearedQty"</span><span class="p">:</span><span class="s2">"0.010000"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"clearedTurnover"</span><span class="p">:</span><span class="s2">"427.631127"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"unClearedQty"</span><span class="p">:</span><span class="s2">"0.000000"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"unClearedTurnover"</span><span class="p">:</span><span class="s2">"0.000000"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"quantityPrecision"</span><span class="p">:</span><span class="mi">6</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"amountPrecision"</span><span class="p">:</span><span class="mi">6</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"id"</span><span class="p">:</span><span class="mi">2105</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"orderId"</span><span class="p">:</span><span class="mi">1459028332904512</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"side"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"timeInForce"</span><span class="p">:</span><span class="mi">4</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"baseCurrency"</span><span class="p">:</span><span class="s2">"BTC"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"quoteCurrency"</span><span class="p">:</span><span class="s2">"USDT"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"quantity"</span><span class="p">:</span><span class="s2">"0.010000"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"cumQuantity"</span><span class="p">:</span><span class="s2">"0.010000"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"avgPx"</span><span class="p">:</span><span class="s2">"42876.586450"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"lastPx"</span><span class="p">:</span><span class="s2">"42876.586450"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"lastQty"</span><span class="p">:</span><span class="s2">"0.010000"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"lastTurnover"</span><span class="p">:</span><span class="s2">"428.765864"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"commission"</span><span class="p">:</span><span class="s2">"0 BTC"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"transactionTime"</span><span class="p">:</span><span class="mi">1642403724601</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"userId"</span><span class="p">:</span><span class="mi">11433560</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"status"</span><span class="p">:</span><span class="s2">"2"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"symbolDisplayName"</span><span class="p">:</span><span class="s2">"BTCUSDT"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"clearingStatus"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"clearingAt"</span><span class="p">:</span><span class="mi">1642403724601</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"clearingSourceId"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"clearedQty"</span><span class="p">:</span><span class="s2">"0.010000"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"clearedTurnover"</span><span class="p">:</span><span class="s2">"428.765864"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"unClearedQty"</span><span class="p">:</span><span class="s2">"0.000000"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"unClearedTurnover"</span><span class="p">:</span><span class="s2">"0.000000"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"quantityPrecision"</span><span class="p">:</span><span class="mi">6</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"amountPrecision"</span><span class="p">:</span><span class="mi">6</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"id"</span><span class="p">:</span><span class="mi">2103</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"orderId"</span><span class="p">:</span><span class="mi">1458994340167744</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"side"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"timeInForce"</span><span class="p">:</span><span class="mi">4</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"baseCurrency"</span><span class="p">:</span><span class="s2">"BTC"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"quoteCurrency"</span><span class="p">:</span><span class="s2">"USDT"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"quantity"</span><span class="p">:</span><span class="s2">"0.010000"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"cumQuantity"</span><span class="p">:</span><span class="s2">"0.010000"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"avgPx"</span><span class="p">:</span><span class="s2">"42912.272377"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"lastPx"</span><span class="p">:</span><span class="s2">"42912.272377"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"lastQty"</span><span class="p">:</span><span class="s2">"0.010000"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"lastTurnover"</span><span class="p">:</span><span class="s2">"429.122724"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"commission"</span><span class="p">:</span><span class="s2">"0 BTC"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"transactionTime"</span><span class="p">:</span><span class="mi">1642387515709</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"userId"</span><span class="p">:</span><span class="mi">11433560</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"status"</span><span class="p">:</span><span class="s2">"2"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"symbolDisplayName"</span><span class="p">:</span><span class="s2">"BTCUSDT"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"clearingStatus"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"clearingAt"</span><span class="p">:</span><span class="mi">1642387515709</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"clearingSourceId"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"clearedQty"</span><span class="p">:</span><span class="s2">"0.010000"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"clearedTurnover"</span><span class="p">:</span><span class="s2">"429.122724"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"unClearedQty"</span><span class="p">:</span><span class="s2">"0.000000"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"unClearedTurnover"</span><span class="p">:</span><span class="s2">"0.000000"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"quantityPrecision"</span><span class="p">:</span><span class="mi">6</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"amountPrecision"</span><span class="p">:</span><span class="mi">6</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"id"</span><span class="p">:</span><span class="mi">2097</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"orderId"</span><span class="p">:</span><span class="mi">1458485533343808</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"side"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"timeInForce"</span><span class="p">:</span><span class="mi">4</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"baseCurrency"</span><span class="p">:</span><span class="s2">"BTC"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"quoteCurrency"</span><span class="p">:</span><span class="s2">"USDT"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"quantity"</span><span class="p">:</span><span class="s2">"0.010000"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"cumQuantity"</span><span class="p">:</span><span class="s2">"0.010000"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"avgPx"</span><span class="p">:</span><span class="s2">"42870.861888"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"lastPx"</span><span class="p">:</span><span class="s2">"42870.861888"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"lastQty"</span><span class="p">:</span><span class="s2">"0.010000"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"lastTurnover"</span><span class="p">:</span><span class="s2">"428.708619"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"commission"</span><span class="p">:</span><span class="s2">"0 BTC"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"transactionTime"</span><span class="p">:</span><span class="mi">1642144897727</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"userId"</span><span class="p">:</span><span class="mi">11433560</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"status"</span><span class="p">:</span><span class="s2">"2"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"symbolDisplayName"</span><span class="p">:</span><span class="s2">"BTCUSDT"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"clearingStatus"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"clearingAt"</span><span class="p">:</span><span class="mi">1642144897727</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"clearingSourceId"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"clearedQty"</span><span class="p">:</span><span class="s2">"0.010000"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"clearedTurnover"</span><span class="p">:</span><span class="s2">"428.708619"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"unClearedQty"</span><span class="p">:</span><span class="s2">"0.000000"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"unClearedTurnover"</span><span class="p">:</span><span class="s2">"0.000000"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"quantityPrecision"</span><span class="p">:</span><span class="mi">6</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"amountPrecision"</span><span class="p">:</span><span class="mi">6</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+    </span><span class="s2">"total"</span><span class="p">:</span><span class="mi">4</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"size"</span><span class="p">:</span><span class="mi">10</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"page"</span><span class="p">:</span><span class="mi">1</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="s2">"success"</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"messageArgs"</span><span class="p">:[</span><span class="w">
+
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre><h3 id='8cee0e29db-9'>響應數據</h3>
+<p><html>
+ <head></head>
+ <body>
+  <table> 
+   <thead class="ant-table-thead"> 
+    <tr> 
+     <th key="name">名稱</th>
+     <th key="type">類型</th>
+     <th key="required">是否必須</th>
+     <th key="default">默認值</th>
+     <th key="desc">備註</th>
+     <th key="sub">其他信息</th> 
+    </tr> 
+   </thead>
+   <tbody classname="ant-table-tbody">
+    <tr key="0-0">
+     <td key="0"><span style="padding-left: 0px"><span style="color: #8c8a8a"></span> code</span></td>
+     <td key="1"><span>integer</span></td>
+     <td key="2">非必須</td>
+     <td key="3"></td>
+     <td key="4"><span style="white-space: pre-wrap"></span></td>
+     <td key="5"></td>
+    </tr>
+    <tr key="0-1">
+     <td key="0"><span style="padding-left: 0px"><span style="color: #8c8a8a"></span> message</span></td>
+     <td key="1"><span>string</span></td>
+     <td key="2">非必須</td>
+     <td key="3"></td>
+     <td key="4"><span style="white-space: pre-wrap"></span></td>
+     <td key="5"></td>
+    </tr>
+    <tr key="0-2">
+     <td key="0"><span style="padding-left: 0px"><span style="color: #8c8a8a"></span> data</span></td>
+     <td key="1"><span>object</span></td>
+     <td key="2">非必須</td>
+     <td key="3"></td>
+     <td key="4"><span style="white-space: pre-wrap"></span></td>
+     <td key="5"></td>
+    </tr>
+    <tr key="0-2-0">
+     <td key="0"><span style="padding-left: 20px"> items</span></td>
+     <td key="1"><span>object []</span></td>
+     <td key="2">非必須</td>
+     <td key="3"></td>
+     <td key="4"><span style="white-space: pre-wrap">item list for page.</span></td>
+     <td key="5"></td>
+    </tr>
+    <tr key="0-2-0-0">
+     <td key="0"><span style="padding-left: 40px"> id</span></td>
+     <td key="1"><span>integer</span></td>
+     <td key="2">非必須</td>
+     <td key="3"></td>
+     <td key="4"><span style="white-space: pre-wrap"></span></td>
+     <td key="5"></td>
+    </tr>
+    <tr key="0-2-0-1">
+     <td key="0"><span style="padding-left: 40px"> orderId</span></td>
+     <td key="1"><span>integer</span></td>
+     <td key="2">非必須</td>
+     <td key="3"></td>
+     <td key="4"><span style="white-space: pre-wrap"><em>订单ID</span></td>
+     <td key="5"></td>
+    </tr>
+    <tr key="0-2-0-2">
+     <td key="0"><span style="padding-left: 40px"> side</span></td>
+     <td key="1"><span>integer</span></td>
+     <td key="2">非必須</td>
+     <td key="3"></td>
+     <td key="4"><span style="white-space: pre-wrap">交易方向1 buy, 2 sell</span></td>
+     <td key="5"></td>
+    </tr>
+    <tr key="0-2-0-3">
+     <td key="0"><span style="padding-left: 40px"> timeInForce</span></td>
+     <td key="1"><span>integer</span></td>
+     <td key="2">非必須</td>
+     <td key="3"></td>
+     <td key="4"><span style="white-space: pre-wrap"></em>交易類型</span></td>
+     <td key="5"></td>
+    </tr>
+    <tr key="0-2-0-4">
+     <td key="0"><span style="padding-left: 40px"> baseCurrency</span></td>
+     <td key="1"><span>string</span></td>
+     <td key="2">非必須</td>
+     <td key="3"></td>
+     <td key="4"><span style="white-space: pre-wrap"><em>基础币种</span></td>
+     <td key="5"></td>
+    </tr>
+    <tr key="0-2-0-5">
+     <td key="0"><span style="padding-left: 40px"> quoteCurrency</span></td>
+     <td key="1"><span>string</span></td>
+     <td key="2">非必須</td>
+     <td key="3"></td>
+     <td key="4"><span style="white-space: pre-wrap"></em>计价币种</span></td>
+     <td key="5"></td>
+    </tr>
+    <tr key="0-2-0-6">
+     <td key="0"><span style="padding-left: 40px"> quantity</span></td>
+     <td key="1"><span>string</span></td>
+     <td key="2">非必須</td>
+     <td key="3"></td>
+     <td key="4"><span style="white-space: pre-wrap"><em>订单數量</span></td>
+     <td key="5"></td>
+    </tr>
+    <tr key="0-2-0-7">
+     <td key="0"><span style="padding-left: 40px"> cumQuantity</span></td>
+     <td key="1"><span>string</span></td>
+     <td key="2">非必須</td>
+     <td key="3"></td>
+     <td key="4"><span style="white-space: pre-wrap"></em>累计已交易订单數量</span></td>
+     <td key="5"></td>
+    </tr>
+    <tr key="0-2-0-8">
+     <td key="0"><span style="padding-left: 40px"> avgPx</span></td>
+     <td key="1"><span>string</span></td>
+     <td key="2">非必須</td>
+     <td key="3"></td>
+     <td key="4"><span style="white-space: pre-wrap"><em>累计已交易订单平均成交價格</span></td>
+     <td key="5"></td>
+    </tr>
+    <tr key="0-2-0-9">
+     <td key="0"><span style="padding-left: 40px"> lastPx</span></td>
+     <td key="1"><span>string</span></td>
+     <td key="2">非必須</td>
+     <td key="3"></td>
+     <td key="4"><span style="white-space: pre-wrap"></em>本次交易價格</span></td>
+     <td key="5"></td>
+    </tr>
+    <tr key="0-2-0-10">
+     <td key="0"><span style="padding-left: 40px"> lastQty</span></td>
+     <td key="1"><span>string</span></td>
+     <td key="2">非必須</td>
+     <td key="3"></td>
+     <td key="4"><span style="white-space: pre-wrap"><em>本次交易數量</span></td>
+     <td key="5"></td>
+    </tr>
+    <tr key="0-2-0-11">
+     <td key="0"><span style="padding-left: 40px"> lastTurnover</span></td>
+     <td key="1"><span>string</span></td>
+     <td key="2">非必須</td>
+     <td key="3"></td>
+     <td key="4"><span style="white-space: pre-wrap"></em>本次交易金额 =lastPx*lastQty</span></td>
+     <td key="5"></td>
+    </tr>
+    <tr key="0-2-0-12">
+     <td key="0"><span style="padding-left: 40px"> commission</span></td>
+     <td key="1"><span>string</span></td>
+     <td key="2">非必須</td>
+     <td key="3"></td>
+     <td key="4"><span style="white-space: pre-wrap"><em>交易手续费/佣金</span></td>
+     <td key="5"></td>
+    </tr>
+    <tr key="0-2-0-13">
+     <td key="0"><span style="padding-left: 40px"> transactionTime</span></td>
+     <td key="1"><span>integer</span></td>
+     <td key="2">非必須</td>
+     <td key="3"></td>
+     <td key="4"><span style="white-space: pre-wrap"></em>时间戳</span></td>
+     <td key="5"></td>
+    </tr>
+    <tr key="0-2-0-14">
+     <td key="0"><span style="padding-left: 40px"> userId</span></td>
+     <td key="1"><span>integer</span></td>
+     <td key="2">非必須</td>
+     <td key="3"></td>
+     <td key="4"><span style="white-space: pre-wrap"><em>UserId</span></td>
+     <td key="5"></td>
+    </tr>
+    <tr key="0-2-0-15">
+     <td key="0"><span style="padding-left: 40px"> status</span></td>
+     <td key="1"><span>string</span></td>
+     <td key="2">非必須</td>
+     <td key="3"></td>
+     <td key="4"><span style="white-space: pre-wrap">*Order Status 询价交易只有2-成功，4-取消，8-失败</span></td>
+     <td key="5"></td>
+    </tr>
+    <tr key="0-2-0-16">
+     <td key="0"><span style="padding-left: 40px"> symbolDisplayName</span></td>
+     <td key="1"><span>string</span></td>
+     <td key="2">非必須</td>
+     <td key="3"></td>
+     <td key="4"><span style="white-space: pre-wrap"></em>交易对展示名稱</span></td>
+     <td key="5"></td>
+    </tr>
+    <tr key="0-2-0-17">
+     <td key="0"><span style="padding-left: 40px"> clearingStatus</span></td>
+     <td key="1"><span>integer</span></td>
+     <td key="2">非必須</td>
+     <td key="3"></td>
+     <td key="4"><span style="white-space: pre-wrap"><em>结算状态</span></td>
+     <td key="5"></td>
+    </tr>
+    <tr key="0-2-0-18">
+     <td key="0"><span style="padding-left: 40px"> clearingAt</span></td>
+     <td key="1"><span>integer</span></td>
+     <td key="2">非必須</td>
+     <td key="3"></td>
+     <td key="4"><span style="white-space: pre-wrap"></em>结算时间</span></td>
+     <td key="5"></td>
+    </tr>
+    <tr key="0-2-0-19">
+     <td key="0"><span style="padding-left: 40px"> clearingSourceId</span></td>
+     <td key="1"><span>string</span></td>
+     <td key="2">非必須</td>
+     <td key="3"></td>
+     <td key="4"><span style="white-space: pre-wrap"><em>结算批次ID</span></td>
+     <td key="5"></td>
+    </tr>
+    <tr key="0-2-0-20">
+     <td key="0"><span style="padding-left: 40px"> clearedQty</span></td>
+     <td key="1"><span>string</span></td>
+     <td key="2">非必須</td>
+     <td key="3"></td>
+     <td key="4"><span style="white-space: pre-wrap"></em> 已结算的數量</span></td>
+     <td key="5"></td>
+    </tr>
+    <tr key="0-2-0-21">
+     <td key="0"><span style="padding-left: 40px"> clearedTurnover</span></td>
+     <td key="1"><span>string</span></td>
+     <td key="2">非必須</td>
+     <td key="3"></td>
+     <td key="4"><span style="white-space: pre-wrap">* 已结算的金额</span></td>
+     <td key="5"></td>
+    </tr>
+    <tr key="0-2-0-22">
+     <td key="0"><span style="padding-left: 40px"> unClearedQty</span></td>
+     <td key="1"><span>string</span></td>
+     <td key="2">非必須</td>
+     <td key="3"></td>
+     <td key="4"><span style="white-space: pre-wrap">* 待结算的數量</span></td>
+     <td key="5"></td>
+    </tr>
+    <tr key="0-2-0-23">
+     <td key="0"><span style="padding-left: 40px"> unClearedTurnover</span></td>
+     <td key="1"><span>string</span></td>
+     <td key="2">非必須</td>
+     <td key="3"></td>
+     <td key="4"><span style="white-space: pre-wrap">* 待结算的金额</span></td>
+     <td key="5"></td>
+    </tr>
+    <tr key="0-2-0-24">
+     <td key="0"><span style="padding-left: 40px"> quantityPrecision</span></td>
+     <td key="1"><span>integer</span></td>
+     <td key="2">非必須</td>
+     <td key="3"></td>
+     <td key="4"><span style="white-space: pre-wrap">* 數量精度 (base)</span></td>
+     <td key="5"></td>
+    </tr>
+    <tr key="0-2-0-25">
+     <td key="0"><span style="padding-left: 40px"> amountPrecision</span></td>
+     <td key="1"><span>integer</span></td>
+     <td key="2">非必須</td>
+     <td key="3"></td>
+     <td key="4"><span style="white-space: pre-wrap">* 金额精度 (quote)</span></td>
+     <td key="5"></td>
+    </tr>
+    <tr key="0-2-1">
+     <td key="0"><span style="padding-left: 20px"> total</span></td>
+     <td key="1"><span>integer</span></td>
+     <td key="2">非必須</td>
+     <td key="3"></td>
+     <td key="4"><span style="white-space: pre-wrap">total records of item for all page.</span></td>
+     <td key="5"></td>
+    </tr>
+    <tr key="0-2-2">
+     <td key="0"><span style="padding-left: 20px"> size</span></td>
+     <td key="1"><span>integer</span></td>
+     <td key="2">非必須</td>
+     <td key="3"></td>
+     <td key="4"><span style="white-space: pre-wrap">number of item for each page.</span></td>
+     <td key="5"></td>
+    </tr>
+    <tr key="0-2-3">
+     <td key="0"><span style="padding-left: 20px"> page</span></td>
+     <td key="1"><span>integer</span></td>
+     <td key="2">非必須</td>
+     <td key="3"></td>
+     <td key="4"><span style="white-space: pre-wrap">current page index, start from 1.</span></td>
+     <td key="5"></td>
+    </tr>
+    <tr key="0-3">
+     <td key="0"><span style="padding-left: 0px"><span style="color: #8c8a8a"></span> success</span></td>
+     <td key="1"><span>boolean</span></td>
+     <td key="2">非必須</td>
+     <td key="3"></td>
+     <td key="4"><span style="white-space: pre-wrap"></span></td>
+     <td key="5"></td>
+    </tr>
+    <tr key="0-4">
+     <td key="0"><span style="padding-left: 0px"><span style="color: #8c8a8a"></span> messageArgs</span></td>
+     <td key="1"><span>object []</span></td>
+     <td key="2">非必須</td>
+     <td key="3">new ArrayList&lt;&gt;()</td>
+     <td key="4"><span style="white-space: pre-wrap"></span></td>
+     <td key="5"></td>
+    </tr> 
+   </tbody> 
+  </table>
+ </body>
+</html></p>
+<h2 id='769553a3da'>獲取用戶歷史訂單</h2>
+<p>用戶可以通過該接口獲取歷史訂單</p>
+<h3 id='http-15'>HTTP 請求</h3>
+<ul>
+<li>GET <code>/open/otc/api/order/rfq/queryHistoryOrder</code></li>
+</ul>
+
+<p>API Key 權限：讀取<br></p>
+
+<p><html>
+ <head></head>
+ <body>
+  <table> 
+   <thead class="ant-table-thead"> 
+    <tr> 
+     <th key="name">名稱</th>
+     <th key="type">類型</th>
+     <th key="required">是否必須</th>
+     <th key="default">默認值</th>
+     <th key="desc">備註</th>
+     <th key="sub">其他信息</th> 
+    </tr> 
+   </thead>
+   <tbody classname="ant-table-tbody">
+    <tr key="0-0">
+     <td key="0"><span style="padding-left: 0px"><span style="color: #8c8a8a"></span> page</span></td>
+     <td key="1"><span>object</span></td>
+     <td key="2">非必須</td>
+     <td key="3"></td>
+     <td key="4"><span style="white-space: pre-wrap"><em>分页查询参数</span></td>
+     <td key="5"></td>
+    </tr>
+    <tr key="0-0-0">
+     <td key="0"><span style="padding-left: 20px"> items</span></td>
+     <td key="1"><span>object []</span></td>
+     <td key="2">非必須</td>
+     <td key="3"></td>
+     <td key="4"><span style="white-space: pre-wrap">item list for page.</span></td>
+     <td key="5"></td>
+    </tr>
+    <tr key="0-0-1">
+     <td key="0"><span style="padding-left: 20px"> total</span></td>
+     <td key="1"><span>integer</span></td>
+     <td key="2">非必須</td>
+     <td key="3"></td>
+     <td key="4"><span style="white-space: pre-wrap">total records of item for all page.</span></td>
+     <td key="5"></td>
+    </tr>
+    <tr key="0-0-2">
+     <td key="0"><span style="padding-left: 20px"> size</span></td>
+     <td key="1"><span>integer</span></td>
+     <td key="2">非必須</td>
+     <td key="3"></td>
+     <td key="4"><span style="white-space: pre-wrap">number of item for each page.</span></td>
+     <td key="5"></td>
+    </tr>
+    <tr key="0-0-3">
+     <td key="0"><span style="padding-left: 20px"> page</span></td>
+     <td key="1"><span>integer</span></td>
+     <td key="2">非必須</td>
+     <td key="3"></td>
+     <td key="4"><span style="white-space: pre-wrap">current page index, start from 1.</span></td>
+     <td key="5"></td>
+    </tr>
+    <tr key="0-1">
+     <td key="0"><span style="padding-left: 0px"><span style="color: #8c8a8a"></span> side</span></td>
+     <td key="1"><span>string</span></td>
+     <td key="2">非必須</td>
+     <td key="3"></td>
+     <td key="4"><span style="white-space: pre-wrap">交易方向</span></td>
+     <td key="5"></td>
+    </tr>
+    <tr key="0-2">
+     <td key="0"><span style="padding-left: 0px"><span style="color: #8c8a8a"></span> export</span></td>
+     <td key="1"><span>boolean</span></td>
+     <td key="2">非必須</td>
+     <td key="3">false</td>
+     <td key="4"><span style="white-space: pre-wrap"></span></td>
+     <td key="5"></td>
+    </tr>
+    <tr key="0-3">
+     <td key="0"><span style="padding-left: 0px"><span style="color: #8c8a8a"></span> baseCurrency</span></td>
+     <td key="1"><span>string</span></td>
+     <td key="2">非必須</td>
+     <td key="3"></td>
+     <td key="4"><span style="white-space: pre-wrap"></em>基础币种</span></td>
+     <td key="5"></td>
+    </tr>
+    <tr key="0-4">
+     <td key="0"><span style="padding-left: 0px"><span style="color: #8c8a8a"></span> quoteCurrency</span></td>
+     <td key="1"><span>string</span></td>
+     <td key="2">非必須</td>
+     <td key="3"></td>
+     <td key="4"><span style="white-space: pre-wrap"><em>计价币种</span></td>
+     <td key="5"></td>
+    </tr>
+    <tr key="0-5">
+     <td key="0"><span style="padding-left: 0px"><span style="color: #8c8a8a"></span> excludeCancelled</span></td>
+     <td key="1"><span>boolean</span></td>
+     <td key="2">非必須</td>
+     <td key="3"></td>
+     <td key="4"><span style="white-space: pre-wrap"></em> 是否排除已撤销订单 「已废弃」</span></td>
+     <td key="5"></td>
+    </tr>
+    <tr key="0-6">
+     <td key="0"><span style="padding-left: 0px"><span style="color: #8c8a8a"></span> orderId</span></td>
+     <td key="1"><span>integer</span></td>
+     <td key="2">非必須</td>
+     <td key="3"></td>
+     <td key="4"><span style="white-space: pre-wrap"><em>订单ID</span></td>
+     <td key="5"></td>
+    </tr>
+    <tr key="0-7">
+     <td key="0"><span style="padding-left: 0px"><span style="color: #8c8a8a"></span> startTime</span></td>
+     <td key="1"><span>integer</span></td>
+     <td key="2">非必須</td>
+     <td key="3"></td>
+     <td key="4"><span style="white-space: pre-wrap"></em> 订单时-查询开始时间</span></td>
+     <td key="5"></td>
+    </tr>
+    <tr key="0-8">
+     <td key="0"><span style="padding-left: 0px"><span style="color: #8c8a8a"></span> endTime</span></td>
+     <td key="1"><span>integer</span></td>
+     <td key="2">非必須</td>
+     <td key="3"></td>
+     <td key="4"><span style="white-space: pre-wrap">* 订单时间-查询结束时间</span></td>
+     <td key="5"></td>
+    </tr>
+    <tr key="0-9">
+     <td key="0"><span style="padding-left: 0px"><span style="color: #8c8a8a"></span> orderStateList</span></td>
+     <td key="1"><span>integer []</span></td>
+     <td key="2">非必須</td>
+     <td key="3"></td>
+     <td key="4"><span style="white-space: pre-wrap">*订单状态</span></td>
+     <td key="5"><p key="3"><span style="font-weight: '700'">item 類型: </span><span>integer</span></p></td>
+    </tr>
+    <tr key="array-115">
+     <td key="0"><span style="padding-left: 20px"> </span></td>
+     <td key="1"><span></span></td>
+     <td key="2">非必須</td>
+     <td key="3"></td>
+     <td key="4"><span style="white-space: pre-wrap"></span></td>
+     <td key="5"></td>
+    </tr> 
+   </tbody> 
+  </table> 
+ </body>
+</html></p>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"code"</span><span class="p">:</span><span class="mi">200</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"message"</span><span class="p">:</span><span class="s2">"success"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"data"</span><span class="p">:{</span><span class="w">
+    </span><span class="s2">"items"</span><span class="p">:[</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"orderId"</span><span class="p">:</span><span class="mi">1459028660060224</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"userId"</span><span class="p">:</span><span class="mi">11433560</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"timeInForce"</span><span class="p">:</span><span class="mi">4</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"symbol"</span><span class="p">:</span><span class="s2">"BTCUSDT"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"baseCurrency"</span><span class="p">:</span><span class="s2">"BTC"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"quoteCurrency"</span><span class="p">:</span><span class="s2">"USDT"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"side"</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"cumTurnover"</span><span class="p">:</span><span class="mf">427.631127</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"quantity"</span><span class="p">:</span><span class="mf">0.01</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"price"</span><span class="p">:</span><span class="mf">42763.112689</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"createAt"</span><span class="p">:</span><span class="mi">1642403880381</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"lastQty"</span><span class="p">:</span><span class="mf">0.01</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"lastPx"</span><span class="p">:</span><span class="mf">42763.112689</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"cumQuantity"</span><span class="p">:</span><span class="mf">0.01</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"avgPx"</span><span class="p">:</span><span class="mf">42763.112689</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"commissionFee"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"updatedAt"</span><span class="p">:</span><span class="mi">1642403881488</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"status"</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"clOrdId"</span><span class="p">:</span><span class="s2">"1459028660060192"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"orderType"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"source"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"accountOperateType"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"amount"</span><span class="p">:</span><span class="s2">"427.631126"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"unComQuantity"</span><span class="p">:</span><span class="s2">"0.000000"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"quantityStr"</span><span class="p">:</span><span class="s2">"0.010000"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"priceStr"</span><span class="p">:</span><span class="s2">"42763.112689"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"comQuantityStr"</span><span class="p">:</span><span class="s2">"0.010000"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"avgPxStr"</span><span class="p">:</span><span class="s2">"42763.112689"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"commissionFeeStr"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"sideStr"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"timeInForceStr"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"statusStr"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"orderIdStr"</span><span class="p">:</span><span class="s2">"1459028660060224"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"orderId"</span><span class="p">:</span><span class="mi">1459028332904512</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"userId"</span><span class="p">:</span><span class="mi">11433560</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"timeInForce"</span><span class="p">:</span><span class="mi">4</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"symbol"</span><span class="p">:</span><span class="s2">"BTCUSDT"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"baseCurrency"</span><span class="p">:</span><span class="s2">"BTC"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"quoteCurrency"</span><span class="p">:</span><span class="s2">"USDT"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"side"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"cumTurnover"</span><span class="p">:</span><span class="mf">428.765864</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"quantity"</span><span class="p">:</span><span class="mf">0.01</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"price"</span><span class="p">:</span><span class="mf">42876.58645</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"createAt"</span><span class="p">:</span><span class="mi">1642403724093</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"lastQty"</span><span class="p">:</span><span class="mf">0.01</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"lastPx"</span><span class="p">:</span><span class="mf">42876.58645</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"cumQuantity"</span><span class="p">:</span><span class="mf">0.01</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"avgPx"</span><span class="p">:</span><span class="mf">42876.58645</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"commissionFee"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"updatedAt"</span><span class="p">:</span><span class="mi">1642403724650</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"status"</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"clOrdId"</span><span class="p">:</span><span class="s2">"1459028332904480"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"orderType"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"source"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"accountOperateType"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"amount"</span><span class="p">:</span><span class="s2">"428.765864"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"unComQuantity"</span><span class="p">:</span><span class="s2">"0.000000"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"quantityStr"</span><span class="p">:</span><span class="s2">"0.010000"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"priceStr"</span><span class="p">:</span><span class="s2">"42876.586450"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"comQuantityStr"</span><span class="p">:</span><span class="s2">"0.010000"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"avgPxStr"</span><span class="p">:</span><span class="s2">"42876.586450"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"commissionFeeStr"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"sideStr"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"timeInForceStr"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"statusStr"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"orderIdStr"</span><span class="p">:</span><span class="s2">"1459028332904512"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"orderId"</span><span class="p">:</span><span class="mi">1458994340167744</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"userId"</span><span class="p">:</span><span class="mi">11433560</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"timeInForce"</span><span class="p">:</span><span class="mi">4</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"symbol"</span><span class="p">:</span><span class="s2">"BTCUSDT"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"baseCurrency"</span><span class="p">:</span><span class="s2">"BTC"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"quoteCurrency"</span><span class="p">:</span><span class="s2">"USDT"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"side"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"cumTurnover"</span><span class="p">:</span><span class="mf">429.122724</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"quantity"</span><span class="p">:</span><span class="mf">0.01</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"price"</span><span class="p">:</span><span class="mf">42912.272377</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"createAt"</span><span class="p">:</span><span class="mi">1642387515205</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"lastQty"</span><span class="p">:</span><span class="mf">0.01</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"lastPx"</span><span class="p">:</span><span class="mf">42912.272377</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"cumQuantity"</span><span class="p">:</span><span class="mf">0.01</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"avgPx"</span><span class="p">:</span><span class="mf">42912.272377</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"commissionFee"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"updatedAt"</span><span class="p">:</span><span class="mi">1642387515785</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"status"</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"clOrdId"</span><span class="p">:</span><span class="s2">"1458994340167712"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"orderType"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"source"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"accountOperateType"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"amount"</span><span class="p">:</span><span class="s2">"429.122723"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"unComQuantity"</span><span class="p">:</span><span class="s2">"0.000000"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"quantityStr"</span><span class="p">:</span><span class="s2">"0.010000"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"priceStr"</span><span class="p">:</span><span class="s2">"42912.272377"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"comQuantityStr"</span><span class="p">:</span><span class="s2">"0.010000"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"avgPxStr"</span><span class="p">:</span><span class="s2">"42912.272377"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"commissionFeeStr"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"sideStr"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"timeInForceStr"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"statusStr"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"orderIdStr"</span><span class="p">:</span><span class="s2">"1458994340167744"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"orderId"</span><span class="p">:</span><span class="mi">1458485533343808</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"userId"</span><span class="p">:</span><span class="mi">11433560</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"timeInForce"</span><span class="p">:</span><span class="mi">4</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"symbol"</span><span class="p">:</span><span class="s2">"BTCUSDT"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"baseCurrency"</span><span class="p">:</span><span class="s2">"BTC"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"quoteCurrency"</span><span class="p">:</span><span class="s2">"USDT"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"side"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"cumTurnover"</span><span class="p">:</span><span class="mf">428.708619</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"quantity"</span><span class="p">:</span><span class="mf">0.01</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"price"</span><span class="p">:</span><span class="mf">42870.861888</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"createAt"</span><span class="p">:</span><span class="mi">1642144897326</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"lastQty"</span><span class="p">:</span><span class="mf">0.01</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"lastPx"</span><span class="p">:</span><span class="mf">42870.861888</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"cumQuantity"</span><span class="p">:</span><span class="mf">0.01</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"avgPx"</span><span class="p">:</span><span class="mf">42870.861888</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"commissionFee"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"updatedAt"</span><span class="p">:</span><span class="mi">1642144897823</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"status"</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"clOrdId"</span><span class="p">:</span><span class="s2">"1458485533343776"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"orderType"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"source"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"accountOperateType"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"amount"</span><span class="p">:</span><span class="s2">"428.708618"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"unComQuantity"</span><span class="p">:</span><span class="s2">"0.000000"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"quantityStr"</span><span class="p">:</span><span class="s2">"0.010000"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"priceStr"</span><span class="p">:</span><span class="s2">"42870.861888"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"comQuantityStr"</span><span class="p">:</span><span class="s2">"0.010000"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"avgPxStr"</span><span class="p">:</span><span class="s2">"42870.861888"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"commissionFeeStr"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"sideStr"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"timeInForceStr"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"statusStr"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"orderIdStr"</span><span class="p">:</span><span class="s2">"1458485533343808"</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+    </span><span class="s2">"total"</span><span class="p">:</span><span class="mi">4</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"size"</span><span class="p">:</span><span class="mi">10</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"page"</span><span class="p">:</span><span class="mi">1</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="s2">"success"</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"messageArgs"</span><span class="p">:[</span><span class="w">
+
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre><h3 id='8cee0e29db-10'>響應數據</h3>
+<p><html>
+ <head></head>
+ <body>
+  <table> 
+   <thead class="ant-table-thead"> 
+    <tr> 
+     <th key="name">名稱</th>
+     <th key="type">類型</th>
+     <th key="required">是否必須</th>
+     <th key="default">默認值</th>
+     <th key="desc">備註</th>
+     <th key="sub">其他信息</th> 
+    </tr> 
+   </thead>
+   <tbody classname="ant-table-tbody">
+    <tr key="0-0">
+     <td key="0"><span style="padding-left: 0px"><span style="color: #8c8a8a"></span> code</span></td>
+     <td key="1"><span>integer</span></td>
+     <td key="2">必須</td>
+     <td key="3"></td>
+     <td key="4"><span style="white-space: pre-wrap"></span>業務編碼</td>
+     <td key="5"></td>
+    </tr>
+    <tr key="0-1">
+     <td key="0"><span style="padding-left: 0px"><span style="color: #8c8a8a"></span> message</span></td>
+     <td key="1"><span>string</span></td>
+     <td key="2">非必須</td>
+     <td key="3"></td>
+     <td key="4"><span style="white-space: pre-wrap">錯誤消息</span></td>
+     <td key="5"></td>
+    </tr>
+    <tr key="0-2">
+     <td key="0"><span style="padding-left: 0px"><span style="color: #8c8a8a"></span> data</span></td>
+     <td key="1"><span>object</span></td>
+     <td key="2">非必須</td>
+     <td key="3"></td>
+     <td key="4"><span style="white-space: pre-wrap">業務數據</span></td>
+     <td key="5"></td>
+    </tr>
+    <tr key="0-2-0">
+     <td key="0"><span style="padding-left: 20px"> items</span></td>
+     <td key="1"><span>object []</span></td>
+     <td key="2">非必須</td>
+     <td key="3"></td>
+     <td key="4"><span style="white-space: pre-wrap">item list for page.</span></td>
+     <td key="5"></td>
+    </tr>
+    <tr key="0-2-0-0">
+     <td key="0"><span style="padding-left: 40px"> orderId</span></td>
+     <td key="1"><span>integer</span></td>
+     <td key="2">非必須</td>
+     <td key="3"></td>
+     <td key="4"><span style="white-space: pre-wrap"><em>订单id</span></td>
+     <td key="5"></td>
+    </tr>
+    <tr key="0-2-0-1">
+     <td key="0"><span style="padding-left: 40px"> userId</span></td>
+     <td key="1"><span>integer</span></td>
+     <td key="2">非必須</td>
+     <td key="3"></td>
+     <td key="4"><span style="white-space: pre-wrap">*user id</span></td>
+     <td key="5"></td>
+    </tr>
+    <tr key="0-2-0-2">
+     <td key="0"><span style="padding-left: 40px"> timeInForce</span></td>
+     <td key="1"><span>integer</span></td>
+     <td key="2">非必須</td>
+     <td key="3"></td>
+     <td key="4"><span style="white-space: pre-wrap">GTC,IOC,FOK；詢價交易只有FOK</span></td>
+     <td key="5"></td>
+    </tr>
+    <tr key="0-2-0-3">
+     <td key="0"><span style="padding-left: 40px"> symbol</span></td>
+     <td key="1"><span>string</span></td>
+     <td key="2">非必須</td>
+     <td key="3"></td>
+     <td key="4"><span style="white-space: pre-wrap">交易對</span></td>
+     <td key="5"></td>
+    </tr>
+    <tr key="0-2-0-4">
+     <td key="0"><span style="padding-left: 40px"> baseCurrency</span></td>
+     <td key="1"><span>string</span></td>
+     <td key="2">非必須</td>
+     <td key="3"></td>
+     <td key="4"><span style="white-space: pre-wrap">基礎幣種</span></td>
+     <td key="5"></td>
+    </tr>
+    <tr key="0-2-0-5">
+     <td key="0"><span style="padding-left: 40px"> quoteCurrency</span></td>
+     <td key="1"><span>string</span></td>
+     <td key="2">非必須</td>
+     <td key="3"></td>
+     <td key="4"><span style="white-space: pre-wrap">計價幣種</span></td>
+     <td key="5"></td>
+    </tr>
+    <tr key="0-2-0-6">
+     <td key="0"><span style="padding-left: 40px"> side</span></td>
+     <td key="1"><span>integer</span></td>
+     <td key="2">非必須</td>
+     <td key="3"></td>
+     <td key="4"><span style="white-space: pre-wrap">交易方向 1 buy, 2 sell</span></td>
+     <td key="5"></td>
+    </tr>
+    <tr key="0-2-0-7">
+     <td key="0"><span style="padding-left: 40px"> cumTurnover</span></td>
+     <td key="1"><span>number</span></td>
+     <td key="2">非必須</td>
+     <td key="3">public static final BigDecimal ZERO;</td>
+     <td key="4"><span style="white-space: pre-wrap">累計營業額</span></td>
+     <td key="5"></td>
+    </tr>
+    <tr key="0-2-0-8">
+     <td key="0"><span style="padding-left: 40px"> quantity</span></td>
+     <td key="1"><span>number</span></td>
+     <td key="2">非必須</td>
+     <td key="3">public static final BigDecimal ZERO;</td>
+     <td key="4"><span style="white-space: pre-wrap">數量</span></td>
+     <td key="5"></td>
+    </tr>
+    <tr key="0-2-0-9">
+     <td key="0"><span style="padding-left: 40px"> price</span></td>
+     <td key="1"><span>number</span></td>
+     <td key="2">非必須</td>
+     <td key="3">public static final BigDecimal ZERO;</td>
+     <td key="4"><span style="white-space: pre-wrap">價格</span></td>
+     <td key="5"></td>
+    </tr>
+    <tr key="0-2-0-10">
+     <td key="0"><span style="padding-left: 40px"> createAt</span></td>
+     <td key="1"><span>integer</span></td>
+     <td key="2">非必須</td>
+     <td key="3"></td>
+     <td key="4"><span style="white-space: pre-wrap">創建時間</span></td>
+     <td key="5"></td>
+    </tr>
+    <tr key="0-2-0-11">
+     <td key="0"><span style="padding-left: 40px"> lastQty</span></td>
+     <td key="1"><span>number</span></td>
+     <td key="2">非必須</td>
+     <td key="3">public static final BigDecimal ZERO;</td>
+     <td key="4"><span style="white-space: pre-wrap">最近一笔成交數量 Quantity bought/sold on this fill. Required if ExecType (150) = ‘F’ (Trade).</span></td>
+     <td key="5"></td>
+    </tr>
+    <tr key="0-2-0-12">
+     <td key="0"><span style="padding-left: 40px"> lastPx</span></td>
+     <td key="1"><span>number</span></td>
+     <td key="2">非必須</td>
+     <td key="3">public static final BigDecimal ZERO;</td>
+     <td key="4"><span style="white-space: pre-wrap">最近一笔成交的價格 Price of the limit order. Required for OrderType(40) = ‘2’ (Limit)</span></td>
+     <td key="5"></td>
+    </tr>
+    <tr key="0-2-0-13">
+     <td key="0"><span style="padding-left: 40px"> cumQuantity</span></td>
+     <td key="1"><span>number</span></td>
+     <td key="2">非必須</td>
+     <td key="3">public static final BigDecimal ZERO;</td>
+     <td key="4"><span style="white-space: pre-wrap">base currency 累计成交數量</span></td>
+     <td key="5"></td>
+    </tr>
+    <tr key="0-2-0-14">
+     <td key="0"><span style="padding-left: 40px"> avgPx</span></td>
+     <td key="1"><span>number</span></td>
+     <td key="2">非必須</td>
+     <td key="3">public static final BigDecimal ZERO;</td>
+     <td key="4"><span style="white-space: pre-wrap">订单平均成交價格</span></td>
+     <td key="5"></td>
+    </tr>
+    <tr key="0-2-0-15">
+     <td key="0"><span style="padding-left: 40px"> commissionFee</span></td>
+     <td key="1"><span>number</span></td>
+     <td key="2">非必須</td>
+     <td key="3">public static final BigDecimal ZERO;</td>
+     <td key="4"><span style="white-space: pre-wrap">費率</span></td>
+     <td key="5"></td>
+    </tr>
+    <tr key="0-2-0-16">
+     <td key="0"><span style="padding-left: 40px"> updatedAt</span></td>
+     <td key="1"><span>integer</span></td>
+     <td key="2">非必須</td>
+     <td key="3"></td>
+     <td key="4"><span style="white-space: pre-wrap">更新時間</span></td>
+     <td key="5"></td>
+    </tr>
+    <tr key="0-2-0-17">
+     <td key="0"><span style="padding-left: 40px"> status</span></td>
+     <td key="1"><span>integer</span></td>
+     <td key="2">非必須</td>
+     <td key="3"></td>
+     <td key="4"><span style="white-space: pre-wrap">订单状态 询价交易只有2-成功，4-拒绝，8-失败</span></td>
+     <td key="5"></td>
+    </tr>
+    <tr key="0-2-0-18">
+     <td key="0"><span style="padding-left: 40px"> clOrdId</span></td>
+     <td key="1"><span>string</span></td>
+     <td key="2">非必須</td>
+     <td key="3"></td>
+     <td key="4"><span style="white-space: pre-wrap">用户OrderId， 下单</span></td>
+     <td key="5"></td>
+    </tr>
+    <tr key="0-2-0-19">
+     <td key="0"><span style="padding-left: 40px"> orderType</span></td>
+     <td key="1"><span>integer</span></td>
+     <td key="2">非必須</td>
+     <td key="3"></td>
+     <td key="4"><span style="white-space: pre-wrap">订单類型</span></td>
+     <td key="5"></td>
+    </tr>
+    <tr key="0-2-0-20">
+     <td key="0"><span style="padding-left: 40px"> source</span></td>
+     <td key="1"><span>integer</span></td>
+     <td key="2">非必須</td>
+     <td key="3"></td>
+     <td key="4"><span style="white-space: pre-wrap">订单来源</span></td>
+     <td key="5"></td>
+    </tr>
+    <tr key="0-2-0-21">
+     <td key="0"><span style="padding-left: 40px"> accountOperateType</span></td>
+     <td key="1"><span>integer</span></td>
+     <td key="2">非必須</td>
+     <td key="3"></td>
+     <td key="4"><span style="white-space: pre-wrap">下单时使用的账户類型</span></td>
+     <td key="5"></td>
+    </tr>
+    <tr key="0-2-0-22">
+     <td key="0"><span style="padding-left: 40px"> amount</span></td>
+     <td key="1"><span>string</span></td>
+     <td key="2">非必須</td>
+     <td key="3"></td>
+     <td key="4"><span style="white-space: pre-wrap">订单金额</span></td>
+     <td key="5"></td>
+    </tr>
+    <tr key="0-2-0-23">
+     <td key="0"><span style="padding-left: 40px"> unComQuantity</span></td>
+     <td key="1"><span>string</span></td>
+     <td key="2">非必須</td>
+     <td key="3"></td>
+     <td key="4"><span style="white-space: pre-wrap"></em>未完成數量</span></td>
+     <td key="5"></td>
+    </tr>
+    <tr key="0-2-0-24">
+     <td key="0"><span style="padding-left: 40px"> quantityStr</span></td>
+     <td key="1"><span>string</span></td>
+     <td key="2">非必須</td>
+     <td key="3"></td>
+     <td key="4"><span style="white-space: pre-wrap">數量</span></td>
+     <td key="5"></td>
+    </tr>
+    <tr key="0-2-0-25">
+     <td key="0"><span style="padding-left: 40px"> priceStr</span></td>
+     <td key="1"><span>string</span></td>
+     <td key="2">非必須</td>
+     <td key="3"></td>
+     <td key="4"><span style="white-space: pre-wrap">價格</span></td>
+     <td key="5"></td>
+    </tr>
+    <tr key="0-2-0-26">
+     <td key="0"><span style="padding-left: 40px"> comQuantityStr</span></td>
+     <td key="1"><span>string</span></td>
+     <td key="2">非必須</td>
+     <td key="3"></td>
+     <td key="4"><span style="white-space: pre-wrap">订单已成交數量</span></td>
+     <td key="5"></td>
+    </tr>
+    <tr key="0-2-0-27">
+     <td key="0"><span style="padding-left: 40px"> avgPxStr</span></td>
+     <td key="1"><span>string</span></td>
+     <td key="2">非必須</td>
+     <td key="3"></td>
+     <td key="4"><span style="white-space: pre-wrap">订单平均成交價格</span></td>
+     <td key="5"></td>
+    </tr>
+    <tr key="0-2-0-28">
+     <td key="0"><span style="padding-left: 40px"> commissionFeeStr</span></td>
+     <td key="1"><span>string</span></td>
+     <td key="2">非必須</td>
+     <td key="3"></td>
+     <td key="4"><span style="white-space: pre-wrap">费率</span></td>
+     <td key="5"></td>
+    </tr>
+    <tr key="0-2-0-29">
+     <td key="0"><span style="padding-left: 40px"> sideStr</span></td>
+     <td key="1"><span>string</span></td>
+     <td key="2">非必須</td>
+     <td key="3"></td>
+     <td key="4"><span style="white-space: pre-wrap">交易方向</span></td>
+     <td key="5"></td>
+    </tr>
+    <tr key="0-2-0-30">
+     <td key="0"><span style="padding-left: 40px"> timeInForceStr</span></td>
+     <td key="1"><span>string</span></td>
+     <td key="2">非必須</td>
+     <td key="3"></td>
+     <td key="4"><span style="white-space: pre-wrap">GTC,IOC,FOK；询价交易只有FOK</span></td>
+     <td key="5"></td>
+    </tr>
+    <tr key="0-2-0-31">
+     <td key="0"><span style="padding-left: 40px"> statusStr</span></td>
+     <td key="1"><span>string</span></td>
+     <td key="2">非必須</td>
+     <td key="3"></td>
+     <td key="4"><span style="white-space: pre-wrap">订单状态 询价交易只有2-成功，4-取消，8-失败</span></td>
+     <td key="5"></td>
+    </tr>
+    <tr key="0-2-0-32">
+     <td key="0"><span style="padding-left: 40px"> orderIdStr</span></td>
+     <td key="1"><span>string</span></td>
+     <td key="2">非必須</td>
+     <td key="3"></td>
+     <td key="4"><span style="white-space: pre-wrap">orderID</span></td>
+     <td key="5"></td>
+    </tr>
+    <tr key="0-2-1">
+     <td key="0"><span style="padding-left: 20px"> total</span></td>
+     <td key="1"><span>integer</span></td>
+     <td key="2">非必須</td>
+     <td key="3"></td>
+     <td key="4"><span style="white-space: pre-wrap">total records of item for all page.</span></td>
+     <td key="5"></td>
+    </tr>
+    <tr key="0-2-2">
+     <td key="0"><span style="padding-left: 20px"> size</span></td>
+     <td key="1"><span>integer</span></td>
+     <td key="2">非必須</td>
+     <td key="3"></td>
+     <td key="4"><span style="white-space: pre-wrap">number of item for each page.</span></td>
+     <td key="5"></td>
+    </tr>
+    <tr key="0-2-3">
+     <td key="0"><span style="padding-left: 20px"> page</span></td>
+     <td key="1"><span>integer</span></td>
+     <td key="2">非必須</td>
+     <td key="3"></td>
+     <td key="4"><span style="white-space: pre-wrap">current page index, start from 1.</span></td>
+     <td key="5"></td>
+    </tr>
+    <tr key="0-3">
+     <td key="0"><span style="padding-left: 0px"><span style="color: #8c8a8a"></span> success</span></td>
+     <td key="1"><span>boolean</span></td>
+     <td key="2">非必須</td>
+     <td key="3"></td>
+     <td key="4"><span style="white-space: pre-wrap"></span></td>
      <td key="5"></td>
     </tr>
     <tr key="0-4">
