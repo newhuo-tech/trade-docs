@@ -358,7 +358,7 @@ api.huobi-brokerage.com\n
 ###公共類
 **API訪問建議**
 
-- 不建議在中國大陸境內使用臨時域名以及代理的方式訪問Huobi Trust API，此類方式訪問API連接的穩定性很難保證。
+- 不建議在中國大陸境內使用臨時域名以及代理的方式訪問Huobi Brokerage API，此類方式訪問API連接的穩定性很難保證。
 - 建議使用日本AWS雲服務器進行訪問。
 - 官方域名api.huobi-brokerage.com。
 
@@ -442,9 +442,9 @@ api.huobi-brokerage.com\n
 
 8、Access Key 與 Secret Key中是否存在隱藏特殊字符，影響簽名
 
-當前官方已支持多種語言的[SDK](https://github.com/huobitrustapi)，可以參考SDK的簽名實現，或者以下三種語言的簽名樣例代碼
+當前官方已支持多種語言的[SDK](https://github.com/huobitech)，可以參考SDK的簽名實現，或者以下三種語言的簽名樣例代碼
 
-<a href='https://github.com/huobitrustapi/huobi_Java/blob/master/java_signature_demo.md'>JAVA簽名樣例代碼</a> | <a href='https://github.com/huobitrustapi/huobi_Python/blob/master/example/python_signature_demo.md'>Python簽名樣例代碼</a>   | <a href='https://github.com/huobitrustapi/huobi_Cpp/blob/master/examples/cpp_signature_demo.md'>C++簽名樣例代碼 </a>
+<a href='https://github.com/huobitech/huobi_Java/blob/master/java_signature_demo.md'>JAVA簽名樣例代碼</a> | <a href='https://github.com/huobitech/huobi_Python/blob/master/example/python_signature_demo.md'>Python簽名樣例代碼</a>   | <a href='https://github.com/huobitech/huobi_Cpp/blob/master/examples/cpp_signature_demo.md'>C++簽名樣例代碼 </a>
 
 ### Q7：調用接口返回Incorrect Access Key 錯誤是什麼原因？
 
@@ -508,86 +508,6 @@ api.huobi-brokerage.com\n
 `AccessKeyId=rfhxxxxx-950000847-boooooo3-432c0&SignatureMethod=HmacSHA256&SignatureVersion=2&Timestamp=2019-11-06T03%3A26%3A13`
 
 註意：Access Key僅能證明您的身份，不會影響您賬戶的安全。切記**不**要將Secret Key信息分享給任何人，若您不小心將Secret Key暴露，請盡快[刪除](https://www.hbg.com/zh-cn/apikey/)其對應的API Key，以免造成您的賬戶損失。
-
-# 用戶相關
-
-賬戶相關接口提供了用戶綁定、信息查詢等查詢轉等功能。
-
-<aside class="notice">訪問賬戶相關的接口需要進行簽名認證。</aside>
-
-## 鑄幣商用戶鑒權
-
-用戶綁定，暫時由信託根據簽名信息自主完成
-簽名流程參照api key加簽流程(秘鑰由信託單獨生成同步給機構，與用戶個人的api key區分使用)
-最終，登錄的地址應該為
-
-${信託web頁面登錄url}?AccessKeyId=e2xxxxxx-99xxxxxx-84xxxxxx-7xxxx&outerUserId=1234567890&callBackUrl=${回調url}&SignatureMethod=HmacSHA256&SignatureVersion=2&Timestamp=2017-05-11T15%3A19%3A30&Signature=4F65x5A2bLyMWVQj3Aqp%2BB4w%2BivaA7n5Oi2SuYtCJ9o%3D
-
-### HTTP 請求
-
-- GET `信託web頁面登錄url`
-
-### 請求參數
-
-| 參數名稱   | 是否必須 | 類型   | 描述                                                         | 默認值 | 取值範圍 |
-| ---------- | -------- | ------ | ------------------------------------------------------------ | ------ | -------- |
-| AccessKeyId | true     | string | 外部系統鑒權access key(由信託服務生成，提供) |        |          |
-| outerUserId | true     | string | 外部系統用戶唯一標識 |        |          |
-| callbackUrl | true     | string | 回調url |        |          |
-| SignatureMethod | true     | string | 簽名方法（HmacSHA256） |        |          |
-| SignatureVersion | true     | string | 簽名版本（2） |        |          |
-| Timestamp | true     | string | 時間戳（例如：2017-05-11T15%3A19%3A30） |        |          |
-| Signature | true     | string | 簽名數據 |        |          |
-
-
-
-
-## 用戶鑒權信息查詢
-
-API Key 權限：讀取<br>
-限頻值（NEW）：100次/2s
-
-### HTTP 請求
-
-- GET `/v1/open/merchant/user/getAuthInfo`
-
-### 請求參數
-
-| 參數名稱   | 是否必須 | 類型   | 描述                                                         | 默認值 | 取值範圍 |
-| ---------- | -------- | ------ | ------------------------------------------------------------ | ------ | -------- |
-| outerUserId | true     | string | （外部系統用戶id）外部系統用戶唯一標識 |        |          |
-
-
-> Response:
-
-```json
-{
-  "code": 200,
-  "data": [
-    {
-      "outerUserId": "213123D1231",
-      "outerUid": "12312317263123"
-    }
-  ],
-  "success": true
-}
-```
-
-
-### 響應數據
-
-| 參數名稱 | 是否必須 | 數據類型 | 描述     | 取值範圍                                                     |
-| -------- | -------- | -------- | -------- | ------------------------------------------------------------ |
-| code         | true    | integer     | 狀態碼  | |
-| message      | false   | string    | 錯誤描述（如有）| |
-| data         | false   | object    | 業務數據 ||
-
-data字段說明
-
-| 參數名稱 | 數據類型 | 描述           | 取值範圍                                                     |
-| -------- | -------- | -------------- | ------------------------------------------------------------ |
-| outerUserId  | string   | 外部系統用戶標識           |                                                            |
-| outerUid   | string   | 外部uid           |                                                            |
 
 
 
