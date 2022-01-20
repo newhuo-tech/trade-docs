@@ -342,17 +342,6 @@
               </ul>
           </li>
           <li>
-            <a href="#215045ded7" class="toc-h1 toc-link" data-title="用戶相關">用戶相關</a>
-              <ul class="toc-list-h2">
-                  <li>
-                    <a href="#0e1e8bf1d4" class="toc-h2 toc-link" data-title="鑄幣商用戶鑒權">鑄幣商用戶鑒權</a>
-                  </li>
-                  <li>
-                    <a href="#0e6554beeb" class="toc-h2 toc-link" data-title="用戶鑒權信息查詢">用戶鑒權信息查詢</a>
-                  </li>
-              </ul>
-          </li>
-          <li>
             <a href="#7df49247bb" class="toc-h1 toc-link" data-title="授信用戶相關">授信用戶相關</a>
               <ul class="toc-list-h2">
                   <li>
@@ -778,7 +767,7 @@ api.huobi-brokerage.com\n
 <p><strong>API訪問建議</strong></p>
 
 <ul>
-<li>不建議在中國大陸境內使用臨時域名以及代理的方式訪問Huobi Trust API，此類方式訪問API連接的穩定性很難保證。</li>
+<li>不建議在中國大陸境內使用臨時域名以及代理的方式訪問Huobi Brokerage API，此類方式訪問API連接的穩定性很難保證。</li>
 <li>建議使用日本AWS雲服務器進行訪問。</li>
 <li>官方域名api.huobi-brokerage.com。</li>
 </ul>
@@ -858,9 +847,9 @@ api.huobi-brokerage.com\n
 
 <p>8、Access Key 與 Secret Key中是否存在隱藏特殊字符，影響簽名</p>
 
-<p>當前官方已支持多種語言的<a href="https://github.com/huobitrustapi">SDK</a>，可以參考SDK的簽名實現，或者以下三種語言的簽名樣例代碼</p>
+<p>當前官方已支持多種語言的<a href="https://github.com/huobitech">SDK</a>，可以參考SDK的簽名實現，或者以下三種語言的簽名樣例代碼</p>
 
-<p><a href='https://github.com/huobitrustapi/huobi_Java/blob/master/java_signature_demo.md'>JAVA簽名樣例代碼</a> | <a href='https://github.com/huobitrustapi/huobi_Python/blob/master/example/python_signature_demo.md'>Python簽名樣例代碼</a>   | <a href='https://github.com/huobitrustapi/huobi_Cpp/blob/master/examples/cpp_signature_demo.md'>C++簽名樣例代碼 </a></p>
+<p><a href='https://github.com/huobitech/huobi_Java/blob/master/java_signature_demo.md'>JAVA簽名樣例代碼</a> | <a href='https://github.com/huobitech/huobi_Python/blob/master/example/python_signature_demo.md'>Python簽名樣例代碼</a>   | <a href='https://github.com/huobitech/huobi_Cpp/blob/master/examples/cpp_signature_demo.md'>C++簽名樣例代碼 </a></p>
 <h3 id='q7-incorrect-access-key'>Q7：調用接口返回Incorrect Access Key 錯誤是什麼原因？</h3>
 <p>請檢查URL請求中Access Key是否傳遞準確，例如：</p>
 
@@ -919,188 +908,9 @@ api.huobi-brokerage.com\n
 <code>AccessKeyId=rfhxxxxx-950000847-boooooo3-432c0&amp;SignatureMethod=HmacSHA256&amp;SignatureVersion=2&amp;Timestamp=2019-11-06T03%3A26%3A13</code></p>
 
 <p>註意：Access Key僅能證明您的身份，不會影響您賬戶的安全。切記<strong>不</strong>要將Secret Key信息分享給任何人，若您不小心將Secret Key暴露，請盡快<a href="https://www.hbg.com/zh-cn/apikey/">刪除</a>其對應的API Key，以免造成您的賬戶損失。</p>
-<h1 id='215045ded7'>用戶相關</h1>
-<p>賬戶相關接口提供了用戶綁定、信息查詢等查詢轉等功能。</p>
-
-<aside class="notice">訪問賬戶相關的接口需要進行簽名認證。</aside>
-<h2 id='0e1e8bf1d4'>鑄幣商用戶鑒權</h2>
-<p>用戶綁定，暫時由信託根據簽名信息自主完成
-簽名流程參照api key加簽流程(秘鑰由信託單獨生成同步給機構，與用戶個人的api key區分使用)
-最終，登錄的地址應該為</p>
-
-<p>${信託web頁面登錄url}?AccessKeyId=e2xxxxxx-99xxxxxx-84xxxxxx-7xxxx&amp;outerUserId=1234567890&amp;callBackUrl=${回調url}&amp;SignatureMethod=HmacSHA256&amp;SignatureVersion=2&amp;Timestamp=2017-05-11T15%3A19%3A30&amp;Signature=4F65x5A2bLyMWVQj3Aqp%2BB4w%2BivaA7n5Oi2SuYtCJ9o%3D</p>
-<h3 id='http'>HTTP 請求</h3>
-<ul>
-<li>GET <code>信託web頁面登錄url</code></li>
-</ul>
-<h3 id='ba05bab92e'>請求參數</h3>
-<table><thead>
-<tr>
-<th>參數名稱</th>
-<th>是否必須</th>
-<th>類型</th>
-<th>描述</th>
-<th>默認值</th>
-<th>取值範圍</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>AccessKeyId</td>
-<td>true</td>
-<td>string</td>
-<td>外部系統鑒權access key(由信託服務生成，提供)</td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>outerUserId</td>
-<td>true</td>
-<td>string</td>
-<td>外部系統用戶唯一標識</td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>callbackUrl</td>
-<td>true</td>
-<td>string</td>
-<td>回調url</td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>SignatureMethod</td>
-<td>true</td>
-<td>string</td>
-<td>簽名方法（HmacSHA256）</td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>SignatureVersion</td>
-<td>true</td>
-<td>string</td>
-<td>簽名版本（2）</td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>Timestamp</td>
-<td>true</td>
-<td>string</td>
-<td>時間戳（例如：2017-05-11T15%3A19%3A30）</td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>Signature</td>
-<td>true</td>
-<td>string</td>
-<td>簽名數據</td>
-<td></td>
-<td></td>
-</tr>
-</tbody></table>
-<h2 id='0e6554beeb'>用戶鑒權信息查詢</h2>
-<p>API Key 權限：讀取<br>
-限頻值（NEW）：100次/2s</p>
-<h3 id='http-2'>HTTP 請求</h3>
-<ul>
-<li>GET <code>/v1/open/merchant/user/getAuthInfo</code></li>
-</ul>
-<h3 id='ba05bab92e-2'>請求參數</h3>
-<table><thead>
-<tr>
-<th>參數名稱</th>
-<th>是否必須</th>
-<th>類型</th>
-<th>描述</th>
-<th>默認值</th>
-<th>取值範圍</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>outerUserId</td>
-<td>true</td>
-<td>string</td>
-<td>（外部系統用戶id）外部系統用戶唯一標識</td>
-<td></td>
-<td></td>
-</tr>
-</tbody></table>
-
-<blockquote>
-<p>Response:</p>
-</blockquote>
-<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-  </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="mi">200</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-    </span><span class="p">{</span><span class="w">
-      </span><span class="s2">"outerUserId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"213123D1231"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"outerUid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12312317263123"</span><span class="w">
-    </span><span class="p">}</span><span class="w">
-  </span><span class="p">],</span><span class="w">
-  </span><span class="s2">"success"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre><h3 id='8cee0e29db'>響應數據</h3>
-<table><thead>
-<tr>
-<th>參數名稱</th>
-<th>是否必須</th>
-<th>數據類型</th>
-<th>描述</th>
-<th>取值範圍</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>code</td>
-<td>true</td>
-<td>integer</td>
-<td>狀態碼</td>
-<td></td>
-</tr>
-<tr>
-<td>message</td>
-<td>false</td>
-<td>string</td>
-<td>錯誤描述（如有）</td>
-<td></td>
-</tr>
-<tr>
-<td>data</td>
-<td>false</td>
-<td>object</td>
-<td>業務數據</td>
-<td></td>
-</tr>
-</tbody></table>
-
-<p>data字段說明</p>
-
-<table><thead>
-<tr>
-<th>參數名稱</th>
-<th>數據類型</th>
-<th>描述</th>
-<th>取值範圍</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>outerUserId</td>
-<td>string</td>
-<td>外部系統用戶標識</td>
-<td></td>
-</tr>
-<tr>
-<td>outerUid</td>
-<td>string</td>
-<td>外部uid</td>
-<td></td>
-</tr>
-</tbody></table>
 <h1 id='7df49247bb'>授信用戶相關</h1><h2 id='0be5293f3b'>获取用戶待結算交易記錄</h2>
 <p>用戶可以通過該接口查詢自己待結算的交易記錄</p>
-<h3 id='http-3'>HTTP 請求</h3>
+<h3 id='http'>HTTP 請求</h3>
 <ul>
 <li>POST <code>/open/otc/api/clearing/query</code></li>
 </ul>
@@ -1316,7 +1126,7 @@ api.huobi-brokerage.com\n
 
     </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre><h3 id='8cee0e29db-2'>響應數據</h3>
+</span></code></pre><h3 id='8cee0e29db'>響應數據</h3>
 <p><html>
  <head></head>
  <body>
@@ -1619,7 +1429,7 @@ api.huobi-brokerage.com\n
 <h2 id='575e728ffe'>授信用戶提交結算</h2>
 <p>支持用戶單次提交多筆訂單進行結算，或單筆訂單進行部分結算<BR>1)如果提交多筆訂單進行結算，此時amount要求為空<br>
 2)如果選中單筆訂單進行結算，此時進行部分結算</p>
-<h3 id='http-4'>HTTP 請求</h3>
+<h3 id='http-2'>HTTP 請求</h3>
 <ul>
 <li>POST <code>/open/otc/api/clearing/manual/clearing</code></li>
 </ul>
@@ -1660,7 +1470,7 @@ api.huobi-brokerage.com\n
 <p>Response:</p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="s2">"code"</span><span class="p">:</span><span class="mi">200</span><span class="p">,</span><span class="s2">"message"</span><span class="p">:</span><span class="s2">"success"</span><span class="p">,</span><span class="s2">"data"</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span><span class="s2">"success"</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span><span class="s2">"messageArgs"</span><span class="p">:[]}</span><span class="w">
-</span></code></pre><h3 id='8cee0e29db-3'>響應數據</h3>
+</span></code></pre><h3 id='8cee0e29db-2'>響應數據</h3>
 <table><thead>
 <tr>
 <th>參數名稱</th>
@@ -1694,7 +1504,7 @@ api.huobi-brokerage.com\n
 </tbody></table>
 <h2 id='be4608a8d0'>獲取用戶結算歷史</h2>
 <p>該接口可以查詢到用戶的結算歷史</p>
-<h3 id='http-5'>HTTP 請求</h3>
+<h3 id='http-3'>HTTP 請求</h3>
 <ul>
 <li>POST <code>/open/otc/api/clearing/history</code></li>
 </ul>
@@ -1752,7 +1562,7 @@ api.huobi-brokerage.com\n
 
     </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre><h3 id='8cee0e29db-4'>響應數據</h3>
+</span></code></pre><h3 id='8cee0e29db-3'>響應數據</h3>
 <p><html>
  <head></head>
  <body>
@@ -1886,7 +1696,7 @@ api.huobi-brokerage.com\n
 </html></p>
 <h2 id='f503fe3bda'>獲取用戶結算記錄詳情</h2>
 <p>該接口支持守信用戶查詢結算記錄詳情</p>
-<h3 id='http-6'>HTTP 請求</h3>
+<h3 id='http-4'>HTTP 請求</h3>
 <ul>
 <li>GET <code>/open/otc/api/clearing/details/{clearingId}</code></li>
 </ul>
@@ -2179,7 +1989,7 @@ api.huobi-brokerage.com\n
 </html></p>
 <h2 id='ef1dc8851c'>获取用户授信汇总信息</h2>
 <p>用戶可以通過該接口查詢到自己賬戶的授信匯總信息</p>
-<h3 id='http-7'>HTTP 請求</h3>
+<h3 id='http-5'>HTTP 請求</h3>
 <ul>
 <li>GET <code>/open/otc/api/clearing/query-account-summary</code></li>
 </ul>
@@ -2344,7 +2154,7 @@ api.huobi-brokerage.com\n
 </html> </p>
 <h1 id='3994670fd3'>用戶賬戶相關</h1><h2 id='eaa6054797'>獲取用戶資產信息</h2>
 <p>用戶可以通過該接口查詢自己賬戶的資產信息</p>
-<h3 id='http-8'>HTTP 請求</h3>
+<h3 id='http-6'>HTTP 請求</h3>
 <ul>
 <li>GET <code>/open/otc/api/user/accountSummary</code></li>
 </ul>
@@ -2724,7 +2534,7 @@ api.huobi-brokerage.com\n
 </html></p>
 <h1 id='f27baa84e9'>交易對相關</h1><h2 id='28e605fd8c'>獲取全部上線交易對</h2>
 <p>用戶可以通過該接口查詢到已上線的全部交易對</p>
-<h3 id='http-9'>HTTP 請求</h3>
+<h3 id='http-7'>HTTP 請求</h3>
 <ul>
 <li>GET <code>/open/otc/api/symbol</code></li>
 </ul>
@@ -2902,7 +2712,7 @@ api.huobi-brokerage.com\n
 </html></p>
 <h2 id='dafbe4dde9'>獲取交易對規則</h2>
 <p>用戶可以通過該接口查詢到交易對規則</p>
-<h3 id='http-10'>HTTP 請求</h3>
+<h3 id='http-8'>HTTP 請求</h3>
 <ul>
 <li>GET <code>/open/otc/api/symbol/{symbol}/setting</code></li>
 </ul>
