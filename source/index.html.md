@@ -611,11 +611,11 @@ API Key 權限：讀取<br>
   <table> 
    <thead class="ant-table-thead"> 
     <tr> 
-     <th key="name">名称</th>
-     <th key="type">类型</th>
+     <th key="name">名稱</th>
+     <th key="type">類型</th>
      <th key="required">是否必須</th>
-     <th key="default">默认值</th>
-     <th key="desc">备注</th>
+     <th key="default">默認值</th>
+     <th key="desc">備註</th>
      <th key="sub">其他信息</th> 
     </tr> 
    </thead>
@@ -822,11 +822,11 @@ API Key 權限：讀取<br>
   <table> 
    <thead class="ant-table-thead"> 
     <tr> 
-     <th key="name">名称</th>
-     <th key="type">类型</th>
+     <th key="name">名稱</th>
+     <th key="type">類型</th>
      <th key="required">是否必須</th>
-     <th key="default">默认值</th>
-     <th key="desc">备注</th>
+     <th key="default">默認值</th>
+     <th key="desc">備註</th>
      <th key="sub">其他信息</th> 
     </tr> 
    </thead>
@@ -1166,7 +1166,7 @@ API Key 權限：讀取<br>
 <table>
   <thead class="ant-table-thead">
     <tr>
-      <th key=name>參數名稱</th><th key=type>類型</th><th key=required>是否必須</th><th key=default>默认值</th><th key=desc>描述</th><th key=sub>取值範圍</th>
+      <th key=name>參數名稱</th><th key=type>類型</th><th key=required>是否必須</th><th key=default>默認值</th><th key=desc>描述</th><th key=sub>取值範圍</th>
     </tr>
   </thead><tbody className="ant-table-tbody"><tr key=0-0><td key=0><span style="padding-left: 0px"><span></span> page</span></td><td key=1><span>object</span></td><td key=2>true</td><td key=3></td><td key=4><span style="white-space: pre-wrap">分页查询参数</span></td><td key=5></td></tr><tr key=0-0-0><td key=0><span style="padding-left: 20px"><span >size</span></td><td key=1><span>integer</span></td><td key=2>true</td><td key=3></td><td key=4><span style="white-space: pre-wrap">分頁數量</span></td><td key=5></td></tr><tr key=0-0-3><td key=0><span style="padding-left: 20px"><span >page</span></td><td key=1><span>integer</span></td><td key=2>true</td><td key=3></td><td key=4><span style="white-space: pre-wrap">當前頁數</span></td><td key=5></td></tr><tr key=0-1><td key=0><span style="padding-left: 0px"><span ></span> startTime</span></td><td key=1><span>integer</span></td><td key=2>false</td><td key=3></td><td key=4><span style="white-space: pre-wrap">訂單時間-查詢開始時間</span></td><td key=5></td></tr><tr key=0-2><td key=0><span style="padding-left: 0px"><span ></span> endTime</span></td><td key=1><span>integer</span></td><td key=2>false</td><td key=3></td><td key=4><span style="white-space: pre-wrap">訂單時間-查詢結束時間</span></td><td key=5></td></tr>
                </tbody>
@@ -1366,7 +1366,7 @@ API Key 权限：讀取<br>
 限频值：2次/1秒<br>
 ### 请求参数
 
-| 参数名称 | 示例  | 备注  |
+| 参数名稱 | 示例  | 備註  |
 | ------------ | ------------ | ------------ |
 | clearingId |   |   |
 
@@ -1421,11 +1421,11 @@ API Key 权限：讀取<br>
   <table> 
    <thead class="ant-table-thead"> 
     <tr> 
-     <th key="name">名称</th>
-     <th key="type">类型</th>
+     <th key="name">名稱</th>
+     <th key="type">類型</th>
      <th key="required">是否必須</th>
-     <th key="default">默认值</th>
-     <th key="desc">备注</th>
+     <th key="default">默認值</th>
+     <th key="desc">備註</th>
      <th key="sub">其他信息</th> 
     </tr> 
    </thead>
@@ -1692,11 +1692,11 @@ API Key 權限：讀取<br>
   <table> 
    <thead class="ant-table-thead"> 
     <tr> 
-     <th key="name">名称</th>
-     <th key="type">类型</th>
+     <th key="name">名稱</th>
+     <th key="type">類型</th>
      <th key="required">是否必須</th>
-     <th key="default">默认值</th>
-     <th key="desc">备注</th>
+     <th key="default">默認值</th>
+     <th key="desc">備註</th>
      <th key="sub">其他信息</th> 
     </tr> 
    </thead>
@@ -1810,3 +1810,386 @@ API Key 權限：讀取<br>
  </body>
 </html> 
 
+# 用戶賬戶相關
+
+## 獲取用戶資產信息
+用戶可以通過該接口查詢自己賬戶的資產信息
+
+### HTTP 請求
+
+- GET `/open/otc/api/user/accountSummary`
+
+API Key 權限：讀取<br>
+
+限頻值：2次/1s<br>
+> Response:
+
+```json
+{
+  "code":200,
+  "message":"success",
+  "data":{
+    "financeAccounts":[
+      {
+        "currencyId":"usd",
+        "currencyDisplayName":"USD",
+        "currencyFullName":"USD",
+        "sortWeight":8,
+        "balance":"6929.280000000000000000",
+        "frozenAmount":"1893.750000000000000000",
+        "creditedAmount":"0",
+        "receivableAmount":"0",
+        "virtualFrozenAmount":null,
+        "withdrawAmount":null,
+        "balanceToPlaceOrder":null,
+        "stable":"false",
+        "inCurrencyBlackList":false,
+        "spotBalance":null
+      },
+      {
+        "currencyId":"btc",
+        "currencyDisplayName":"BTC",
+        "currencyFullName":"BTC",
+        "sortWeight":1,
+        "balance":"0.020000000000000000",
+        "frozenAmount":"0.000000000000000000",
+        "creditedAmount":"0",
+        "receivableAmount":"0.000000000000000000",
+        "virtualFrozenAmount":null,
+        "withdrawAmount":null,
+        "balanceToPlaceOrder":null,
+        "stable":"false",
+        "inCurrencyBlackList":false,
+        "spotBalance":null
+      },
+      {
+        "currencyId":"usdt",
+        "currencyDisplayName":"USDT",
+        "currencyFullName":"USDT",
+        "sortWeight":1,
+        "balance":"2941.033920000000000000",
+        "frozenAmount":"4100.000000000000000000",
+        "creditedAmount":"0",
+        "receivableAmount":"0.000000000000000000",
+        "virtualFrozenAmount":null,
+        "withdrawAmount":null,
+        "balanceToPlaceOrder":null,
+        "stable":"false",
+        "inCurrencyBlackList":false,
+        "spotBalance":null
+      }
+    ],
+    "totalDigitalCurrency":"BTC",
+    "totalConvertedDigitalCurrencyBalance":"0.39445219",
+    "sumLegalCurrency":"USD",
+    "sumConvertedLegalCurrencyBalance":"16711.38512000",
+    "sumLegalCurrencyBalance":"8823.03000000",
+    "totalLegalCurrencyBalance":"0.20825703",
+    "sumDigitalCurrencyBalance":"7888.35512000",
+    "totalDigitalCurrencyBalance":"0.18619516",
+    "defaultCreditCategory":false,
+    "unstableCreditLimit":null,
+    "unstableCreditUsed":null,
+    "unstableCreditUsedWithoutLocked":null,
+    "unstableCreditAvailable":null,
+    "unstableCreditCurrencyDisplay":null
+  },
+  "success":true,
+  "messageArgs":[
+
+  ]
+}
+```
+### 返回数据
+
+<html>
+ <head></head>
+ <body>
+  <table> 
+   <thead class="ant-table-thead"> 
+    <tr> 
+     <th key="name">名稱</th>
+     <th key="type">類型</th>
+     <th key="required">是否必須</th>
+     <th key="default">默認值</th>
+     <th key="desc">備註</th>
+     <th key="sub">其他信息</th> 
+    </tr> 
+   </thead>
+   <tbody classname="ant-table-tbody">
+    <tr key="0-0">
+     <td key="0"><span style="padding-left: 0px"><span style="color: #8c8a8a"></span> code</span></td>
+     <td key="1"><span>integer</span></td>
+     <td key="2">必須</td>
+     <td key="3"></td>
+     <td key="4"><span style="white-space: pre-wrap">業務狀態碼</span></td>
+     <td key="5"></td>
+    </tr>
+    <tr key="0-1">
+     <td key="0"><span style="padding-left: 0px"><span style="color: #8c8a8a"></span> message</span></td>
+     <td key="1"><span>string</span></td>
+     <td key="2">非必須</td>
+     <td key="3"></td>
+     <td key="4"><span style="white-space: pre-wrap">錯誤信息（英文）</span></td>
+     <td key="5"></td>
+    </tr>
+    <tr key="0-2">
+     <td key="0"><span style="padding-left: 0px"><span style="color: #8c8a8a"></span> data</span></td>
+     <td key="1"><span>object</span></td>
+     <td key="2">非必須</td>
+     <td key="3"></td>
+     <td key="4"><span style="white-space: pre-wrap">業務數據</span></td>
+     <td key="5"></td>
+    </tr>
+    <tr key="0-2-0">
+     <td key="0"><span style="padding-left: 20px"> financeAccounts</span></td>
+     <td key="1"><span>object []</span></td>
+     <td key="2">非必須</td>
+     <td key="3">new ArrayList&lt;&gt;()</td>
+     <td key="4"><span style="white-space: pre-wrap">賬戶列表</span></td>
+     <td key="5"></td>
+    </tr>
+    <tr key="0-2-0-0">
+     <td key="0"><span style="padding-left: 40px"> currencyId</span></td>
+     <td key="1"><span>string</span></td>
+     <td key="2">非必須</td>
+     <td key="3"></td>
+     <td key="4"><span style="white-space: pre-wrap">* 幣種ID</span></td>
+     <td key="5"></td>
+    </tr>
+    <tr key="0-2-0-1">
+     <td key="0"><span style="padding-left: 40px"> currencyDisplayName</span></td>
+     <td key="1"><span>string</span></td>
+     <td key="2">非必須</td>
+     <td key="3"></td>
+     <td key="4"><span style="white-space: pre-wrap">幣種展示名稱</span></td>
+     <td key="5"></td>
+    </tr>
+    <tr key="0-2-0-2">
+     <td key="0"><span style="padding-left: 40px"> currencyFullName</span></td>
+     <td key="1"><span>string</span></td>
+     <td key="2">非必須</td>
+     <td key="3"></td>
+     <td key="4"><span style="white-space: pre-wrap">幣種全稱</span></td>
+     <td key="5"></td>
+    </tr>
+    <tr key="0-2-0-3">
+     <td key="0"><span style="padding-left: 40px"> sortWeight</span></td>
+     <td key="1"><span>integer</span></td>
+     <td key="2">非必須</td>
+     <td key="3"></td>
+     <td key="4"><span style="white-space: pre-wrap">排序權重</span></td>
+     <td key="5"></td>
+    </tr>
+    <tr key="0-2-0-4">
+     <td key="0"><span style="padding-left: 40px"> balance</span></td>
+     <td key="1"><span>string</span></td>
+     <td key="2">非必須</td>
+     <td key="3"></td>
+     <td key="4"><span style="white-space: pre-wrap">餘額</span></td>
+     <td key="5"></td>
+    </tr>
+    <tr key="0-2-0-5">
+     <td key="0"><span style="padding-left: 40px"> frozenAmount</span></td>
+     <td key="1"><span>string</span></td>
+     <td key="2">非必須</td>
+     <td key="3"></td>
+     <td key="4"><span style="white-space: pre-wrap">凍結金額</span></td>
+     <td key="5"></td>
+    </tr>
+    <tr key="0-2-0-6">
+     <td key="0"><span style="padding-left: 40px"> creditedAmount</span></td>
+     <td key="1"><span>string</span></td>
+     <td key="2">非必須</td>
+     <td key="3"></td>
+     <td key="4"><span style="white-space: pre-wrap">已使用授信</span></td>
+     <td key="5"></td>
+    </tr>
+    <tr key="0-2-0-7">
+     <td key="0"><span style="padding-left: 40px"> receivableAmount</span></td>
+     <td key="1"><span>string</span></td>
+     <td key="2">非必須</td>
+     <td key="3"></td>
+     <td key="4"><span style="white-space: pre-wrap">應收授信</span></td>
+     <td key="5"></td>
+    </tr>
+    <tr key="0-2-0-8">
+     <td key="0"><span style="padding-left: 40px"> virtualFrozenAmount</span></td>
+     <td key="1"><span>string</span></td>
+     <td key="2">非必須</td>
+     <td key="3"></td>
+     <td key="4"><span style="white-space: pre-wrap">授信已凍結</span></td>
+     <td key="5"></td>
+    </tr>
+    <tr key="0-2-0-9">
+     <td key="0"><span style="padding-left: 40px"> withdrawAmount</span></td>
+     <td key="1"><span>string</span></td>
+     <td key="2">非必須</td>
+     <td key="3"></td>
+     <td key="4"><span style="white-space: pre-wrap">可劃轉餘額</span></td>
+     <td key="5"></td>
+    </tr>
+    <tr key="0-2-0-10">
+     <td key="0"><span style="padding-left: 40px"> balanceToPlaceOrder</span></td>
+     <td key="1"><span>string</span></td>
+     <td key="2">非必須</td>
+     <td key="3"></td>
+     <td key="4"><span style="white-space: pre-wrap">下單可用=賬戶餘額 + 應收</span></td>
+     <td key="5"></td>
+    </tr>
+    <tr key="0-2-0-11">
+     <td key="0"><span style="padding-left: 40px"> stable</span></td>
+     <td key="1"><span>string</span></td>
+     <td key="2">非必須</td>
+     <td key="3"></td>
+     <td key="4"><span style="white-space: pre-wrap">是否為穩定幣， true or false</span></td>
+     <td key="5"></td>
+    </tr>
+    <tr key="0-2-0-12">
+     <td key="0"><span style="padding-left: 40px"> inCurrencyBlackList</span></td>
+     <td key="1"><span>boolean</span></td>
+     <td key="2">非必須</td>
+     <td key="3"></td>
+     <td key="4"><span style="white-space: pre-wrap">用戶所在國際是否在該幣種的國籍黑名單中</span></td>
+     <td key="5"></td>
+    </tr>
+    <tr key="0-2-0-13">
+     <td key="0"><span style="padding-left: 40px"> spotBalance</span></td>
+     <td key="1"><span>string</span></td>
+     <td key="2">非必須</td>
+     <td key="3"></td>
+     <td key="4"><span style="white-space: pre-wrap">幣幣賬戶餘額</span></td>
+     <td key="5"></td>
+    </tr>
+    <tr key="0-2-1">
+     <td key="0"><span style="padding-left: 20px"> totalDigitalCurrency</span></td>
+     <td key="1"><span>string</span></td>
+     <td key="2">非必須</td>
+     <td key="3"></td>
+     <td key="4"><span style="white-space: pre-wrap">總資產幣種(數字幣)</span></td>
+     <td key="5"></td>
+    </tr>
+    <tr key="0-2-2">
+     <td key="0"><span style="padding-left: 20px"> totalConvertedDigitalCurrencyBalance</span></td>
+     <td key="1"><span>string</span></td>
+     <td key="2">非必須</td>
+     <td key="3"></td>
+     <td key="4"><span style="white-space: pre-wrap">*總資產（數字幣折算BTC）</span></td>
+     <td key="5"></td>
+    </tr>
+    <tr key="0-2-3">
+     <td key="0"><span style="padding-left: 20px"> sumLegalCurrency</span></td>
+     <td key="1"><span>string</span></td>
+     <td key="2">非必須</td>
+     <td key="3"></td>
+     <td key="4"><span style="white-space: pre-wrap">總資產(法幣)</span></td>
+     <td key="5"></td>
+    </tr>
+    <tr key="0-2-4">
+     <td key="0"><span style="padding-left: 20px"> sumConvertedLegalCurrencyBalance</span></td>
+     <td key="1"><span>string</span></td>
+     <td key="2">非必須</td>
+     <td key="3"></td>
+     <td key="4"><span style="white-space: pre-wrap">總資產（法幣折算）</span></td>
+     <td key="5"></td>
+    </tr>
+    <tr key="0-2-5">
+     <td key="0"><span style="padding-left: 20px"> sumLegalCurrencyBalance</span></td>
+     <td key="1"><span>string</span></td>
+     <td key="2">非必須</td>
+     <td key="3"></td>
+     <td key="4"><span style="white-space: pre-wrap">法幣總資產</span></td>
+     <td key="5"></td>
+    </tr>
+    <tr key="0-2-6">
+     <td key="0"><span style="padding-left: 20px"> totalLegalCurrencyBalance</span></td>
+     <td key="1"><span>string</span></td>
+     <td key="2">非必須</td>
+     <td key="3"></td>
+     <td key="4"><span style="white-space: pre-wrap">法幣總資產（法幣折算BTC）</span></td>
+     <td key="5"></td>
+    </tr>
+    <tr key="0-2-7">
+     <td key="0"><span style="padding-left: 20px"> sumDigitalCurrencyBalance</span></td>
+     <td key="1"><span>string</span></td>
+     <td key="2">非必須</td>
+     <td key="3"></td>
+     <td key="4"><span style="white-space: pre-wrap">數字幣總資產</span></td>
+     <td key="5"></td>
+    </tr>
+    <tr key="0-2-8">
+     <td key="0"><span style="padding-left: 20px"> totalDigitalCurrencyBalance</span></td>
+     <td key="1"><span>string</span></td>
+     <td key="2">非必須</td>
+     <td key="3"></td>
+     <td key="4"><span style="white-space: pre-wrap">數字幣總資產（数字币折算BTC）</span></td>
+     <td key="5"></td>
+    </tr>
+    <tr key="0-2-9">
+     <td key="0"><span style="padding-left: 20px"> defaultCreditCategory</span></td>
+     <td key="1"><span>boolean</span></td>
+     <td key="2">非必須</td>
+     <td key="3"></td>
+     <td key="4"><span style="white-space: pre-wrap">默認授信級別</span></td>
+     <td key="5"></td>
+    </tr>
+    <tr key="0-2-10">
+     <td key="0"><span style="padding-left: 20px"> unstableCreditLimit</span></td>
+     <td key="1"><span>string</span></td>
+     <td key="2">非必須</td>
+     <td key="3"></td>
+     <td key="4"><span style="white-space: pre-wrap">非穩定幣限額</span></td>
+     <td key="5"></td>
+    </tr>
+    <tr key="0-2-11">
+     <td key="0"><span style="padding-left: 20px"> unstableCreditUsed</span></td>
+     <td key="1"><span>string</span></td>
+     <td key="2">非必須</td>
+     <td key="3"></td>
+     <td key="4"><span style="white-space: pre-wrap">非穩定幣已使用授信額度</span></td>
+     <td key="5"></td>
+    </tr>
+    <tr key="0-2-12">
+     <td key="0"><span style="padding-left: 20px"> unstableCreditUsedWithoutLocked</span></td>
+     <td key="1"><span>string</span></td>
+     <td key="2">非必須</td>
+     <td key="3"></td>
+     <td key="4"><span style="white-space: pre-wrap">非穩定幣已使用授信額度</span></td>
+     <td key="5"></td>
+    </tr>
+    <tr key="0-2-13">
+     <td key="0"><span style="padding-left: 20px"> unstableCreditAvailable</span></td>
+     <td key="1"><span>string</span></td>
+     <td key="2">非必須</td>
+     <td key="3"></td>
+     <td key="4"><span style="white-space: pre-wrap">非穩定幣授信可用</span></td>
+     <td key="5"></td>
+    </tr>
+    <tr key="0-2-14">
+     <td key="0"><span style="padding-left: 20px"> unstableCreditCurrencyDisplay</span></td>
+     <td key="1"><span>string</span></td>
+     <td key="2">非必須</td>
+     <td key="3"></td>
+     <td key="4"><span style="white-space: pre-wrap">非穩定幣顯示名稱</span></td>
+     <td key="5"></td>
+    </tr>
+    <tr key="0-3">
+     <td key="0"><span style="padding-left: 0px"><span style="color: #8c8a8a"></span> success</span></td>
+     <td key="1"><span>boolean</span></td>
+     <td key="2">必須</td>
+     <td key="3"></td>
+     <td key="4"><span style="white-space: pre-wrap">執行結果</span></td>
+     <td key="5"></td>
+    </tr>
+    <tr key="0-4">
+     <td key="0"><span style="padding-left: 0px"><span style="color: #8c8a8a"></span> messageArgs</span></td>
+     <td key="1"><span>object []</span></td>
+     <td key="2">非必須</td>
+     <td key="3">new ArrayList&lt;&gt;()</td>
+     <td key="4"><span style="white-space: pre-wrap"></span></td>
+     <td key="5"></td>
+    </tr> 
+   </tbody> 
+  </table>
+ </body>
+</html>
