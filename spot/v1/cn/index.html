@@ -372,6 +372,14 @@
                   </li>
               </ul>
           </li>
+          <li>
+            <a href="#3994670fd3" class="toc-h1 toc-link" data-title="用戶賬戶相關">用戶賬戶相關</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#eaa6054797" class="toc-h2 toc-link" data-title="獲取用戶資產信息">獲取用戶資產信息</a>
+                  </li>
+              </ul>
+          </li>
       </ul>
     </div>
     <div class="page-wrapper">
@@ -1096,11 +1104,11 @@ api.huobi-brokerage.com\n
   <table> 
    <thead class="ant-table-thead"> 
     <tr> 
-     <th key="name">名称</th>
-     <th key="type">类型</th>
-     <th key="required">是否必须</th>
-     <th key="default">默认值</th>
-     <th key="desc">备注</th>
+     <th key="name">名稱</th>
+     <th key="type">類型</th>
+     <th key="required">是否必須</th>
+     <th key="default">默認值</th>
+     <th key="desc">備註</th>
      <th key="sub">其他信息</th> 
     </tr> 
    </thead>
@@ -1108,7 +1116,7 @@ api.huobi-brokerage.com\n
     <tr key="0-0">
      <td key="0"><span style="padding-left: 0px"><span style="color: #8c8a8a"></span> page</span></td>
      <td key="1"><span>object</span></td>
-     <td key="2">必须</td>
+     <td key="2">必須</td>
      <td key="3"></td>
      <td key="4"><span style="white-space: pre-wrap">分頁查詢參數</span></td>
      <td key="5"></td>
@@ -1116,7 +1124,7 @@ api.huobi-brokerage.com\n
           <tr key="0-0-2">
      <td key="0"><span style="padding-left: 20px"> size</span></td>
      <td key="1"><span>integer</span></td>
-     <td key="2">必须</td>
+     <td key="2">必須</td>
      <td key="3"></td>
      <td key="4"><span style="white-space: pre-wrap">每頁大小</span></td>
      <td key="5"></td>
@@ -1124,7 +1132,7 @@ api.huobi-brokerage.com\n
     <tr key="0-0-3">
      <td key="0"><span style="padding-left: 20px"> page</span></td>
      <td key="1"><span>integer</span></td>
-     <td key="2">必须</td>
+     <td key="2">必須</td>
      <td key="3"></td>
      <td key="4"><span style="white-space: pre-wrap">當前頁數</span></td>
      <td key="5"></td>
@@ -1132,7 +1140,7 @@ api.huobi-brokerage.com\n
     <tr key="0-1">
      <td key="0"><span style="padding-left: 0px"><span style="color: #8c8a8a"></span> side</span></td>
      <td key="1"><span>string</span></td>
-     <td key="2">非必须</td>
+     <td key="2">非必須</td>
      <td key="3"></td>
      <td key="4"><span style="white-space: pre-wrap">交易方向</span></td>
      <td key="5"></td>
@@ -1140,7 +1148,7 @@ api.huobi-brokerage.com\n
     <tr key="0-2">
      <td key="0"><span style="padding-left: 0px"><span style="color: #8c8a8a"></span> baseCurrency</span></td>
      <td key="1"><span>string</span></td>
-     <td key="2">非必须</td>
+     <td key="2">非必須</td>
      <td key="3"></td>
      <td key="4"><span style="white-space: pre-wrap">基礎幣種</span></td>
      <td key="5"></td>
@@ -1148,7 +1156,7 @@ api.huobi-brokerage.com\n
     <tr key="0-3">
      <td key="0"><span style="padding-left: 0px"><span style="color: #8c8a8a"></span> quoteCurrency</span></td>
      <td key="1"><span>string</span></td>
-     <td key="2">非必须</td>
+     <td key="2">非必須</td>
      <td key="3"></td>
      <td key="4"><span style="white-space: pre-wrap">計價幣種</span></td>
      <td key="5"></td>
@@ -1156,7 +1164,7 @@ api.huobi-brokerage.com\n
     <tr key="0-4">
      <td key="0"><span style="padding-left: 0px"><span style="color: #8c8a8a"></span> timeInForce</span></td>
      <td key="1"><span>integer</span></td>
-     <td key="2">非必须</td>
+     <td key="2">非必須</td>
      <td key="3"></td>
      <td key="4"><span style="white-space: pre-wrap"></span></td>
      <td key="5"></td>
@@ -1164,7 +1172,7 @@ api.huobi-brokerage.com\n
     <tr key="0-5">
      <td key="0"><span style="padding-left: 0px"><span style="color: #8c8a8a"></span> startTime</span></td>
      <td key="1"><span>integer</span></td>
-     <td key="2">非必须</td>
+     <td key="2">非必須</td>
      <td key="3"></td>
      <td key="4"><span style="white-space: pre-wrap">訂單時間-開始時間</span></td>
      <td key="5"></td>
@@ -1172,7 +1180,7 @@ api.huobi-brokerage.com\n
     <tr key="0-6">
      <td key="0"><span style="padding-left: 0px"><span style="color: #8c8a8a"></span> endTime</span></td>
      <td key="1"><span>integer</span></td>
-     <td key="2">非必须</td>
+     <td key="2">非必須</td>
      <td key="3"></td>
      <td key="4"><span style="white-space: pre-wrap">訂單時間-結束時間</span></td>
      <td key="5"></td>
@@ -1180,7 +1188,7 @@ api.huobi-brokerage.com\n
     <tr key="0-7">
      <td key="0"><span style="padding-left: 0px"><span style="color: #8c8a8a"></span> orderId</span></td>
      <td key="1"><span>string</span></td>
-     <td key="2">非必须</td>
+     <td key="2">非必須</td>
      <td key="3"></td>
      <td key="4"><span style="white-space: pre-wrap">訂單id</span></td>
      <td key="5"></td>
@@ -1188,7 +1196,7 @@ api.huobi-brokerage.com\n
     <tr key="0-8">
      <td key="0"><span style="padding-left: 0px"><span style="color: #8c8a8a"></span> clearingStatus</span></td>
      <td key="1"><span>integer</span></td>
-     <td key="2">非必须</td>
+     <td key="2">非必須</td>
      <td key="3"></td>
      <td key="4"><span style="white-space: pre-wrap">清算狀態(0, &quot;待清算&quot;|1, &quot;成交自動清算&quot;|2, &quot;部分清算&quot;|3, &quot;已完成&quot;|4, &quot;清算失敗&quot;)</span></td>
      <td key="5"></td>
@@ -1196,7 +1204,7 @@ api.huobi-brokerage.com\n
     <tr key="0-9">
      <td key="0"><span style="padding-left: 0px"><span style="color: #8c8a8a"></span> tradeStatusList</span></td>
      <td key="1"><span>integer []</span></td>
-     <td key="2">非必须</td>
+     <td key="2">非必須</td>
      <td key="3"></td>
      <td key="4"><span style="white-space: pre-wrap">交易狀態集合</span></td>
      <td key="5"><p key="3"><span style="font-weight: '700'"> </span><span></span></p></td>
@@ -1204,7 +1212,7 @@ api.huobi-brokerage.com\n
         <tr key="0-10">
      <td key="0"><span style="padding-left: 0px"><span style="color: #8c8a8a"></span> clearingStatusList</span></td>
      <td key="1"><span>integer []</span></td>
-     <td key="2">非必须</td>
+     <td key="2">非必須</td>
      <td key="3"></td>
      <td key="4"><span style="white-space: pre-wrap">清算狀態集合</span></td>
      <td key="5"><p key="3"><span style="font-weight: '700'"> </span><span></span></p></td>
@@ -1213,7 +1221,7 @@ api.huobi-brokerage.com\n
      <tr key="0-11">
      <td key="0"><span style="padding-left: 0px"><span style="color: #8c8a8a"></span> ascending</span></td>
      <td key="1"><span>string</span></td>
-     <td key="2">非必须</td>
+     <td key="2">非必須</td>
      <td key="3"></td>
      <td key="4"><span style="white-space: pre-wrap">正序(&quot;asc&quot;)還是倒序(&quot;desc&quot;)，默認是倒序</span></td>
      <td key="5"></td>
@@ -1304,11 +1312,11 @@ api.huobi-brokerage.com\n
   <table> 
    <thead class="ant-table-thead"> 
     <tr> 
-     <th key="name">名称</th>
-     <th key="type">类型</th>
-     <th key="required">是否必须</th>
-     <th key="default">默认值</th>
-     <th key="desc">备注</th>
+     <th key="name">名稱</th>
+     <th key="type">類型</th>
+     <th key="required">是否必須</th>
+     <th key="default">默認值</th>
+     <th key="desc">備註</th>
      <th key="sub">其他信息</th> 
     </tr> 
    </thead>
@@ -1316,7 +1324,7 @@ api.huobi-brokerage.com\n
     <tr key="0-0">
      <td key="0"><span style="padding-left: 0px"> code</span></td>
      <td key="1"><span>integer</span></td>
-     <td key="2">必须</td>
+     <td key="2">必須</td>
      <td key="3"></td>
      <td key="4"><span style="white-space: pre-wrap"><span style="white-space: pre-wrap">編碼</span></span></td>
      <td key="5"></td>
@@ -1324,7 +1332,7 @@ api.huobi-brokerage.com\n
     <tr key="0-1">
      <td key="0"><span style="padding-left: 0px"> message</span></td>
      <td key="1"><span>string</span></td>
-     <td key="2">非必须</td>
+     <td key="2">非必須</td>
      <td key="3"></td>
      <td key="4"><span style="white-space: pre-wrap">消息</span></td>
      <td key="5"></td>
@@ -1332,7 +1340,7 @@ api.huobi-brokerage.com\n
     <tr key="0-2">
      <td key="0"><span style="padding-left: 0px"> data</span></td>
      <td key="1"><span>object</span></td>
-     <td key="2">非必须</td>
+     <td key="2">非必須</td>
      <td key="3"></td>
      <td key="4"><span style="white-space: pre-wrap">業務數據</span></td>
      <td key="5"></td>
@@ -1340,7 +1348,7 @@ api.huobi-brokerage.com\n
     <tr key="0-2-0">
      <td key="0"><span style="padding-left: 20px"> items</span></td>
      <td key="1"><span>object []</span></td>
-     <td key="2">非必须</td>
+     <td key="2">非必須</td>
      <td key="3"></td>
      <td key="4"><span style="white-space: pre-wrap">分頁數據</span></td>
      <td key="5"><p key="3"><span style="font-weight: '700'"></p></td>
@@ -1348,7 +1356,7 @@ api.huobi-brokerage.com\n
     <tr key="0-2-0-0">
      <td key="0"><span style="padding-left: 40px"> id</span></td>
      <td key="1"><span>integer</span></td>
-     <td key="2">非必须</td>
+     <td key="2">非必須</td>
      <td key="3"></td>
      <td key="4"><span style="white-space: pre-wrap">id</span></td>
      <td key="5"></td>
@@ -1356,7 +1364,7 @@ api.huobi-brokerage.com\n
     <tr key="0-2-0-1">
      <td key="0"><span style="padding-left: 40px"> orderId</span></td>
      <td key="1"><span>integer</span></td>
-     <td key="2">非必须</td>
+     <td key="2">非必須</td>
      <td key="3"></td>
      <td key="4"><span style="white-space: pre-wrap">訂單id</span></td>
      <td key="5"></td>
@@ -1364,7 +1372,7 @@ api.huobi-brokerage.com\n
     <tr key="0-2-0-2">
      <td key="0"><span style="padding-left: 40px"> side</span></td>
      <td key="1"><span>integer</span></td>
-     <td key="2">非必须</td>
+     <td key="2">非必須</td>
      <td key="3"></td>
      <td key="4"><span style="white-space: pre-wrap">交易方向：1 buy, 2 sell</span></td>
      <td key="5"></td>
@@ -1372,7 +1380,7 @@ api.huobi-brokerage.com\n
     <tr key="0-2-0-3">
      <td key="0"><span style="padding-left: 40px"> timeInForce</span></td>
      <td key="1"><span>integer</span></td>
-     <td key="2">非必须</td>
+     <td key="2">非必須</td>
      <td key="3"></td>
      <td key="4"><span style="white-space: pre-wrap">交易類型</span></td>
      <td key="5"></td>
@@ -1380,7 +1388,7 @@ api.huobi-brokerage.com\n
     <tr key="0-2-0-4">
      <td key="0"><span style="padding-left: 40px"> baseCurrency</span></td>
      <td key="1"><span>string</span></td>
-     <td key="2">非必须</td>
+     <td key="2">非必須</td>
      <td key="3"></td>
      <td key="4"><span style="white-space: pre-wrap">基礎幣種</span></td>
      <td key="5"></td>
@@ -1388,7 +1396,7 @@ api.huobi-brokerage.com\n
     <tr key="0-2-0-5">
      <td key="0"><span style="padding-left: 40px"> quoteCurrency</span></td>
      <td key="1"><span>string</span></td>
-     <td key="2">非必须</td>
+     <td key="2">非必須</td>
      <td key="3"></td>
      <td key="4"><span style="white-space: pre-wrap">計價幣種</span></td>
      <td key="5"></td>
@@ -1396,7 +1404,7 @@ api.huobi-brokerage.com\n
     <tr key="0-2-0-6">
      <td key="0"><span style="padding-left: 40px"> quantity</span></td>
      <td key="1"><span>string</span></td>
-     <td key="2">非必须</td>
+     <td key="2">非必須</td>
      <td key="3"></td>
      <td key="4"><span style="white-space: pre-wrap">訂單數量</span></td>
      <td key="5"></td>
@@ -1404,7 +1412,7 @@ api.huobi-brokerage.com\n
     <tr key="0-2-0-7">
      <td key="0"><span style="padding-left: 40px"> cumQuantity</span></td>
      <td key="1"><span>string</span></td>
-     <td key="2">非必须</td>
+     <td key="2">非必須</td>
      <td key="3"></td>
      <td key="4"><span style="white-space: pre-wrap">累計已交易訂單數量</span></td>
      <td key="5"></td>
@@ -1412,7 +1420,7 @@ api.huobi-brokerage.com\n
     <tr key="0-2-0-8">
      <td key="0"><span style="padding-left: 40px"> avgPx</span></td>
      <td key="1"><span>string</span></td>
-     <td key="2">非必须</td>
+     <td key="2">非必須</td>
      <td key="3"></td>
      <td key="4"><span style="white-space: pre-wrap">累計已交易訂單平均成交價格累</span></td>
      <td key="5"></td>
@@ -1420,7 +1428,7 @@ api.huobi-brokerage.com\n
     <tr key="0-2-0-9">
      <td key="0"><span style="padding-left: 40px"> lastPx</span></td>
      <td key="1"><span>string</span></td>
-     <td key="2">非必须</td>
+     <td key="2">非必須</td>
      <td key="3"></td>
      <td key="4"><span style="white-space: pre-wrap">本次交易價格</span></td>
      <td key="5"></td>
@@ -1428,7 +1436,7 @@ api.huobi-brokerage.com\n
     <tr key="0-2-0-10">
      <td key="0"><span style="padding-left: 40px"> lastQty</span></td>
      <td key="1"><span>string</span></td>
-     <td key="2">非必须</td>
+     <td key="2">非必須</td>
      <td key="3"></td>
      <td key="4"><span style="white-space: pre-wrap">本次交易數量</span></td>
      <td key="5"></td>
@@ -1436,7 +1444,7 @@ api.huobi-brokerage.com\n
     <tr key="0-2-0-11">
      <td key="0"><span style="padding-left: 40px"> lastTurnover</span></td>
      <td key="1"><span>string</span></td>
-     <td key="2">非必须</td>
+     <td key="2">非必須</td>
      <td key="3"></td>
      <td key="4"><span style="white-space: pre-wrap">本次交易金額=lastPx*lastQty</span></td>
      <td key="5"></td>
@@ -1444,7 +1452,7 @@ api.huobi-brokerage.com\n
     <tr key="0-2-0-12">
      <td key="0"><span style="padding-left: 40px"> commission</span></td>
      <td key="1"><span>string</span></td>
-     <td key="2">非必须</td>
+     <td key="2">非必須</td>
      <td key="3"></td>
      <td key="4"><span style="white-space: pre-wrap">交易手續費/佣金</span></td>
      <td key="5"></td>
@@ -1452,7 +1460,7 @@ api.huobi-brokerage.com\n
     <tr key="0-2-0-13">
      <td key="0"><span style="padding-left: 40px"> transactionTime</span></td>
      <td key="1"><span>integer</span></td>
-     <td key="2">非必须</td>
+     <td key="2">非必須</td>
      <td key="3"></td>
      <td key="4"><span style="white-space: pre-wrap">時間戳</span></td>
      <td key="5"></td>
@@ -1460,7 +1468,7 @@ api.huobi-brokerage.com\n
     <tr key="0-2-0-14">
      <td key="0"><span style="padding-left: 40px"> userId</span></td>
      <td key="1"><span>integer</span></td>
-     <td key="2">非必须</td>
+     <td key="2">非必須</td>
      <td key="3"></td>
      <td key="4"><span style="white-space: pre-wrap">用戶id</span></td>
      <td key="5"></td>
@@ -1468,7 +1476,7 @@ api.huobi-brokerage.com\n
     <tr key="0-2-0-15">
      <td key="0"><span style="padding-left: 40px"> status</span></td>
      <td key="1"><span>integer</span></td>
-     <td key="2">非必须</td>
+     <td key="2">非必須</td>
      <td key="3"></td>
      <td key="4"><span style="white-space: pre-wrap">订单狀態</span></td>
      <td key="5"></td>
@@ -1476,7 +1484,7 @@ api.huobi-brokerage.com\n
     <tr key="0-2-0-16">
      <td key="0"><span style="padding-left: 40px"> symbolDisplayName</span></td>
      <td key="1"><span>string</span></td>
-     <td key="2">非必须</td>
+     <td key="2">非必須</td>
      <td key="3"></td>
      <td key="4"><span style="white-space: pre-wrap">交易對展示名稱</span></td>
      <td key="5"></td>
@@ -1484,7 +1492,7 @@ api.huobi-brokerage.com\n
     <tr key="0-2-0-17">
      <td key="0"><span style="padding-left: 40px"> clearingStatus</span></td>
      <td key="1"><span>integer</span></td>
-     <td key="2">非必须</td>
+     <td key="2">非必須</td>
      <td key="3"></td>
      <td key="4"><span style="white-space: pre-wrap">結算狀態</span></td>
      <td key="5"></td>
@@ -1492,7 +1500,7 @@ api.huobi-brokerage.com\n
     <tr key="0-2-0-18">
      <td key="0"><span style="padding-left: 40px"> clearingAt</span></td>
      <td key="1"><span>integer</span></td>
-     <td key="2">非必须</td>
+     <td key="2">非必須</td>
      <td key="3"></td>
      <td key="4"><span style="white-space: pre-wrap">結算時間</span></td>
      <td key="5"></td>
@@ -1500,7 +1508,7 @@ api.huobi-brokerage.com\n
     <tr key="0-2-0-19">
      <td key="0"><span style="padding-left: 40px"> clearingSourceId</span></td>
      <td key="1"><span>string</span></td>
-     <td key="2">非必须</td>
+     <td key="2">非必須</td>
      <td key="3"></td>
      <td key="4"><span style="white-space: pre-wrap">结算批次id</span></td>
      <td key="5"></td>
@@ -1508,7 +1516,7 @@ api.huobi-brokerage.com\n
     <tr key="0-2-0-20">
      <td key="0"><span style="padding-left: 40px"> clearedQty</span></td>
      <td key="1"><span>string</span></td>
-     <td key="2">非必须</td>
+     <td key="2">非必須</td>
      <td key="3"></td>
      <td key="4"><span style="white-space: pre-wrap">已結算的數量</span></td>
      <td key="5"></td>
@@ -1516,7 +1524,7 @@ api.huobi-brokerage.com\n
     <tr key="0-2-0-21">
      <td key="0"><span style="padding-left: 40px"> clearedTurnover</span></td>
      <td key="1"><span>string</span></td>
-     <td key="2">非必须</td>
+     <td key="2">非必須</td>
      <td key="3"></td>
      <td key="4"><span style="white-space: pre-wrap">已結算的金額</span></td>
      <td key="5"></td>
@@ -1524,7 +1532,7 @@ api.huobi-brokerage.com\n
     <tr key="0-2-0-22">
      <td key="0"><span style="padding-left: 40px"> unClearedQty</span></td>
      <td key="1"><span>string</span></td>
-     <td key="2">非必须</td>
+     <td key="2">非必須</td>
      <td key="3"></td>
      <td key="4"><span style="white-space: pre-wrap">待結算的數量</span></td>
      <td key="5"></td>
@@ -1532,7 +1540,7 @@ api.huobi-brokerage.com\n
     <tr key="0-2-0-23">
      <td key="0"><span style="padding-left: 40px"> unClearedTurnover</span></td>
      <td key="1"><span>string</span></td>
-     <td key="2">非必须</td>
+     <td key="2">非必須</td>
      <td key="3"></td>
      <td key="4"><span style="white-space: pre-wrap">待結算的金額</span></td>
      <td key="5"></td>
@@ -1540,7 +1548,7 @@ api.huobi-brokerage.com\n
     <tr key="0-2-0-24">
      <td key="0"><span style="padding-left: 40px"> quantityPrecision</span></td>
      <td key="1"><span>integer</span></td>
-     <td key="2">非必须</td>
+     <td key="2">非必須</td>
      <td key="3"></td>
      <td key="4"><span style="white-space: pre-wrap">數量精度 (base)</span></td>
      <td key="5"></td>
@@ -1548,7 +1556,7 @@ api.huobi-brokerage.com\n
     <tr key="0-2-0-25">
      <td key="0"><span style="padding-left: 40px"> amountPrecision</span></td>
      <td key="1"><span>integer</span></td>
-     <td key="2">非必须</td>
+     <td key="2">非必須</td>
      <td key="3"></td>
      <td key="4"><span style="white-space: pre-wrap">金额精度 (quote)</span></td>
      <td key="5"></td>
@@ -1556,7 +1564,7 @@ api.huobi-brokerage.com\n
     <tr key="0-2-1">
      <td key="0"><span style="padding-left: 20px"> total</span></td>
      <td key="1"><span>integer</span></td>
-     <td key="2">非必须</td>
+     <td key="2">非必須</td>
      <td key="3"></td>
      <td key="4"><span style="white-space: pre-wrap">總計數量</span></td>
      <td key="5"></td>
@@ -1564,7 +1572,7 @@ api.huobi-brokerage.com\n
     <tr key="0-2-2">
      <td key="0"><span style="padding-left: 20px"> size</span></td>
      <td key="1"><span>integer</span></td>
-     <td key="2">非必须</td>
+     <td key="2">非必須</td>
      <td key="3"></td>
      <td key="4"><span style="white-space: pre-wrap">每頁數量</span></td>
      <td key="5"></td>
@@ -1572,7 +1580,7 @@ api.huobi-brokerage.com\n
     <tr key="0-2-3">
      <td key="0"><span style="padding-left: 20px"> page</span></td>
      <td key="1"><span>integer</span></td>
-     <td key="2">非必须</td>
+     <td key="2">非必須</td>
      <td key="3"></td>
      <td key="4"><span style="white-space: pre-wrap">當前頁數</span></td>
      <td key="5"></td>
@@ -1580,7 +1588,7 @@ api.huobi-brokerage.com\n
     <tr key="0-3">
      <td key="0"><span style="padding-left: 0px"> success</span></td>
      <td key="1"><span>boolean</span></td>
-     <td key="2">必须</td>
+     <td key="2">必須</td>
      <td key="3"></td>
      <td key="4"><span style="white-space: pre-wrap">是否成功</span></td>
      <td key="5"></td>
@@ -1588,10 +1596,10 @@ api.huobi-brokerage.com\n
     <tr key="0-4">
      <td key="0"><span style="padding-left: 0px"> messageArgs</span></td>
      <td key="1"><span>object []</span></td>
-     <td key="2">非必须</td>
+     <td key="2">非必須</td>
      <td key="3">new ArrayList&lt;&gt;()</td>
      <td key="4"><span style="white-space: pre-wrap"></span></td>
-     <td key="5"><p key="3"><span style="font-weight: '700'">item 类型: </span><span>object</span></p></td>
+     <td key="5"></td>
     </tr> 
    </tbody> 
   </table> 
@@ -1687,7 +1695,7 @@ api.huobi-brokerage.com\n
 <table>
   <thead class="ant-table-thead">
     <tr>
-      <th key=name>參數名稱</th><th key=type>類型</th><th key=required>是否必須</th><th key=default>默认值</th><th key=desc>描述</th><th key=sub>取值範圍</th>
+      <th key=name>參數名稱</th><th key=type>類型</th><th key=required>是否必須</th><th key=default>默認值</th><th key=desc>描述</th><th key=sub>取值範圍</th>
     </tr>
   </thead><tbody className="ant-table-tbody"><tr key=0-0><td key=0><span style="padding-left: 0px"><span></span> page</span></td><td key=1><span>object</span></td><td key=2>true</td><td key=3></td><td key=4><span style="white-space: pre-wrap">分页查询参数</span></td><td key=5></td></tr><tr key=0-0-0><td key=0><span style="padding-left: 20px"><span >size</span></td><td key=1><span>integer</span></td><td key=2>true</td><td key=3></td><td key=4><span style="white-space: pre-wrap">分頁數量</span></td><td key=5></td></tr><tr key=0-0-3><td key=0><span style="padding-left: 20px"><span >page</span></td><td key=1><span>integer</span></td><td key=2>true</td><td key=3></td><td key=4><span style="white-space: pre-wrap">當前頁數</span></td><td key=5></td></tr><tr key=0-1><td key=0><span style="padding-left: 0px"><span ></span> startTime</span></td><td key=1><span>integer</span></td><td key=2>false</td><td key=3></td><td key=4><span style="white-space: pre-wrap">訂單時間-查詢開始時間</span></td><td key=5></td></tr><tr key=0-2><td key=0><span style="padding-left: 0px"><span ></span> endTime</span></td><td key=1><span>integer</span></td><td key=2>false</td><td key=3></td><td key=4><span style="white-space: pre-wrap">訂單時間-查詢結束時間</span></td><td key=5></td></tr>
                </tbody>
@@ -1752,7 +1760,7 @@ api.huobi-brokerage.com\n
     <tr key="0-0">
      <td key="0"><span style="padding-left: 0px"> code</span></td>
      <td key="1"><span>integer</span></td>
-     <td key="2">必须</td>
+     <td key="2">必須</td>
      <td key="3"></td>
      <td key="4"><span style="white-space: pre-wrap">編碼</span></td>
      <td key="5"></td>
@@ -1760,7 +1768,7 @@ api.huobi-brokerage.com\n
     <tr key="0-1">
      <td key="0"><span style="padding-left: 0px"> message</span></td>
      <td key="1"><span>string</span></td>
-     <td key="2">非必须</td>
+     <td key="2">非必須</td>
      <td key="3"></td>
      <td key="4"><span style="white-space: pre-wrap">消息</span></td>
      <td key="5"></td>
@@ -1768,7 +1776,7 @@ api.huobi-brokerage.com\n
     <tr key="0-2">
      <td key="0"><span style="padding-left: 0px"> data</span></td>
      <td key="1"><span>object</span></td>
-     <td key="2">非必须</td>
+     <td key="2">非必須</td>
      <td key="3"></td>
      <td key="4"><span style="white-space: pre-wrap">業務數據</span></td>
      <td key="5"></td>
@@ -1776,7 +1784,7 @@ api.huobi-brokerage.com\n
     <tr key="0-2-0">
      <td key="0"><span style="padding-left: 20px"> items</span></td>
      <td key="1"><span>object []</span></td>
-     <td key="2">非必须</td>
+     <td key="2">非必須</td>
      <td key="3"></td>
      <td key="4">分頁數據</td>
      <td key="5"></td>
@@ -1784,7 +1792,7 @@ api.huobi-brokerage.com\n
     <tr key="0-2-0-0">
      <td key="0"><span style="padding-left: 40px"> id</span></td>
      <td key="1"><span>integer</span></td>
-     <td key="2">非必须</td>
+     <td key="2">非必須</td>
      <td key="3"></td>
      <td key="4"><span style="white-space: pre-wrap">id</span></td>
      <td key="5"></td>
@@ -1792,7 +1800,7 @@ api.huobi-brokerage.com\n
     <tr key="0-2-0-1">
      <td key="0"><span style="padding-left: 40px"> time</span></td>
      <td key="1"><span>integer</span></td>
-     <td key="2">非必须</td>
+     <td key="2">非必須</td>
      <td key="3"></td>
      <td key="4"><span style="white-space: pre-wrap">時間</span></td>
      <td key="5"></td>
@@ -1800,7 +1808,7 @@ api.huobi-brokerage.com\n
     <tr key="0-2-0-2">
      <td key="0"><span style="padding-left: 40px"> tradeCount</span></td>
      <td key="1"><span>integer</span></td>
-     <td key="2">非必须</td>
+     <td key="2">非必須</td>
      <td key="3"></td>
      <td key="4"><span style="white-space: pre-wrap">交易數量</span></td>
      <td key="5"></td>
@@ -1808,7 +1816,7 @@ api.huobi-brokerage.com\n
     <tr key="0-2-0-3">
      <td key="0"><span style="padding-left: 40px"> tradeSymbols</span></td>
      <td key="1"><span>string []</span></td>
-     <td key="2">非必须</td>
+     <td key="2">非必須</td>
      <td key="3"></td>
      <td key="4"><span style="white-space: pre-wrap">交易對</span></td>
      <td key="5"></td>
@@ -1816,7 +1824,7 @@ api.huobi-brokerage.com\n
     <tr key="0-2-0-4">
      <td key="0"><span style="padding-left: 40px"> tradeSides</span></td>
      <td key="1"><span>integer []</span></td>
-     <td key="2">非必须</td>
+     <td key="2">非必須</td>
      <td key="3"></td>
      <td key="4"><span style="white-space: pre-wrap">交易方向</span></td>
      <td key="5"></td>
@@ -1824,7 +1832,7 @@ api.huobi-brokerage.com\n
      <tr key="0-2-1">
      <td key="0"><span style="padding-left: 20px"> total</span></td>
      <td key="1"><span>integer</span></td>
-     <td key="2">非必须</td>
+     <td key="2">非必須</td>
      <td key="3"></td>
      <td key="4"><span style="white-space: pre-wrap">總計數量</span></td>
      <td key="5"></td>
@@ -1832,7 +1840,7 @@ api.huobi-brokerage.com\n
     <tr key="0-2-2">
      <td key="0"><span style="padding-left: 20px"> size</span></td>
      <td key="1"><span>integer</span></td>
-     <td key="2">非必须</td>
+     <td key="2">非必須</td>
      <td key="3"></td>
      <td key="4"><span style="white-space: pre-wrap">每頁數量</span></td>
      <td key="5"></td>
@@ -1840,7 +1848,7 @@ api.huobi-brokerage.com\n
     <tr key="0-2-3">
      <td key="0"><span style="padding-left: 20px"> page</span></td>
      <td key="1"><span>integer</span></td>
-     <td key="2">非必须</td>
+     <td key="2">非必須</td>
      <td key="3"></td>
      <td key="4"><span style="white-space: pre-wrap">當前頁數</span></td>
      <td key="5"></td>
@@ -1848,7 +1856,7 @@ api.huobi-brokerage.com\n
     <tr key="0-3">
      <td key="0"><span style="padding-left: 0px"> success</span></td>
      <td key="1"><span>boolean</span></td>
-     <td key="2">必须</td>
+     <td key="2">必須</td>
      <td key="3"></td>
      <td key="4"><span style="white-space: pre-wrap">是否成功</span></td>
      <td key="5"></td>
@@ -1856,7 +1864,7 @@ api.huobi-brokerage.com\n
     <tr key="0-4">
      <td key="0"><span style="padding-left: 0px"> messageArgs</span></td>
      <td key="1"><span>object []</span></td>
-     <td key="2">非必须</td>
+     <td key="2">非必須</td>
      <td key="3">new ArrayList&lt;&gt;()</td>
      <td key="4"><span style="white-space: pre-wrap"></span></td>
      <td key="5"></td>
@@ -1878,9 +1886,9 @@ api.huobi-brokerage.com\n
 <h3 id='1f9ac54b15-2'>请求参数</h3>
 <table><thead>
 <tr>
-<th>参数名称</th>
+<th>参数名稱</th>
 <th>示例</th>
-<th>备注</th>
+<th>備註</th>
 </tr>
 </thead><tbody>
 <tr>
@@ -1938,11 +1946,11 @@ api.huobi-brokerage.com\n
   <table> 
    <thead class="ant-table-thead"> 
     <tr> 
-     <th key="name">名称</th>
-     <th key="type">类型</th>
-     <th key="required">是否必须</th>
-     <th key="default">默认值</th>
-     <th key="desc">备注</th>
+     <th key="name">名稱</th>
+     <th key="type">類型</th>
+     <th key="required">是否必須</th>
+     <th key="default">默認值</th>
+     <th key="desc">備註</th>
      <th key="sub">其他信息</th> 
     </tr> 
    </thead>
@@ -1950,31 +1958,31 @@ api.huobi-brokerage.com\n
     <tr key="0-0">
      <td key="0"><span style="padding-left: 0px"> code</span></td>
      <td key="1"><span>integer</span></td>
-     <td key="2">必须</td>
+     <td key="2">必須</td>
      <td key="3"></td>
-     <td key="4"><span style="white-space: pre-wrap"></span></td>
+     <td key="4"><span style="white-space: pre-wrap">編碼</span></td>
      <td key="5"></td>
     </tr>
     <tr key="0-1">
      <td key="0"><span style="padding-left: 0px"> message</span></td>
      <td key="1"><span>string</span></td>
-     <td key="2">非必须</td>
+     <td key="2">非必須</td>
      <td key="3"></td>
-     <td key="4"><span style="white-space: pre-wrap"></span></td>
+     <td key="4"><span style="white-space: pre-wrap">消息</span></td>
      <td key="5"></td>
     </tr>
     <tr key="0-2">
      <td key="0"><span style="padding-left: 0px"> data</span></td>
      <td key="1"><span>object</span></td>
-     <td key="2">非必须</td>
+     <td key="2">非必須</td>
      <td key="3"></td>
-     <td key="4"><span style="white-space: pre-wrap"></span></td>
+     <td key="4"><span style="white-space: pre-wrap">業務數據</span></td>
      <td key="5"></td>
     </tr>
     <tr key="0-2-0">
      <td key="0"><span style="padding-left: 20px"> id</span></td>
      <td key="1"><span>integer</span></td>
-     <td key="2">非必须</td>
+     <td key="2">非必須</td>
      <td key="3"></td>
      <td key="4"><span style="white-space: pre-wrap">結算id</span></td>
      <td key="5"></td>
@@ -1982,7 +1990,7 @@ api.huobi-brokerage.com\n
     <tr key="0-2-1">
      <td key="0"><span style="padding-left: 20px"> time</span></td>
      <td key="1"><span>integer</span></td>
-     <td key="2">非必须</td>
+     <td key="2">非必須</td>
      <td key="3"></td>
      <td key="4"><span style="white-space: pre-wrap">結算時間</span></td>
      <td key="5"></td>
@@ -1990,7 +1998,7 @@ api.huobi-brokerage.com\n
     <tr key="0-2-2">
      <td key="0"><span style="padding-left: 20px"> tradeCount</span></td>
      <td key="1"><span>integer</span></td>
-     <td key="2">非必须</td>
+     <td key="2">非必須</td>
      <td key="3"></td>
      <td key="4"><span style="white-space: pre-wrap">含有交易的筆數</span></td>
      <td key="5"></td>
@@ -1998,14 +2006,14 @@ api.huobi-brokerage.com\n
     <tr key="0-2-3">
      <td key="0"><span style="padding-left: 20px"> tradeSymbols</span></td>
      <td key="1"><span>string []</span></td>
-     <td key="2">非必须</td>
+     <td key="2">非必須</td>
      <td key="3"></td>
      <td key="4"><span style="white-space: pre-wrap">含有的交易對</span></td>
      <td key="5"></td>
     <tr key="0-2-4">
      <td key="0"><span style="padding-left: 20px"> tradeSides</span></td>
      <td key="1"><span>integer []</span></td>
-     <td key="2">非必须</td>
+     <td key="2">非必須</td>
      <td key="3"></td>
      <td key="4"><span style="white-space: pre-wrap">含有的交易方向</span></td>
      <td key="5"></td>
@@ -2013,7 +2021,7 @@ api.huobi-brokerage.com\n
     <tr key="0-2-5">
      <td key="0"><span style="padding-left: 20px"> payouts</span></td>
      <td key="1"><span>object</span></td>
-     <td key="2">非必须</td>
+     <td key="2">非必須</td>
      <td key="3"></td>
      <td key="4"><span style="white-space: pre-wrap">應付</span></td>
      <td key="5"></td>
@@ -2021,7 +2029,7 @@ api.huobi-brokerage.com\n
     <tr key="0-2-5-0">
      <td key="0"><span style="padding-left: 40px"> key</span></td>
      <td key="1"><span>number</span></td>
-     <td key="2">非必须</td>
+     <td key="2">非必須</td>
      <td key="3"></td>
      <td key="4"><span style="white-space: pre-wrap"></span></td>
      <td key="5"></td>
@@ -2029,7 +2037,7 @@ api.huobi-brokerage.com\n
     <tr key="0-2-6">
      <td key="0"><span style="padding-left: 20px"> receivables</span></td>
      <td key="1"><span>object</span></td>
-     <td key="2">非必须</td>
+     <td key="2">非必須</td>
      <td key="3"></td>
      <td key="4"><span style="white-space: pre-wrap">應收</span></td>
      <td key="5"></td>
@@ -2037,7 +2045,7 @@ api.huobi-brokerage.com\n
     <tr key="0-2-6-0">
      <td key="0"><span style="padding-left: 40px"> key</span></td>
      <td key="1"><span>number</span></td>
-     <td key="2">非必须</td>
+     <td key="2">非必須</td>
      <td key="3"></td>
      <td key="4"><span style="white-space: pre-wrap"></span></td>
      <td key="5"></td>
@@ -2045,7 +2053,7 @@ api.huobi-brokerage.com\n
     <tr key="0-2-7">
      <td key="0"><span style="padding-left: 20px"> trades</span></td>
      <td key="1"><span>object []</span></td>
-     <td key="2">非必须</td>
+     <td key="2">非必須</td>
      <td key="3"></td>
      <td key="4"><span style="white-space: pre-wrap">交易记录</span></td>
      <td key="5"></td>
@@ -2053,7 +2061,7 @@ api.huobi-brokerage.com\n
     <tr key="0-2-7-0">
      <td key="0"><span style="padding-left: 40px"> tradeId</span></td>
      <td key="1"><span>integer</span></td>
-     <td key="2">非必须</td>
+     <td key="2">非必須</td>
      <td key="3"></td>
      <td key="4"><span style="white-space: pre-wrap">id</span></td>
      <td key="5"></td>
@@ -2061,7 +2069,7 @@ api.huobi-brokerage.com\n
     <tr key="0-2-7-1">
      <td key="0"><span style="padding-left: 40px"> time</span></td>
      <td key="1"><span>integer</span></td>
-     <td key="2">非必须</td>
+     <td key="2">非必須</td>
      <td key="3"></td>
      <td key="4"><span style="white-space: pre-wrap">成交時間</span></td>
      <td key="5"></td>
@@ -2069,7 +2077,7 @@ api.huobi-brokerage.com\n
     <tr key="0-2-7-2">
      <td key="0"><span style="padding-left: 40px"> symbol</span></td>
      <td key="1"><span>string</span></td>
-     <td key="2">非必须</td>
+     <td key="2">非必須</td>
      <td key="3"></td>
      <td key="4"><span style="white-space: pre-wrap">交易對</span></td>
      <td key="5"></td>
@@ -2077,7 +2085,7 @@ api.huobi-brokerage.com\n
     <tr key="0-2-7-3">
      <td key="0"><span style="padding-left: 40px"> baseCurrency</span></td>
      <td key="1"><span>string</span></td>
-     <td key="2">非必须</td>
+     <td key="2">非必須</td>
      <td key="3"></td>
      <td key="4"><span style="white-space: pre-wrap">基礎幣種</span></td>
      <td key="5"></td>
@@ -2085,7 +2093,7 @@ api.huobi-brokerage.com\n
     <tr key="0-2-7-4">
      <td key="0"><span style="padding-left: 40px"> quoteCurrency</span></td>
      <td key="1"><span>string</span></td>
-     <td key="2">非必须</td>
+     <td key="2">非必須</td>
      <td key="3"></td>
      <td key="4"><span style="white-space: pre-wrap">計價币种</span></td>
      <td key="5"></td>
@@ -2093,7 +2101,7 @@ api.huobi-brokerage.com\n
     <tr key="0-2-7-5">
      <td key="0"><span style="padding-left: 40px"> side</span></td>
      <td key="1"><span>integer</span></td>
-     <td key="2">非必须</td>
+     <td key="2">非必須</td>
      <td key="3"></td>
      <td key="4"><span style="white-space: pre-wrap">方向</span></td>
      <td key="5"></td>
@@ -2101,7 +2109,7 @@ api.huobi-brokerage.com\n
     <tr key="0-2-7-6">
      <td key="0"><span style="padding-left: 40px"> avgPx</span></td>
      <td key="1"><span>number</span></td>
-     <td key="2">非必须</td>
+     <td key="2">非必須</td>
      <td key="3"></td>
      <td key="4"><span style="white-space: pre-wrap">成交價</span></td>
      <td key="5"></td>
@@ -2109,7 +2117,7 @@ api.huobi-brokerage.com\n
     <tr key="0-2-7-7">
      <td key="0"><span style="padding-left: 40px"> cumQuantity</span></td>
      <td key="1"><span>number</span></td>
-     <td key="2">非必须</td>
+     <td key="2">非必須</td>
      <td key="3"></td>
      <td key="4"><span style="white-space: pre-wrap">成交數</span></td>
      <td key="5"></td>
@@ -2117,7 +2125,7 @@ api.huobi-brokerage.com\n
     <tr key="0-2-7-8">
      <td key="0"><span style="padding-left: 40px"> cumTurnover</span></td>
      <td key="1"><span>number</span></td>
-     <td key="2">非必须</td>
+     <td key="2">非必須</td>
      <td key="3"></td>
      <td key="4"><span style="white-space: pre-wrap">成交額</span></td>
      <td key="5"></td>
@@ -2125,7 +2133,7 @@ api.huobi-brokerage.com\n
     <tr key="0-2-7-9">
      <td key="0"><span style="padding-left: 40px"> clearedQty</span></td>
      <td key="1"><span>number</span></td>
-     <td key="2">非必须</td>
+     <td key="2">非必須</td>
      <td key="3"></td>
      <td key="4"><span style="white-space: pre-wrap">本次結算數量</span></td>
      <td key="5"></td>
@@ -2133,7 +2141,7 @@ api.huobi-brokerage.com\n
     <tr key="0-2-7-10">
      <td key="0"><span style="padding-left: 40px"> clearedTurnover</span></td>
      <td key="1"><span>number</span></td>
-     <td key="2">非必须</td>
+     <td key="2">非必須</td>
      <td key="3"></td>
      <td key="4"><span style="white-space: pre-wrap">本次結算金額</span></td>
      <td key="5"></td>
@@ -2141,7 +2149,7 @@ api.huobi-brokerage.com\n
     <tr key="0-3">
      <td key="0"><span style="padding-left: 0px"> success</span></td>
      <td key="1"><span>boolean</span></td>
-     <td key="2">非必须</td>
+     <td key="2">必須</td>
      <td key="3"></td>
      <td key="4"><span style="white-space: pre-wrap"></span></td>
      <td key="5"></td>
@@ -2149,7 +2157,7 @@ api.huobi-brokerage.com\n
     <tr key="0-4">
      <td key="0"><span style="padding-left: 0px"> messageArgs</span></td>
      <td key="1"><span>object []</span></td>
-     <td key="2">非必须</td>
+     <td key="2">非必須</td>
      <td key="3"></td>
      <td key="4"><span style="white-space: pre-wrap"></span></td>
      <td key="5"></td>
@@ -2206,11 +2214,11 @@ api.huobi-brokerage.com\n
   <table> 
    <thead class="ant-table-thead"> 
     <tr> 
-     <th key="name">名称</th>
-     <th key="type">类型</th>
-     <th key="required">是否必须</th>
-     <th key="default">默认值</th>
-     <th key="desc">备注</th>
+     <th key="name">名稱</th>
+     <th key="type">類型</th>
+     <th key="required">是否必須</th>
+     <th key="default">默認值</th>
+     <th key="desc">備註</th>
      <th key="sub">其他信息</th> 
     </tr> 
    </thead>
@@ -2218,7 +2226,7 @@ api.huobi-brokerage.com\n
     <tr key="0-0">
      <td key="0"><span style="padding-left: 0px"> code</span></td>
      <td key="1"><span>integer</span></td>
-     <td key="2">非必须</td>
+     <td key="2">必須</td>
      <td key="3"></td>
      <td key="4"><span style="white-space: pre-wrap"</span> 編碼 </td>
      <td key="5"></td>
@@ -2226,7 +2234,7 @@ api.huobi-brokerage.com\n
     <tr key="0-1">
      <td key="0"><span style="padding-left: 0px"> message</span></td>
      <td key="1"><span>string</span></td>
-     <td key="2">非必须</td>
+     <td key="2">非必須</td>
      <td key="3"></td>
      <td key="4"><span style="white-space: pre-wrap">消息</span></td>
      <td key="5"></td>
@@ -2234,7 +2242,7 @@ api.huobi-brokerage.com\n
     <tr key="0-2">
      <td key="0"><span style="padding-left: 0px"> data</span></td>
      <td key="1"><span>object</span></td>
-     <td key="2">非必须</td>
+     <td key="2">非必須</td>
      <td key="3"></td>
      <td key="4"><span style="white-space: pre-wrap">業務數據</span></td>
      <td key="5"></td>
@@ -2242,7 +2250,7 @@ api.huobi-brokerage.com\n
     <tr key="0-2-0">
      <td key="0"><span style="padding-left: 20px"> totalCredit</span></td>
      <td key="1"><span>string</span></td>
-     <td key="2">非必须</td>
+     <td key="2">非必須</td>
      <td key="3"></td>
      <td key="4"><span style="white-space: pre-wrap">授信總額度</span></td>
      <td key="5"></td>
@@ -2250,7 +2258,7 @@ api.huobi-brokerage.com\n
     <tr key="0-2-1">
      <td key="0"><span style="padding-left: 20px"> spentCredit</span></td>
      <td key="1"><span>string</span></td>
-     <td key="2">非必须</td>
+     <td key="2">非必須</td>
      <td key="3"></td>
      <td key="4"><span style="white-space: pre-wrap">已使用授信總額度</span></td>
      <td key="5"></td>
@@ -2258,7 +2266,7 @@ api.huobi-brokerage.com\n
     <tr key="0-2-2">
      <td key="0"><span style="padding-left: 20px"> availableCredit</span></td>
      <td key="1"><span>string</span></td>
-     <td key="2">非必须</td>
+     <td key="2">非必須</td>
      <td key="3"></td>
      <td key="4"><span style="white-space: pre-wrap">可用授信額度</span></td>
      <td key="5"></td>
@@ -2266,7 +2274,7 @@ api.huobi-brokerage.com\n
     <tr key="0-2-3">
      <td key="0"><span style="padding-left: 20px"> payouts</span></td>
      <td key="1"><span>object []</span></td>
-     <td key="2">非必须</td>
+     <td key="2">非必須</td>
      <td key="3"></td>
      <td key="4"><span style="white-space: pre-wrap">应還幣種信息</span></td>
      <td key="5"></td>
@@ -2274,7 +2282,7 @@ api.huobi-brokerage.com\n
     <tr key="0-2-3-0">
      <td key="0"><span style="padding-left: 40px"> id</span></td>
      <td key="1"><span>string</span></td>
-     <td key="2">非必须</td>
+     <td key="2">非必須</td>
      <td key="3"></td>
      <td key="4"><span style="white-space: pre-wrap">id</span></td>
      <td key="5"></td>
@@ -2282,7 +2290,7 @@ api.huobi-brokerage.com\n
     <tr key="0-2-3-1">
      <td key="0"><span style="padding-left: 40px"> currency</span></td>
      <td key="1"><span>string</span></td>
-     <td key="2">非必须</td>
+     <td key="2">非必須</td>
      <td key="3"></td>
      <td key="4"><span style="white-space: pre-wrap">幣種</span></td>
      <td key="5"></td>
@@ -2290,7 +2298,7 @@ api.huobi-brokerage.com\n
     <tr key="0-2-3-2">
      <td key="0"><span style="padding-left: 40px"> amount</span></td>
      <td key="1"><span>number</span></td>
-     <td key="2">非必须</td>
+     <td key="2">非必須</td>
      <td key="3"></td>
      <td key="4"><span style="white-space: pre-wrap">應還金額</span></td>
      <td key="5"></td>
@@ -2298,7 +2306,7 @@ api.huobi-brokerage.com\n
     <tr key="0-2-3-3">
      <td key="0"><span style="padding-left: 40px"> total</span></td>
      <td key="1"><span>string</span></td>
-     <td key="2">非必须</td>
+     <td key="2">非必須</td>
      <td key="3"></td>
      <td key="4"><span style="white-space: pre-wrap">折合USD金額</span></td>
      <td key="5"></td>
@@ -2306,7 +2314,7 @@ api.huobi-brokerage.com\n
     <tr key="0-3">
      <td key="0"><span style="padding-left: 0px"> success</span></td>
      <td key="1"><span>boolean</span></td>
-     <td key="2">非必须</td>
+     <td key="2">必須</td>
      <td key="3"></td>
      <td key="4"><span style="white-space: pre-wrap">是否成功</span></td>
      <td key="5"></td>
@@ -2314,7 +2322,7 @@ api.huobi-brokerage.com\n
     <tr key="0-4">
      <td key="0"><span style="padding-left: 0px"> messageArgs</span></td>
      <td key="1"><span>object []</span></td>
-     <td key="2">非必须</td>
+     <td key="2">非必須</td>
      <td key="3">new ArrayList&lt;&gt;()</td>
      <td key="4"><span style="white-space: pre-wrap"></span></td>
      <td key="5"></td>
@@ -2323,6 +2331,386 @@ api.huobi-brokerage.com\n
   </table> 
  </body>
 </html> </p>
+<h1 id='3994670fd3'>用戶賬戶相關</h1><h2 id='eaa6054797'>獲取用戶資產信息</h2>
+<p>用戶可以通過該接口查詢自己賬戶的資產信息</p>
+<h3 id='http-8'>HTTP 請求</h3>
+<ul>
+<li>GET <code>/open/otc/api/user/accountSummary</code></li>
+</ul>
+
+<p>API Key 權限：讀取<br></p>
+
+<p>限頻值：2次/1s<br></p>
+
+<blockquote>
+<p>Response:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"code"</span><span class="p">:</span><span class="mi">200</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"message"</span><span class="p">:</span><span class="s2">"success"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"data"</span><span class="p">:{</span><span class="w">
+    </span><span class="s2">"financeAccounts"</span><span class="p">:[</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"currencyId"</span><span class="p">:</span><span class="s2">"usd"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"currencyDisplayName"</span><span class="p">:</span><span class="s2">"USD"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"currencyFullName"</span><span class="p">:</span><span class="s2">"USD"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"sortWeight"</span><span class="p">:</span><span class="mi">8</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"balance"</span><span class="p">:</span><span class="s2">"6929.280000000000000000"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"frozenAmount"</span><span class="p">:</span><span class="s2">"1893.750000000000000000"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"creditedAmount"</span><span class="p">:</span><span class="s2">"0"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"receivableAmount"</span><span class="p">:</span><span class="s2">"0"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"virtualFrozenAmount"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"withdrawAmount"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"balanceToPlaceOrder"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"stable"</span><span class="p">:</span><span class="s2">"false"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"inCurrencyBlackList"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"spotBalance"</span><span class="p">:</span><span class="kc">null</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"currencyId"</span><span class="p">:</span><span class="s2">"btc"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"currencyDisplayName"</span><span class="p">:</span><span class="s2">"BTC"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"currencyFullName"</span><span class="p">:</span><span class="s2">"BTC"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"sortWeight"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"balance"</span><span class="p">:</span><span class="s2">"0.020000000000000000"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"frozenAmount"</span><span class="p">:</span><span class="s2">"0.000000000000000000"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"creditedAmount"</span><span class="p">:</span><span class="s2">"0"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"receivableAmount"</span><span class="p">:</span><span class="s2">"0.000000000000000000"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"virtualFrozenAmount"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"withdrawAmount"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"balanceToPlaceOrder"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"stable"</span><span class="p">:</span><span class="s2">"false"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"inCurrencyBlackList"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"spotBalance"</span><span class="p">:</span><span class="kc">null</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"currencyId"</span><span class="p">:</span><span class="s2">"usdt"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"currencyDisplayName"</span><span class="p">:</span><span class="s2">"USDT"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"currencyFullName"</span><span class="p">:</span><span class="s2">"USDT"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"sortWeight"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"balance"</span><span class="p">:</span><span class="s2">"2941.033920000000000000"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"frozenAmount"</span><span class="p">:</span><span class="s2">"4100.000000000000000000"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"creditedAmount"</span><span class="p">:</span><span class="s2">"0"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"receivableAmount"</span><span class="p">:</span><span class="s2">"0.000000000000000000"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"virtualFrozenAmount"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"withdrawAmount"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"balanceToPlaceOrder"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"stable"</span><span class="p">:</span><span class="s2">"false"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"inCurrencyBlackList"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"spotBalance"</span><span class="p">:</span><span class="kc">null</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+    </span><span class="s2">"totalDigitalCurrency"</span><span class="p">:</span><span class="s2">"BTC"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"totalConvertedDigitalCurrencyBalance"</span><span class="p">:</span><span class="s2">"0.39445219"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"sumLegalCurrency"</span><span class="p">:</span><span class="s2">"USD"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"sumConvertedLegalCurrencyBalance"</span><span class="p">:</span><span class="s2">"16711.38512000"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"sumLegalCurrencyBalance"</span><span class="p">:</span><span class="s2">"8823.03000000"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"totalLegalCurrencyBalance"</span><span class="p">:</span><span class="s2">"0.20825703"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"sumDigitalCurrencyBalance"</span><span class="p">:</span><span class="s2">"7888.35512000"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"totalDigitalCurrencyBalance"</span><span class="p">:</span><span class="s2">"0.18619516"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"defaultCreditCategory"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"unstableCreditLimit"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"unstableCreditUsed"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"unstableCreditUsedWithoutLocked"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"unstableCreditAvailable"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"unstableCreditCurrencyDisplay"</span><span class="p">:</span><span class="kc">null</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="s2">"success"</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"messageArgs"</span><span class="p">:[</span><span class="w">
+
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre><h3 id='b691cfe782-3'>返回数据</h3>
+<p><html>
+ <head></head>
+ <body>
+  <table> 
+   <thead class="ant-table-thead"> 
+    <tr> 
+     <th key="name">名稱</th>
+     <th key="type">類型</th>
+     <th key="required">是否必須</th>
+     <th key="default">默認值</th>
+     <th key="desc">備註</th>
+     <th key="sub">其他信息</th> 
+    </tr> 
+   </thead>
+   <tbody classname="ant-table-tbody">
+    <tr key="0-0">
+     <td key="0"><span style="padding-left: 0px"><span style="color: #8c8a8a"></span> code</span></td>
+     <td key="1"><span>integer</span></td>
+     <td key="2">必須</td>
+     <td key="3"></td>
+     <td key="4"><span style="white-space: pre-wrap">業務狀態碼</span></td>
+     <td key="5"></td>
+    </tr>
+    <tr key="0-1">
+     <td key="0"><span style="padding-left: 0px"><span style="color: #8c8a8a"></span> message</span></td>
+     <td key="1"><span>string</span></td>
+     <td key="2">非必須</td>
+     <td key="3"></td>
+     <td key="4"><span style="white-space: pre-wrap">錯誤信息（英文）</span></td>
+     <td key="5"></td>
+    </tr>
+    <tr key="0-2">
+     <td key="0"><span style="padding-left: 0px"><span style="color: #8c8a8a"></span> data</span></td>
+     <td key="1"><span>object</span></td>
+     <td key="2">非必須</td>
+     <td key="3"></td>
+     <td key="4"><span style="white-space: pre-wrap">業務數據</span></td>
+     <td key="5"></td>
+    </tr>
+    <tr key="0-2-0">
+     <td key="0"><span style="padding-left: 20px"> financeAccounts</span></td>
+     <td key="1"><span>object []</span></td>
+     <td key="2">非必須</td>
+     <td key="3">new ArrayList&lt;&gt;()</td>
+     <td key="4"><span style="white-space: pre-wrap">賬戶列表</span></td>
+     <td key="5"></td>
+    </tr>
+    <tr key="0-2-0-0">
+     <td key="0"><span style="padding-left: 40px"> currencyId</span></td>
+     <td key="1"><span>string</span></td>
+     <td key="2">非必須</td>
+     <td key="3"></td>
+     <td key="4"><span style="white-space: pre-wrap">* 幣種ID</span></td>
+     <td key="5"></td>
+    </tr>
+    <tr key="0-2-0-1">
+     <td key="0"><span style="padding-left: 40px"> currencyDisplayName</span></td>
+     <td key="1"><span>string</span></td>
+     <td key="2">非必須</td>
+     <td key="3"></td>
+     <td key="4"><span style="white-space: pre-wrap">幣種展示名稱</span></td>
+     <td key="5"></td>
+    </tr>
+    <tr key="0-2-0-2">
+     <td key="0"><span style="padding-left: 40px"> currencyFullName</span></td>
+     <td key="1"><span>string</span></td>
+     <td key="2">非必須</td>
+     <td key="3"></td>
+     <td key="4"><span style="white-space: pre-wrap">幣種全稱</span></td>
+     <td key="5"></td>
+    </tr>
+    <tr key="0-2-0-3">
+     <td key="0"><span style="padding-left: 40px"> sortWeight</span></td>
+     <td key="1"><span>integer</span></td>
+     <td key="2">非必須</td>
+     <td key="3"></td>
+     <td key="4"><span style="white-space: pre-wrap">排序權重</span></td>
+     <td key="5"></td>
+    </tr>
+    <tr key="0-2-0-4">
+     <td key="0"><span style="padding-left: 40px"> balance</span></td>
+     <td key="1"><span>string</span></td>
+     <td key="2">非必須</td>
+     <td key="3"></td>
+     <td key="4"><span style="white-space: pre-wrap">餘額</span></td>
+     <td key="5"></td>
+    </tr>
+    <tr key="0-2-0-5">
+     <td key="0"><span style="padding-left: 40px"> frozenAmount</span></td>
+     <td key="1"><span>string</span></td>
+     <td key="2">非必須</td>
+     <td key="3"></td>
+     <td key="4"><span style="white-space: pre-wrap">凍結金額</span></td>
+     <td key="5"></td>
+    </tr>
+    <tr key="0-2-0-6">
+     <td key="0"><span style="padding-left: 40px"> creditedAmount</span></td>
+     <td key="1"><span>string</span></td>
+     <td key="2">非必須</td>
+     <td key="3"></td>
+     <td key="4"><span style="white-space: pre-wrap">已使用授信</span></td>
+     <td key="5"></td>
+    </tr>
+    <tr key="0-2-0-7">
+     <td key="0"><span style="padding-left: 40px"> receivableAmount</span></td>
+     <td key="1"><span>string</span></td>
+     <td key="2">非必須</td>
+     <td key="3"></td>
+     <td key="4"><span style="white-space: pre-wrap">應收授信</span></td>
+     <td key="5"></td>
+    </tr>
+    <tr key="0-2-0-8">
+     <td key="0"><span style="padding-left: 40px"> virtualFrozenAmount</span></td>
+     <td key="1"><span>string</span></td>
+     <td key="2">非必須</td>
+     <td key="3"></td>
+     <td key="4"><span style="white-space: pre-wrap">授信已凍結</span></td>
+     <td key="5"></td>
+    </tr>
+    <tr key="0-2-0-9">
+     <td key="0"><span style="padding-left: 40px"> withdrawAmount</span></td>
+     <td key="1"><span>string</span></td>
+     <td key="2">非必須</td>
+     <td key="3"></td>
+     <td key="4"><span style="white-space: pre-wrap">可劃轉餘額</span></td>
+     <td key="5"></td>
+    </tr>
+    <tr key="0-2-0-10">
+     <td key="0"><span style="padding-left: 40px"> balanceToPlaceOrder</span></td>
+     <td key="1"><span>string</span></td>
+     <td key="2">非必須</td>
+     <td key="3"></td>
+     <td key="4"><span style="white-space: pre-wrap">下單可用=賬戶餘額 + 應收</span></td>
+     <td key="5"></td>
+    </tr>
+    <tr key="0-2-0-11">
+     <td key="0"><span style="padding-left: 40px"> stable</span></td>
+     <td key="1"><span>string</span></td>
+     <td key="2">非必須</td>
+     <td key="3"></td>
+     <td key="4"><span style="white-space: pre-wrap">是否為穩定幣， true or false</span></td>
+     <td key="5"></td>
+    </tr>
+    <tr key="0-2-0-12">
+     <td key="0"><span style="padding-left: 40px"> inCurrencyBlackList</span></td>
+     <td key="1"><span>boolean</span></td>
+     <td key="2">非必須</td>
+     <td key="3"></td>
+     <td key="4"><span style="white-space: pre-wrap">用戶所在國際是否在該幣種的國籍黑名單中</span></td>
+     <td key="5"></td>
+    </tr>
+    <tr key="0-2-0-13">
+     <td key="0"><span style="padding-left: 40px"> spotBalance</span></td>
+     <td key="1"><span>string</span></td>
+     <td key="2">非必須</td>
+     <td key="3"></td>
+     <td key="4"><span style="white-space: pre-wrap">幣幣賬戶餘額</span></td>
+     <td key="5"></td>
+    </tr>
+    <tr key="0-2-1">
+     <td key="0"><span style="padding-left: 20px"> totalDigitalCurrency</span></td>
+     <td key="1"><span>string</span></td>
+     <td key="2">非必須</td>
+     <td key="3"></td>
+     <td key="4"><span style="white-space: pre-wrap">總資產幣種(數字幣)</span></td>
+     <td key="5"></td>
+    </tr>
+    <tr key="0-2-2">
+     <td key="0"><span style="padding-left: 20px"> totalConvertedDigitalCurrencyBalance</span></td>
+     <td key="1"><span>string</span></td>
+     <td key="2">非必須</td>
+     <td key="3"></td>
+     <td key="4"><span style="white-space: pre-wrap">*總資產（數字幣折算BTC）</span></td>
+     <td key="5"></td>
+    </tr>
+    <tr key="0-2-3">
+     <td key="0"><span style="padding-left: 20px"> sumLegalCurrency</span></td>
+     <td key="1"><span>string</span></td>
+     <td key="2">非必須</td>
+     <td key="3"></td>
+     <td key="4"><span style="white-space: pre-wrap">總資產(法幣)</span></td>
+     <td key="5"></td>
+    </tr>
+    <tr key="0-2-4">
+     <td key="0"><span style="padding-left: 20px"> sumConvertedLegalCurrencyBalance</span></td>
+     <td key="1"><span>string</span></td>
+     <td key="2">非必須</td>
+     <td key="3"></td>
+     <td key="4"><span style="white-space: pre-wrap">總資產（法幣折算）</span></td>
+     <td key="5"></td>
+    </tr>
+    <tr key="0-2-5">
+     <td key="0"><span style="padding-left: 20px"> sumLegalCurrencyBalance</span></td>
+     <td key="1"><span>string</span></td>
+     <td key="2">非必須</td>
+     <td key="3"></td>
+     <td key="4"><span style="white-space: pre-wrap">法幣總資產</span></td>
+     <td key="5"></td>
+    </tr>
+    <tr key="0-2-6">
+     <td key="0"><span style="padding-left: 20px"> totalLegalCurrencyBalance</span></td>
+     <td key="1"><span>string</span></td>
+     <td key="2">非必須</td>
+     <td key="3"></td>
+     <td key="4"><span style="white-space: pre-wrap">法幣總資產（法幣折算BTC）</span></td>
+     <td key="5"></td>
+    </tr>
+    <tr key="0-2-7">
+     <td key="0"><span style="padding-left: 20px"> sumDigitalCurrencyBalance</span></td>
+     <td key="1"><span>string</span></td>
+     <td key="2">非必須</td>
+     <td key="3"></td>
+     <td key="4"><span style="white-space: pre-wrap">數字幣總資產</span></td>
+     <td key="5"></td>
+    </tr>
+    <tr key="0-2-8">
+     <td key="0"><span style="padding-left: 20px"> totalDigitalCurrencyBalance</span></td>
+     <td key="1"><span>string</span></td>
+     <td key="2">非必須</td>
+     <td key="3"></td>
+     <td key="4"><span style="white-space: pre-wrap">數字幣總資產（数字币折算BTC）</span></td>
+     <td key="5"></td>
+    </tr>
+    <tr key="0-2-9">
+     <td key="0"><span style="padding-left: 20px"> defaultCreditCategory</span></td>
+     <td key="1"><span>boolean</span></td>
+     <td key="2">非必須</td>
+     <td key="3"></td>
+     <td key="4"><span style="white-space: pre-wrap">默認授信級別</span></td>
+     <td key="5"></td>
+    </tr>
+    <tr key="0-2-10">
+     <td key="0"><span style="padding-left: 20px"> unstableCreditLimit</span></td>
+     <td key="1"><span>string</span></td>
+     <td key="2">非必須</td>
+     <td key="3"></td>
+     <td key="4"><span style="white-space: pre-wrap">非穩定幣限額</span></td>
+     <td key="5"></td>
+    </tr>
+    <tr key="0-2-11">
+     <td key="0"><span style="padding-left: 20px"> unstableCreditUsed</span></td>
+     <td key="1"><span>string</span></td>
+     <td key="2">非必須</td>
+     <td key="3"></td>
+     <td key="4"><span style="white-space: pre-wrap">非穩定幣已使用授信額度</span></td>
+     <td key="5"></td>
+    </tr>
+    <tr key="0-2-12">
+     <td key="0"><span style="padding-left: 20px"> unstableCreditUsedWithoutLocked</span></td>
+     <td key="1"><span>string</span></td>
+     <td key="2">非必須</td>
+     <td key="3"></td>
+     <td key="4"><span style="white-space: pre-wrap">非穩定幣已使用授信額度</span></td>
+     <td key="5"></td>
+    </tr>
+    <tr key="0-2-13">
+     <td key="0"><span style="padding-left: 20px"> unstableCreditAvailable</span></td>
+     <td key="1"><span>string</span></td>
+     <td key="2">非必須</td>
+     <td key="3"></td>
+     <td key="4"><span style="white-space: pre-wrap">非穩定幣授信可用</span></td>
+     <td key="5"></td>
+    </tr>
+    <tr key="0-2-14">
+     <td key="0"><span style="padding-left: 20px"> unstableCreditCurrencyDisplay</span></td>
+     <td key="1"><span>string</span></td>
+     <td key="2">非必須</td>
+     <td key="3"></td>
+     <td key="4"><span style="white-space: pre-wrap">非穩定幣顯示名稱</span></td>
+     <td key="5"></td>
+    </tr>
+    <tr key="0-3">
+     <td key="0"><span style="padding-left: 0px"><span style="color: #8c8a8a"></span> success</span></td>
+     <td key="1"><span>boolean</span></td>
+     <td key="2">必須</td>
+     <td key="3"></td>
+     <td key="4"><span style="white-space: pre-wrap">執行結果</span></td>
+     <td key="5"></td>
+    </tr>
+    <tr key="0-4">
+     <td key="0"><span style="padding-left: 0px"><span style="color: #8c8a8a"></span> messageArgs</span></td>
+     <td key="1"><span>object []</span></td>
+     <td key="2">非必須</td>
+     <td key="3">new ArrayList&lt;&gt;()</td>
+     <td key="4"><span style="white-space: pre-wrap"></span></td>
+     <td key="5"></td>
+    </tr> 
+   </tbody> 
+  </table>
+ </body>
+</html></p>
 
       </div>
       <div class="dark-box">
