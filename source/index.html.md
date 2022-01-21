@@ -2310,7 +2310,7 @@ API Key 權限：讀取<br>
      <td key="1"><span>boolean</span></td>
      <td key="2">必須</td>
      <td key="3"></td>
-     <td key="4"><span style="white-space: pre-wrap">執行結果</span></td>
+     <td key="4"><span style="white-space: pre-wrap">是否成功</span></td>
      <td key="5"></td>
     </tr>
     <tr key="0-4">
@@ -2326,7 +2326,146 @@ API Key 權限：讀取<br>
  </body>
 </html>
 
-# 交易對相關
+# 幣種、交易對相關
+
+## 獲取全部上線幣種
+用戶可以通過該接口查詢到已上線的全部幣種
+
+### HTTP 請求
+
+- GET `/open/otc/api/currency/queryCurrency`
+
+API Key 權限：讀取<br>
+
+限頻值：2次/1s<br>
+### 請求參數
+
+> Response:
+
+```json
+{
+  "code":200,
+  "message":"success",
+  "data":[
+    {
+      "currencyId":"eth",
+      "fullName":"ETH_2",
+      "amountPrecision":4,
+      "type":null,
+      "currencyType":0
+    },
+    {
+      "currencyId":"gbp",
+      "fullName":"GBP",
+      "amountPrecision":2,
+      "type":null,
+      "currencyType":1
+    },
+    {
+      "currencyId":"btc",
+      "fullName":"BTC",
+      "amountPrecision":8,
+      "type":null,
+      "currencyType":0
+    },
+    {
+      "currencyId":"usdt",
+      "fullName":"USDT",
+      "amountPrecision":8,
+      "type":null,
+      "currencyType":0
+    }
+  ],
+  "success":true,
+  "messageArgs":[
+
+  ]
+}
+```
+### 返回数据
+<html>
+ <head></head>
+ <body>
+  <table> 
+   <thead class="ant-table-thead"> 
+    <tr> 
+     <th key="name">名稱</th>
+     <th key="type">類型</th>
+     <th key="required">是否必須</th>
+     <th key="default">默認值</th>
+     <th key="desc">備註</th>
+     <th key="sub">其他信息</th> 
+    </tr> 
+   </thead>
+   <tbody classname="ant-table-tbody">
+    <tr key="0-0">
+     <td key="0"><span style="padding-left: 0px"><span style="color: #8c8a8a"></span> code</span></td>
+     <td key="1"><span>integer</span></td>
+     <td key="2">必须</td>
+     <td key="3"></td>
+     <td key="4"><span style="white-space: pre-wrap">業務狀態碼</span></td>
+     <td key="5"></td>
+    </tr>
+    <tr key="0-1">
+     <td key="0"><span style="padding-left: 0px"><span style="color: #8c8a8a"></span> message</span></td>
+     <td key="1"><span>string</span></td>
+     <td key="2">非必须</td>
+     <td key="3"></td>
+     <td key="4"><span style="white-space: pre-wrap">错误信息</span></td>
+     <td key="5"></td>
+    </tr>
+    <tr key="0-2">
+     <td key="0"><span style="padding-left: 0px"><span style="color: #8c8a8a"></span> data</span></td>
+     <td key="1"><span>object []</span></td>
+     <td key="2">非必须</td>
+     <td key="3"></td>
+     <td key="4"><span style="white-space: pre-wrap">業務數據</span></td>
+     <td key="5"></td>
+    </tr>
+    <tr key="0-2-0">
+     <td key="0"><span style="padding-left: 20px"><span style="color: #8c8a8a">├─</span> currencyId</span></td>
+     <td key="1"><span>string</span></td>
+     <td key="2">非必须</td>
+     <td key="3"></td>
+     <td key="4"><span style="white-space: pre-wrap">币幣種ID，幣種標識, 小写 btc</span></td>
+     <td key="5"></td>
+    </tr>
+    <tr key="0-2-1">
+     <td key="0"><span style="padding-left: 20px">fullName</span></td>
+     <td key="1"><span>string</span></td>
+     <td key="2">非必须</td>
+     <td key="3"></td>
+     <td key="4"><span style="white-space: pre-wrap">币种全称， Bitcoin</span></td>
+     <td key="5"></td>
+    </tr>
+    <tr key="0-2-2">
+     <td key="0"><span style="padding-left: 20px"> amountPrecision</span></td>
+     <td key="1"><span>integer</span></td>
+     <td key="2">非必须</td>
+     <td key="3"></td>
+     <td key="4"><span style="white-space: pre-wrap">金額前端展示精度</span></td>
+     <td key="5"></td>
+    </tr>
+    <tr key="0-3">
+     <td key="0"><span style="padding-left: 0px"><span style="color: #8c8a8a"></span> success</span></td>
+     <td key="1"><span>boolean</span></td>
+     <td key="2">必须</td>
+     <td key="3"></td>
+     <td key="4"><span style="white-space: pre-wrap">是否成功</span></td>
+     <td key="5"></td>
+    </tr>
+    <tr key="0-4">
+     <td key="0"><span style="padding-left: 0px"><span style="color: #8c8a8a"></span> messageArgs</span></td>
+     <td key="1"><span>object []</span></td>
+     <td key="2">非必须</td>
+     <td key="3">new ArrayList&lt;&gt;()</td>
+     <td key="4"><span style="white-space: pre-wrap"></span></td>
+     <td key="5"></td>
+    </tr> 
+   </tbody> 
+  </table>
+ </body>
+</html>
 
 ## 獲取全部上線交易對
 用戶可以通過該接口查詢到已上線的全部交易對
@@ -2493,7 +2632,7 @@ API Key 權限：讀取<br>
      <td key="1"><span>boolean</span></td>
      <td key="2">必須</td>
      <td key="3"></td>
-     <td key="4"><span style="white-space: pre-wrap">執行結果</span></td>
+     <td key="4"><span style="white-space: pre-wrap">是否成功</span></td>
      <td key="5"></td>
     </tr>
     <tr key="0-4">
@@ -2636,7 +2775,7 @@ API Key 權限：讀取<br>
      <td key="1"><span>boolean</span></td>
      <td key="2">必須</td>
      <td key="3"></td>
-     <td key="4"><span style="white-space: pre-wrap">執行結果</span></td>
+     <td key="4"><span style="white-space: pre-wrap">是否成功</span></td>
      <td key="5"></td>
     </tr>
     <tr key="0-4">
