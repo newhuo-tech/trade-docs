@@ -384,8 +384,11 @@
               </ul>
           </li>
           <li>
-            <a href="#f27baa84e9" class="toc-h1 toc-link" data-title="交易對相關">交易對相關</a>
+            <a href="#1546f78473" class="toc-h1 toc-link" data-title="幣種、交易對相關">幣種、交易對相關</a>
               <ul class="toc-list-h2">
+                  <li>
+                    <a href="#54010eaf54" class="toc-h2 toc-link" data-title="獲取全部上線幣種">獲取全部上線幣種</a>
+                  </li>
                   <li>
                     <a href="#28e605fd8c" class="toc-h2 toc-link" data-title="獲取全部上線交易對">獲取全部上線交易對</a>
                   </li>
@@ -2794,7 +2797,7 @@ api.huobi-brokerage.com\n
      <td key="1"><span>boolean</span></td>
      <td key="2">必須</td>
      <td key="3"></td>
-     <td key="4"><span style="white-space: pre-wrap">執行結果</span></td>
+     <td key="4"><span style="white-space: pre-wrap">是否成功</span></td>
      <td key="5"></td>
     </tr>
     <tr key="0-4">
@@ -2809,9 +2812,145 @@ api.huobi-brokerage.com\n
   </table>
  </body>
 </html></p>
-<h1 id='f27baa84e9'>交易對相關</h1><h2 id='28e605fd8c'>獲取全部上線交易對</h2>
-<p>用戶可以通過該接口查詢到已上線的全部交易對</p>
+<h1 id='1546f78473'>幣種、交易對相關</h1><h2 id='54010eaf54'>獲取全部上線幣種</h2>
+<p>用戶可以通過該接口查詢到已上線的全部幣種</p>
 <h3 id='http-10'>HTTP 請求</h3>
+<ul>
+<li>GET <code>/open/otc/api/currency/queryCurrency</code></li>
+</ul>
+
+<p>API Key 權限：讀取<br></p>
+
+<p>限頻值：2次/1s<br></p>
+<h3 id='ba05bab92e-8'>請求參數</h3>
+<blockquote>
+<p>Response:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"code"</span><span class="p">:</span><span class="mi">200</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"message"</span><span class="p">:</span><span class="s2">"success"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"data"</span><span class="p">:[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"currencyId"</span><span class="p">:</span><span class="s2">"eth"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"fullName"</span><span class="p">:</span><span class="s2">"ETH_2"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"amountPrecision"</span><span class="p">:</span><span class="mi">4</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"type"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"currencyType"</span><span class="p">:</span><span class="mi">0</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"currencyId"</span><span class="p">:</span><span class="s2">"gbp"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"fullName"</span><span class="p">:</span><span class="s2">"GBP"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"amountPrecision"</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"type"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"currencyType"</span><span class="p">:</span><span class="mi">1</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"currencyId"</span><span class="p">:</span><span class="s2">"btc"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"fullName"</span><span class="p">:</span><span class="s2">"BTC"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"amountPrecision"</span><span class="p">:</span><span class="mi">8</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"type"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"currencyType"</span><span class="p">:</span><span class="mi">0</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"currencyId"</span><span class="p">:</span><span class="s2">"usdt"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"fullName"</span><span class="p">:</span><span class="s2">"USDT"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"amountPrecision"</span><span class="p">:</span><span class="mi">8</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"type"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"currencyType"</span><span class="p">:</span><span class="mi">0</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">],</span><span class="w">
+  </span><span class="s2">"success"</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"messageArgs"</span><span class="p">:[</span><span class="w">
+
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre><h3 id='b691cfe782-4'>返回数据</h3>
+<p><html>
+ <head></head>
+ <body>
+  <table> 
+   <thead class="ant-table-thead"> 
+    <tr> 
+     <th key="name">名稱</th>
+     <th key="type">類型</th>
+     <th key="required">是否必須</th>
+     <th key="default">默認值</th>
+     <th key="desc">備註</th>
+     <th key="sub">其他信息</th> 
+    </tr> 
+   </thead>
+   <tbody classname="ant-table-tbody">
+    <tr key="0-0">
+     <td key="0"><span style="padding-left: 0px"><span style="color: #8c8a8a"></span> code</span></td>
+     <td key="1"><span>integer</span></td>
+     <td key="2">必须</td>
+     <td key="3"></td>
+     <td key="4"><span style="white-space: pre-wrap">業務狀態碼</span></td>
+     <td key="5"></td>
+    </tr>
+    <tr key="0-1">
+     <td key="0"><span style="padding-left: 0px"><span style="color: #8c8a8a"></span> message</span></td>
+     <td key="1"><span>string</span></td>
+     <td key="2">非必须</td>
+     <td key="3"></td>
+     <td key="4"><span style="white-space: pre-wrap">错误信息</span></td>
+     <td key="5"></td>
+    </tr>
+    <tr key="0-2">
+     <td key="0"><span style="padding-left: 0px"><span style="color: #8c8a8a"></span> data</span></td>
+     <td key="1"><span>object []</span></td>
+     <td key="2">非必须</td>
+     <td key="3"></td>
+     <td key="4"><span style="white-space: pre-wrap">業務數據</span></td>
+     <td key="5"></td>
+    </tr>
+    <tr key="0-2-0">
+     <td key="0"><span style="padding-left: 20px"><span style="color: #8c8a8a">├─</span> currencyId</span></td>
+     <td key="1"><span>string</span></td>
+     <td key="2">非必须</td>
+     <td key="3"></td>
+     <td key="4"><span style="white-space: pre-wrap">币幣種ID，幣種標識, 小写 btc</span></td>
+     <td key="5"></td>
+    </tr>
+    <tr key="0-2-1">
+     <td key="0"><span style="padding-left: 20px">fullName</span></td>
+     <td key="1"><span>string</span></td>
+     <td key="2">非必须</td>
+     <td key="3"></td>
+     <td key="4"><span style="white-space: pre-wrap">币种全称， Bitcoin</span></td>
+     <td key="5"></td>
+    </tr>
+    <tr key="0-2-2">
+     <td key="0"><span style="padding-left: 20px"> amountPrecision</span></td>
+     <td key="1"><span>integer</span></td>
+     <td key="2">非必须</td>
+     <td key="3"></td>
+     <td key="4"><span style="white-space: pre-wrap">金額前端展示精度</span></td>
+     <td key="5"></td>
+    </tr>
+    <tr key="0-3">
+     <td key="0"><span style="padding-left: 0px"><span style="color: #8c8a8a"></span> success</span></td>
+     <td key="1"><span>boolean</span></td>
+     <td key="2">必须</td>
+     <td key="3"></td>
+     <td key="4"><span style="white-space: pre-wrap">是否成功</span></td>
+     <td key="5"></td>
+    </tr>
+    <tr key="0-4">
+     <td key="0"><span style="padding-left: 0px"><span style="color: #8c8a8a"></span> messageArgs</span></td>
+     <td key="1"><span>object []</span></td>
+     <td key="2">非必须</td>
+     <td key="3">new ArrayList&lt;&gt;()</td>
+     <td key="4"><span style="white-space: pre-wrap"></span></td>
+     <td key="5"></td>
+    </tr> 
+   </tbody> 
+  </table>
+ </body>
+</html></p>
+<h2 id='28e605fd8c'>獲取全部上線交易對</h2>
+<p>用戶可以通過該接口查詢到已上線的全部交易對</p>
+<h3 id='http-11'>HTTP 請求</h3>
 <ul>
 <li>GET <code>/open/otc/api/symbol</code></li>
 </ul>
@@ -2819,7 +2958,7 @@ api.huobi-brokerage.com\n
 <p>API Key 權限：讀取<br></p>
 
 <p>限頻值：2次/1s<br></p>
-<h3 id='ba05bab92e-8'>請求參數</h3>
+<h3 id='ba05bab92e-9'>請求參數</h3>
 <blockquote>
 <p>Response:</p>
 </blockquote>
@@ -2855,7 +2994,7 @@ api.huobi-brokerage.com\n
 
   </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre><h3 id='b691cfe782-4'>返回数据</h3>
+</span></code></pre><h3 id='b691cfe782-5'>返回数据</h3>
 <p><html>
  <head></head>
  <body>
@@ -2972,7 +3111,7 @@ api.huobi-brokerage.com\n
      <td key="1"><span>boolean</span></td>
      <td key="2">必須</td>
      <td key="3"></td>
-     <td key="4"><span style="white-space: pre-wrap">執行結果</span></td>
+     <td key="4"><span style="white-space: pre-wrap">是否成功</span></td>
      <td key="5"></td>
     </tr>
     <tr key="0-4">
@@ -2989,7 +3128,7 @@ api.huobi-brokerage.com\n
 </html></p>
 <h2 id='dafbe4dde9'>獲取交易對規則</h2>
 <p>用戶可以通過該接口查詢到交易對規則</p>
-<h3 id='http-11'>HTTP 請求</h3>
+<h3 id='http-12'>HTTP 請求</h3>
 <ul>
 <li>GET <code>/open/otc/api/symbol/{symbol}/setting</code></li>
 </ul>
@@ -2997,7 +3136,7 @@ api.huobi-brokerage.com\n
 <p>API Key 權限：讀取<br></p>
 
 <p>限頻值：2次/1s<br></p>
-<h3 id='ba05bab92e-9'>請求參數</h3>
+<h3 id='ba05bab92e-10'>請求參數</h3>
 <blockquote>
 <p>Response:</p>
 </blockquote>
@@ -3035,7 +3174,7 @@ api.huobi-brokerage.com\n
 
   </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre><h3 id='b691cfe782-5'>返回数据</h3>
+</span></code></pre><h3 id='b691cfe782-6'>返回数据</h3>
 <p><html>
  <head></head>
  <body>
@@ -3112,7 +3251,7 @@ api.huobi-brokerage.com\n
      <td key="1"><span>boolean</span></td>
      <td key="2">必須</td>
      <td key="3"></td>
-     <td key="4"><span style="white-space: pre-wrap">執行結果</span></td>
+     <td key="4"><span style="white-space: pre-wrap">是否成功</span></td>
      <td key="5"></td>
     </tr>
     <tr key="0-4">
@@ -3129,7 +3268,7 @@ api.huobi-brokerage.com\n
 </html></p>
 <h1 id='f63449692c'>询价交易</h1><h2 id='e6d7611d89'>发起询价请求</h2>
 <p>用戶可以通過該接口發起詢價請求</p>
-<h3 id='http-12'>HTTP 請求</h3>
+<h3 id='http-13'>HTTP 請求</h3>
 <ul>
 <li>POST <code>/open/otc/api/order/rfq/quote/request</code></li>
 </ul>
@@ -3302,7 +3441,7 @@ api.huobi-brokerage.com\n
 </html></p>
 <h2 id='a90953ab28'>发起鎖價下單请求</h2>
 <p>用戶可以通過該接口發起鎖價下單請求</p>
-<h3 id='http-13'>HTTP 請求</h3>
+<h3 id='http-14'>HTTP 請求</h3>
 <ul>
 <li>POST <code>/open/otc/api/order/rfq/quote/accept</code></li>
 </ul>
@@ -3310,7 +3449,7 @@ api.huobi-brokerage.com\n
 <p>API Key 權限：寫入<br></p>
 
 <p>限頻值：2次/1s<br></p>
-<h3 id='ba05bab92e-10'>請求參數</h3>
+<h3 id='ba05bab92e-11'>請求參數</h3>
 <p><html>
  <head></head>
  <body>
@@ -3405,7 +3544,7 @@ api.huobi-brokerage.com\n
 </html></p>
 <h2 id='6d6f703aa5'>獲取用戶所有成交記錄</h2>
 <p>用戶可以通過該接口獲取訂單成交記錄</p>
-<h3 id='http-14'>HTTP 請求</h3>
+<h3 id='http-15'>HTTP 請求</h3>
 <ul>
 <li>POST <code>/open/otc/api/order/rfq/query</code></li>
 </ul>
@@ -3413,7 +3552,7 @@ api.huobi-brokerage.com\n
 <p>API Key 權限：讀取<br></p>
 
 <p>限頻值：2次/1s<br></p>
-<h3 id='ba05bab92e-11'>請求參數</h3>
+<h3 id='ba05bab92e-12'>請求參數</h3>
 <p><html>
  <head></head>
  <body>
@@ -3922,13 +4061,13 @@ api.huobi-brokerage.com\n
 </html></p>
 <h2 id='769553a3da'>獲取用戶歷史訂單</h2>
 <p>用戶可以通過該接口獲取歷史訂單</p>
-<h3 id='http-15'>HTTP 請求</h3>
+<h3 id='http-16'>HTTP 請求</h3>
 <ul>
 <li>POST <code>/open/otc/api/order/rfq/queryHistoryOrder</code></li>
 </ul>
 
 <p>API Key 權限：讀取<br></p>
-<h3 id='ba05bab92e-12'>請求參數</h3>
+<h3 id='ba05bab92e-13'>請求參數</h3>
 <p><html>
  <head></head>
  <body>
