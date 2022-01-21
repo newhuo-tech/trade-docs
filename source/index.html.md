@@ -516,7 +516,7 @@ api.huobi-brokerage.com\n
 
 ### HTTP 請求
 
-- POST `/open/otc/api/user/isCreditUser`
+- GET `/open/otc/api/user/isCreditUser`
 
 API Key 權限：讀取<br>
 
@@ -559,7 +559,7 @@ API Key 權限：讀取<br>
      <td key="1"><span>string</span></td>
      <td key="2">非必須</td>
      <td key="3"></td>
-     <td key="4"><span style="white-space: pre-wrap">错误信息（英文）</span></td>
+     <td key="4"><span style="white-space: pre-wrap">錯誤信息（英文）</span></td>
      <td key="5"></td>
     </tr>
     <tr key="0-2">
@@ -575,7 +575,7 @@ API Key 權限：讀取<br>
      <td key="1"><span>boolean</span></td>
      <td key="2">非必須</td>
      <td key="3"></td>
-     <td key="4"><span style="white-space: pre-wrap">执行结果</span></td>
+     <td key="4"><span style="white-space: pre-wrap">是否成功</span></td>
      <td key="5"></td>
     </tr>
     <tr key="0-4">
@@ -596,7 +596,7 @@ API Key 權限：讀取<br>
 
 ### HTTP 請求
 
-- POST `/open/otc/api/user/isWhiteUser`
+- GET `/open/otc/api/user/isWhiteUser`
 
 API Key 權限：讀取<br>
 
@@ -638,7 +638,7 @@ API Key 權限：讀取<br>
      <td key="1"><span>string</span></td>
      <td key="2">非必須</td>
      <td key="3"></td>
-     <td key="4"><span style="white-space: pre-wrap">错误信息（英文）</span></td>
+     <td key="4"><span style="white-space: pre-wrap">錯誤信息（英文）</span></td>
      <td key="5"></td>
     </tr>
     <tr key="0-2">
@@ -654,7 +654,7 @@ API Key 權限：讀取<br>
      <td key="1"><span>boolean</span></td>
      <td key="2">非必須</td>
      <td key="3"></td>
-     <td key="4"><span style="white-space: pre-wrap">执行结果</span></td>
+     <td key="4"><span style="white-space: pre-wrap">是否成功</span></td>
      <td key="5"></td>
     </tr>
     <tr key="0-4">
@@ -669,56 +669,6 @@ API Key 權限：讀取<br>
   </table>
  </body>
 </html>
-
-
-
-## 用戶鑒權信息查詢
-
-API Key 權限：讀取<br>
-限頻值（NEW）：100次/2s
-
-### HTTP 請求
-
-- GET `/v1/open/merchant/user/getAuthInfo`
-
-### 請求參數
-
-| 參數名稱   | 是否必須 | 類型   | 描述                                                         | 默認值 | 取值範圍 |
-| ---------- | -------- | ------ | ------------------------------------------------------------ | ------ | -------- |
-| outerUserId | true     | string | （外部系統用戶id）外部系統用戶唯一標識 |        |          |
-
-
-> Response:
-
-```json
-{
-  "code": 200,
-  "data": [
-    {
-      "outerUserId": "213123D1231",
-      "outerUid": "12312317263123"
-    }
-  ],
-  "success": true
-}
-```
-
-
-### 響應數據
-
-| 參數名稱 | 是否必須 | 數據類型 | 描述     | 取值範圍                                                     |
-| -------- | -------- | -------- | -------- | ------------------------------------------------------------ |
-| code         | true    | integer     | 狀態碼  | |
-| message      | false   | string    | 錯誤描述（如有）| |
-| data         | false   | object    | 業務數據 ||
-
-data字段說明
-
-| 參數名稱 | 數據類型 | 描述           | 取值範圍                                                     |
-| -------- | -------- | -------------- | ------------------------------------------------------------ |
-| outerUserId  | string   | 外部系統用戶標識           |                                                            |
-| outerUid   | string   | 外部uid           |                                                            |
-
 
 
 # 授信用戶相關
@@ -2411,7 +2361,7 @@ API Key 權限：讀取<br>
      <td key="1"><span>string</span></td>
      <td key="2">非必须</td>
      <td key="3"></td>
-     <td key="4"><span style="white-space: pre-wrap">错误信息</span></td>
+     <td key="4"><span style="white-space: pre-wrap">錯誤信息</span></td>
      <td key="5"></td>
     </tr>
     <tr key="0-2">
@@ -2544,7 +2494,7 @@ API Key 權限：讀取<br>
      <td key="1"><span>string</span></td>
      <td key="2">非必須</td>
      <td key="3"></td>
-     <td key="4"><span style="white-space: pre-wrap">错误信息（英文）</span></td>
+     <td key="4"><span style="white-space: pre-wrap">錯誤信息（英文）</span></td>
      <td key="5"></td>
     </tr>
     <tr key="0-2">
