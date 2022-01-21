@@ -846,7 +846,7 @@ API Key 權限：讀取<br>
      <td key="4"><span style="white-space: pre-wrap">交易狀態集合</span></td>
      <td key="5"><p key="3"><span style="font-weight: '700'"> </span><span></span></p></td>
     </tr>
-        <tr key="0-10">
+    <tr key="0-10">
      <td key="0"><span style="padding-left: 0px"><span style="color: #8c8a8a"></span> clearingStatusList</span></td>
      <td key="1"><span>integer []</span></td>
      <td key="2">非必須</td>
@@ -854,7 +854,6 @@ API Key 權限：讀取<br>
      <td key="4"><span style="white-space: pre-wrap">清算狀態集合</span></td>
      <td key="5"><p key="3"><span style="font-weight: '700'"> </span><span></span></p></td>
     </tr>
-    <tr key="array-110">
      <tr key="0-11">
      <td key="0"><span style="padding-left: 0px"><span style="color: #8c8a8a"></span> ascending</span></td>
      <td key="1"><span>string</span></td>
@@ -966,7 +965,7 @@ API Key 權限：讀取<br>
      <td key="1"><span>integer</span></td>
      <td key="2">必須</td>
      <td key="3"></td>
-     <td key="4"><span style="white-space: pre-wrap"><span style="white-space: pre-wrap">編碼</span></span></td>
+     <td key="4"><span style="white-space: pre-wrap"><span style="white-space: pre-wrap">業務編碼</span></span></td>
      <td key="5"></td>
     </tr>
     <tr key="0-1">
@@ -974,7 +973,7 @@ API Key 權限：讀取<br>
      <td key="1"><span>string</span></td>
      <td key="2">非必須</td>
      <td key="3"></td>
-     <td key="4"><span style="white-space: pre-wrap">消息</span></td>
+     <td key="4"><span style="white-space: pre-wrap">錯誤消息</span></td>
      <td key="5"></td>
     </tr>
     <tr key="0-2">
@@ -1370,7 +1369,7 @@ API Key 權限：讀取<br>
      <td key="1"><span>integer</span></td>
      <td key="2">必須</td>
      <td key="3"></td>
-     <td key="4"><span style="white-space: pre-wrap">編碼</span></td>
+     <td key="4"><span style="white-space: pre-wrap">業務編碼</span></td>
      <td key="5"></td>
     </tr>
     <tr key="0-1">
@@ -1565,7 +1564,7 @@ API Key 权限：讀取<br>
      <td key="1"><span>integer</span></td>
      <td key="2">必須</td>
      <td key="3"></td>
-     <td key="4"><span style="white-space: pre-wrap">編碼</span></td>
+     <td key="4"><span style="white-space: pre-wrap">業務編碼</span></td>
      <td key="5"></td>
     </tr>
     <tr key="0-1">
@@ -1837,7 +1836,7 @@ API Key 權限：讀取<br>
      <td key="1"><span>integer</span></td>
      <td key="2">必須</td>
      <td key="3"></td>
-     <td key="4"><span style="white-space: pre-wrap"</span> 編碼 </td>
+     <td key="4"><span style="white-space: pre-wrap"</span> 業務編碼 </td>
      <td key="5"></td>
     </tr>
     <tr key="0-1">
@@ -2492,7 +2491,7 @@ API Key 權限：讀取<br>
     <tr key="0-3">
      <td key="0"><span style="padding-left: 0px"><span style="color: #8c8a8a"></span> success</span></td>
      <td key="1"><span>boolean</span></td>
-     <td key="2">非必須</td>
+     <td key="2">必須</td>
      <td key="3"></td>
      <td key="4"><span style="white-space: pre-wrap">執行結果</span></td>
      <td key="5"></td>
@@ -2635,7 +2634,7 @@ API Key 權限：讀取<br>
     <tr key="0-3">
      <td key="0"><span style="padding-left: 0px"><span style="color: #8c8a8a"></span> success</span></td>
      <td key="1"><span>boolean</span></td>
-     <td key="2">非必須</td>
+     <td key="2">必須</td>
      <td key="3"></td>
      <td key="4"><span style="white-space: pre-wrap">執行結果</span></td>
      <td key="5"></td>
@@ -2768,7 +2767,7 @@ API Key 權限：讀取<br>
      <td key="1"><span>integer</span></td>
      <td key="2">非必須</td>
      <td key="3"></td>
-     <td key="4"><span style="white-space: pre-wrap">業務編碼</span></td>
+     <td key="4"><span style="white-space: pre-wrap">業務狀態碼</span></td>
      <td key="5"></td>
     </tr>
     <tr key="0-1">
@@ -2814,7 +2813,7 @@ API Key 權限：讀取<br>
     <tr key="0-3">
      <td key="0"><span style="padding-left: 0px"><span style="color: #8c8a8a"></span> success</span></td>
      <td key="1"><span>boolean</span></td>
-     <td key="2">非必須</td>
+     <td key="2">必須</td>
      <td key="3"></td>
      <td key="4"><span style="white-space: pre-wrap"></span></td>
      <td key="5"></td>
@@ -2901,7 +2900,7 @@ API Key 權限：寫入<br>
      <td key="1"><span>integer</span></td>
      <td key="2">必須</td>
      <td key="3"></td>
-     <td key="4"><span style="white-space: pre-wrap">業務編碼</span></td>
+     <td key="4"><span style="white-space: pre-wrap">業務狀態碼</span></td>
      <td key="5"></td>
     </tr>
     <tr key="0-1">
@@ -2923,7 +2922,7 @@ API Key 權限：寫入<br>
     <tr key="0-3">
      <td key="0"><span style="padding-left: 0px"><span style="color: #8c8a8a"></span> success</span></td>
      <td key="1"><span>boolean</span></td>
-     <td key="2">非必須</td>
+     <td key="2">必須</td>
      <td key="3"></td>
      <td key="4"><span style="white-space: pre-wrap">是否成功</span></td>
      <td key="5"></td>
@@ -2978,7 +2977,7 @@ API Key 權限：讀取<br>
     <tr key="0-0-2">
      <td key="0"><span style="padding-left: 20px"> size</span></td>
      <td key="1"><span>integer</span></td>
-     <td key="2">非必須</td>
+     <td key="2">必須</td>
      <td key="3"></td>
      <td key="4"><span style="white-space: pre-wrap">每頁數量</span></td>
      <td key="5"></td>
@@ -2986,7 +2985,7 @@ API Key 權限：讀取<br>
     <tr key="0-0-3">
      <td key="0"><span style="padding-left: 20px"> page</span></td>
      <td key="1"><span>integer</span></td>
-     <td key="2">非必須</td>
+     <td key="2">必須</td>
      <td key="3"></td>
      <td key="4"><span style="white-space: pre-wrap">當前頁數</span></td>
      <td key="5"></td>
@@ -3063,28 +3062,12 @@ API Key 權限：讀取<br>
      <td key="4"><span style="white-space: pre-wrap">交易狀態集合</span></td>
      <td key="5"></td>
     </tr>
-    <tr key="array-117">
-     <td key="0"><span style="padding-left: 20px"> </span></td>
-     <td key="1"><span></span></td>
-     <td key="2">非必須</td>
-     <td key="3"></td>
-     <td key="4"><span style="white-space: pre-wrap"></span></td>
-     <td key="5"></td>
-    </tr>
     <tr key="0-10">
      <td key="0"><span style="padding-left: 0px"><span style="color: #8c8a8a"></span> clearingStatusList</span></td>
      <td key="1"><span>integer []</span></td>
      <td key="2">非必須</td>
      <td key="3"></td>
      <td key="4"><span style="white-space: pre-wrap">清算狀態集合</span></td>
-     <td key="5"></td>
-    </tr>
-    <tr key="array-118">
-     <td key="0"><span style="padding-left: 20px"> </span></td>
-     <td key="1"><span></span></td>
-     <td key="2">非必須</td>
-     <td key="3"></td>
-     <td key="4"><span style="white-space: pre-wrap"></span></td>
      <td key="5"></td>
     </tr>
     <tr key="0-11">
@@ -3197,7 +3180,7 @@ API Key 權限：讀取<br>
      <td key="1"><span>integer</span></td>
      <td key="2">非必須</td>
      <td key="3"></td>
-     <td key="4"><span style="white-space: pre-wrap">業務編碼</span></td>
+     <td key="4"><span style="white-space: pre-wrap">業務狀態碼</span></td>
      <td key="5"></td>
     </tr>
     <tr key="0-1">
@@ -3349,7 +3332,7 @@ API Key 權限：讀取<br>
      <td key="1"><span>string</span></td>
      <td key="2">非必須</td>
      <td key="3"></td>
-     <td key="4"><span style="white-space: pre-wrap">訂單狀態 询价交易只有2-成功，4-取消，8-失败</span></td>
+     <td key="4"><span style="white-space: pre-wrap">訂單狀態 询价交易只有2-成功，4-取消，8-失敗</span></td>
      <td key="5"></td>
     </tr>
     <tr key="0-2-0-16">
@@ -3357,7 +3340,7 @@ API Key 權限：讀取<br>
      <td key="1"><span>string</span></td>
      <td key="2">非必須</td>
      <td key="3"></td>
-     <td key="4"><span style="white-space: pre-wrap">交易对展示名稱</span></td>
+     <td key="4"><span style="white-space: pre-wrap">交易對展示名稱</span></td>
      <td key="5"></td>
     </tr>
     <tr key="0-2-0-17">
@@ -3459,7 +3442,7 @@ API Key 權限：讀取<br>
     <tr key="0-3">
      <td key="0"><span style="padding-left: 0px"><span style="color: #8c8a8a"></span> success</span></td>
      <td key="1"><span>boolean</span></td>
-     <td key="2">非必須</td>
+     <td key="2">必須</td>
      <td key="3"></td>
      <td key="4"><span style="white-space: pre-wrap">是否成功</span></td>
      <td key="5"></td>
@@ -3482,7 +3465,7 @@ API Key 權限：讀取<br>
 
 ### HTTP 請求
 
-- GET `/open/otc/api/order/rfq/queryHistoryOrder`
+- POST `/open/otc/api/order/rfq/queryHistoryOrder`
 
 API Key 權限：讀取<br>
 ### 請求參數
@@ -3515,7 +3498,7 @@ API Key 權限：讀取<br>
      <td key="1"><span>integer</span></td>
      <td key="2">非必須</td>
      <td key="3"></td>
-     <td key="4"><span style="white-space: pre-wrap">每頁數量.</span></td>
+     <td key="4"><span style="white-space: pre-wrap">每頁數量</span></td>
      <td key="5"></td>
     </tr>
     <tr key="0-0-3">
@@ -3720,7 +3703,7 @@ API Key 權限：讀取<br>
      <td key="1"><span>integer</span></td>
      <td key="2">必須</td>
      <td key="3"></td>
-     <td key="4"><span style="white-space: pre-wrap"></span>業務編碼</td>
+     <td key="4"><span style="white-space: pre-wrap"></span>業務狀態碼</td>
      <td key="5"></td>
     </tr>
     <tr key="0-1">
@@ -4038,9 +4021,9 @@ API Key 權限：讀取<br>
     <tr key="0-3">
      <td key="0"><span style="padding-left: 0px"><span style="color: #8c8a8a"></span> success</span></td>
      <td key="1"><span>boolean</span></td>
-     <td key="2">非必須</td>
+     <td key="2">必須</td>
      <td key="3"></td>
-     <td key="4"><span style="white-space: pre-wrap"></span></td>
+     <td key="4"><span style="white-space: pre-wrap">是否成功</span></td>
      <td key="5"></td>
     </tr>
     <tr key="0-4">
