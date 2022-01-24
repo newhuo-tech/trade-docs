@@ -67,7 +67,7 @@ table th {
 
 此文檔是Huobi Brokerage API的唯一官方文檔，Huobi Brokerage API提供的功能和服務會在此文檔持續更新。
 
-以下是現貨API文檔各章節主要內容
+以下是Brokerage OTC API文檔各章節主要內容
 
 第一部分是概要介紹：
 
