@@ -5,7 +5,7 @@ language_tabs: # must be one of https://git.io/vQNgJ
 - json
 
 toc_footers:
-- <a href='https://www.huobi-brokerage.com/zh-hk/user/api/'>創建 API Key </a>
+- <a href='http://fed-brokerage-trust.test-18.huobiapps.com/zh-hk/user/api'>創建 API Key </a>
   includes:
 
 search: true
@@ -285,8 +285,7 @@ api.huobi-brokerage.com\n
 
 | 接口分類       | 分類鏈接                     | 概述                                             |
 | -------------- | ---------------------------- | ------------------------------------------------ |
-| 測試類         | /v1/open/apiKeyDemo/*        | apiKey測試相關接口       |
-| 賬戶類         | /v1/open/account/*           | 賬戶相關接口             |
+
 
 
 該分類為大類整理，部分接口未遵循此規則，請根據需求查看有關接口文檔。
