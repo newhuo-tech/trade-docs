@@ -1574,34 +1574,18 @@ API Key 权限：讀取<br>
     </tr>
     <tr key="0-2-5">
      <td key="0"><span style="padding-left: 20px"> payouts</span></td>
-     <td key="1"><span>object</span></td>
+     <td key="1"><span>Map</span></td>
      <td key="2">非必須</td>
      <td key="3"></td>
      <td key="4"><span style="white-space: pre-wrap">應付</span></td>
      <td key="5"></td>
     </tr>
-    <tr key="0-2-5-0">
-     <td key="0"><span style="padding-left: 40px"> key</span></td>
-     <td key="1"><span>number</span></td>
-     <td key="2">非必須</td>
-     <td key="3"></td>
-     <td key="4"><span style="white-space: pre-wrap"></span></td>
-     <td key="5"></td>
-    </tr>
     <tr key="0-2-6">
      <td key="0"><span style="padding-left: 20px"> receivables</span></td>
-     <td key="1"><span>object</span></td>
+     <td key="1"><span>Map</span></td>
      <td key="2">非必須</td>
      <td key="3"></td>
      <td key="4"><span style="white-space: pre-wrap">應收</span></td>
-     <td key="5"></td>
-    </tr>
-    <tr key="0-2-6-0">
-     <td key="0"><span style="padding-left: 40px"> key</span></td>
-     <td key="1"><span>number</span></td>
-     <td key="2">非必須</td>
-     <td key="3"></td>
-     <td key="4"><span style="white-space: pre-wrap"></span></td>
      <td key="5"></td>
     </tr>
     <tr key="0-2-7">
@@ -1662,7 +1646,7 @@ API Key 权限：讀取<br>
     </tr>
     <tr key="0-2-7-6">
      <td key="0"><span style="padding-left: 40px"> avgPx</span></td>
-     <td key="1"><span>number</span></td>
+     <td key="1"><span>BigDecimal</span></td>
      <td key="2">非必須</td>
      <td key="3"></td>
      <td key="4"><span style="white-space: pre-wrap">成交價</span></td>
@@ -1670,7 +1654,7 @@ API Key 权限：讀取<br>
     </tr>
     <tr key="0-2-7-7">
      <td key="0"><span style="padding-left: 40px"> cumQuantity</span></td>
-     <td key="1"><span>number</span></td>
+     <td key="1"><span>BigDecimal</span></td>
      <td key="2">非必須</td>
      <td key="3"></td>
      <td key="4"><span style="white-space: pre-wrap">成交數</span></td>
@@ -1678,7 +1662,7 @@ API Key 权限：讀取<br>
     </tr>
     <tr key="0-2-7-8">
      <td key="0"><span style="padding-left: 40px"> cumTurnover</span></td>
-     <td key="1"><span>number</span></td>
+     <td key="1"><span>BigDecimal</span></td>
      <td key="2">非必須</td>
      <td key="3"></td>
      <td key="4"><span style="white-space: pre-wrap">成交額</span></td>
@@ -1686,7 +1670,7 @@ API Key 权限：讀取<br>
     </tr>
     <tr key="0-2-7-9">
      <td key="0"><span style="padding-left: 40px"> clearedQty</span></td>
-     <td key="1"><span>number</span></td>
+     <td key="1"><span>BigDecimal</span></td>
      <td key="2">非必須</td>
      <td key="3"></td>
      <td key="4"><span style="white-space: pre-wrap">本次結算數量</span></td>
@@ -1694,7 +1678,7 @@ API Key 权限：讀取<br>
     </tr>
     <tr key="0-2-7-10">
      <td key="0"><span style="padding-left: 40px"> clearedTurnover</span></td>
-     <td key="1"><span>number</span></td>
+     <td key="1"><span>BigDecimal</span></td>
      <td key="2">非必須</td>
      <td key="3"></td>
      <td key="4"><span style="white-space: pre-wrap">本次結算金額</span></td>
@@ -1705,7 +1689,7 @@ API Key 权限：讀取<br>
      <td key="1"><span>boolean</span></td>
      <td key="2">必須</td>
      <td key="3"></td>
-     <td key="4"><span style="white-space: pre-wrap"></span></td>
+     <td key="4"><span style="white-space: pre-wrap">是否成功</span></td>
      <td key="5"></td>
     </tr>
     <tr key="0-4">
@@ -1855,7 +1839,7 @@ API Key 權限：讀取<br>
     </tr>
     <tr key="0-2-3-2">
      <td key="0"><span style="padding-left: 40px"> amount</span></td>
-     <td key="1"><span>number</span></td>
+     <td key="1"><span>BigDecimal</span></td>
      <td key="2">非必須</td>
      <td key="3"></td>
      <td key="4"><span style="white-space: pre-wrap">應還金額</span></td>
@@ -2036,7 +2020,7 @@ API Key 權限：讀取<br>
      <td key="1"><span>string</span></td>
      <td key="2">非必須</td>
      <td key="3"></td>
-     <td key="4"><span style="white-space: pre-wrap">* 幣種ID</span></td>
+     <td key="4"><span style="white-space: pre-wrap">幣種ID</span></td>
      <td key="5"></td>
     </tr>
     <tr key="0-2-0-1">
@@ -2156,7 +2140,7 @@ API Key 權限：讀取<br>
      <td key="1"><span>string</span></td>
      <td key="2">非必須</td>
      <td key="3"></td>
-     <td key="4"><span style="white-space: pre-wrap">*總資產（數字幣折算BTC）</span></td>
+     <td key="4"><span style="white-space: pre-wrap">總資產（數字幣折算BTC）</span></td>
      <td key="5"></td>
     </tr>
     <tr key="0-2-3">
@@ -2373,7 +2357,7 @@ API Key 權限：讀取<br>
      <td key="5"></td>
     </tr>
     <tr key="0-2-0">
-     <td key="0"><span style="padding-left: 20px"><span style="color: #8c8a8a">├─</span> currencyId</span></td>
+     <td key="0"><span style="padding-left: 20px"> currencyId</span></td>
      <td key="1"><span>string</span></td>
      <td key="2">非必须</td>
      <td key="3"></td>
@@ -2574,7 +2558,7 @@ API Key 權限：讀取<br>
      <td key="1"><span>integer</span></td>
      <td key="2">非必須</td>
      <td key="3"></td>
-     <td key="4"><span style="white-space: pre-wrap">*支持gtc標誌，1支持，0不支持</span></td>
+     <td key="4"><span style="white-space: pre-wrap">支持gtc標誌，1支持，0不支持</span></td>
      <td key="5"></td>
     </tr>
     <tr key="0-3">
@@ -2798,7 +2782,7 @@ API Key 權限：讀取<br>
     </tr>
     <tr key="0-3">
      <td key="0"><span style="padding-left: 0px"><span style="color: #8c8a8a"></span> baseCurrencySize</span></td>
-     <td key="1"><span>number</span></td>
+     <td key="1"><span>BigDecimal</span></td>
      <td key="2">非必須</td>
      <td key="3"></td>
      <td key="4"><span style="white-space: pre-wrap">基礎幣種数值 (null或大于0的數值) 注：基礎幣種数值和計價幣種数值不能并存。 RFQ下單方式有兩種，只能取其一： a) 按baseCurrency數量下單 b) 按quoteCurrency金额下單</span></td>
@@ -2806,7 +2790,7 @@ API Key 權限：讀取<br>
     </tr>
     <tr key="0-4">
      <td key="0"><span style="padding-left: 0px"><span style="color: #8c8a8a"></span> quoteCurrencySize</span></td>
-     <td key="1"><span>number</span></td>
+     <td key="1"><span>BigDecimal</span></td>
      <td key="2">非必須</td>
      <td key="3"></td>
      <td key="4"><span style="white-space: pre-wrap">計價幣種数值(null或大于0的数值) 注：基礎幣種数值和計價幣種数值不能并存。 RFQ下單方式有两种，只能取其一： a) 按baseCurrency數量下單 b) 按quoteCurrency金额下單 （同時有baseCurrencySize優先用baseCurrencySize）</span></td>
@@ -2885,7 +2869,7 @@ API Key 權限：讀取<br>
     </tr>
     <tr key="0-2-1">
      <td key="0"><span style="padding-left: 20px"> price</span></td>
-     <td key="1"><span>number</span></td>
+     <td key="1"><span>BigDecimal</span></td>
      <td key="2">非必須</td>
      <td key="3"></td>
      <td key="4"><span style="white-space: pre-wrap">詢價價格</span></td>
@@ -2997,7 +2981,7 @@ API Key 權限：寫入<br>
      <td key="1"><span>string</span></td>
      <td key="2">非必須</td>
      <td key="3"></td>
-     <td key="4"><span style="white-space: pre-wrap"></span></td>
+     <td key="4"><span style="white-space: pre-wrap">錯誤信息</span></td>
      <td key="5"></td>
     </tr>
     <tr key="0-2">
@@ -3108,7 +3092,11 @@ API Key 權限：讀取<br>
      <td key="1"><span>integer</span></td>
      <td key="2">非必須</td>
      <td key="3"></td>
-     <td key="4"><span style="white-space: pre-wrap"></span></td>
+     <td key="4"><span style="white-space: pre-wrap"></span>交易類型:<BR>
+    GTC(1): 委托订单，可部分成交，持续挂单直到用户提交撤销指令。<BR>
+    IOC(3):立即成交，可部分成交，剩余部分撤销。<BR>
+    FOK(4):立即成交，全部成交或全部撤销。<BR>
+    </td>
      <td key="5"></td>
     </tr>
     <tr key="0-5">
@@ -3611,7 +3599,7 @@ API Key 權限：讀取<br>
      <td key="1"><span>boolean</span></td>
      <td key="2">非必須</td>
      <td key="3">false</td>
-     <td key="4"><span style="white-space: pre-wrap"></span></td>
+     <td key="4"><span style="white-space: pre-wrap"></span>是否導出</td>
      <td key="5"></td>
     </tr>
     <tr key="0-3">
@@ -3659,7 +3647,7 @@ API Key 權限：讀取<br>
      <td key="1"><span>integer</span></td>
      <td key="2">非必須</td>
      <td key="3"></td>
-     <td key="4"><span style="white-space: pre-wrap">* 訂單时间-查詢結束時間</span></td>
+     <td key="4"><span style="white-space: pre-wrap">訂單时间-查詢結束時間</span></td>
      <td key="5"></td>
     </tr>
     <tr key="0-9">
@@ -3670,14 +3658,6 @@ API Key 權限：讀取<br>
      <td key="4"><span style="white-space: pre-wrap">訂單狀態</span></td>
      <td key="5"></td>
     </tr>
-    <tr key="array-115">
-     <td key="0"><span style="padding-left: 20px"> </span></td>
-     <td key="1"><span></span></td>
-     <td key="2">非必須</td>
-     <td key="3"></td>
-     <td key="4"><span style="white-space: pre-wrap"></span></td>
-     <td key="5"></td>
-    </tr> 
    </tbody> 
   </table> 
  </body>
@@ -3832,7 +3812,7 @@ API Key 權限：讀取<br>
      <td key="1"><span>integer</span></td>
      <td key="2">非必須</td>
      <td key="3"></td>
-     <td key="4"><span style="white-space: pre-wrap">*user id</span></td>
+     <td key="4"><span style="white-space: pre-wrap">用戶id</span></td>
      <td key="5"></td>
     </tr>
     <tr key="0-2-0-2">
@@ -3877,7 +3857,7 @@ API Key 權限：讀取<br>
     </tr>
     <tr key="0-2-0-7">
      <td key="0"><span style="padding-left: 40px"> cumTurnover</span></td>
-     <td key="1"><span>number</span></td>
+     <td key="1"><span>BigDecimal</span></td>
      <td key="2">非必須</td>
      <td key="3"></td>
      <td key="4"><span style="white-space: pre-wrap">累計營業額</span></td>
@@ -3885,7 +3865,7 @@ API Key 權限：讀取<br>
     </tr>
     <tr key="0-2-0-8">
      <td key="0"><span style="padding-left: 40px"> quantity</span></td>
-     <td key="1"><span>number</span></td>
+     <td key="1"><span>BigDecimal</span></td>
      <td key="2">非必須</td>
      <td key="3"></td>
      <td key="4"><span style="white-space: pre-wrap">數量</span></td>
@@ -3893,7 +3873,7 @@ API Key 權限：讀取<br>
     </tr>
     <tr key="0-2-0-9">
      <td key="0"><span style="padding-left: 40px"> price</span></td>
-     <td key="1"><span>number</span></td>
+     <td key="1"><span>BigDecimal</span></td>
      <td key="2">非必須</td>
      <td key="3"></td>
      <td key="4"><span style="white-space: pre-wrap">價格</span></td>
@@ -3909,23 +3889,23 @@ API Key 權限：讀取<br>
     </tr>
     <tr key="0-2-0-11">
      <td key="0"><span style="padding-left: 40px"> lastQty</span></td>
-     <td key="1"><span>number</span></td>
+     <td key="1"><span>BigDecimal</span></td>
      <td key="2">非必須</td>
      <td key="3"></td>
-     <td key="4"><span style="white-space: pre-wrap">最近一笔成交數量 Quantity bought/sold on this fill. Required if ExecType (150) = ‘F’ (Trade).</span></td>
+     <td key="4"><span style="white-space: pre-wrap">最近一笔成交數量</span></td>
      <td key="5"></td>
     </tr>
     <tr key="0-2-0-12">
      <td key="0"><span style="padding-left: 40px"> lastPx</span></td>
-     <td key="1"><span>number</span></td>
+     <td key="1"><span>BigDecimal</span></td>
      <td key="2">非必須</td>
      <td key="3"></td>
-     <td key="4"><span style="white-space: pre-wrap">最近一笔成交的價格 Price of the limit order. Required for OrderType(40) = ‘2’ (Limit)</span></td>
+     <td key="4"><span style="white-space: pre-wrap">最近一笔成交的價格</span></td>
      <td key="5"></td>
     </tr>
     <tr key="0-2-0-13">
      <td key="0"><span style="padding-left: 40px"> cumQuantity</span></td>
-     <td key="1"><span>number</span></td>
+     <td key="1"><span>BigDecimal</span></td>
      <td key="2">非必須</td>
      <td key="3"></td>
      <td key="4"><span style="white-space: pre-wrap">base currency 累计成交數量</span></td>
@@ -3933,7 +3913,7 @@ API Key 權限：讀取<br>
     </tr>
     <tr key="0-2-0-14">
      <td key="0"><span style="padding-left: 40px"> avgPx</span></td>
-     <td key="1"><span>number</span></td>
+     <td key="1"><span>BigDecimal</span></td>
      <td key="2">非必須</td>
      <td key="3"></td>
      <td key="4"><span style="white-space: pre-wrap">訂單平均成交價格</span></td>
@@ -3941,7 +3921,7 @@ API Key 權限：讀取<br>
     </tr>
     <tr key="0-2-0-15">
      <td key="0"><span style="padding-left: 40px"> commissionFee</span></td>
-     <td key="1"><span>number</span></td>
+     <td key="1"><span>BigDecimal</span></td>
      <td key="2">非必須</td>
      <td key="3"></td>
      <td key="4"><span style="white-space: pre-wrap">費率</span></td>
