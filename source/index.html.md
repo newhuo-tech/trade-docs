@@ -5,7 +5,7 @@ language_tabs: # must be one of https://git.io/vQNgJ
 - json
 
 toc_footers:
-- <a href='https://www.huobi-brokerage.com/zh-hk/user/api/'>創建 API Key </a>
+- <a href='http://fed-brokerage-trust.test-18.huobiapps.com/zh-hk/user/api'>創建 API Key </a>
   includes:
 
 search: true
@@ -37,7 +37,7 @@ language_tabs: # must be one of https://git.io/vQNgJ
 - json
 
 toc_footers:
-- <a href='https://www.huobi-brokerage.com/zh-hk/user/api/'>創建 API Key </a>
+- <a href='http://fed-brokerage-trust.test-18.huobiapps.com/zh-hk/user/api'>創建 API Key </a>
   includes:
 
 search: true
@@ -67,7 +67,7 @@ table th {
 
 此文檔是Huobi Brokerage API的唯一官方文檔，Huobi Brokerage API提供的功能和服務會在此文檔持續更新。
 
-以下是現貨API文檔各章節主要內容
+以下是Brokerage OTC API文檔各章節主要內容
 
 第一部分是概要介紹：
 
@@ -88,7 +88,7 @@ table th {
 
 如需使用API ，請先登錄網頁端，完成API key的申請和權限配置，再據此文檔詳情進行開發和交易。
 
-您可以點擊 <a href='https://www.huobi-brokerage.com/zh-hk/user/api/ '>這裏 </a> 創建 API Key。
+您可以點擊 <a href='http://fed-brokerage-trust.test-18.huobiapps.com/zh-hk/user/api '>這裏 </a> 創建 API Key。
 
 每個用戶可創建20組Api Key，每個Api Key可對應設置讀取權限。
 
@@ -285,8 +285,7 @@ api.huobi-brokerage.com\n
 
 | 接口分類       | 分類鏈接                     | 概述                                             |
 | -------------- | ---------------------------- | ------------------------------------------------ |
-| 測試類         | /v1/open/apiKeyDemo/*        | apiKey測試相關接口       |
-| 賬戶類         | /v1/open/account/*           | 賬戶相關接口             |
+
 
 
 該分類為大類整理，部分接口未遵循此規則，請根據需求查看有關接口文檔。
@@ -4107,3 +4106,6 @@ API Key 權限：讀取<br>
   </table>
  </body>
 </html>
+
+  
+  
