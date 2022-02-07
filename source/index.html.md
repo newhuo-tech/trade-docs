@@ -2736,7 +2736,7 @@ API Key 權限：讀取<br>
 
 API Key 權限：讀取<br>
 
-限頻值：7次/1s<br>
+限頻值：10次/1s<br>
 
 請求參數
 
@@ -3547,6 +3547,8 @@ API Key 權限：讀取<br>
 - POST `/open/otc/api/order/rfq/queryHistoryOrder`
 
 API Key 權限：讀取<br>
+
+限頻值：10次/1s<br>
 ### 請求參數
 
 <html>
