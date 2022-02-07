@@ -728,7 +728,7 @@ API Key 權限：讀取<br>
      <td key="1"><span>string</span></td>
      <td key="2">非必須</td>
      <td key="3"></td>
-     <td key="4"><span style="white-space: pre-wrap">交易方向</span></td>
+     <td key="4"><span style="white-space: pre-wrap">買賣方向 1-買BUY 2-賣-SELL</span></td>
      <td key="5"></td>
     </tr>
     <tr key="0-2">
@@ -800,7 +800,7 @@ API Key 權限：讀取<br>
      <td key="1"><span>integer []</span></td>
      <td key="2">非必須</td>
      <td key="3"></td>
-     <td key="4"><span style="white-space: pre-wrap">清算狀態集合</span></td>
+     <td key="4"><span style="white-space: pre-wrap">清算狀態集合(0, "待清算"|1, "成交自動清算"|2, "部分清算"|3, "已完成"|4, "清算失敗")</span></td>
      <td key="5"><p key="3"><span style="font-weight: '700'"> </span><span></span></p></td>
     </tr>
      <tr key="0-11">
@@ -962,7 +962,7 @@ API Key 權限：讀取<br>
      <td key="1"><span>integer</span></td>
      <td key="2">非必須</td>
      <td key="3"></td>
-     <td key="4"><span style="white-space: pre-wrap">交易方向：1 buy, 2 sell</span></td>
+     <td key="4"><span style="white-space: pre-wrap">買賣方向 1-買BUY 2-賣-SELL</span></td>
      <td key="5"></td>
     </tr>
     <tr key="0-2-0-3">
@@ -970,7 +970,7 @@ API Key 權限：讀取<br>
      <td key="1"><span>integer</span></td>
      <td key="2">非必須</td>
      <td key="3"></td>
-     <td key="4"><span style="white-space: pre-wrap">交易類型</span></td>
+     <td key="4"><span style="white-space: pre-wrap">交易類型:GTC,IOC,FOK；詢價交易只有FOK</span></td>
      <td key="5"></td>
     </tr>
     <tr key="0-2-0-4">
@@ -1066,7 +1066,7 @@ API Key 權限：讀取<br>
      <td key="1"><span>integer</span></td>
      <td key="2">非必須</td>
      <td key="3"></td>
-     <td key="4"><span style="white-space: pre-wrap">訂單狀態</span></td>
+     <td key="4"><span style="white-space: pre-wrap">訂單狀態:询价交易只有2-成功，4-取消，8-失敗</span></td>
      <td key="5"></td>
     </tr>
     <tr key="0-2-0-16">
@@ -1082,7 +1082,7 @@ API Key 權限：讀取<br>
      <td key="1"><span>integer</span></td>
      <td key="2">非必須</td>
      <td key="3"></td>
-     <td key="4"><span style="white-space: pre-wrap">結算狀態</span></td>
+     <td key="4"><span style="white-space: pre-wrap">清算狀態(0, "待清算"|1, "成交自動清算"|2, "部分清算"|3, "已完成"|4, "清算失敗")</span></td>
      <td key="5"></td>
     </tr>
     <tr key="0-2-0-18">
@@ -1640,7 +1640,7 @@ API Key 权限：讀取<br>
      <td key="1"><span>integer</span></td>
      <td key="2">非必須</td>
      <td key="3"></td>
-     <td key="4"><span style="white-space: pre-wrap">方向</span></td>
+     <td key="4"><span style="white-space: pre-wrap">買賣方向 1-買BUY 2-賣-SELL</span></td>
      <td key="5"></td>
     </tr>
     <tr key="0-2-7-6">
@@ -3067,7 +3067,7 @@ API Key 權限：讀取<br>
      <td key="1"><span>string</span></td>
      <td key="2">非必須</td>
      <td key="3"></td>
-     <td key="4"><span style="white-space: pre-wrap">交易方向</span></td>
+     <td key="4"><span style="white-space: pre-wrap">買賣方向 1-買BUY 2-賣-SELL</span></td>
      <td key="5"></td>
     </tr>
     <tr key="0-2">
@@ -3127,7 +3127,7 @@ API Key 權限：讀取<br>
      <td key="1"><span>integer</span></td>
      <td key="2">非必須</td>
      <td key="3"></td>
-     <td key="4"><span style="white-space: pre-wrap">清算狀態</span></td>
+     <td key="4"><span style="white-space: pre-wrap">清算狀態(0, "待清算"|1, "成交自動清算"|2, "部分清算"|3, "已完成"|4, "清算失敗")</span></td>
      <td key="5"></td>
     </tr>
     <tr key="0-9">
@@ -3143,7 +3143,7 @@ API Key 權限：讀取<br>
      <td key="1"><span>integer []</span></td>
      <td key="2">非必須</td>
      <td key="3"></td>
-     <td key="4"><span style="white-space: pre-wrap">清算狀態集合</span></td>
+     <td key="4"><span style="white-space: pre-wrap">清算狀態集合 (0, "待清算"|1, "成交自動清算"|2, "部分清算"|3, "已完成"|4, "清算失敗")</span></td>
      <td key="5"></td>
     </tr>
     <tr key="0-11">
@@ -3304,7 +3304,7 @@ API Key 權限：讀取<br>
      <td key="1"><span>integer</span></td>
      <td key="2">非必須</td>
      <td key="3"></td>
-     <td key="4"><span style="white-space: pre-wrap">交易方向1 buy, 2 sell</span></td>
+     <td key="4"><span style="white-space: pre-wrap">買賣方向 1-買BUY 2-賣-SELL</span></td>
      <td key="5"></td>
     </tr>
     <tr key="0-2-0-3">
@@ -3427,7 +3427,7 @@ API Key 權限：讀取<br>
      <td key="1"><span>integer</span></td>
      <td key="2">非必須</td>
      <td key="3"></td>
-     <td key="4"><span style="white-space: pre-wrap">結算狀態</span></td>
+     <td key="4"><span style="white-space: pre-wrap">清算狀態(0, "待清算"|1, "成交自動清算"|2, "部分清算"|3, "已完成"|4, "清算失敗")</span></td>
      <td key="5"></td>
     </tr>
     <tr key="0-2-0-18">
@@ -3595,7 +3595,7 @@ API Key 權限：讀取<br>
      <td key="1"><span>string</span></td>
      <td key="2">非必須</td>
      <td key="3"></td>
-     <td key="4"><span style="white-space: pre-wrap">交易方向</span></td>
+     <td key="4"><span style="white-space: pre-wrap">買賣方向 1-買BUY 2-賣-SELL</span></td>
      <td key="5"></td>
     </tr>
     <tr key="0-2">
@@ -3659,7 +3659,7 @@ API Key 權限：讀取<br>
      <td key="1"><span>integer []</span></td>
      <td key="2">非必須</td>
      <td key="3"></td>
-     <td key="4"><span style="white-space: pre-wrap">訂單狀態</span></td>
+     <td key="4"><span style="white-space: pre-wrap">询价交易只有2-成功，4-取消，8-失敗</span></td>
      <td key="5"></td>
     </tr>
    </tbody> 
@@ -3856,7 +3856,7 @@ API Key 權限：讀取<br>
      <td key="1"><span>integer</span></td>
      <td key="2">非必須</td>
      <td key="3"></td>
-     <td key="4"><span style="white-space: pre-wrap">交易方向 1 buy, 2 sell</span></td>
+     <td key="4"><span style="white-space: pre-wrap">買賣方向 1-買BUY 2-賣-SELL</span></td>
      <td key="5"></td>
     </tr>
     <tr key="0-2-0-7">
@@ -3960,7 +3960,7 @@ API Key 權限：讀取<br>
      <td key="1"><span>integer</span></td>
      <td key="2">非必須</td>
      <td key="3"></td>
-     <td key="4"><span style="white-space: pre-wrap">訂單類型</span></td>
+     <td key="4"><span style="white-space: pre-wrap">訂單類型:废弃字段</span></td>
      <td key="5"></td>
     </tr>
     <tr key="0-2-0-20">
@@ -3968,7 +3968,7 @@ API Key 權限：讀取<br>
      <td key="1"><span>integer</span></td>
      <td key="2">非必須</td>
      <td key="3"></td>
-     <td key="4"><span style="white-space: pre-wrap">訂單来源</span></td>
+     <td key="4"><span style="white-space: pre-wrap">订单来源(0: API下单 1: 页面下单(WEB) 2: MGT下单 3: 流动性反向订单下单)</span></td>
      <td key="5"></td>
     </tr>
     <tr key="0-2-0-21">
