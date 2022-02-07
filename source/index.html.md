@@ -519,7 +519,7 @@ api.huobi-brokerage.com\n
 
 API Key 權限：讀取<br>
 
-限頻值：2次/1s<br>
+限頻值：10次/1s<br>
 
 ### 請求參數
 
@@ -599,7 +599,7 @@ API Key 權限：讀取<br>
 
 API Key 權限：讀取<br>
 
-限頻值：2次/1s<br>
+限頻值：10次/1s<br>
 
 ### 請求參數
 
@@ -681,7 +681,7 @@ API Key 權限：讀取<br>
 
 API Key 權限：讀取<br>
 
-限頻值：2次/1s<br>
+限頻值：10次/1s<br>
 
 ### 請求參數
 <html>
@@ -752,7 +752,7 @@ API Key 權限：讀取<br>
      <td key="1"><span>integer</span></td>
      <td key="2">非必須</td>
      <td key="3"></td>
-     <td key="4"><span style="white-space: pre-wrap"></span></td>
+     <td key="4"><span style="white-space: pre-wrap">GTC,IOC,FOK；詢價交易只有FOK</span></td>
      <td key="5"></td>
     </tr>
     <tr key="0-5">
@@ -1204,9 +1204,9 @@ API Key 權限：讀取<br>
 
 API Key 權限：寫入<br>
 
-限頻值：2次/1s<br>
+限頻值：10次/1s<br>
 
-| 參數名稱   | 是否必須 | 類型   | 描述                                                         | 默認值  | 取值範圍
+| 參數名稱   | 是否必須 | 類型   | 備註                                                         | 默認值  | 其他信息
 | ---------- | -------- | ------ | ------------------------------------------------------------ | ------ | -------- |
 | tradeIds | true     | Intege | 成交Id列表 |        |          |
 | amount | false     | string | 當用戶選擇單筆結算的時候，需要制定歸還的金額。如果選擇多筆結算，此時該選項為空 |        |          |
@@ -1222,7 +1222,7 @@ API Key 權限：寫入<br>
 
 ### 響應數據
 
-| 參數名稱 | 是否必須 | 數據類型 | 描述     | 取值範圍                                                     |
+| 參數名稱 | 是否必須 | 數據類型 | 備註     | 其他信息                                                     |
 | -------- | -------- | -------- | -------- | ------------------------------------------------------------ |
 | code         | true    | integer     | 狀態碼  | |
 | message      | false   | string    | 錯誤描述（如有）| |
@@ -1239,12 +1239,12 @@ API Key 權限：寫入<br>
 
 API Key 權限：讀取<br>
 
-限频值：2次/1s<br>
+限频值：10次/1s<br>
 
 <table>
   <thead class="ant-table-thead">
     <tr>
-      <th key=name>參數名稱</th><th key=type>類型</th><th key=required>是否必須</th><th key=default>默認值</th><th key=desc>描述</th><th key=sub>取值範圍</th>
+      <th key=name>參數名稱</th><th key=type>類型</th><th key=required>是否必須</th><th key=default>默認值</th><th key=desc>備註</th><th key=sub>其他信息</th>
     </tr>
   </thead><tbody className="ant-table-tbody"><tr key=0-0><td key=0><span style="padding-left: 0px"><span></span> page</span></td><td key=1><span>object</span></td><td key=2>true</td><td key=3></td><td key=4><span style="white-space: pre-wrap">分页查询参数</span></td><td key=5></td></tr><tr key=0-0-0><td key=0><span style="padding-left: 20px"><span >size</span></td><td key=1><span>integer</span></td><td key=2>true</td><td key=3></td><td key=4><span style="white-space: pre-wrap">分頁數量</span></td><td key=5></td></tr><tr key=0-0-3><td key=0><span style="padding-left: 20px"><span >page</span></td><td key=1><span>integer</span></td><td key=2>true</td><td key=3></td><td key=4><span style="white-space: pre-wrap">當前頁數</span></td><td key=5></td></tr><tr key=0-1><td key=0><span style="padding-left: 0px"><span ></span> startTime</span></td><td key=1><span>integer</span></td><td key=2>false</td><td key=3></td><td key=4><span style="white-space: pre-wrap">訂單時間-查詢開始時間</span></td><td key=5></td></tr><tr key=0-2><td key=0><span style="padding-left: 0px"><span ></span> endTime</span></td><td key=1><span>integer</span></td><td key=2>false</td><td key=3></td><td key=4><span style="white-space: pre-wrap">訂單時間-查詢結束時間</span></td><td key=5></td></tr>
                </tbody>
@@ -1308,8 +1308,8 @@ API Key 權限：讀取<br>
      <th key="type">類型</th>
      <th key="required">是否必須</th>
      <th key="default">默認值</th>
-     <th key="desc">描述</th>
-     <th key="sub">取值範圍</th> 
+     <th key="desc">備註</th>
+     <th key="sub">其他信息</th> 
     </tr> 
    </thead>
    <tbody classname="ant-table-tbody">
@@ -1441,7 +1441,7 @@ API Key 權限：讀取<br>
 
 API Key 权限：讀取<br>
 
-限频值：2次/1秒<br>
+限频值：10次/1秒<br>
 ### 請求參數
 
 | 参数名稱 | 示例  | 備註  |
@@ -1713,7 +1713,7 @@ API Key 权限：讀取<br>
 
 API Key 權限：讀取<br>
 
-限頻值：2次/1s<br>
+限頻值：10次/1s<br>
 ### 請求參數
 
 > Response:
@@ -1884,7 +1884,7 @@ API Key 權限：讀取<br>
 
 API Key 權限：讀取<br>
 
-限頻值：2次/1s<br>
+限頻值：10次/1s<br>
 ### 請求參數
 
 > Response:
@@ -2270,7 +2270,7 @@ API Key 權限：讀取<br>
 
 API Key 權限：讀取<br>
 
-限頻值：2次/1s<br>
+限頻值：10次/1s<br>
 ### 請求參數
 
 > Response:
@@ -2409,7 +2409,7 @@ API Key 權限：讀取<br>
 
 API Key 權限：讀取<br>
 
-限頻值：2次/1s<br>
+限頻值：10次/1s<br>
 ### 請求參數
 
 > Response:
@@ -2590,7 +2590,7 @@ API Key 權限：讀取<br>
 
 API Key 權限：讀取<br>
 
-限頻值：2次/1s<br>
+限頻值：10次/1s<br>
 ### 請求參數
 
 > Response:
@@ -2887,7 +2887,7 @@ API Key 權限：讀取<br>
      <td key="1"><span>boolean</span></td>
      <td key="2">必須</td>
      <td key="3"></td>
-     <td key="4"><span style="white-space: pre-wrap"></span></td>
+     <td key="4"><span style="white-space: pre-wrap">是否成功</span></td>
      <td key="5"></td>
     </tr>
     <tr key="0-4">
@@ -2914,7 +2914,7 @@ API Key 權限：讀取<br>
 
 API Key 權限：寫入<br>
 
-限頻值：2次/1s<br>
+限頻值：10次/1s<br>
 
 ### 請求參數
 <html>
@@ -3021,7 +3021,7 @@ API Key 權限：寫入<br>
 
 API Key 權限：讀取<br>
 
-限頻值：2次/1s<br>
+限頻值：10次/1s<br>
 ### 請求參數
 <html>
  <head></head>
@@ -3091,7 +3091,7 @@ API Key 權限：讀取<br>
      <td key="1"><span>integer</span></td>
      <td key="2">非必須</td>
      <td key="3"></td>
-     <td key="4"><span style="white-space: pre-wrap"></span>交易類型:<BR>
+     <td key="4"><span style="white-space: pre-wrap"></span>交易類型:目前只支持FOK<BR>
     GTC(1): 委托订单，可部分成交，持续挂单直到用户提交撤销指令。<BR>
     IOC(3):立即成交，可部分成交，剩余部分撤销。<BR>
     FOK(4):立即成交，全部成交或全部撤销。<BR>
@@ -3312,8 +3312,11 @@ API Key 權限：讀取<br>
      <td key="1"><span>integer</span></td>
      <td key="2">非必須</td>
      <td key="3"></td>
-     <td key="4"><span style="white-space: pre-wrap">交易類型</span></td>
-     <td key="5"></td>
+     <td key="4"><span style="white-space: pre-wrap"></span>交易類型:目前只支持FOK<BR>
+    GTC(1): 委托订单，可部分成交，持续挂单直到用户提交撤销指令。<BR>
+    IOC(3):立即成交，可部分成交，剩余部分撤销。<BR>
+    FOK(4):立即成交，全部成交或全部撤销。<BR>
+     </td>     <td key="5"></td>
     </tr>
     <tr key="0-2-0-4">
      <td key="0"><span style="padding-left: 40px"> baseCurrency</span></td>
