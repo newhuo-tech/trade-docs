@@ -439,7 +439,7 @@ The proxy, if used, may change the Host in request. You can try without proxy;
 
 or, the network library may include the port in the Host, in which case you may try including the port in the Host used in signature, e.g. 「api.huobi-brokerage.com:443"
 
-8、Check for any hidden special characters in Access Key and Secret Key.
+8. Check for any hidden special characters in Access Key and Secret Key.
 
 At present, [SDK](https://github.com/huobitech) in multiple programming languages are officially supported. You may refer to SDK signature, or signature sample codes in the following three languages:
 
