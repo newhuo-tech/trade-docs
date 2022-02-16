@@ -519,7 +519,7 @@ A user may query whether oneself is granted with credit via this interface
 
 API Key authorization: Read<br>
 
-Rate limit: twice/1s<br>
+Rate limit: 10times/1s<br>
 
 ### Request Parameters
 
@@ -599,7 +599,7 @@ A user may query whether oneself is whitelisted via this interface
 
 API Key authorization: Read<br>
 
-Rate limit: twice/1s<br>
+Rate limit: 10times/1s<br>
 
 ### Request Parameters
 
@@ -681,7 +681,7 @@ Users may query records of their uncleared trades via this interface
 
 API Key authorization: Read<br>
 
-Rate limit: twice/1s<br>
+Rate limit: 10times/1s<br>
 
 ### Request Parameters
 <html>
@@ -1204,7 +1204,7 @@ Clearing of multiple orders submitted by a user in one single time is suported. 
 
 API Key authorization: Write<br>
 
-Rate limit: twice/1s<br>
+Rate limit: 10times/1s<br>
 
 | Name       | Required? | Type   | Description                                                | Default | Sublist
 | ---------- | -------- | ------ | ------------------------------------------------------------ | ------ | -------- |
@@ -1239,7 +1239,7 @@ Users' clearing history may be obtained via this interface
 
 API Key authorization: Read<br>
 
-Rate limit: twice/1s<br>
+Rate limit: 10times/1s<br>
 
 <table>
   <thead class="ant-table-thead">
@@ -1441,7 +1441,7 @@ Detailed clearing records of Credit Users may be obtained via this interface
 
 API Key authorization: Read<br>
 
-Rate limit: twice/1 sec<br>
+Rate limit: 10times/1 sec<br>
 ### Request Parameters
 
 | Name     | example    | Description  |
@@ -1713,7 +1713,7 @@ Users may query their accounts' credit summary via this interface
 
 API Key authorization: Read<br>
 
-Rate limit: twice/1s<br>
+Rate limit: 10times/1s<br>
 ### Request Parameters
 
 > Response:
@@ -1884,7 +1884,7 @@ Users may query their accounts' asset information via this interface
 
 API Key authorization: Read<br>
 
-Rate limit: twice:/1s<br>
+Rate limit: 10times/1s<br>
 ### Request Parameters
 
 > Response:
@@ -2270,7 +2270,7 @@ Users may query all listed currencies via this interface
 
 API Key authorization: Read<br>
 
-Rate limit: twice/1s<br>
+Rate limit: 10times/1s<br>
 ### Request Parameters
 
 > Response:
@@ -2409,7 +2409,7 @@ Users may query all listed trading symbols via this interface
 
 API Key authorization: Read<br>
 
-Rate limit: twice/1s<br>
+Rate limit: 10times/1s<br>
 ### Request Parameters
 
 > Response:
@@ -2590,7 +2590,7 @@ Users may query symbols setting via this interface
 
 API Key authorization: Read<br>
 
-Rate limit: twice:/1s<br>
+Rate limit:10times/1s<br>
 ### Request Parameters
 
 > Response:
@@ -2736,7 +2736,7 @@ Users may request for quotation via this interface
 
 API Key authorization: Read<br>
 
-Rate limit: 7 times/1s<br>
+Rate limit: 10times/1s<br>
 
 Request parameters
 
@@ -2914,7 +2914,7 @@ Users may request to lock price and place orders via this interface
 
 API Key authorization: write<br>
 
-Rate limit: twice:/1s<br>
+Rate limit: 10times/1s<br>
 
 ### Request Parameters
 <html>
@@ -3021,7 +3021,7 @@ Users may access records of traded orders via this interface
 
 API Key authorization: Read<br>
 
-Rate limit: twice/1s<br>
+Rate limit: 10times/1s<br>
 ### Request Parameters
 <html>
  <head></head>
