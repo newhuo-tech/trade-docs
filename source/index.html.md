@@ -396,7 +396,7 @@ Please check if:
 Please check for the following potential causes:
 
 
-1. Signature parameters shall be sorted and ordered as per ASCII, which requires the following original parameters:
+1、Signature parameters shall be sorted and ordered as per ASCII, which requires the following original parameters:
 
 `AccessKeyId=e2xxxxxx-99xxxxxx-84xxxxxx-7xxxx`
 
@@ -420,26 +420,26 @@ to be sorted and ordered as:
 
 `order-id=1234567890`
 
-2. Signature strings should be URL-encoded, as such:
+2、Signature strings should be URL-encoded, as such:
 
 - Colon `:` be encoded as `%3A` and space be encoded as `%20`
 - Timestamp be formatted as `YYYY-MM-DDThh:mm:ss`, before they are URL-encoded as `2017-05-11T15%3A19%3A30`
 
-3. Signature should be base64 encoded
+3、Signature should be base64 encoded
 
-4. Get-request parameters should be in Signature string
+4、Get-request parameters should be in Signature string
 
-5. Time should be UTC and in the format of YYYY-MM-DDTHH:mm:ss
+5、Time should be UTC and in the format of YYYY-MM-DDTHH:mm:ss
 
-6. Check for the difference between your timestamp and the standard time (the discrepancy shall be within 1 minute)
+6、Check for the difference between your timestamp and the standard time (the discrepancy shall be within 1 minute)
 
-7. The Host in signature shall be same as the Host in your API request.
+7、The Host in signature shall be same as the Host in your API request.
 
 The proxy, if used, may change the Host in request. You can try without proxy;
 
 or, the network library may include the port in the Host, in which case you may try including the port in the Host used in signature, e.g. 「api.huobi-brokerage.com:443"
 
-8. Check for any hidden special characters in Access Key and Secret Key.
+8、Check for any hidden special characters in Access Key and Secret Key.
 
 At present, [SDK](https://github.com/huobitech) in multiple programming languages are officially supported. You may refer to SDK signature, or signature sample codes in the following three languages:
 
