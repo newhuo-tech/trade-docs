@@ -822,9 +822,7 @@ Timestamp (Timestamp) shall be in the format of YYYY-MM-DDThh:mm:ss and URL enco
 <h3 id='q3-why-does-the-signature-authentication-always-fail'>Q3: Why does the signature authentication always fail?</h3>
 <p>Please check for the following potential causes:</p>
 
-<ol>
-<li>Signature parameters shall be sorted and ordered as per ASCII, which requires the following original parameters:</li>
-</ol>
+<p>1、Signature parameters shall be sorted and ordered as per ASCII, which requires the following original parameters:</p>
 
 <p><code>AccessKeyId=e2xxxxxx-99xxxxxx-84xxxxxx-7xxxx</code></p>
 
@@ -848,30 +846,28 @@ Timestamp (Timestamp) shall be in the format of YYYY-MM-DDThh:mm:ss and URL enco
 
 <p><code>order-id=1234567890</code></p>
 
-<ol>
-<li>Signature strings should be URL-encoded, as such:</li>
-</ol>
+<p>2、Signature strings should be URL-encoded, as such:</p>
 
 <ul>
 <li>Colon <code>:</code> be encoded as <code>%3A</code> and space be encoded as <code>%20</code></li>
 <li>Timestamp be formatted as <code>YYYY-MM-DDThh:mm:ss</code>, before they are URL-encoded as <code>2017-05-11T15%3A19%3A30</code></li>
 </ul>
 
-<ol>
-<li><p>Signature should be base64 encoded</p></li>
-<li><p>Get-request parameters should be in Signature string</p></li>
-<li><p>Time should be UTC and in the format of YYYY-MM-DDTHH:mm:ss</p></li>
-<li><p>Check for the difference between your timestamp and the standard time (the discrepancy shall be within 1 minute)</p></li>
-<li><p>The Host in signature shall be same as the Host in your API request.</p></li>
-</ol>
+<p>3、Signature should be base64 encoded</p>
+
+<p>4、Get-request parameters should be in Signature string</p>
+
+<p>5、Time should be UTC and in the format of YYYY-MM-DDTHH:mm:ss</p>
+
+<p>6、Check for the difference between your timestamp and the standard time (the discrepancy shall be within 1 minute)</p>
+
+<p>7、The Host in signature shall be same as the Host in your API request.</p>
 
 <p>The proxy, if used, may change the Host in request. You can try without proxy;</p>
 
 <p>or, the network library may include the port in the Host, in which case you may try including the port in the Host used in signature, e.g. 「api.huobi-brokerage.com:443&quot;</p>
 
-<ol>
-<li>Check for any hidden special characters in Access Key and Secret Key.</li>
-</ol>
+<p>8、Check for any hidden special characters in Access Key and Secret Key.</p>
 
 <p>At present, <a href="https://github.com/huobitech">SDK</a> in multiple programming languages are officially supported. You may refer to SDK signature, or signature sample codes in the following three languages:</p>
 
