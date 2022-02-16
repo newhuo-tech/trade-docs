@@ -728,7 +728,7 @@ Rate limit: 10times/1s<br>
      <td key="1"><span>string</span></td>
      <td key="2">Not required</td>
      <td key="3"></td>
-     <td key="4"><span style="white-space: pre-wrap">trade side</span></td>
+     <td key="4"><span style="white-space: pre-wrap">trade side:1 buy, 2 sell</span></td>
      <td key="5"></td>
     </tr>
     <tr key="0-2">
@@ -752,7 +752,7 @@ Rate limit: 10times/1s<br>
      <td key="1"><span>integer</span></td>
      <td key="2">Not required</td>
      <td key="3"></td>
-     <td key="4"><span style="white-space: pre-wrap"></span></td>
+     <td key="4"><span style="white-space: pre-wrap">GTC, IOC, FOK; only FOK for RFQ trades</span></td>
      <td key="5"></td>
     </tr>
     <tr key="0-5">
@@ -800,7 +800,7 @@ Rate limit: 10times/1s<br>
      <td key="1"><span>integer []</span></td>
      <td key="2">Not required</td>
      <td key="3"></td>
-     <td key="4"><span style="white-space: pre-wrap">Clearing Status List</span></td>
+     <td key="4"><span style="white-space: pre-wrap">Clearing Status List (0, uncleared| 1, automatic clearing when filled| 2, partial clearing| 3, clearing completed| 4, clearing failed)</span></td>
      <td key="5"><p key="3"><span style="font-weight: '700'"> </span><span></span></p></td>
     </tr>
      <tr key="0-11">
@@ -970,7 +970,7 @@ Rate limit: 10times/1s<br>
      <td key="1"><span>integer</span></td>
      <td key="2">Not required</td>
      <td key="3"></td>
-     <td key="4"><span style="white-space: pre-wrap">trade type</span></td>
+     <td key="4"><span style="white-space: pre-wrap">trade type(GTC, IOC, FOK; only FOK for RFQ trades)</span></td>
      <td key="5"></td>
     </tr>
     <tr key="0-2-0-4">
@@ -1082,7 +1082,7 @@ Rate limit: 10times/1s<br>
      <td key="1"><span>integer</span></td>
      <td key="2">Not required</td>
      <td key="3"></td>
-     <td key="4"><span style="white-space: pre-wrap">clearing Status</span></td>
+     <td key="4"><span style="white-space: pre-wrap">clearing Status(0, uncleared| 1, automatic clearing when filled| 2, partial clearing| 3, clearing completed| 4, clearing failed)</span></td>
      <td key="5"></td>
     </tr>
     <tr key="0-2-0-18">
@@ -1196,7 +1196,7 @@ Rate limit: 10times/1s<br>
 
 ## Credit Users Submit for Clearing
 
-Clearing of multiple orders submitted by a user in one single time is suported. The orders may also be partially cleared, i.e. one order a time. <BR>1) If multiple orders need to be cleared: leave amount blank<br>
+Clearing of multiple orders submitted by a user in one single time is suported. The orders may also be partially cleared, i.e. one order a time. <BR>1) If multiple orders need to be cleared: leave amount null<br>
 2) Or select individual order for partial clearing
 ### HTTP Request
 
@@ -2776,7 +2776,7 @@ Request parameters
      <td key="1"><span>integer</span></td>
      <td key="2">Required</td>
      <td key="3"></td>
-     <td key="4"><span style="white-space: pre-wrap">trade side: 1-BUY 2-SELL</span></td>
+     <td key="4"><span style="white-space: pre-wrap">trade side: 1 buy, 2 sell</span></td>
      <td key="5"></td>
     </tr>
     <tr key="0-3">
@@ -3067,7 +3067,7 @@ Rate limit: 10times/1s<br>
      <td key="1"><span>string</span></td>
      <td key="2">Not required</td>
      <td key="3"></td>
-     <td key="4"><span style="white-space: pre-wrap">trade side</span></td>
+     <td key="4"><span style="white-space: pre-wrap">trade side:1 buy, 2 sell</span></td>
      <td key="5"></td>
     </tr>
     <tr key="0-2">
@@ -3091,7 +3091,7 @@ Rate limit: 10times/1s<br>
      <td key="1"><span>integer</span></td>
      <td key="2">Not required</td>
      <td key="3"></td>
-     <td key="4"><span style="white-space: pre-wrap"></span>Trade type:<BR>
+     <td key="4"><span style="white-space: pre-wrap"></span>Trade type(GTC, IOC, FOK; only FOK for RFQ trades)<BR>
     GTC(1): Good-Till-Cancelled orders, which may be partially traded and are good till users submit cancel instruction.<BR>
     IOC(3): Immediate-or-Cancel orders, which are traded immediately. Partial fill is allowed with the rest cancelled.<BR>
     FOK(4): Fill-or-Kill orders, which are traded immediately in full or cancelled in full.<BR>
@@ -3127,7 +3127,7 @@ Rate limit: 10times/1s<br>
      <td key="1"><span>integer</span></td>
      <td key="2">Not required</td>
      <td key="3"></td>
-     <td key="4"><span style="white-space: pre-wrap">clearing Status</span></td>
+     <td key="4"><span style="white-space: pre-wrap">clearing Status(0, uncleared| 1, automatic clearing when filled| 2, partial clearing| 3, clearing completed| 4, clearing failed)</span></td>
      <td key="5"></td>
     </tr>
     <tr key="0-9">
@@ -3143,7 +3143,7 @@ Rate limit: 10times/1s<br>
      <td key="1"><span>integer []</span></td>
      <td key="2">Not required</td>
      <td key="3"></td>
-     <td key="4"><span style="white-space: pre-wrap">clearing Status List</span></td>
+     <td key="4"><span style="white-space: pre-wrap">clearing Status List(0, uncleared| 1, automatic clearing when filled| 2, partial clearing| 3, clearing completed| 4, clearing failed)</span></td>
      <td key="5"></td>
     </tr>
     <tr key="0-11">
@@ -3312,7 +3312,7 @@ Rate limit: 10times/1s<br>
      <td key="1"><span>integer</span></td>
      <td key="2">Not required</td>
      <td key="3"></td>
-     <td key="4"><span style="white-space: pre-wrap">trade type</span></td>
+     <td key="4"><span style="white-space: pre-wrap">trade type:GTC, IOC, FOK; only FOK for RFQ trades</span></td>
      <td key="5"></td>
     </tr>
     <tr key="0-2-0-4">
@@ -3424,7 +3424,7 @@ Rate limit: 10times/1s<br>
      <td key="1"><span>integer</span></td>
      <td key="2">Not required</td>
      <td key="3"></td>
-     <td key="4"><span style="white-space: pre-wrap">clearing Status</span></td>
+     <td key="4"><span style="white-space: pre-wrap">clearing Status(0, uncleared| 1, automatic clearing when filled| 2, partial clearing| 3, clearing completed| 4, clearing failed)</span></td>
      <td key="5"></td>
     </tr>
     <tr key="0-2-0-18">
@@ -3590,7 +3590,7 @@ API Key authorization: Read<br>
      <td key="1"><span>string</span></td>
      <td key="2">Not required</td>
      <td key="3"></td>
-     <td key="4"><span style="white-space: pre-wrap">trade side</span></td>
+     <td key="4"><span style="white-space: pre-wrap">trade side:1 buy, 2 sell</span></td>
      <td key="5"></td>
     </tr>
     <tr key="0-2">
@@ -3654,7 +3654,7 @@ API Key authorization: Read<br>
      <td key="1"><span>integer []</span></td>
      <td key="2">Not required</td>
      <td key="3"></td>
-     <td key="4"><span style="white-space: pre-wrap">order State List</span></td>
+     <td key="4"><span style="white-space: pre-wrap">order State List  2-completed, 4-rejected, 8-failed</span></td>
      <td key="5"></td>
     </tr>
    </tbody> 
@@ -3963,7 +3963,7 @@ API Key authorization: Read<br>
      <td key="1"><span>integer</span></td>
      <td key="2">Not required</td>
      <td key="3"></td>
-     <td key="4"><span style="white-space: pre-wrap">source of order</span></td>
+     <td key="4"><span style="white-space: pre-wrap">source of order 0:API place orders;1:WEB place orders;2:MGT place orders;3:Reverse side and place orders</span></td>
      <td key="5"></td>
     </tr>
     <tr key="0-2-0-21">
@@ -4035,7 +4035,7 @@ API Key authorization: Read<br>
      <td key="1"><span>string</span></td>
      <td key="2">Not required</td>
      <td key="3"></td>
-     <td key="4"><span style="white-space: pre-wrap">trade side</span></td>
+     <td key="4"><span style="white-space: pre-wrap">trade side:1 buy, 2 sell</span></td>
      <td key="5"></td>
     </tr>
     <tr key="0-2-0-30">
