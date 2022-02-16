@@ -321,16 +321,16 @@
                     <a href="#q3-why-does-the-signature-authentication-always-fail" class="toc-h2 toc-link" data-title="Q3: Why does the signature authentication always fail?">Q3: Why does the signature authentication always fail?</a>
                   </li>
                   <li>
-                    <a href="#q7-why-does-the-interface-return-the-error-message-incorrect-access-key" class="toc-h2 toc-link" data-title="Q7: Why does the interface return the error message Incorrect Access Key?">Q7: Why does the interface return the error message Incorrect Access Key?</a>
+                    <a href="#q4-why-does-the-interface-return-the-error-message-incorrect-access-key" class="toc-h2 toc-link" data-title="Q4: Why does the interface return the error message Incorrect Access Key?">Q4: Why does the interface return the error message Incorrect Access Key?</a>
                   </li>
                   <li>
-                    <a href="#q8-why-does-the-interface-return-error-message-gateway-internal-error" class="toc-h2 toc-link" data-title="Q8: Why does the interface return error message gateway-internal-error?">Q8: Why does the interface return error message gateway-internal-error?</a>
+                    <a href="#q5-why-does-the-interface-return-error-message-gateway-internal-error" class="toc-h2 toc-link" data-title="Q5: Why does the interface return error message gateway-internal-error?">Q5: Why does the interface return error message gateway-internal-error?</a>
                   </li>
                   <li>
-                    <a href="#q9-whey-does-the-interface-return-error-message-login-required" class="toc-h2 toc-link" data-title="Q9: Whey does the interface return error message login-required?">Q9: Whey does the interface return error message login-required?</a>
+                    <a href="#q6-whey-does-the-interface-return-error-message-login-required" class="toc-h2 toc-link" data-title="Q6: Whey does the interface return error message login-required?">Q6: Whey does the interface return error message login-required?</a>
                   </li>
                   <li>
-                    <a href="#q10-why-does-the-rest-interface-return-http-405-error-message-method-not-allowed" class="toc-h2 toc-link" data-title="Q10: Why does the Rest interface return HTTP 405 error message method-not-allowed?">Q10: Why does the Rest interface return HTTP 405 error message method-not-allowed?</a>
+                    <a href="#q7-why-does-the-rest-interface-return-http-405-error-message-method-not-allowed" class="toc-h2 toc-link" data-title="Q7: Why does the Rest interface return HTTP 405 error message method-not-allowed?">Q7: Why does the Rest interface return HTTP 405 error message method-not-allowed?</a>
                   </li>
               </ul>
           </li>
@@ -872,7 +872,7 @@ Timestamp (Timestamp) shall be in the format of YYYY-MM-DDThh:mm:ss and URL enco
 <p>At present, <a href="https://github.com/huobitech">SDK</a> in multiple programming languages are officially supported. You may refer to SDK signature, or signature sample codes in the following three languages:</p>
 
 <p><a href='https://github.com/huobitech/huobi_Java/blob/master/java_signature_demo.md'>JAVAsignaturesamplecode</a> | <a href='https://github.com/huobitech/huobi_Python/blob/master/example/python_signature_demo.md'>Pythonsignaturesamplecode</a>   | <a href='https://github.com/huobitech/huobi_Cpp/blob/master/examples/cpp_signature_demo.md'>C++signaturesamplecode</a></p>
-<h3 id='q7-why-does-the-interface-return-the-error-message-incorrect-access-key'>Q7: Why does the interface return the error message Incorrect Access Key?</h3>
+<h3 id='q4-why-does-the-interface-return-the-error-message-incorrect-access-key'>Q4: Why does the interface return the error message Incorrect Access Key?</h3>
 <p>Check if Access Key in URL request is correctly transmitted, specifically:</p>
 
 <ol>
@@ -881,7 +881,7 @@ Timestamp (Timestamp) shall be in the format of YYYY-MM-DDThh:mm:ss and URL enco
 <li>Access Key deleted</li>
 <li>Incorrect parsing of AccessKey by server, caused by improper assembly of parameters or failure to encoding special characters in URL request.</li>
 </ol>
-<h3 id='q8-why-does-the-interface-return-error-message-gateway-internal-error'>Q8: Why does the interface return error message gateway-internal-error?</h3>
+<h3 id='q5-why-does-the-interface-return-error-message-gateway-internal-error'>Q5: Why does the interface return error message gateway-internal-error?</h3>
 <p>Check for the following potential causes:</p>
 
 <ol>
@@ -889,14 +889,14 @@ Timestamp (Timestamp) shall be in the format of YYYY-MM-DDThh:mm:ss and URL enco
 <li>If data was sent in correct format (must be standard JSON)</li>
 <li>Header of POST request shall be declared as <code>Content-Type:application/json</code></li>
 </ol>
-<h3 id='q9-whey-does-the-interface-return-error-message-login-required'>Q9: Whey does the interface return error message login-required?</h3>
+<h3 id='q6-whey-does-the-interface-return-error-message-login-required'>Q6: Whey does the interface return error message login-required?</h3>
 <p>Check for the following potential causes:</p>
 
 <ol>
 <li>AccessKey parameter not included in URL</li>
 <li>Signature parameter not included in URL</li>
 </ol>
-<h3 id='q10-why-does-the-rest-interface-return-http-405-error-message-method-not-allowed'>Q10: Why does the Rest interface return HTTP 405 error message method-not-allowed?</h3>
+<h3 id='q7-why-does-the-rest-interface-return-http-405-error-message-method-not-allowed'>Q7: Why does the Rest interface return HTTP 405 error message method-not-allowed?</h3>
 <p>Such error indicates a nonexistent Rest interface was called. Please check if Rest interface path is correct. Please literally follow the upper-lower case requirement for Path which is case sensitive.</p>
 <h1 id='contac-us'>Contac Us</h1><h2 id='technical-support'>Technical Support</h2>
 <p>If you have any questions or suggestions, please contact us via:</p>
