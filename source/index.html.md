@@ -445,7 +445,7 @@ At present, [SDK](https://github.com/huobitech) in multiple programming language
 
 <a href='https://github.com/huobitech/huobi_Java/blob/master/java_signature_demo.md'>JAVAsignaturesamplecode</a> | <a href='https://github.com/huobitech/huobi_Python/blob/master/example/python_signature_demo.md'>Pythonsignaturesamplecode</a>   | <a href='https://github.com/huobitech/huobi_Cpp/blob/master/examples/cpp_signature_demo.md'>C++signaturesamplecode</a>
 
-### Q7: Why does the interface return the error message Incorrect Access Key?
+### Q4: Why does the interface return the error message Incorrect Access Key?
 
 Check if Access Key in URL request is correctly transmitted, specifically:
 
@@ -454,7 +454,7 @@ Check if Access Key in URL request is correctly transmitted, specifically:
 3. Access Key deleted
 4. Incorrect parsing of AccessKey by server, caused by improper assembly of parameters or failure to encoding special characters in URL request.
 
-### Q8: Why does the interface return error message gateway-internal-error?
+### Q5: Why does the interface return error message gateway-internal-error?
 
 Check for the following potential causes:
 
@@ -462,14 +462,14 @@ Check for the following potential causes:
 2. If data was sent in correct format (must be standard JSON)
 3. Header of POST request shall be declared as `Content-Type:application/json`
 
-### Q9: Whey does the interface return error message login-required?
+### Q6: Whey does the interface return error message login-required?
 
 Check for the following potential causes:
 
 1. AccessKey parameter not included in URL
 2. Signature parameter not included in URL
 
-### Q10: Why does the Rest interface return HTTP 405 error message method-not-allowed?
+### Q7: Why does the Rest interface return HTTP 405 error message method-not-allowed?
 
 Such error indicates a nonexistent Rest interface was called. Please check if Rest interface path is correct. Please literally follow the upper-lower case requirement for Path which is case sensitive.
 
