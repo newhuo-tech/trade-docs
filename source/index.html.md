@@ -3963,7 +3963,7 @@ API Key authorization: Read<br>
      <td key="1"><span>integer</span></td>
      <td key="2">Not required</td>
      <td key="3"></td>
-     <td key="4"><span style="white-space: pre-wrap">source of order 0:API place orders;1:WEB place orders;2:MGT place orders;3:Reverse side and place orders to balance liquidity</span></td>
+     <td key="4"><span style="white-space: pre-wrap">source of order 0:API place orders;1:WEB place orders;2:MGT place orders;3:place liquidity-taking orders</span></td>
      <td key="5"></td>
     </tr>
     <tr key="0-2-0-21">
