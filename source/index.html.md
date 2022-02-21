@@ -5,7 +5,7 @@ language_tabs: # must be one of https://git.io/vQNgJ
 - json
 
 toc_footers:
-- <a href='http://fed-brokerage-trust.test-18.huobiapps.com/zh-hk/user/api'>創建 API Key </a>
+- <a href='https://www.huobi-brokerage.com/zh-hk/user/api'>創建 API Key </a>
   includes:
 
 search: true
@@ -37,7 +37,7 @@ language_tabs: # must be one of https://git.io/vQNgJ
 - json
 
 toc_footers:
-- <a href='http://fed-brokerage-trust.test-18.huobiapps.com/zh-hk/user/api'>創建 API Key </a>
+- <a href='https://www.huobi-brokerage.com/zh-hk/user/api'>創建 API Key </a>
   includes:
 
 search: true
@@ -88,7 +88,7 @@ table th {
 
 如需使用API ，請先登錄網頁端，完成API key的申請和權限配置，再據此文檔詳情進行開發和交易。
 
-您可以點擊 <a href='http://fed-brokerage-trust.test-18.huobiapps.com/zh-hk/user/api '>這裏 </a> 創建 API Key。
+您可以點擊 <a href='https://www.huobi-brokerage.com/zh-hk/user/api'>這裏 </a> 創建 API Key。
 
 每個用戶可創建20組Api Key，每個Api Key可對應設置讀取權限。
 
