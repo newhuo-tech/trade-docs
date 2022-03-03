@@ -5,7 +5,7 @@ language_tabs: # must be one of https://git.io/vQNgJ
 - json
 
 toc_footers:
-- <a href='https://www.huobi-brokerage.com/en-us/user/api'>Create API Key </a>
+- <a href='https://www.huobi-brokerage.com/en-us/trade/api'>Create API Key </a>
   includes:
 
 search: true
@@ -37,7 +37,7 @@ language_tabs: # must be one of https://git.io/vQNgJ
 - json
 
 toc_footers:
-- <a href='https://www.huobi-brokerage.com/en-us/user/api'>Create API Key </a>
+- <a href='https://www.huobi-brokerage.com/en-us/trade/api'>Create API Key </a>
   includes:
 
 search: true
@@ -88,7 +88,7 @@ Chapter II consists of detailed introduction of interface types, each type expla
 
 To use API, sign in from the webpage, apply for API key and complete authorization setting, before making development and transactions in accordance with this document.
 
-Click <a href='https://www.huobi-brokerage.com/en-us/user/api'>here </a> to create API Key。
+Click <a href='https://www.huobi-brokerage.com/en-us/trade/api'>here </a> to create API Key。
 
 Each user may create up to 20 Api Keys, with each Api Key may be set with specific access authorization.
 
