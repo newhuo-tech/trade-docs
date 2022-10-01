@@ -1,11 +1,11 @@
 **---
-title: Huobi Brokerage API Document
+title: New HuoBrokerage API Document
 
 language_tabs: # must be one of https://git.io/vQNgJ
 - json
 
 toc_footers:
-- <a href='https://www.huobi-brokerage.com/en-us/trade/api'>Create API Key </a>
+- <a href='https://www.trade.newhuotech.com/en-us/trade/api'>Create API Key </a>
   includes:
 
 search: true
@@ -31,13 +31,13 @@ table th {
 
 # Introduction
 ---
-title: Huobi Brokerage API Document
+title: New HuoBrokerage API Document
 
 language_tabs: # must be one of https://git.io/vQNgJ
 - json
 
 toc_footers:
-- <a href='https://www.huobi-brokerage.com/en-us/trade/api'>Create API Key </a>
+- <a href='https://www.trade.newhuotech.com/en-us/trade/api'>Create API Key </a>
   includes:
 
 search: true
@@ -63,16 +63,16 @@ table th {
 
 # Introduction
 
-Welcome to use Huobi Brokerage API!
+Welcome to use New HuoBrokerage API!
 
-This Document is the one and only official Doc of Huobi Brokerage API. Any updates regarding functions and services provided by Huobi Brokerage API will be posted here in an ongoing way.
+This Document is the one and only official Doc of New HuoBrokerage API. Any updates regarding functions and services provided by New HuoBrokerage API will be posted here in an ongoing way.
 
 Please read the following contents of Brokerage OTC API in detail
 
 Chapter I: Overview
 
-- **Quick Start**: This section provides a brief but all-round introduction of Huobi Brokerage API. It is of great help for first-time users of Huobi Brokerage API.
-- **FAQs**: This section lists frequently asked questions in the course of using Huobi Brokerage API, as well as general queries without regard to API.
+- **Quick Start**: This section provides a brief but all-round introduction of New HuoBrokerage API. It is of great help for first-time users of New HuoBrokerage API.
+- **FAQs**: This section lists frequently asked questions in the course of using New HuoBrokerage API, as well as general queries without regard to API.
 - **Contact Us**: This section guides you to contact us for solutions to various questions.
 
 Chapter II consists of detailed introduction of interface types, each type explained in one section:
@@ -88,7 +88,7 @@ Chapter II consists of detailed introduction of interface types, each type expla
 
 To use API, sign in from the webpage, apply for API key and complete authorization setting, before making development and transactions in accordance with this document.
 
-Click <a href='https://www.huobi-brokerage.com/en-us/trade/api'>here </a> to create API Key。
+Click <a href='https://www.trade.newhuotech.com/en-us/trade/api'>here </a> to create API Key。
 
 Each user may create up to 20 Api Keys, with each Api Key may be set with specific access authorization.
 
@@ -111,11 +111,11 @@ Each API Key may be bound up to 20 IP addresses (Host Address or Network Address
 
 ## SDK and Code Demonstration
 
-[Java](https://github.com/huobitech/huobi_Java) | [Python3](https://github.com/huobitech/huobi_Python) | [C++](https://github.com/huobitech/huobi_Cpp) | [C#](https://github.com/huobitech/huobi_CSharp) | [Go](https://github.com/huobitech/huobi_golang)
+[Java](https://github.com/newhuo-tech/huobi_Java) | [Python3](https://github.com/newhuo-tech/huobi_Python) | [C++](https://github.com/newhuo-tech/huobi_Cpp) | [C#](https://github.com/newhuo-tech/huobi_CSharp) | [Go](https://github.com/newhuo-tech/huobi_golang)
 
 **Other Code Demo**
 
-[https://github.com/huobitech?tab=repositories](https://github.com/huobitech?tab=repositories)
+[https://github.com/newhuo-tech?tab=repositories](https://github.com/newhuo-tech?tab=repositories)
 
 ## Interface Type
 
@@ -132,17 +132,17 @@ Developers are advised to use REST API for their work.
 Currently we support only private interfaces, which may be used for transaction management and account management. Every private request has to be signature-verified with your API Key.
 
 ## Access URLs
-You may use the domain: api.huobi-brokerage.com.
+You may use the domain: api.trade.newhuotech.com.
 
 **REST API**
 
-**`https://api.huobi-brokerage.com`**
+**`https://api.trade.newhuotech.com`**
 
 <aside class="notice">
-Visit Huobi Brokerage API with an IP other than from mainland China.
+Visit New HuoBrokerage API with an IP other than from mainland China.
 </aside>
 <aside class="notice">
-It is not recommended to visit Huobi Brokerage API via proxy, out of concerns of the latter's long latency and poor stability.
+It is not recommended to visit New HuoBrokerage API via proxy, out of concerns of the latter's long latency and poor stability.
 </aside>
 <aside class="notice">
 To ensure API service stability, it is recommended to use Japanese AWS cloud server for visits. Connection stability may not be guaranteed if client servers from mainland China are used.
@@ -157,7 +157,7 @@ Each API Key may access certain interface only after it's assigned with correspo
 805
 A legal request shall consist of the following components:
 
-- Request Address: i.e. Server Address api.huobi-brokerage.com, such as api.huobi-brokerage.com/v1/open/apiKeyDemo.
+- Request Address: i.e. Server Address api.trade.newhuotech.com, such as api.trade.newhuotech.com/v1/open/apiKeyDemo.
 - API Access Id (AccessKeyId): The Access Key in your requested API Key.
 - Signature Method (SignatureMethod): The Hash based Protocol for computing signature. HmacSHA256 will be used here.
 - Signature Version (SignatureVersion): Version of signature protocol. It's Version 2 here.
@@ -173,7 +173,7 @@ Normalize the requests to be signature-computed. As when HMAC is used for signat
 
 The complete request URL for an enquiry of order details:
 
-`https://api.huobi-brokerage.com/v1/open/apiKeyDemo?`
+`https://api.trade.newhuotech.com/v1/open/apiKeyDemo?`
 
 `AccessKeyId=e2xxxxxx-99xxxxxx-84xxxxxx-7xxxx`
 
@@ -194,7 +194,7 @@ As in:
 
 As in:
 `
-api.huobi-brokerage.com\n
+api.trade.newhuotech.com\n
 `
 
 **3. The path is appended with line break 「\n」**
@@ -252,7 +252,7 @@ Once sorted, the parameters are as follows:
 
 `GET\n`
 
-`api.huobi-brokerage.com\n`
+`api.trade.newhuotech.com\n`
 
 `v1/open/apiKeyDemo\n`
 
@@ -276,7 +276,7 @@ For the Rest interface:
 
 Eventually, the API Request to be sent to server should be:
 
-`https://api.huobi-brokerage.com/v1/open/apiKeyDemo?AccessKeyId=e2xxxxxx-99xxxxxx-84xxxxxx-7xxxx&demo-id=1234567890&SignatureMethod=HmacSHA256&SignatureVersion=2&Timestamp=2017-05-11T15%3A19%3A30&Signature=4F65x5A2bLyMWVQj3Aqp%2BB4w%2BivaA7n5Oi2SuYtCJ9o%3D`
+`https://api.trade.newhuotech.com/v1/open/apiKeyDemo?AccessKeyId=e2xxxxxx-99xxxxxx-84xxxxxx-7xxxx&demo-id=1234567890&SignatureMethod=HmacSHA256&SignatureVersion=2&Timestamp=2017-05-11T15%3A19%3A30&Signature=4F65x5A2bLyMWVQj3Aqp%2BB4w%2BivaA7n5Oi2SuYtCJ9o%3D`
 
 
 # Description of Interfacing
@@ -357,9 +357,9 @@ This document defines data types of JSON as follows:
 ###General
 **API access**
 
-- It's NOT recommended to access Huobi Brokerage API from mainland China via temporary domain or proxy, which do not guarantee stable connection.
+- It's NOT recommended to access New HuoBrokerage API from mainland China via temporary domain or proxy, which do not guarantee stable connection.
 - Japanese AWS cloud server is recommended to be used in accessing.
-- The official domain is: api.huobi-brokerage.com.
+- The official domain is: api.trade.newhuotech.com.
 
 
 **New rate-limit rules**
@@ -437,13 +437,13 @@ to be sorted and ordered as:
 
 The proxy, if used, may change the Host in request. You can try without proxy;
 
-or, the network library may include the port in the Host, in which case you may try including the port in the Host used in signature, e.g. 「api.huobi-brokerage.com:443"
+or, the network library may include the port in the Host, in which case you may try including the port in the Host used in signature, e.g. 「api.trade.newhuotech.com:443"
 
 8、Check for any hidden special characters in Access Key and Secret Key.
 
-At present, [SDK](https://github.com/huobitech) in multiple programming languages are officially supported. You may refer to SDK signature, or signature sample codes in the following three languages:
+At present, [SDK](https://github.com/newhuo-tech) in multiple programming languages are officially supported. You may refer to SDK signature, or signature sample codes in the following three languages:
 
-<a href='https://github.com/huobitech/huobi_Java/blob/master/java_signature_demo.md'>JAVAsignaturesamplecode</a> | <a href='https://github.com/huobitech/huobi_Python/blob/master/example/python_signature_demo.md'>Pythonsignaturesamplecode</a>   | <a href='https://github.com/huobitech/huobi_Cpp/blob/master/examples/cpp_signature_demo.md'>C++signaturesamplecode</a>
+<a href='https://github.com/newhuo-tech/huobi_Java/blob/master/java_signature_demo.md'>JAVAsignaturesamplecode</a> | <a href='https://github.com/newhuo-tech/huobi_Python/blob/master/example/python_signature_demo.md'>Pythonsignaturesamplecode</a>   | <a href='https://github.com/newhuo-tech/huobi_Cpp/blob/master/examples/cpp_signature_demo.md'>C++signaturesamplecode</a>
 
 ### Q4: Why does the interface return the error message Incorrect Access Key?
 
@@ -479,7 +479,7 @@ Such error indicates a nonexistent Rest interface was called. Please check if Re
 
 If you have any questions or suggestions, please contact us via:
 
-- Help Center on our website, or sending emails to support@huobi-brokerage.com for further support.
+- Help Center on our website, or sending emails to support@trade.newhuotech.com for further support.
 
 For API errors, please refer to and follow the below template in your feedback:
 
@@ -496,13 +496,13 @@ See the following as a sample template:
 
 `1. Problem description: signature error`
 `2. UID: 123456`
-`3. Complete URL request: GET https://api.huobi-brokerage.com/v1/open/apiKeyDemo/forRead?&SignatureVersion=2&SignatureMethod=HmacSHA256&Timestamp=2019-11-06T03%3A25%3A39&AccessKeyId=rfhxxxxx-950000847-boooooo3-432c0&Signature=HhJwApXKpaLPewiYLczwfLkoTPnFPHgyF61iq0iTFF8%3D`
+`3. Complete URL request: GET https://api.trade.newhuotech.com/v1/open/apiKeyDemo/forRead?&SignatureVersion=2&SignatureMethod=HmacSHA256&Timestamp=2019-11-06T03%3A25%3A39&AccessKeyId=rfhxxxxx-950000847-boooooo3-432c0&Signature=HhJwApXKpaLPewiYLczwfLkoTPnFPHgyF61iq0iTFF8%3D`
 `4. Complete parameter in JSON: N/A`
 `5. Complete response in JSON: {"status":"error","err-code":"api-signature-not-valid","err-msg":"Signature not valid: Incorrect Access key [Access key error]","data":null}`
 `6. Frequency: recur at each try`
 `7. Character strings before signature`
 `GET\n`
-`api.huobi-brokerage.com\n`
+`api.trade.newhuotech.com\n`
 `/v1/open/apiKeyDemo/forRead\n`
 `AccessKeyId=rfhxxxxx-950000847-boooooo3-432c0&SignatureMethod=HmacSHA256&SignatureVersion=2&Timestamp=2019-11-06T03%3A26%3A13`
 
