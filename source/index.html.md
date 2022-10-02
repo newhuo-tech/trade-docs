@@ -5,7 +5,7 @@ language_tabs: # must be one of https://git.io/vQNgJ
 - json
 
 toc_footers:
-- <a href='https://www.trade.newhuotech.com.com/zh-hk/trade/api'>創建 API Key </a>
+- <a href='https://www.trade.newhuotech.com/zh-hk/trade/api'>創建 API Key </a>
   includes:
 
 search: true
@@ -37,7 +37,7 @@ language_tabs: # must be one of https://git.io/vQNgJ
 - json
 
 toc_footers:
-- <a href='https://www.trade.newhuotech.com.com/zh-hk/trade/api'>創建 API Key </a>
+- <a href='https://www.trade.newhuotech.com/zh-hk/trade/api'>創建 API Key </a>
   includes:
 
 search: true
@@ -88,7 +88,7 @@ table th {
 
 如需使用API ，請先登錄網頁端，完成API key的申請和權限配置，再據此文檔詳情進行開發和交易。
 
-您可以點擊 <a href='https://www.trade.newhuotech.com.com/zh-hk/trade/api' >這裏 </a> 創建 API Key。
+您可以點擊 <a href='https://www.trade.newhuotech.com/zh-hk/trade/api' >這裏 </a> 創建 API Key。
 
 每個用戶可創建20組Api Key，每個Api Key可對應設置讀取權限。
 
@@ -111,7 +111,7 @@ table th {
 
 ## SDK與代碼示例
 
-[Java](https://github.com/newhuo-tech/huobi_Java) | [Python3](https://github.com/newhuo-tech/huobi_Python) | [C++](https://github.com/newhuo-tech/huobi_Cpp) | [C#](https://github.com/newhuo-tech/huobi_CSharp) | [Go](https://github.com/newhuo-tech/huobi_golang)
+[Java](https://github.com/newhuo-tech/newhuo_Java) | [Python3](https://github.com/newhuo-tech/newhuo_Python) | [C++](https://github.com/newhuo-tech/newhuo_Cpp) | [C#](https://github.com/newhuo-tech/newhuo_CSharp) | [Go](https://github.com/newhuo-tech/newhuo_golang)
 
 **其它代碼示例**
 
@@ -132,11 +132,11 @@ REST，即Representational State Transfer的縮寫，是目前較為流行的基
 目前只提供私有接口，私有接口可用於交易管理和賬戶管理。每個私有請求必須使用您的API Key進行簽名驗證。
 
 ## 接入URLs
-您可以使用api.trade.newhuotech.com.com域名。
+您可以使用api.trade.newhuotech.com域名。
 
 **REST API**
 
-**`https://api.trade.newhuotech.com.com`**
+**`https://api.trade.newhuotech.com`**
 
 <aside class="notice">
 請使用中國大陸以外的 IP 訪問New Huo Brokerage API。
@@ -157,7 +157,7 @@ API 請求在通過 internet 傳輸的過程中極有可能被篡改，為了確
 805
 一個合法的請求由以下幾部分組成：
 
-- 方法請求地址：即訪問服務器地址 api.trade.newhuotech.com.com，比如 api.trade.newhuotech.com.com/v1/open/apiKeyDemo。
+- 方法請求地址：即訪問服務器地址 api.trade.newhuotech.com，比如 api.trade.newhuotech.com/v1/open/apiKeyDemo。
 - API 訪問Id（AccessKeyId）：您申請的 API Key 中的 Access Key。
 - 簽名方法（SignatureMethod）：用戶計算簽名的基於哈希的協議，此處使用 HmacSHA256。
 - 簽名版本（SignatureVersion）：簽名協議的版本，此處使用2。
@@ -173,7 +173,7 @@ API 請求在通過 internet 傳輸的過程中極有可能被篡改，為了確
 
 查詢某訂單詳情時完整的請求URL
 
-`https://api.trade.newhuotech.com.com/v1/open/apiKeyDemo?`
+`https://api.trade.newhuotech.com/v1/open/apiKeyDemo?`
 
 `AccessKeyId=e2xxxxxx-99xxxxxx-84xxxxxx-7xxxx`
 
@@ -194,7 +194,7 @@ API 請求在通過 internet 傳輸的過程中極有可能被篡改，為了確
 
 例如：
 `
-api.trade.newhuotech.com.com\n
+api.trade.newhuotech.com\n
 `
 
 **3. 訪問方法的路徑，後面添加換行符 「\n」**
@@ -252,7 +252,7 @@ api.trade.newhuotech.com.com\n
 
 `GET\n`
 
-`api.trade.newhuotech.com.com\n`
+`api.trade.newhuotech.com\n`
 
 `v1/open/apiKeyDemo\n`
 
@@ -276,7 +276,7 @@ api.trade.newhuotech.com.com\n
 
 最終，發送到服務器的 API 請求應該為
 
-`https://api.trade.newhuotech.com.com/v1/open/apiKeyDemo?AccessKeyId=e2xxxxxx-99xxxxxx-84xxxxxx-7xxxx&demo-id=1234567890&SignatureMethod=HmacSHA256&SignatureVersion=2&Timestamp=2017-05-11T15%3A19%3A30&Signature=4F65x5A2bLyMWVQj3Aqp%2BB4w%2BivaA7n5Oi2SuYtCJ9o%3D`
+`https://api.trade.newhuotech.com/v1/open/apiKeyDemo?AccessKeyId=e2xxxxxx-99xxxxxx-84xxxxxx-7xxxx&demo-id=1234567890&SignatureMethod=HmacSHA256&SignatureVersion=2&Timestamp=2017-05-11T15%3A19%3A30&Signature=4F65x5A2bLyMWVQj3Aqp%2BB4w%2BivaA7n5Oi2SuYtCJ9o%3D`
 
 
 # 接入說明
@@ -358,7 +358,7 @@ api.trade.newhuotech.com.com\n
 
 - 不建議在中國大陸境內使用臨時域名以及代理的方式訪問New Huo Brokerage API，此類方式訪問API連接的穩定性很難保證。
 - 建議使用日本AWS雲服務器進行訪問。
-- 官方域名api.trade.newhuotech.com.com。
+- 官方域名api.trade.newhuotech.com。
 
 
 **新限頻規則**
@@ -436,13 +436,13 @@ api.trade.newhuotech.com.com\n
 
 如果您使用了代理，代理可能會改變請求Host，可以嘗試去掉代理；
 
-或者，您使用的網絡連接庫可能會把端口包含在Host內，可以嘗試在簽名用到的Host中包含端口，如「api.trade.newhuotech.com.com:443"
+或者，您使用的網絡連接庫可能會把端口包含在Host內，可以嘗試在簽名用到的Host中包含端口，如「api.trade.newhuotech.com:443"
 
 8、Access Key 與 Secret Key中是否存在隱藏特殊字符，影響簽名
 
 當前官方已支持多種語言的[SDK](https://github.com/newhuo-tech)，可以參考SDK的簽名實現，或者以下三種語言的簽名樣例代碼
 
-<a href='https://github.com/newhuo-tech/huobi_Java/blob/master/java_signature_demo.md'>JAVA簽名樣例代碼</a> | <a href='https://github.com/newhuo-tech/huobi_Python/blob/master/example/python_signature_demo.md'>Python簽名樣例代碼</a>   | <a href='https://github.com/newhuo-tech/huobi_Cpp/blob/master/examples/cpp_signature_demo.md'>C++簽名樣例代碼 </a>
+<a href='https://github.com/newhuo-tech/newhuo_Java/blob/master/java_signature_demo.md'>JAVA簽名樣例代碼</a> | <a href='https://github.com/newhuo-tech/newhuo_Python/blob/master/example/python_signature_demo.md'>Python簽名樣例代碼</a>   | <a href='https://github.com/newhuo-tech/newhuo_Cpp/blob/master/examples/cpp_signature_demo.md'>C++簽名樣例代碼 </a>
 
 ### Q4：調用接口返回Incorrect Access Key 錯誤是什麼原因？
 
@@ -478,7 +478,7 @@ api.trade.newhuotech.com.com\n
 
 使用過程中如有問題或者建議，您可選擇以下任一方式聯系我們：
 
-- 通過官網的「幫助中心」或者發送郵件至support@trade.newhuotech.com.com聯系客服。
+- 通過官網的「幫助中心」或者發送郵件至support@trade.newhuotech.com聯系客服。
 
 如您遇到API錯誤，請按照如下模板向我們反饋問題。
 
@@ -495,13 +495,13 @@ api.trade.newhuotech.com.com\n
 
 `1. 問題簡要說明：簽名錯誤`
 `2. UID：123456`
-`3. 完整的URL請求：GET https://api.trade.newhuotech.com.com/v1/open/apiKeyDemo/forRead?&SignatureVersion=2&SignatureMethod=HmacSHA256&Timestamp=2019-11-06T03%3A25%3A39&AccessKeyId=rfhxxxxx-950000847-boooooo3-432c0&Signature=HhJwApXKpaLPewiYLczwfLkoTPnFPHgyF61iq0iTFF8%3D`
+`3. 完整的URL請求：GET https://api.trade.newhuotech.com/v1/open/apiKeyDemo/forRead?&SignatureVersion=2&SignatureMethod=HmacSHA256&Timestamp=2019-11-06T03%3A25%3A39&AccessKeyId=rfhxxxxx-950000847-boooooo3-432c0&Signature=HhJwApXKpaLPewiYLczwfLkoTPnFPHgyF61iq0iTFF8%3D`
 `4. 完整的JSON格式的參數：無`
 `5. 完整的JSON格式的返回：{"status":"error","err-code":"api-signature-not-valid","err-msg":"Signature not valid: Incorrect Access key [Access key錯誤]","data":null}`
 `6. 問題出現頻率：每次都會出現`
 `7. 簽名前字符串`
 `GET\n`
-`api.trade.newhuotech.com.com\n`
+`api.trade.newhuotech.com\n`
 `/v1/open/apiKeyDemo/forRead\n`
 `AccessKeyId=rfhxxxxx-950000847-boooooo3-432c0&SignatureMethod=HmacSHA256&SignatureVersion=2&Timestamp=2019-11-06T03%3A26%3A13`
 
