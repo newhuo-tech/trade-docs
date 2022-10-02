@@ -111,7 +111,7 @@ Each API Key may be bound up to 20 IP addresses (Host Address or Network Address
 
 ## SDK and Code Demonstration
 
-[Java](https://github.com/newhuo-tech/huobi_Java) | [Python3](https://github.com/newhuo-tech/huobi_Python) | [C++](https://github.com/newhuo-tech/huobi_Cpp) | [C#](https://github.com/newhuo-tech/huobi_CSharp) | [Go](https://github.com/newhuo-tech/huobi_golang)
+[Java](https://github.com/newhuo-tech/newhuo_Java) | [Python3](https://github.com/newhuo-tech/newhuo_Python) | [C++](https://github.com/newhuo-tech/newhuo_Cpp) | [C#](https://github.com/newhuo-tech/newhuo_CSharp) | [Go](https://github.com/newhuo-tech/newhuo_golang)
 
 **Other Code Demo**
 
@@ -443,7 +443,7 @@ or, the network library may include the port in the Host, in which case you may 
 
 At present, [SDK](https://github.com/newhuo-tech) in multiple programming languages are officially supported. You may refer to SDK signature, or signature sample codes in the following three languages:
 
-<a href='https://github.com/newhuo-tech/huobi_Java/blob/master/java_signature_demo.md'>JAVAsignaturesamplecode</a> | <a href='https://github.com/newhuo-tech/huobi_Python/blob/master/example/python_signature_demo.md'>Pythonsignaturesamplecode</a>   | <a href='https://github.com/newhuo-tech/huobi_Cpp/blob/master/examples/cpp_signature_demo.md'>C++signaturesamplecode</a>
+<a href='https://github.com/newhuo-tech/newhuo_Java/blob/master/java_signature_demo.md'>JAVAsignaturesamplecode</a> | <a href='https://github.com/newhuo-tech/newhuo_Python/blob/master/example/python_signature_demo.md'>Pythonsignaturesamplecode</a>   | <a href='https://github.com/newhuo-tech/newhuo_Cpp/blob/master/examples/cpp_signature_demo.md'>C++signaturesamplecode</a>
 
 ### Q4: Why does the interface return the error message Incorrect Access Key?
 
