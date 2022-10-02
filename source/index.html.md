@@ -479,7 +479,7 @@ Such error indicates a nonexistent Rest interface was called. Please check if Re
 
 If you have any questions or suggestions, please contact us via:
 
-- Help Center on our website, or sending emails to support@trade.newhuotech.com for further support.
+- Help Center on our website, or sending emails to cs@newhuotech.com for further support.
 
 For API errors, please refer to and follow the below template in your feedback:
 
