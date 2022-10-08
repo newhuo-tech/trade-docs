@@ -5,7 +5,7 @@ language_tabs: # must be one of https://git.io/vQNgJ
 - json
 
 toc_footers:
-- <a href='https://www.trade.newhuotech.com/zh-hk/trade/api'>創建 API Key </a>
+- <a href='https://trade.newhuotech.com/zh-hk/trade/api'>創建 API Key </a>
   includes:
 
 search: true
@@ -37,7 +37,7 @@ language_tabs: # must be one of https://git.io/vQNgJ
 - json
 
 toc_footers:
-- <a href='https://www.trade.newhuotech.com/zh-hk/trade/api'>創建 API Key </a>
+- <a href='https://trade.newhuotech.com/zh-hk/trade/api'>創建 API Key </a>
   includes:
 
 search: true
@@ -88,7 +88,7 @@ table th {
 
 如需使用API ，請先登錄網頁端，完成API key的申請和權限配置，再據此文檔詳情進行開發和交易。
 
-您可以點擊 <a href='https://www.trade.newhuotech.com/zh-hk/trade/api' >這裏 </a> 創建 API Key。
+您可以點擊 <a href='https://trade.newhuotech.com/zh-hk/trade/api' >這裏 </a> 創建 API Key。
 
 每個用戶可創建20組Api Key，每個Api Key可對應設置讀取權限。
 
@@ -505,7 +505,7 @@ api.trade.newhuotech.com\n
 `/v1/open/apiKeyDemo/forRead\n`
 `AccessKeyId=rfhxxxxx-950000847-boooooo3-432c0&SignatureMethod=HmacSHA256&SignatureVersion=2&Timestamp=2019-11-06T03%3A26%3A13`
 
-註意：Access Key僅能證明您的身份，不會影響您賬戶的安全。切記**不**要將Secret Key信息分享給任何人，若您不小心將Secret Key暴露，請盡快[刪除](https://www.hbg.com/zh-cn/apikey/)其對應的API Key，以免造成您的賬戶損失。
+註意：Access Key僅能證明您的身份，不會影響您賬戶的安全。切記**不**要將Secret Key信息分享給任何人，若您不小心將Secret Key暴露，請盡快[刪除](https://trade.newhuotech.com/zh-hk/trade/api)其對應的API Key，以免造成您的賬戶損失。
 
 # 用戶相關
 
