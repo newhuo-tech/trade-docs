@@ -188,7 +188,7 @@ The complete request URL for an enquiry of order details:
 **1. Method for making a request (GET or POST) is appending the request with link break 「\n」**
 
 As in:
-`GET\n`
+`GET`
 
 **2. Add the domain in lower case, appended with link break 「\n」**
 
