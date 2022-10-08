@@ -5,7 +5,7 @@ language_tabs: # must be one of https://git.io/vQNgJ
 - json
 
 toc_footers:
-- <a href='https://www.trade.newhuotech.com/en-us/trade/api'>Create API Key </a>
+- <a href='https://trade.newhuotech.com/en-us/trade/api'>Create API Key </a>
   includes:
 
 search: true
@@ -37,7 +37,7 @@ language_tabs: # must be one of https://git.io/vQNgJ
 - json
 
 toc_footers:
-- <a href='https://www.trade.newhuotech.com/en-us/trade/api'>Create API Key </a>
+- <a href='https://trade.newhuotech.com/en-us/trade/api'>Create API Key </a>
   includes:
 
 search: true
@@ -88,7 +88,7 @@ Chapter II consists of detailed introduction of interface types, each type expla
 
 To use API, sign in from the webpage, apply for API key and complete authorization setting, before making development and transactions in accordance with this document.
 
-Click <a href='https://www.trade.newhuotech.com/en-us/trade/api'>here </a> to create API Key。
+Click <a href='https://trade.newhuotech.com/en-us/trade/api'>here </a> to create API Key。
 
 Each user may create up to 20 Api Keys, with each Api Key may be set with specific access authorization.
 
@@ -506,7 +506,7 @@ See the following as a sample template:
 `/v1/open/apiKeyDemo/forRead\n`
 `AccessKeyId=rfhxxxxx-950000847-boooooo3-432c0&SignatureMethod=HmacSHA256&SignatureVersion=2&Timestamp=2019-11-06T03%3A26%3A13`
 
-Note: Access Key only verifies your identity and doesn't affect your account security. Keep in mind **NEVER** share your Secret Key to anyone. In case your Secret Key is disclosed, [DELETE] immediately (https://www.hbg.com/zh-cn/apikey/) the corresponding API Key, to prevent from asset losses.
+Note: Access Key only verifies your identity and doesn't affect your account security. Keep in mind **NEVER** share your Secret Key to anyone. In case your Secret Key is disclosed, [DELETE] immediately (https://trade.newhuotech.com/en-us/trade/api) the corresponding API Key, to prevent from asset losses.
 
 # Users Related
 
