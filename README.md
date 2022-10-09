@@ -1,4 +1,4 @@
-# New HuoAPI Documentation Project
+# New Huo API Documentation Project
 
 ## Introduction
 
@@ -10,7 +10,7 @@ New Huo's API documentation is generated with Slate. This project is an fork of 
 
 ## Repo Structure and Overall Workflow
 
-New Huocurrently supports two versions of API (v1, v2) and two languages of API documents (English, Chinese), so we have a total of four versions of API documents sit in four branches: v1_en, v1_cn, v2_en, v2_cn. To access the web page of a specific version you can visit <https://newhuo-tech.github.io/api_doc/{version}/{language}>, e.g. for v1 english version visit https://newhuo-tech.github.io/api_doc/v1/en.
+New Huo currently supports two versions of API (v1, v2) and two languages of API documents (English, Chinese), so we have a total of four versions of API documents sit in four branches: v1_en, v1_cn, v2_en, v2_cn. To access the web page of a specific version you can visit <https://newhuo-tech.github.io/api_doc/{version}/{language}>, e.g. for v1 english version visit https://newhuo-tech.github.io/api_doc/v1/en.
 
 ### *Recommended way to make a change by CI*
 

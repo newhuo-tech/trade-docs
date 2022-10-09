@@ -1,5 +1,5 @@
 **---
-title: New HuoBrokerage API Document
+title: New Huo Brokerage API Document
 
 language_tabs: # must be one of https://git.io/vQNgJ
 - json
@@ -31,7 +31,7 @@ table th {
 
 # Introduction
 ---
-title: New HuoBrokerage API Document
+title: New Huo Brokerage API Document
 
 language_tabs: # must be one of https://git.io/vQNgJ
 - json
@@ -63,16 +63,16 @@ table th {
 
 # Introduction
 
-Welcome to use New HuoBrokerage API!
+Welcome to use New Huo Brokerage API!
 
-This Document is the one and only official Doc of New HuoBrokerage API. Any updates regarding functions and services provided by New HuoBrokerage API will be posted here in an ongoing way.
+This Document is the one and only official Doc of New Huo Brokerage API. Any updates regarding functions and services provided by New Huo Brokerage API will be posted here in an ongoing way.
 
 Please read the following contents of Brokerage OTC API in detail
 
 Chapter I: Overview
 
-- **Quick Start**: This section provides a brief but all-round introduction of New HuoBrokerage API. It is of great help for first-time users of New HuoBrokerage API.
-- **FAQs**: This section lists frequently asked questions in the course of using New HuoBrokerage API, as well as general queries without regard to API.
+- **Quick Start**: This section provides a brief but all-round introduction of New Huo Brokerage API. It is of great help for first-time users of New Huo Brokerage API.
+- **FAQs**: This section lists frequently asked questions in the course of using New Huo Brokerage API, as well as general queries without regard to API.
 - **Contact Us**: This section guides you to contact us for solutions to various questions.
 
 Chapter II consists of detailed introduction of interface types, each type explained in one section:
@@ -139,10 +139,10 @@ You may use the domain: api.trade.newhuotech.com.
 **`https://api.trade.newhuotech.com`**
 
 <aside class="notice">
-Visit New HuoBrokerage API with an IP other than from mainland China.
+Visit New Huo Brokerage API with an IP other than from mainland China.
 </aside>
 <aside class="notice">
-It is not recommended to visit New HuoBrokerage API via proxy, out of concerns of the latter's long latency and poor stability.
+It is not recommended to visit New Huo Brokerage API via proxy, out of concerns of the latter's long latency and poor stability.
 </aside>
 <aside class="notice">
 To ensure API service stability, it is recommended to use Japanese AWS cloud server for visits. Connection stability may not be guaranteed if client servers from mainland China are used.
@@ -357,7 +357,7 @@ This document defines data types of JSON as follows:
 ###General
 **API access**
 
-- It's NOT recommended to access New HuoBrokerage API from mainland China via temporary domain or proxy, which do not guarantee stable connection.
+- It's NOT recommended to access New Huo Brokerage API from mainland China via temporary domain or proxy, which do not guarantee stable connection.
 - Japanese AWS cloud server is recommended to be used in accessing.
 - The official domain is: api.trade.newhuotech.com.
 
