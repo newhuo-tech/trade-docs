@@ -597,7 +597,7 @@ A user may query whether oneself is whitelisted via this interface.
 
 - GET `/open/otc/api/user/isWhiteUser`
 
-API Key authorization: Read<br>
+API Key authorization: Read
 
 Rate limit: 10times/1s<br>
 
