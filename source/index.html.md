@@ -506,7 +506,7 @@ See the following as a sample template:
 `/v1/open/apiKeyDemo/forRead\n`
 `AccessKeyId=rfhxxxxx-950000847-boooooo3-432c0&SignatureMethod=HmacSHA256&SignatureVersion=2&Timestamp=2019-11-06T03%3A26%3A13`
 
-Note: Access Key only verifies your identity and doesn't affect your account security. Keep in mind **NEVER** share your Secret Key to anyone. In case your Secret Key is disclosed, [DELETE] immediately (https://trade.newhuotech.com/en-us/trade/api) the corresponding API Key, to prevent from asset losses.
+Note: Access Key only verifies your identity and doesn't affect your account security. Keep in mind **NEVER** share your Secret Key to anyone. In case your Secret Key is disclosed, [DELETE](https://trade.newhuotech.com/en-us/trade/api) the corresponding API Key, to prevent from asset losses.
 
 # Users Related
 
