@@ -591,7 +591,7 @@ Rate limit: 10times/1s<br>
 </html>
 
 ## Y/N on the whitelist?
-A user may query whether oneself is whitelisted via this interface
+A user may query whether oneself is whitelisted via this interface.
 
 ### HTTP Request
 
